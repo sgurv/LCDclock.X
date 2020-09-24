@@ -48,6 +48,7 @@
  */
 void main(void)
 {
+    uint8_t temp_num = 0;
     // initialize the device
     SYSTEM_Initialize();
 
@@ -70,14 +71,20 @@ void main(void)
     {
         // Add your application code
         CLRWDT();
-        LCD_DIG1_SYM00Num(1);
-        LCD_DIG2_SYM01Num(2);
-        LCD_DIG3_SYM02Num(3);
-        LCD_DIG4_SYM03Num(4);
+        
+        LCD_DIG1_SYM00Num(temp_num);
+        LCD_DIG2_SYM01Num(temp_num+1);
+        LCD_DIG3_SYM02Num(temp_num+2);
+        LCD_DIG4_SYM03Num(temp_num+3);
+        
         D1_SYM04ON;
         D2_SYM05ON;
         D3_SYM06ON;
         P_SYM07ON;
+        
+        temp_num++;
+        if(temp_num > 6) temp_num = 0;
+        
         __delay_ms(1000);
         
     }
