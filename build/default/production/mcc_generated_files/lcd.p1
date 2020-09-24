@@ -1,0 +1,1713 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"5966 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 5966:     struct {
+[s S299 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S299 . LMUX0 LMUX1 CS0 CS1 . WERR SLPEN LCDEN ]
+"5976
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 5976:     struct {
+[s S300 :2 `uc 1 :2 `uc 1 ]
+[n S300 . LMUX CS ]
+"5965
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 5965: typedef union {
+[u S298 `S299 1 `S300 1 ]
+[n S298 . . . ]
+"5981
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 5981: extern volatile LCDCONbits_t LCDCONbits __attribute__((address(0x791)));
+[v _LCDCONbits `VS298 ~T0 @X0 0 e@1937 ]
+"6031
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6031: extern volatile unsigned char LCDPS __attribute__((address(0x792)));
+[v _LCDPS `Vuc ~T0 @X0 0 e@1938 ]
+"6101
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6101: extern volatile unsigned char LCDREF __attribute__((address(0x793)));
+[v _LCDREF `Vuc ~T0 @X0 0 e@1939 ]
+"6193
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6193: extern volatile unsigned char LCDRL __attribute__((address(0x795)));
+[v _LCDRL `Vuc ~T0 @X0 0 e@1941 ]
+"6153
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6153: extern volatile unsigned char LCDCST __attribute__((address(0x794)));
+[v _LCDCST `Vuc ~T0 @X0 0 e@1940 ]
+"6395
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6395: extern volatile unsigned char LCDDATA0 __attribute__((address(0x7A0)));
+[v _LCDDATA0 `Vuc ~T0 @X0 0 e@1952 ]
+"6457
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6457: extern volatile unsigned char LCDDATA1 __attribute__((address(0x7A1)));
+[v _LCDDATA1 `Vuc ~T0 @X0 0 e@1953 ]
+"6519
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6519: extern volatile unsigned char LCDDATA3 __attribute__((address(0x7A3)));
+[v _LCDDATA3 `Vuc ~T0 @X0 0 e@1955 ]
+"6581
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6581: extern volatile unsigned char LCDDATA4 __attribute__((address(0x7A4)));
+[v _LCDDATA4 `Vuc ~T0 @X0 0 e@1956 ]
+"6643
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6643: extern volatile unsigned char LCDDATA6 __attribute__((address(0x7A6)));
+[v _LCDDATA6 `Vuc ~T0 @X0 0 e@1958 ]
+"6705
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6705: extern volatile unsigned char LCDDATA7 __attribute__((address(0x7A7)));
+[v _LCDDATA7 `Vuc ~T0 @X0 0 e@1959 ]
+"6767
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6767: extern volatile unsigned char LCDDATA9 __attribute__((address(0x7A9)));
+[v _LCDDATA9 `Vuc ~T0 @X0 0 e@1961 ]
+"6829
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6829: extern volatile unsigned char LCDDATA10 __attribute__((address(0x7AA)));
+[v _LCDDATA10 `Vuc ~T0 @X0 0 e@1962 ]
+"6271
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6271: extern volatile unsigned char LCDSE0 __attribute__((address(0x798)));
+[v _LCDSE0 `Vuc ~T0 @X0 0 e@1944 ]
+"6333
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6333: extern volatile unsigned char LCDSE1 __attribute__((address(0x799)));
+[v _LCDSE1 `Vuc ~T0 @X0 0 e@1945 ]
+"5960
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 5960: extern volatile unsigned char LCDCON __attribute__((address(0x791)));
+[v _LCDCON `Vuc ~T0 @X0 0 e@1937 ]
+"6159
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6159:     struct {
+[s S307 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S307 . LCDCST0 LCDCST1 LCDCST2 ]
+"6164
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6164:     struct {
+[s S308 :3 `uc 1 ]
+[n S308 . LCDCST ]
+"6158
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6158: typedef union {
+[u S306 `S307 1 `S308 1 ]
+[n S306 . . . ]
+"6168
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6168: extern volatile LCDCSTbits_t LCDCSTbits __attribute__((address(0x794)));
+[v _LCDCSTbits `VS306 ~T0 @X0 0 e@1940 ]
+"6199
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6199:     struct {
+[s S310 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S310 . LRLAT0 LRLAT1 LRLAT2 . LRLBP0 LRLBP1 LRLAP0 LRLAP1 ]
+"6209
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6209:     struct {
+[s S311 :3 `uc 1 :1 `uc 1 :2 `uc 1 :2 `uc 1 ]
+[n S311 . LRLAT . LRLBP LRLAP ]
+"6198
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6198: typedef union {
+[u S309 `S310 1 `S311 1 ]
+[n S309 . . . ]
+"6216
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6216: extern volatile LCDRLbits_t LCDRLbits __attribute__((address(0x795)));
+[v _LCDRLbits `VS309 ~T0 @X0 0 e@1941 ]
+"6037
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6037:     struct {
+[s S302 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S302 . LP0 LP1 LP2 LP3 WA LCDA BIASMD WFT ]
+"6047
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6047:     struct {
+[s S303 :4 `uc 1 ]
+[n S303 . LP ]
+"6036
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6036: typedef union {
+[u S301 `S302 1 `S303 1 ]
+[n S301 . . . ]
+"6051
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6051: extern volatile LCDPSbits_t LCDPSbits __attribute__((address(0x792)));
+[v _LCDPSbits `VS301 ~T0 @X0 0 e@1938 ]
+"6649
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6649:     struct {
+[s S325 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S325 . SEG0COM2 SEG1COM2 SEG2COM2 SEG3COM2 SEG4COM2 SEG5COM2 SEG6COM2 SEG7COM2 ]
+"6648
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6648: typedef union {
+[u S324 `S325 1 ]
+[n S324 . . ]
+"6660
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6660: extern volatile LCDDATA6bits_t LCDDATA6bits __attribute__((address(0x7A6)));
+[v _LCDDATA6bits `VS324 ~T0 @X0 0 e@1958 ]
+"6773
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6773:     struct {
+[s S329 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S329 . SEG0COM3 SEG1COM3 SEG2COM3 SEG3COM3 SEG4COM3 SEG5COM3 SEG6COM3 SEG7COM3 ]
+"6772
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6772: typedef union {
+[u S328 `S329 1 ]
+[n S328 . . ]
+"6784
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6784: extern volatile LCDDATA9bits_t LCDDATA9bits __attribute__((address(0x7A9)));
+[v _LCDDATA9bits `VS328 ~T0 @X0 0 e@1961 ]
+"6401
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6401:     struct {
+[s S317 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S317 . SEG0COM0 SEG1COM0 SEG2COM0 SEG3COM0 SEG4COM0 SEG5COM0 SEG6COM0 SEG7COM0 ]
+"6400
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6400: typedef union {
+[u S316 `S317 1 ]
+[n S316 . . ]
+"6412
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6412: extern volatile LCDDATA0bits_t LCDDATA0bits __attribute__((address(0x7A0)));
+[v _LCDDATA0bits `VS316 ~T0 @X0 0 e@1952 ]
+"6525
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6525:     struct {
+[s S321 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S321 . SEG0COM1 SEG1COM1 SEG2COM1 SEG3COM1 SEG4COM1 SEG5COM1 SEG6COM1 SEG7COM1 ]
+"6524
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6524: typedef union {
+[u S320 `S321 1 ]
+[n S320 . . ]
+"6536
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6536: extern volatile LCDDATA3bits_t LCDDATA3bits __attribute__((address(0x7A3)));
+[v _LCDDATA3bits `VS320 ~T0 @X0 0 e@1955 ]
+"6711
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6711:     struct {
+[s S327 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S327 . SEG8COM2 SEG9COM2 SEG10COM2 SEG11COM2 SEG12COM2 SEG13COM2 SEG14COM2 SEG15COM2 ]
+"6710
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6710: typedef union {
+[u S326 `S327 1 ]
+[n S326 . . ]
+"6722
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6722: extern volatile LCDDATA7bits_t LCDDATA7bits __attribute__((address(0x7A7)));
+[v _LCDDATA7bits `VS326 ~T0 @X0 0 e@1959 ]
+"6835
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6835:     struct {
+[s S331 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S331 . SEG8COM3 SEG9COM3 SEG10COM3 SEG11COM3 SEG12COM3 SEG13COM3 SEG14COM3 SEG15COM3 ]
+"6834
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6834: typedef union {
+[u S330 `S331 1 ]
+[n S330 . . ]
+"6846
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6846: extern volatile LCDDATA10bits_t LCDDATA10bits __attribute__((address(0x7AA)));
+[v _LCDDATA10bits `VS330 ~T0 @X0 0 e@1962 ]
+"6463
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6463:     struct {
+[s S319 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S319 . SEG8COM0 SEG9COM0 SEG10COM0 SEG11COM0 SEG12COM0 SEG13COM0 SEG14COM0 SEG15COM0 ]
+"6462
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6462: typedef union {
+[u S318 `S319 1 ]
+[n S318 . . ]
+"6474
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6474: extern volatile LCDDATA1bits_t LCDDATA1bits __attribute__((address(0x7A1)));
+[v _LCDDATA1bits `VS318 ~T0 @X0 0 e@1953 ]
+"6587
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6587:     struct {
+[s S323 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S323 . SEG8COM1 SEG9COM1 SEG10COM1 SEG11COM1 SEG12COM1 SEG13COM1 SEG14COM1 SEG15COM1 ]
+"6586
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6586: typedef union {
+[u S322 `S323 1 ]
+[n S322 . . ]
+"6598
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6598: extern volatile LCDDATA4bits_t LCDDATA4bits __attribute__((address(0x7A4)));
+[v _LCDDATA4bits `VS322 ~T0 @X0 0 e@1956 ]
+"54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 54: __asm("INDF0 equ 00h");
+[; <" INDF0 equ 00h ;# ">
+"74
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 74: __asm("INDF1 equ 01h");
+[; <" INDF1 equ 01h ;# ">
+"94
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 94: __asm("PCL equ 02h");
+[; <" PCL equ 02h ;# ">
+"114
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 114: __asm("STATUS equ 03h");
+[; <" STATUS equ 03h ;# ">
+"177
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 177: __asm("FSR0L equ 04h");
+[; <" FSR0L equ 04h ;# ">
+"197
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 197: __asm("FSR0H equ 05h");
+[; <" FSR0H equ 05h ;# ">
+"221
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 221: __asm("FSR1L equ 06h");
+[; <" FSR1L equ 06h ;# ">
+"241
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 241: __asm("FSR1H equ 07h");
+[; <" FSR1H equ 07h ;# ">
+"261
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 261: __asm("BSR equ 08h");
+[; <" BSR equ 08h ;# ">
+"313
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 313: __asm("WREG equ 09h");
+[; <" WREG equ 09h ;# ">
+"333
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 333: __asm("PCLATH equ 0Ah");
+[; <" PCLATH equ 0Ah ;# ">
+"353
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 353: __asm("INTCON equ 0Bh");
+[; <" INTCON equ 0Bh ;# ">
+"431
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 431: __asm("PORTA equ 0Ch");
+[; <" PORTA equ 0Ch ;# ">
+"493
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 493: __asm("PORTB equ 0Dh");
+[; <" PORTB equ 0Dh ;# ">
+"555
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 555: __asm("PORTC equ 0Eh");
+[; <" PORTC equ 0Eh ;# ">
+"617
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 617: __asm("PORTE equ 010h");
+[; <" PORTE equ 010h ;# ">
+"638
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 638: __asm("PIR1 equ 011h");
+[; <" PIR1 equ 011h ;# ">
+"700
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 700: __asm("PIR2 equ 012h");
+[; <" PIR2 equ 012h ;# ">
+"757
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 757: __asm("PIR3 equ 013h");
+[; <" PIR3 equ 013h ;# ">
+"803
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 803: __asm("TMR0 equ 015h");
+[; <" TMR0 equ 015h ;# ">
+"823
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 823: __asm("TMR1 equ 016h");
+[; <" TMR1 equ 016h ;# ">
+"830
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 830: __asm("TMR1L equ 016h");
+[; <" TMR1L equ 016h ;# ">
+"850
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 850: __asm("TMR1H equ 017h");
+[; <" TMR1H equ 017h ;# ">
+"870
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 870: __asm("T1CON equ 018h");
+[; <" T1CON equ 018h ;# ">
+"942
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 942: __asm("T1GCON equ 019h");
+[; <" T1GCON equ 019h ;# ">
+"1019
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 1019: __asm("TMR2 equ 01Ah");
+[; <" TMR2 equ 01Ah ;# ">
+"1039
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 1039: __asm("PR2 equ 01Bh");
+[; <" PR2 equ 01Bh ;# ">
+"1059
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 1059: __asm("T2CON equ 01Ch");
+[; <" T2CON equ 01Ch ;# ">
+"1130
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 1130: __asm("CPSCON0 equ 01Eh");
+[; <" CPSCON0 equ 01Eh ;# ">
+"1190
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 1190: __asm("CPSCON1 equ 01Fh");
+[; <" CPSCON1 equ 01Fh ;# ">
+"1230
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 1230: __asm("TRISA equ 08Ch");
+[; <" TRISA equ 08Ch ;# ">
+"1292
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 1292: __asm("TRISB equ 08Dh");
+[; <" TRISB equ 08Dh ;# ">
+"1354
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 1354: __asm("TRISC equ 08Eh");
+[; <" TRISC equ 08Eh ;# ">
+"1416
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 1416: __asm("TRISE equ 090h");
+[; <" TRISE equ 090h ;# ">
+"1437
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 1437: __asm("PIE1 equ 091h");
+[; <" PIE1 equ 091h ;# ">
+"1499
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 1499: __asm("PIE2 equ 092h");
+[; <" PIE2 equ 092h ;# ">
+"1556
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 1556: __asm("PIE3 equ 093h");
+[; <" PIE3 equ 093h ;# ">
+"1602
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 1602: __asm("OPTION_REG equ 095h");
+[; <" OPTION_REG equ 095h ;# ">
+"1685
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 1685: __asm("PCON equ 096h");
+[; <" PCON equ 096h ;# ">
+"1736
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 1736: __asm("WDTCON equ 097h");
+[; <" WDTCON equ 097h ;# ">
+"1795
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 1795: __asm("OSCTUNE equ 098h");
+[; <" OSCTUNE equ 098h ;# ">
+"1853
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 1853: __asm("OSCCON equ 099h");
+[; <" OSCCON equ 099h ;# ">
+"1925
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 1925: __asm("OSCSTAT equ 09Ah");
+[; <" OSCSTAT equ 09Ah ;# ">
+"1987
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 1987: __asm("ADRES equ 09Bh");
+[; <" ADRES equ 09Bh ;# ">
+"1994
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 1994: __asm("ADRESL equ 09Bh");
+[; <" ADRESL equ 09Bh ;# ">
+"2014
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 2014: __asm("ADRESH equ 09Ch");
+[; <" ADRESH equ 09Ch ;# ">
+"2034
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 2034: __asm("ADCON0 equ 09Dh");
+[; <" ADCON0 equ 09Dh ;# ">
+"2123
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 2123: __asm("ADCON1 equ 09Eh");
+[; <" ADCON1 equ 09Eh ;# ">
+"2195
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 2195: __asm("LATA equ 010Ch");
+[; <" LATA equ 010Ch ;# ">
+"2257
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 2257: __asm("LATB equ 010Dh");
+[; <" LATB equ 010Dh ;# ">
+"2319
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 2319: __asm("LATC equ 010Eh");
+[; <" LATC equ 010Eh ;# ">
+"2381
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 2381: __asm("LATE equ 0110h");
+[; <" LATE equ 0110h ;# ">
+"2402
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 2402: __asm("CM1CON0 equ 0111h");
+[; <" CM1CON0 equ 0111h ;# ">
+"2459
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 2459: __asm("CM1CON1 equ 0112h");
+[; <" CM1CON1 equ 0112h ;# ">
+"2525
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 2525: __asm("CM2CON0 equ 0113h");
+[; <" CM2CON0 equ 0113h ;# ">
+"2582
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 2582: __asm("CM2CON1 equ 0114h");
+[; <" CM2CON1 equ 0114h ;# ">
+"2648
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 2648: __asm("CMOUT equ 0115h");
+[; <" CMOUT equ 0115h ;# ">
+"2674
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 2674: __asm("BORCON equ 0116h");
+[; <" BORCON equ 0116h ;# ">
+"2701
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 2701: __asm("FVRCON equ 0117h");
+[; <" FVRCON equ 0117h ;# ">
+"2777
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 2777: __asm("DACCON0 equ 0118h");
+[; <" DACCON0 equ 0118h ;# ">
+"2838
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 2838: __asm("DACCON1 equ 0119h");
+[; <" DACCON1 equ 0119h ;# ">
+"2890
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 2890: __asm("SRCON0 equ 011Ah");
+[; <" SRCON0 equ 011Ah ;# ">
+"2961
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 2961: __asm("SRCON1 equ 011Bh");
+[; <" SRCON1 equ 011Bh ;# ">
+"3023
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 3023: __asm("APFCON equ 011Dh");
+[; <" APFCON equ 011Dh ;# ">
+"3079
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 3079: __asm("ANSELA equ 018Ch");
+[; <" ANSELA equ 018Ch ;# ">
+"3137
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 3137: __asm("ANSELB equ 018Dh");
+[; <" ANSELB equ 018Dh ;# ">
+"3195
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 3195: __asm("EEADR equ 0191h");
+[; <" EEADR equ 0191h ;# ">
+"3202
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 3202: __asm("EEADRL equ 0191h");
+[; <" EEADRL equ 0191h ;# ">
+"3222
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 3222: __asm("EEADRH equ 0192h");
+[; <" EEADRH equ 0192h ;# ">
+"3242
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 3242: __asm("EEDAT equ 0193h");
+[; <" EEDAT equ 0193h ;# ">
+"3249
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 3249: __asm("EEDATL equ 0193h");
+[; <" EEDATL equ 0193h ;# ">
+"3254
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 3254: __asm("EEDATA equ 0193h");
+[; <" EEDATA equ 0193h ;# ">
+"3287
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 3287: __asm("EEDATH equ 0194h");
+[; <" EEDATH equ 0194h ;# ">
+"3307
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 3307: __asm("EECON1 equ 0195h");
+[; <" EECON1 equ 0195h ;# ">
+"3369
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 3369: __asm("EECON2 equ 0196h");
+[; <" EECON2 equ 0196h ;# ">
+"3389
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 3389: __asm("RCREG equ 0199h");
+[; <" RCREG equ 0199h ;# ">
+"3409
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 3409: __asm("TXREG equ 019Ah");
+[; <" TXREG equ 019Ah ;# ">
+"3429
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 3429: __asm("SP1BRG equ 019Bh");
+[; <" SP1BRG equ 019Bh ;# ">
+"3436
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 3436: __asm("SP1BRGL equ 019Bh");
+[; <" SP1BRGL equ 019Bh ;# ">
+"3441
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 3441: __asm("SPBRG equ 019Bh");
+[; <" SPBRG equ 019Bh ;# ">
+"3445
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 3445: __asm("SPBRGL equ 019Bh");
+[; <" SPBRGL equ 019Bh ;# ">
+"3490
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 3490: __asm("SP1BRGH equ 019Ch");
+[; <" SP1BRGH equ 019Ch ;# ">
+"3495
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 3495: __asm("SPBRGH equ 019Ch");
+[; <" SPBRGH equ 019Ch ;# ">
+"3528
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 3528: __asm("RCSTA equ 019Dh");
+[; <" RCSTA equ 019Dh ;# ">
+"3590
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 3590: __asm("TXSTA equ 019Eh");
+[; <" TXSTA equ 019Eh ;# ">
+"3652
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 3652: __asm("BAUDCON equ 019Fh");
+[; <" BAUDCON equ 019Fh ;# ">
+"3704
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 3704: __asm("WPUB equ 020Dh");
+[; <" WPUB equ 020Dh ;# ">
+"3774
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 3774: __asm("WPUE equ 0210h");
+[; <" WPUE equ 0210h ;# ">
+"3795
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 3795: __asm("SSPBUF equ 0211h");
+[; <" SSPBUF equ 0211h ;# ">
+"3815
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 3815: __asm("SSPADD equ 0212h");
+[; <" SSPADD equ 0212h ;# ">
+"3835
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 3835: __asm("SSPMSK equ 0213h");
+[; <" SSPMSK equ 0213h ;# ">
+"3855
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 3855: __asm("SSPSTAT equ 0214h");
+[; <" SSPSTAT equ 0214h ;# ">
+"3917
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 3917: __asm("SSPCON1 equ 0215h");
+[; <" SSPCON1 equ 0215h ;# ">
+"3922
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 3922: __asm("SSPCON equ 0215h");
+[; <" SSPCON equ 0215h ;# ">
+"4039
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 4039: __asm("SSPCON2 equ 0216h");
+[; <" SSPCON2 equ 0216h ;# ">
+"4101
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 4101: __asm("SSPCON3 equ 0217h");
+[; <" SSPCON3 equ 0217h ;# ">
+"4163
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 4163: __asm("CCPR1 equ 0291h");
+[; <" CCPR1 equ 0291h ;# ">
+"4170
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 4170: __asm("CCPR1L equ 0291h");
+[; <" CCPR1L equ 0291h ;# ">
+"4190
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 4190: __asm("CCPR1H equ 0292h");
+[; <" CCPR1H equ 0292h ;# ">
+"4210
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 4210: __asm("CCP1CON equ 0293h");
+[; <" CCP1CON equ 0293h ;# ">
+"4292
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 4292: __asm("PWM1CON equ 0294h");
+[; <" PWM1CON equ 0294h ;# ">
+"4354
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 4354: __asm("CCP1AS equ 0295h");
+[; <" CCP1AS equ 0295h ;# ">
+"4359
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 4359: __asm("ECCP1AS equ 0295h");
+[; <" ECCP1AS equ 0295h ;# ">
+"4476
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 4476: __asm("PSTR1CON equ 0296h");
+[; <" PSTR1CON equ 0296h ;# ">
+"4520
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 4520: __asm("CCPR2 equ 0298h");
+[; <" CCPR2 equ 0298h ;# ">
+"4527
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 4527: __asm("CCPR2L equ 0298h");
+[; <" CCPR2L equ 0298h ;# ">
+"4547
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 4547: __asm("CCPR2H equ 0299h");
+[; <" CCPR2H equ 0299h ;# ">
+"4567
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 4567: __asm("CCP2CON equ 029Ah");
+[; <" CCP2CON equ 029Ah ;# ">
+"4649
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 4649: __asm("PWM2CON equ 029Bh");
+[; <" PWM2CON equ 029Bh ;# ">
+"4711
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 4711: __asm("CCP2AS equ 029Ch");
+[; <" CCP2AS equ 029Ch ;# ">
+"4716
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 4716: __asm("ECCP2AS equ 029Ch");
+[; <" ECCP2AS equ 029Ch ;# ">
+"4833
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 4833: __asm("PSTR2CON equ 029Dh");
+[; <" PSTR2CON equ 029Dh ;# ">
+"4877
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 4877: __asm("CCPTMRS0 equ 029Eh");
+[; <" CCPTMRS0 equ 029Eh ;# ">
+"4965
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 4965: __asm("CCPTMRS1 equ 029Fh");
+[; <" CCPTMRS1 equ 029Fh ;# ">
+"4999
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 4999: __asm("CCPR3 equ 0311h");
+[; <" CCPR3 equ 0311h ;# ">
+"5006
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 5006: __asm("CCPR3L equ 0311h");
+[; <" CCPR3L equ 0311h ;# ">
+"5026
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 5026: __asm("CCPR3H equ 0312h");
+[; <" CCPR3H equ 0312h ;# ">
+"5046
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 5046: __asm("CCP3CON equ 0313h");
+[; <" CCP3CON equ 0313h ;# ">
+"5108
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 5108: __asm("PWM3CON equ 0314h");
+[; <" PWM3CON equ 0314h ;# ">
+"5170
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 5170: __asm("CCP3AS equ 0315h");
+[; <" CCP3AS equ 0315h ;# ">
+"5175
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 5175: __asm("ECCP3AS equ 0315h");
+[; <" ECCP3AS equ 0315h ;# ">
+"5292
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 5292: __asm("PSTR3CON equ 0316h");
+[; <" PSTR3CON equ 0316h ;# ">
+"5336
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 5336: __asm("CCPR4 equ 0318h");
+[; <" CCPR4 equ 0318h ;# ">
+"5343
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 5343: __asm("CCPR4L equ 0318h");
+[; <" CCPR4L equ 0318h ;# ">
+"5363
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 5363: __asm("CCPR4H equ 0319h");
+[; <" CCPR4H equ 0319h ;# ">
+"5383
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 5383: __asm("CCP4CON equ 031Ah");
+[; <" CCP4CON equ 031Ah ;# ">
+"5433
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 5433: __asm("CCPR5 equ 031Ch");
+[; <" CCPR5 equ 031Ch ;# ">
+"5440
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 5440: __asm("CCPR5L equ 031Ch");
+[; <" CCPR5L equ 031Ch ;# ">
+"5460
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 5460: __asm("CCPR5H equ 031Dh");
+[; <" CCPR5H equ 031Dh ;# ">
+"5480
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 5480: __asm("CCP5CON equ 031Eh");
+[; <" CCP5CON equ 031Eh ;# ">
+"5530
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 5530: __asm("IOCBP equ 0394h");
+[; <" IOCBP equ 0394h ;# ">
+"5600
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 5600: __asm("IOCBN equ 0395h");
+[; <" IOCBN equ 0395h ;# ">
+"5670
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 5670: __asm("IOCBF equ 0396h");
+[; <" IOCBF equ 0396h ;# ">
+"5740
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 5740: __asm("TMR4 equ 0415h");
+[; <" TMR4 equ 0415h ;# ">
+"5760
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 5760: __asm("PR4 equ 0416h");
+[; <" PR4 equ 0416h ;# ">
+"5780
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 5780: __asm("T4CON equ 0417h");
+[; <" T4CON equ 0417h ;# ">
+"5851
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 5851: __asm("TMR6 equ 041Ch");
+[; <" TMR6 equ 041Ch ;# ">
+"5871
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 5871: __asm("PR6 equ 041Dh");
+[; <" PR6 equ 041Dh ;# ">
+"5891
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 5891: __asm("T6CON equ 041Eh");
+[; <" T6CON equ 041Eh ;# ">
+"5962
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 5962: __asm("LCDCON equ 0791h");
+[; <" LCDCON equ 0791h ;# ">
+"6033
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6033: __asm("LCDPS equ 0792h");
+[; <" LCDPS equ 0792h ;# ">
+"6103
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6103: __asm("LCDREF equ 0793h");
+[; <" LCDREF equ 0793h ;# ">
+"6155
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6155: __asm("LCDCST equ 0794h");
+[; <" LCDCST equ 0794h ;# ">
+"6195
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6195: __asm("LCDRL equ 0795h");
+[; <" LCDRL equ 0795h ;# ">
+"6273
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6273: __asm("LCDSE0 equ 0798h");
+[; <" LCDSE0 equ 0798h ;# ">
+"6335
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6335: __asm("LCDSE1 equ 0799h");
+[; <" LCDSE1 equ 0799h ;# ">
+"6397
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6397: __asm("LCDDATA0 equ 07A0h");
+[; <" LCDDATA0 equ 07A0h ;# ">
+"6459
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6459: __asm("LCDDATA1 equ 07A1h");
+[; <" LCDDATA1 equ 07A1h ;# ">
+"6521
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6521: __asm("LCDDATA3 equ 07A3h");
+[; <" LCDDATA3 equ 07A3h ;# ">
+"6583
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6583: __asm("LCDDATA4 equ 07A4h");
+[; <" LCDDATA4 equ 07A4h ;# ">
+"6645
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6645: __asm("LCDDATA6 equ 07A6h");
+[; <" LCDDATA6 equ 07A6h ;# ">
+"6707
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6707: __asm("LCDDATA7 equ 07A7h");
+[; <" LCDDATA7 equ 07A7h ;# ">
+"6769
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6769: __asm("LCDDATA9 equ 07A9h");
+[; <" LCDDATA9 equ 07A9h ;# ">
+"6831
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6831: __asm("LCDDATA10 equ 07AAh");
+[; <" LCDDATA10 equ 07AAh ;# ">
+"6893
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6893: __asm("STATUS_SHAD equ 0FE4h");
+[; <" STATUS_SHAD equ 0FE4h ;# ">
+"6925
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6925: __asm("WREG_SHAD equ 0FE5h");
+[; <" WREG_SHAD equ 0FE5h ;# ">
+"6945
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6945: __asm("BSR_SHAD equ 0FE6h");
+[; <" BSR_SHAD equ 0FE6h ;# ">
+"6965
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6965: __asm("PCLATH_SHAD equ 0FE7h");
+[; <" PCLATH_SHAD equ 0FE7h ;# ">
+"6985
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6985: __asm("FSR0L_SHAD equ 0FE8h");
+[; <" FSR0L_SHAD equ 0FE8h ;# ">
+"7005
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 7005: __asm("FSR0H_SHAD equ 0FE9h");
+[; <" FSR0H_SHAD equ 0FE9h ;# ">
+"7025
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 7025: __asm("FSR1L_SHAD equ 0FEAh");
+[; <" FSR1L_SHAD equ 0FEAh ;# ">
+"7045
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 7045: __asm("FSR1H_SHAD equ 0FEBh");
+[; <" FSR1H_SHAD equ 0FEBh ;# ">
+"7065
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 7065: __asm("STKPTR equ 0FEDh");
+[; <" STKPTR equ 0FEDh ;# ">
+"7085
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 7085: __asm("TOSL equ 0FEEh");
+[; <" TOSL equ 0FEEh ;# ">
+"7105
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 7105: __asm("TOSH equ 0FEFh");
+[; <" TOSH equ 0FEFh ;# ">
+"58 mcc_generated_files/lcd.c
+[; ;mcc_generated_files/lcd.c: 58: void LCD_Initialize(void)
+[v _LCD_Initialize `(v ~T0 @X0 1 ef ]
+"59
+[; ;mcc_generated_files/lcd.c: 59: {
+{
+[e :U _LCD_Initialize ]
+[f ]
+"61
+[; ;mcc_generated_files/lcd.c: 61:     LCDCONbits.LCDEN = 0;
+[e = . . _LCDCONbits 0 7 -> -> 0 `i `uc ]
+"65
+[; ;mcc_generated_files/lcd.c: 65:     LCDPS = 0x00;
+[e = _LCDPS -> -> 0 `i `uc ]
+"68
+[; ;mcc_generated_files/lcd.c: 68:     LCDREF = 0xC0;
+[e = _LCDREF -> -> 192 `i `uc ]
+"71
+[; ;mcc_generated_files/lcd.c: 71:     LCDRL = 0x00;
+[e = _LCDRL -> -> 0 `i `uc ]
+"74
+[; ;mcc_generated_files/lcd.c: 74:     LCDCST = 0x04;
+[e = _LCDCST -> -> 4 `i `uc ]
+"77
+[; ;mcc_generated_files/lcd.c: 77:  LCDDATA0 = 0x00;
+[e = _LCDDATA0 -> -> 0 `i `uc ]
+"78
+[; ;mcc_generated_files/lcd.c: 78:  LCDDATA1 = 0x00;
+[e = _LCDDATA1 -> -> 0 `i `uc ]
+"79
+[; ;mcc_generated_files/lcd.c: 79:  LCDDATA3 = 0x00;
+[e = _LCDDATA3 -> -> 0 `i `uc ]
+"80
+[; ;mcc_generated_files/lcd.c: 80:  LCDDATA4 = 0x00;
+[e = _LCDDATA4 -> -> 0 `i `uc ]
+"81
+[; ;mcc_generated_files/lcd.c: 81:  LCDDATA6 = 0x00;
+[e = _LCDDATA6 -> -> 0 `i `uc ]
+"82
+[; ;mcc_generated_files/lcd.c: 82:  LCDDATA7 = 0x00;
+[e = _LCDDATA7 -> -> 0 `i `uc ]
+"83
+[; ;mcc_generated_files/lcd.c: 83:  LCDDATA9 = 0x00;
+[e = _LCDDATA9 -> -> 0 `i `uc ]
+"84
+[; ;mcc_generated_files/lcd.c: 84:  LCDDATA10 = 0x00;
+[e = _LCDDATA10 -> -> 0 `i `uc ]
+"87
+[; ;mcc_generated_files/lcd.c: 87:  LCDSE0 = 0xB6;
+[e = _LCDSE0 -> -> 182 `i `uc ]
+"88
+[; ;mcc_generated_files/lcd.c: 88:  LCDSE1 = 0x70;
+[e = _LCDSE1 -> -> 112 `i `uc ]
+"91
+[; ;mcc_generated_files/lcd.c: 91:     LCDCON = 0xCB;
+[e = _LCDCON -> -> 203 `i `uc ]
+"93
+[; ;mcc_generated_files/lcd.c: 93: }
+[e :UE 354 ]
+}
+"95
+[; ;mcc_generated_files/lcd.c: 95: void LCD_Enable (void)
+[v _LCD_Enable `(v ~T0 @X0 1 ef ]
+"96
+[; ;mcc_generated_files/lcd.c: 96: {
+{
+[e :U _LCD_Enable ]
+[f ]
+"97
+[; ;mcc_generated_files/lcd.c: 97:     LCDCONbits.LCDEN = 1;
+[e = . . _LCDCONbits 0 7 -> -> 1 `i `uc ]
+"98
+[; ;mcc_generated_files/lcd.c: 98: }
+[e :UE 355 ]
+}
+"100
+[; ;mcc_generated_files/lcd.c: 100: void LCD_Disable (void)
+[v _LCD_Disable `(v ~T0 @X0 1 ef ]
+"101
+[; ;mcc_generated_files/lcd.c: 101: {
+{
+[e :U _LCD_Disable ]
+[f ]
+"102
+[; ;mcc_generated_files/lcd.c: 102:     LCDCONbits.LCDEN = 0;
+[e = . . _LCDCONbits 0 7 -> -> 0 `i `uc ]
+"103
+[; ;mcc_generated_files/lcd.c: 103: }
+[e :UE 356 ]
+}
+"105
+[; ;mcc_generated_files/lcd.c: 105: void LCD_EnableSleepMode (void)
+[v _LCD_EnableSleepMode `(v ~T0 @X0 1 ef ]
+"106
+[; ;mcc_generated_files/lcd.c: 106: {
+{
+[e :U _LCD_EnableSleepMode ]
+[f ]
+"107
+[; ;mcc_generated_files/lcd.c: 107:     LCDCONbits.SLPEN = 1;
+[e = . . _LCDCONbits 0 6 -> -> 1 `i `uc ]
+"108
+[; ;mcc_generated_files/lcd.c: 108: }
+[e :UE 357 ]
+}
+"110
+[; ;mcc_generated_files/lcd.c: 110: void LCD_DisableSleepMode (void)
+[v _LCD_DisableSleepMode `(v ~T0 @X0 1 ef ]
+"111
+[; ;mcc_generated_files/lcd.c: 111: {
+{
+[e :U _LCD_DisableSleepMode ]
+[f ]
+"112
+[; ;mcc_generated_files/lcd.c: 112:     LCDCONbits.SLPEN = 0;
+[e = . . _LCDCONbits 0 6 -> -> 0 `i `uc ]
+"113
+[; ;mcc_generated_files/lcd.c: 113: }
+[e :UE 358 ]
+}
+"115
+[; ;mcc_generated_files/lcd.c: 115: void LCD_SetContrast (unsigned int value)
+[v _LCD_SetContrast `(v ~T0 @X0 1 ef1`ui ]
+"116
+[; ;mcc_generated_files/lcd.c: 116: {
+{
+[e :U _LCD_SetContrast ]
+"115
+[; ;mcc_generated_files/lcd.c: 115: void LCD_SetContrast (unsigned int value)
+[v _value `ui ~T0 @X0 1 r1 ]
+"116
+[; ;mcc_generated_files/lcd.c: 116: {
+[f ]
+"117
+[; ;mcc_generated_files/lcd.c: 117:     LCDCSTbits.LCDCST = value;
+[e = . . _LCDCSTbits 1 0 -> _value `uc ]
+"118
+[; ;mcc_generated_files/lcd.c: 118: }
+[e :UE 359 ]
+}
+"120
+[; ;mcc_generated_files/lcd.c: 120: void LCD_SetIntervalAPowerMode (unsigned int value)
+[v _LCD_SetIntervalAPowerMode `(v ~T0 @X0 1 ef1`ui ]
+"121
+[; ;mcc_generated_files/lcd.c: 121: {
+{
+[e :U _LCD_SetIntervalAPowerMode ]
+"120
+[; ;mcc_generated_files/lcd.c: 120: void LCD_SetIntervalAPowerMode (unsigned int value)
+[v _value `ui ~T0 @X0 1 r1 ]
+"121
+[; ;mcc_generated_files/lcd.c: 121: {
+[f ]
+"122
+[; ;mcc_generated_files/lcd.c: 122:     LCDRLbits.LRLAP = value;
+[e = . . _LCDRLbits 1 3 -> _value `uc ]
+"123
+[; ;mcc_generated_files/lcd.c: 123: }
+[e :UE 360 ]
+}
+"125
+[; ;mcc_generated_files/lcd.c: 125: void LCD_SetIntervalBPowerMode (unsigned int value)
+[v _LCD_SetIntervalBPowerMode `(v ~T0 @X0 1 ef1`ui ]
+"126
+[; ;mcc_generated_files/lcd.c: 126: {
+{
+[e :U _LCD_SetIntervalBPowerMode ]
+"125
+[; ;mcc_generated_files/lcd.c: 125: void LCD_SetIntervalBPowerMode (unsigned int value)
+[v _value `ui ~T0 @X0 1 r1 ]
+"126
+[; ;mcc_generated_files/lcd.c: 126: {
+[f ]
+"127
+[; ;mcc_generated_files/lcd.c: 127:     LCDRLbits.LRLBP = value;
+[e = . . _LCDRLbits 1 2 -> _value `uc ]
+"128
+[; ;mcc_generated_files/lcd.c: 128: }
+[e :UE 361 ]
+}
+"130
+[; ;mcc_generated_files/lcd.c: 130: void LCD_SetPowerDistribution (unsigned int value)
+[v _LCD_SetPowerDistribution `(v ~T0 @X0 1 ef1`ui ]
+"131
+[; ;mcc_generated_files/lcd.c: 131: {
+{
+[e :U _LCD_SetPowerDistribution ]
+"130
+[; ;mcc_generated_files/lcd.c: 130: void LCD_SetPowerDistribution (unsigned int value)
+[v _value `ui ~T0 @X0 1 r1 ]
+"131
+[; ;mcc_generated_files/lcd.c: 131: {
+[f ]
+"132
+[; ;mcc_generated_files/lcd.c: 132:     LCDRLbits.LRLAT = value;
+[e = . . _LCDRLbits 1 0 -> _value `uc ]
+"133
+[; ;mcc_generated_files/lcd.c: 133: }
+[e :UE 362 ]
+}
+"135
+[; ;mcc_generated_files/lcd.c: 135: _Bool LCD_IsActive (void)
+[v _LCD_IsActive `(a ~T0 @X0 1 ef ]
+"136
+[; ;mcc_generated_files/lcd.c: 136: {
+{
+[e :U _LCD_IsActive ]
+[f ]
+"137
+[; ;mcc_generated_files/lcd.c: 137:     return LCDPSbits.LCDA;
+[e ) -> . . _LCDPSbits 0 5 `a ]
+[e $UE 363  ]
+"138
+[; ;mcc_generated_files/lcd.c: 138: }
+[e :UE 363 ]
+}
+"140
+[; ;mcc_generated_files/lcd.c: 140: void LCD_DisplayOn_DIG1_SYM00Num()
+[v _LCD_DisplayOn_DIG1_SYM00Num `(v ~T0 @X0 1 ef ]
+"141
+[; ;mcc_generated_files/lcd.c: 141: {
+{
+[e :U _LCD_DisplayOn_DIG1_SYM00Num ]
+[f ]
+"142
+[; ;mcc_generated_files/lcd.c: 142:  LCDDATA6bits.SEG4COM2 = 1;LCDDATA6bits.SEG7COM2 = 1;LCDDATA9bits.SEG7COM3 = 1;LCDDATA0bits.SEG7COM0 = 1;LCDDATA9bits.SEG4COM3 = 1;LCDDATA3bits.SEG4COM1 = 1;LCDDATA3bits.SEG7COM1 = 1;
+[e = . . _LCDDATA6bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 7 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 7 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 7 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 7 -> -> 1 `i `uc ]
+"143
+[; ;mcc_generated_files/lcd.c: 143: }
+[e :UE 364 ]
+}
+"145
+[; ;mcc_generated_files/lcd.c: 145: void LCD_DisplayOff_DIG1_SYM00Num()
+[v _LCD_DisplayOff_DIG1_SYM00Num `(v ~T0 @X0 1 ef ]
+"146
+[; ;mcc_generated_files/lcd.c: 146: {
+{
+[e :U _LCD_DisplayOff_DIG1_SYM00Num ]
+[f ]
+"147
+[; ;mcc_generated_files/lcd.c: 147:  LCDDATA6bits.SEG4COM2 = 0;LCDDATA6bits.SEG7COM2 = 0;LCDDATA9bits.SEG7COM3 = 0;LCDDATA0bits.SEG7COM0 = 0;LCDDATA9bits.SEG4COM3 = 0;LCDDATA3bits.SEG4COM1 = 0;LCDDATA3bits.SEG7COM1 = 0;
+[e = . . _LCDDATA6bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA6bits 0 7 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 7 -> -> 0 `i `uc ]
+[e = . . _LCDDATA0bits 0 7 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 7 -> -> 0 `i `uc ]
+"148
+[; ;mcc_generated_files/lcd.c: 148: }
+[e :UE 365 ]
+}
+"150
+[; ;mcc_generated_files/lcd.c: 150: void LCD_DIG1_SYM00Num (unsigned char num)
+[v _LCD_DIG1_SYM00Num `(v ~T0 @X0 1 ef1`uc ]
+"151
+[; ;mcc_generated_files/lcd.c: 151: {
+{
+[e :U _LCD_DIG1_SYM00Num ]
+"150
+[; ;mcc_generated_files/lcd.c: 150: void LCD_DIG1_SYM00Num (unsigned char num)
+[v _num `uc ~T0 @X0 1 r1 ]
+"151
+[; ;mcc_generated_files/lcd.c: 151: {
+[f ]
+"152
+[; ;mcc_generated_files/lcd.c: 152:     switch (num)
+[e $U 368  ]
+"153
+[; ;mcc_generated_files/lcd.c: 153:     {
+{
+"154
+[; ;mcc_generated_files/lcd.c: 154:         case 0: LCDDATA6bits.SEG4COM2 = 1; LCDDATA6bits.SEG7COM2 = 1; LCDDATA9bits.SEG7COM3 = 1; LCDDATA0bits.SEG7COM0 = 1; LCDDATA9bits.SEG4COM3 = 1; LCDDATA3bits.SEG4COM1 = 1; LCDDATA3bits.SEG7COM1 = 0; break;
+[e :U 369 ]
+[e = . . _LCDDATA6bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 7 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 7 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 7 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 7 -> -> 0 `i `uc ]
+[e $U 367  ]
+"155
+[; ;mcc_generated_files/lcd.c: 155:         case 1: LCDDATA6bits.SEG4COM2 = 0; LCDDATA6bits.SEG7COM2 = 1; LCDDATA9bits.SEG7COM3 = 1; LCDDATA0bits.SEG7COM0 = 0; LCDDATA9bits.SEG4COM3 = 0; LCDDATA3bits.SEG4COM1 = 0; LCDDATA3bits.SEG7COM1 = 0; break;
+[e :U 370 ]
+[e = . . _LCDDATA6bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA6bits 0 7 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 7 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 7 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 7 -> -> 0 `i `uc ]
+[e $U 367  ]
+"156
+[; ;mcc_generated_files/lcd.c: 156:         case 2: LCDDATA6bits.SEG4COM2 = 1; LCDDATA6bits.SEG7COM2 = 1; LCDDATA9bits.SEG7COM3 = 0; LCDDATA0bits.SEG7COM0 = 1; LCDDATA9bits.SEG4COM3 = 1; LCDDATA3bits.SEG4COM1 = 0; LCDDATA3bits.SEG7COM1 = 1; break;
+[e :U 371 ]
+[e = . . _LCDDATA6bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 7 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 7 -> -> 0 `i `uc ]
+[e = . . _LCDDATA0bits 0 7 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 7 -> -> 1 `i `uc ]
+[e $U 367  ]
+"157
+[; ;mcc_generated_files/lcd.c: 157:         case 3: LCDDATA6bits.SEG4COM2 = 1; LCDDATA6bits.SEG7COM2 = 1; LCDDATA9bits.SEG7COM3 = 1; LCDDATA0bits.SEG7COM0 = 1; LCDDATA9bits.SEG4COM3 = 0; LCDDATA3bits.SEG4COM1 = 0; LCDDATA3bits.SEG7COM1 = 1; break;
+[e :U 372 ]
+[e = . . _LCDDATA6bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 7 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 7 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 7 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 7 -> -> 1 `i `uc ]
+[e $U 367  ]
+"158
+[; ;mcc_generated_files/lcd.c: 158:         case 4: LCDDATA6bits.SEG4COM2 = 0; LCDDATA6bits.SEG7COM2 = 1; LCDDATA9bits.SEG7COM3 = 1; LCDDATA0bits.SEG7COM0 = 0; LCDDATA9bits.SEG4COM3 = 0; LCDDATA3bits.SEG4COM1 = 1; LCDDATA3bits.SEG7COM1 = 1; break;
+[e :U 373 ]
+[e = . . _LCDDATA6bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA6bits 0 7 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 7 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 7 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 7 -> -> 1 `i `uc ]
+[e $U 367  ]
+"159
+[; ;mcc_generated_files/lcd.c: 159:         case 5: LCDDATA6bits.SEG4COM2 = 1; LCDDATA6bits.SEG7COM2 = 0; LCDDATA9bits.SEG7COM3 = 1; LCDDATA0bits.SEG7COM0 = 1; LCDDATA9bits.SEG4COM3 = 0; LCDDATA3bits.SEG4COM1 = 1; LCDDATA3bits.SEG7COM1 = 1; break;
+[e :U 374 ]
+[e = . . _LCDDATA6bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 7 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 7 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 7 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 7 -> -> 1 `i `uc ]
+[e $U 367  ]
+"160
+[; ;mcc_generated_files/lcd.c: 160:         case 6: LCDDATA6bits.SEG4COM2 = 1; LCDDATA6bits.SEG7COM2 = 0; LCDDATA9bits.SEG7COM3 = 1; LCDDATA0bits.SEG7COM0 = 1; LCDDATA9bits.SEG4COM3 = 1; LCDDATA3bits.SEG4COM1 = 1; LCDDATA3bits.SEG7COM1 = 1; break;
+[e :U 375 ]
+[e = . . _LCDDATA6bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 7 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 7 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 7 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 7 -> -> 1 `i `uc ]
+[e $U 367  ]
+"161
+[; ;mcc_generated_files/lcd.c: 161:         case 7: LCDDATA6bits.SEG4COM2 = 1; LCDDATA6bits.SEG7COM2 = 1; LCDDATA9bits.SEG7COM3 = 1; LCDDATA0bits.SEG7COM0 = 0; LCDDATA9bits.SEG4COM3 = 0; LCDDATA3bits.SEG4COM1 = 0; LCDDATA3bits.SEG7COM1 = 0; break;
+[e :U 376 ]
+[e = . . _LCDDATA6bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 7 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 7 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 7 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 7 -> -> 0 `i `uc ]
+[e $U 367  ]
+"162
+[; ;mcc_generated_files/lcd.c: 162:         case 8: LCDDATA6bits.SEG4COM2 = 1; LCDDATA6bits.SEG7COM2 = 1; LCDDATA9bits.SEG7COM3 = 1; LCDDATA0bits.SEG7COM0 = 1; LCDDATA9bits.SEG4COM3 = 1; LCDDATA3bits.SEG4COM1 = 1; LCDDATA3bits.SEG7COM1 = 1; break;
+[e :U 377 ]
+[e = . . _LCDDATA6bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 7 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 7 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 7 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 7 -> -> 1 `i `uc ]
+[e $U 367  ]
+"163
+[; ;mcc_generated_files/lcd.c: 163:         case 9: LCDDATA6bits.SEG4COM2 = 1; LCDDATA6bits.SEG7COM2 = 1; LCDDATA9bits.SEG7COM3 = 1; LCDDATA0bits.SEG7COM0 = 1; LCDDATA9bits.SEG4COM3 = 0; LCDDATA3bits.SEG4COM1 = 1; LCDDATA3bits.SEG7COM1 = 1; break;
+[e :U 378 ]
+[e = . . _LCDDATA6bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 7 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 7 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 7 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 7 -> -> 1 `i `uc ]
+[e $U 367  ]
+"165
+[; ;mcc_generated_files/lcd.c: 165:         default: LCDDATA6bits.SEG4COM2 = 0; LCDDATA6bits.SEG7COM2 = 0; LCDDATA9bits.SEG7COM3 = 0; LCDDATA0bits.SEG7COM0 = 0; LCDDATA9bits.SEG4COM3 = 0; LCDDATA3bits.SEG4COM1 = 0; LCDDATA3bits.SEG7COM1 = 0;
+[e :U 379 ]
+[e = . . _LCDDATA6bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA6bits 0 7 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 7 -> -> 0 `i `uc ]
+[e = . . _LCDDATA0bits 0 7 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 7 -> -> 0 `i `uc ]
+"166
+[; ;mcc_generated_files/lcd.c: 166:     }
+}
+[e $U 367  ]
+[e :U 368 ]
+[e [\ -> _num `i , $ -> 0 `i 369
+ , $ -> 1 `i 370
+ , $ -> 2 `i 371
+ , $ -> 3 `i 372
+ , $ -> 4 `i 373
+ , $ -> 5 `i 374
+ , $ -> 6 `i 375
+ , $ -> 7 `i 376
+ , $ -> 8 `i 377
+ , $ -> 9 `i 378
+ 379 ]
+[e :U 367 ]
+"167
+[; ;mcc_generated_files/lcd.c: 167: }
+[e :UE 366 ]
+}
+"169
+[; ;mcc_generated_files/lcd.c: 169: void LCD_DisplayOn_DIG2_SYM01Num()
+[v _LCD_DisplayOn_DIG2_SYM01Num `(v ~T0 @X0 1 ef ]
+"170
+[; ;mcc_generated_files/lcd.c: 170: {
+{
+[e :U _LCD_DisplayOn_DIG2_SYM01Num ]
+[f ]
+"171
+[; ;mcc_generated_files/lcd.c: 171:  LCDDATA6bits.SEG5COM2 = 1;LCDDATA7bits.SEG12COM2 = 1;LCDDATA10bits.SEG12COM3 = 1;LCDDATA1bits.SEG12COM0 = 1;LCDDATA9bits.SEG5COM3 = 1;LCDDATA3bits.SEG5COM1 = 1;LCDDATA4bits.SEG12COM1 = 1;
+[e = . . _LCDDATA6bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA7bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA10bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA1bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA4bits 0 4 -> -> 1 `i `uc ]
+"172
+[; ;mcc_generated_files/lcd.c: 172: }
+[e :UE 380 ]
+}
+"174
+[; ;mcc_generated_files/lcd.c: 174: void LCD_DisplayOff_DIG2_SYM01Num()
+[v _LCD_DisplayOff_DIG2_SYM01Num `(v ~T0 @X0 1 ef ]
+"175
+[; ;mcc_generated_files/lcd.c: 175: {
+{
+[e :U _LCD_DisplayOff_DIG2_SYM01Num ]
+[f ]
+"176
+[; ;mcc_generated_files/lcd.c: 176:  LCDDATA6bits.SEG5COM2 = 0;LCDDATA7bits.SEG12COM2 = 0;LCDDATA10bits.SEG12COM3 = 0;LCDDATA1bits.SEG12COM0 = 0;LCDDATA9bits.SEG5COM3 = 0;LCDDATA3bits.SEG5COM1 = 0;LCDDATA4bits.SEG12COM1 = 0;
+[e = . . _LCDDATA6bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA7bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA10bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA1bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA4bits 0 4 -> -> 0 `i `uc ]
+"177
+[; ;mcc_generated_files/lcd.c: 177: }
+[e :UE 381 ]
+}
+"179
+[; ;mcc_generated_files/lcd.c: 179: void LCD_DIG2_SYM01Num (unsigned char num)
+[v _LCD_DIG2_SYM01Num `(v ~T0 @X0 1 ef1`uc ]
+"180
+[; ;mcc_generated_files/lcd.c: 180: {
+{
+[e :U _LCD_DIG2_SYM01Num ]
+"179
+[; ;mcc_generated_files/lcd.c: 179: void LCD_DIG2_SYM01Num (unsigned char num)
+[v _num `uc ~T0 @X0 1 r1 ]
+"180
+[; ;mcc_generated_files/lcd.c: 180: {
+[f ]
+"181
+[; ;mcc_generated_files/lcd.c: 181:     switch (num)
+[e $U 384  ]
+"182
+[; ;mcc_generated_files/lcd.c: 182:     {
+{
+"183
+[; ;mcc_generated_files/lcd.c: 183:         case 0: LCDDATA6bits.SEG5COM2 = 1; LCDDATA7bits.SEG12COM2 = 1; LCDDATA10bits.SEG12COM3 = 1; LCDDATA1bits.SEG12COM0 = 1; LCDDATA9bits.SEG5COM3 = 1; LCDDATA3bits.SEG5COM1 = 1; LCDDATA4bits.SEG12COM1 = 0; break;
+[e :U 385 ]
+[e = . . _LCDDATA6bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA7bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA10bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA1bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA4bits 0 4 -> -> 0 `i `uc ]
+[e $U 383  ]
+"184
+[; ;mcc_generated_files/lcd.c: 184:         case 1: LCDDATA6bits.SEG5COM2 = 0; LCDDATA7bits.SEG12COM2 = 1; LCDDATA10bits.SEG12COM3 = 1; LCDDATA1bits.SEG12COM0 = 0; LCDDATA9bits.SEG5COM3 = 0; LCDDATA3bits.SEG5COM1 = 0; LCDDATA4bits.SEG12COM1 = 0; break;
+[e :U 386 ]
+[e = . . _LCDDATA6bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA7bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA10bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA1bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA4bits 0 4 -> -> 0 `i `uc ]
+[e $U 383  ]
+"185
+[; ;mcc_generated_files/lcd.c: 185:         case 2: LCDDATA6bits.SEG5COM2 = 1; LCDDATA7bits.SEG12COM2 = 1; LCDDATA10bits.SEG12COM3 = 0; LCDDATA1bits.SEG12COM0 = 1; LCDDATA9bits.SEG5COM3 = 1; LCDDATA3bits.SEG5COM1 = 0; LCDDATA4bits.SEG12COM1 = 1; break;
+[e :U 387 ]
+[e = . . _LCDDATA6bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA7bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA10bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA1bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA4bits 0 4 -> -> 1 `i `uc ]
+[e $U 383  ]
+"186
+[; ;mcc_generated_files/lcd.c: 186:         case 3: LCDDATA6bits.SEG5COM2 = 1; LCDDATA7bits.SEG12COM2 = 1; LCDDATA10bits.SEG12COM3 = 1; LCDDATA1bits.SEG12COM0 = 1; LCDDATA9bits.SEG5COM3 = 0; LCDDATA3bits.SEG5COM1 = 0; LCDDATA4bits.SEG12COM1 = 1; break;
+[e :U 388 ]
+[e = . . _LCDDATA6bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA7bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA10bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA1bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA4bits 0 4 -> -> 1 `i `uc ]
+[e $U 383  ]
+"187
+[; ;mcc_generated_files/lcd.c: 187:         case 4: LCDDATA6bits.SEG5COM2 = 0; LCDDATA7bits.SEG12COM2 = 1; LCDDATA10bits.SEG12COM3 = 1; LCDDATA1bits.SEG12COM0 = 0; LCDDATA9bits.SEG5COM3 = 0; LCDDATA3bits.SEG5COM1 = 1; LCDDATA4bits.SEG12COM1 = 1; break;
+[e :U 389 ]
+[e = . . _LCDDATA6bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA7bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA10bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA1bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA4bits 0 4 -> -> 1 `i `uc ]
+[e $U 383  ]
+"188
+[; ;mcc_generated_files/lcd.c: 188:         case 5: LCDDATA6bits.SEG5COM2 = 1; LCDDATA7bits.SEG12COM2 = 0; LCDDATA10bits.SEG12COM3 = 1; LCDDATA1bits.SEG12COM0 = 1; LCDDATA9bits.SEG5COM3 = 0; LCDDATA3bits.SEG5COM1 = 1; LCDDATA4bits.SEG12COM1 = 1; break;
+[e :U 390 ]
+[e = . . _LCDDATA6bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA7bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA10bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA1bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA4bits 0 4 -> -> 1 `i `uc ]
+[e $U 383  ]
+"189
+[; ;mcc_generated_files/lcd.c: 189:         case 6: LCDDATA6bits.SEG5COM2 = 1; LCDDATA7bits.SEG12COM2 = 0; LCDDATA10bits.SEG12COM3 = 1; LCDDATA1bits.SEG12COM0 = 1; LCDDATA9bits.SEG5COM3 = 1; LCDDATA3bits.SEG5COM1 = 1; LCDDATA4bits.SEG12COM1 = 1; break;
+[e :U 391 ]
+[e = . . _LCDDATA6bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA7bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA10bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA1bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA4bits 0 4 -> -> 1 `i `uc ]
+[e $U 383  ]
+"190
+[; ;mcc_generated_files/lcd.c: 190:         case 7: LCDDATA6bits.SEG5COM2 = 1; LCDDATA7bits.SEG12COM2 = 1; LCDDATA10bits.SEG12COM3 = 1; LCDDATA1bits.SEG12COM0 = 0; LCDDATA9bits.SEG5COM3 = 0; LCDDATA3bits.SEG5COM1 = 0; LCDDATA4bits.SEG12COM1 = 0; break;
+[e :U 392 ]
+[e = . . _LCDDATA6bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA7bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA10bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA1bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA4bits 0 4 -> -> 0 `i `uc ]
+[e $U 383  ]
+"191
+[; ;mcc_generated_files/lcd.c: 191:         case 8: LCDDATA6bits.SEG5COM2 = 1; LCDDATA7bits.SEG12COM2 = 1; LCDDATA10bits.SEG12COM3 = 1; LCDDATA1bits.SEG12COM0 = 1; LCDDATA9bits.SEG5COM3 = 1; LCDDATA3bits.SEG5COM1 = 1; LCDDATA4bits.SEG12COM1 = 1; break;
+[e :U 393 ]
+[e = . . _LCDDATA6bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA7bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA10bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA1bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA4bits 0 4 -> -> 1 `i `uc ]
+[e $U 383  ]
+"192
+[; ;mcc_generated_files/lcd.c: 192:         case 9: LCDDATA6bits.SEG5COM2 = 1; LCDDATA7bits.SEG12COM2 = 1; LCDDATA10bits.SEG12COM3 = 1; LCDDATA1bits.SEG12COM0 = 1; LCDDATA9bits.SEG5COM3 = 0; LCDDATA3bits.SEG5COM1 = 1; LCDDATA4bits.SEG12COM1 = 1; break;
+[e :U 394 ]
+[e = . . _LCDDATA6bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA7bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA10bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA1bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA4bits 0 4 -> -> 1 `i `uc ]
+[e $U 383  ]
+"194
+[; ;mcc_generated_files/lcd.c: 194:         default: LCDDATA6bits.SEG5COM2 = 0; LCDDATA7bits.SEG12COM2 = 0; LCDDATA10bits.SEG12COM3 = 0; LCDDATA1bits.SEG12COM0 = 0; LCDDATA9bits.SEG5COM3 = 0; LCDDATA3bits.SEG5COM1 = 0; LCDDATA4bits.SEG12COM1 = 0;
+[e :U 395 ]
+[e = . . _LCDDATA6bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA7bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA10bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA1bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA4bits 0 4 -> -> 0 `i `uc ]
+"195
+[; ;mcc_generated_files/lcd.c: 195:     }
+}
+[e $U 383  ]
+[e :U 384 ]
+[e [\ -> _num `i , $ -> 0 `i 385
+ , $ -> 1 `i 386
+ , $ -> 2 `i 387
+ , $ -> 3 `i 388
+ , $ -> 4 `i 389
+ , $ -> 5 `i 390
+ , $ -> 6 `i 391
+ , $ -> 7 `i 392
+ , $ -> 8 `i 393
+ , $ -> 9 `i 394
+ 395 ]
+[e :U 383 ]
+"196
+[; ;mcc_generated_files/lcd.c: 196: }
+[e :UE 382 ]
+}
+"198
+[; ;mcc_generated_files/lcd.c: 198: void LCD_DisplayOn_DIG3_SYM02Num()
+[v _LCD_DisplayOn_DIG3_SYM02Num `(v ~T0 @X0 1 ef ]
+"199
+[; ;mcc_generated_files/lcd.c: 199: {
+{
+[e :U _LCD_DisplayOn_DIG3_SYM02Num ]
+[f ]
+"200
+[; ;mcc_generated_files/lcd.c: 200:  LCDDATA7bits.SEG13COM2 = 1;LCDDATA6bits.SEG1COM2 = 1;LCDDATA9bits.SEG1COM3 = 1;LCDDATA0bits.SEG1COM0 = 1;LCDDATA10bits.SEG13COM3 = 1;LCDDATA4bits.SEG13COM1 = 1;LCDDATA3bits.SEG1COM1 = 1;
+[e = . . _LCDDATA7bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA10bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA4bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 1 -> -> 1 `i `uc ]
+"201
+[; ;mcc_generated_files/lcd.c: 201: }
+[e :UE 396 ]
+}
+"203
+[; ;mcc_generated_files/lcd.c: 203: void LCD_DisplayOff_DIG3_SYM02Num()
+[v _LCD_DisplayOff_DIG3_SYM02Num `(v ~T0 @X0 1 ef ]
+"204
+[; ;mcc_generated_files/lcd.c: 204: {
+{
+[e :U _LCD_DisplayOff_DIG3_SYM02Num ]
+[f ]
+"205
+[; ;mcc_generated_files/lcd.c: 205:  LCDDATA7bits.SEG13COM2 = 0;LCDDATA6bits.SEG1COM2 = 0;LCDDATA9bits.SEG1COM3 = 0;LCDDATA0bits.SEG1COM0 = 0;LCDDATA10bits.SEG13COM3 = 0;LCDDATA4bits.SEG13COM1 = 0;LCDDATA3bits.SEG1COM1 = 0;
+[e = . . _LCDDATA7bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA6bits 0 1 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 1 -> -> 0 `i `uc ]
+[e = . . _LCDDATA0bits 0 1 -> -> 0 `i `uc ]
+[e = . . _LCDDATA10bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA4bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 1 -> -> 0 `i `uc ]
+"206
+[; ;mcc_generated_files/lcd.c: 206: }
+[e :UE 397 ]
+}
+"208
+[; ;mcc_generated_files/lcd.c: 208: void LCD_DIG3_SYM02Num (unsigned char num)
+[v _LCD_DIG3_SYM02Num `(v ~T0 @X0 1 ef1`uc ]
+"209
+[; ;mcc_generated_files/lcd.c: 209: {
+{
+[e :U _LCD_DIG3_SYM02Num ]
+"208
+[; ;mcc_generated_files/lcd.c: 208: void LCD_DIG3_SYM02Num (unsigned char num)
+[v _num `uc ~T0 @X0 1 r1 ]
+"209
+[; ;mcc_generated_files/lcd.c: 209: {
+[f ]
+"210
+[; ;mcc_generated_files/lcd.c: 210:     switch (num)
+[e $U 400  ]
+"211
+[; ;mcc_generated_files/lcd.c: 211:     {
+{
+"212
+[; ;mcc_generated_files/lcd.c: 212:         case 0: LCDDATA7bits.SEG13COM2 = 1; LCDDATA6bits.SEG1COM2 = 1; LCDDATA9bits.SEG1COM3 = 1; LCDDATA0bits.SEG1COM0 = 1; LCDDATA10bits.SEG13COM3 = 1; LCDDATA4bits.SEG13COM1 = 1; LCDDATA3bits.SEG1COM1 = 0; break;
+[e :U 401 ]
+[e = . . _LCDDATA7bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA10bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA4bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 1 -> -> 0 `i `uc ]
+[e $U 399  ]
+"213
+[; ;mcc_generated_files/lcd.c: 213:         case 1: LCDDATA7bits.SEG13COM2 = 0; LCDDATA6bits.SEG1COM2 = 1; LCDDATA9bits.SEG1COM3 = 1; LCDDATA0bits.SEG1COM0 = 0; LCDDATA10bits.SEG13COM3 = 0; LCDDATA4bits.SEG13COM1 = 0; LCDDATA3bits.SEG1COM1 = 0; break;
+[e :U 402 ]
+[e = . . _LCDDATA7bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA6bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 1 -> -> 0 `i `uc ]
+[e = . . _LCDDATA10bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA4bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 1 -> -> 0 `i `uc ]
+[e $U 399  ]
+"214
+[; ;mcc_generated_files/lcd.c: 214:         case 2: LCDDATA7bits.SEG13COM2 = 1; LCDDATA6bits.SEG1COM2 = 1; LCDDATA9bits.SEG1COM3 = 0; LCDDATA0bits.SEG1COM0 = 1; LCDDATA10bits.SEG13COM3 = 1; LCDDATA4bits.SEG13COM1 = 0; LCDDATA3bits.SEG1COM1 = 1; break;
+[e :U 403 ]
+[e = . . _LCDDATA7bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 1 -> -> 0 `i `uc ]
+[e = . . _LCDDATA0bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA10bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA4bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 1 -> -> 1 `i `uc ]
+[e $U 399  ]
+"215
+[; ;mcc_generated_files/lcd.c: 215:         case 3: LCDDATA7bits.SEG13COM2 = 1; LCDDATA6bits.SEG1COM2 = 1; LCDDATA9bits.SEG1COM3 = 1; LCDDATA0bits.SEG1COM0 = 1; LCDDATA10bits.SEG13COM3 = 0; LCDDATA4bits.SEG13COM1 = 0; LCDDATA3bits.SEG1COM1 = 1; break;
+[e :U 404 ]
+[e = . . _LCDDATA7bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA10bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA4bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 1 -> -> 1 `i `uc ]
+[e $U 399  ]
+"216
+[; ;mcc_generated_files/lcd.c: 216:         case 4: LCDDATA7bits.SEG13COM2 = 0; LCDDATA6bits.SEG1COM2 = 1; LCDDATA9bits.SEG1COM3 = 1; LCDDATA0bits.SEG1COM0 = 0; LCDDATA10bits.SEG13COM3 = 0; LCDDATA4bits.SEG13COM1 = 1; LCDDATA3bits.SEG1COM1 = 1; break;
+[e :U 405 ]
+[e = . . _LCDDATA7bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA6bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 1 -> -> 0 `i `uc ]
+[e = . . _LCDDATA10bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA4bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 1 -> -> 1 `i `uc ]
+[e $U 399  ]
+"217
+[; ;mcc_generated_files/lcd.c: 217:         case 5: LCDDATA7bits.SEG13COM2 = 1; LCDDATA6bits.SEG1COM2 = 0; LCDDATA9bits.SEG1COM3 = 1; LCDDATA0bits.SEG1COM0 = 1; LCDDATA10bits.SEG13COM3 = 0; LCDDATA4bits.SEG13COM1 = 1; LCDDATA3bits.SEG1COM1 = 1; break;
+[e :U 406 ]
+[e = . . _LCDDATA7bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 1 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA10bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA4bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 1 -> -> 1 `i `uc ]
+[e $U 399  ]
+"218
+[; ;mcc_generated_files/lcd.c: 218:         case 6: LCDDATA7bits.SEG13COM2 = 1; LCDDATA6bits.SEG1COM2 = 0; LCDDATA9bits.SEG1COM3 = 1; LCDDATA0bits.SEG1COM0 = 1; LCDDATA10bits.SEG13COM3 = 1; LCDDATA4bits.SEG13COM1 = 1; LCDDATA3bits.SEG1COM1 = 1; break;
+[e :U 407 ]
+[e = . . _LCDDATA7bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 1 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA10bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA4bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 1 -> -> 1 `i `uc ]
+[e $U 399  ]
+"219
+[; ;mcc_generated_files/lcd.c: 219:         case 7: LCDDATA7bits.SEG13COM2 = 1; LCDDATA6bits.SEG1COM2 = 1; LCDDATA9bits.SEG1COM3 = 1; LCDDATA0bits.SEG1COM0 = 0; LCDDATA10bits.SEG13COM3 = 0; LCDDATA4bits.SEG13COM1 = 0; LCDDATA3bits.SEG1COM1 = 0; break;
+[e :U 408 ]
+[e = . . _LCDDATA7bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 1 -> -> 0 `i `uc ]
+[e = . . _LCDDATA10bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA4bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 1 -> -> 0 `i `uc ]
+[e $U 399  ]
+"220
+[; ;mcc_generated_files/lcd.c: 220:         case 8: LCDDATA7bits.SEG13COM2 = 1; LCDDATA6bits.SEG1COM2 = 1; LCDDATA9bits.SEG1COM3 = 1; LCDDATA0bits.SEG1COM0 = 1; LCDDATA10bits.SEG13COM3 = 1; LCDDATA4bits.SEG13COM1 = 1; LCDDATA3bits.SEG1COM1 = 1; break;
+[e :U 409 ]
+[e = . . _LCDDATA7bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA10bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA4bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 1 -> -> 1 `i `uc ]
+[e $U 399  ]
+"221
+[; ;mcc_generated_files/lcd.c: 221:         case 9: LCDDATA7bits.SEG13COM2 = 1; LCDDATA6bits.SEG1COM2 = 1; LCDDATA9bits.SEG1COM3 = 1; LCDDATA0bits.SEG1COM0 = 1; LCDDATA10bits.SEG13COM3 = 0; LCDDATA4bits.SEG13COM1 = 1; LCDDATA3bits.SEG1COM1 = 1; break;
+[e :U 410 ]
+[e = . . _LCDDATA7bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA10bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA4bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 1 -> -> 1 `i `uc ]
+[e $U 399  ]
+"223
+[; ;mcc_generated_files/lcd.c: 223:         default: LCDDATA7bits.SEG13COM2 = 0; LCDDATA6bits.SEG1COM2 = 0; LCDDATA9bits.SEG1COM3 = 0; LCDDATA0bits.SEG1COM0 = 0; LCDDATA10bits.SEG13COM3 = 0; LCDDATA4bits.SEG13COM1 = 0; LCDDATA3bits.SEG1COM1 = 0;
+[e :U 411 ]
+[e = . . _LCDDATA7bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA6bits 0 1 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 1 -> -> 0 `i `uc ]
+[e = . . _LCDDATA0bits 0 1 -> -> 0 `i `uc ]
+[e = . . _LCDDATA10bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA4bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 1 -> -> 0 `i `uc ]
+"224
+[; ;mcc_generated_files/lcd.c: 224:     }
+}
+[e $U 399  ]
+[e :U 400 ]
+[e [\ -> _num `i , $ -> 0 `i 401
+ , $ -> 1 `i 402
+ , $ -> 2 `i 403
+ , $ -> 3 `i 404
+ , $ -> 4 `i 405
+ , $ -> 5 `i 406
+ , $ -> 6 `i 407
+ , $ -> 7 `i 408
+ , $ -> 8 `i 409
+ , $ -> 9 `i 410
+ 411 ]
+[e :U 399 ]
+"225
+[; ;mcc_generated_files/lcd.c: 225: }
+[e :UE 398 ]
+}
+"227
+[; ;mcc_generated_files/lcd.c: 227: void LCD_DisplayOn_DIG4_SYM03Num()
+[v _LCD_DisplayOn_DIG4_SYM03Num `(v ~T0 @X0 1 ef ]
+"228
+[; ;mcc_generated_files/lcd.c: 228: {
+{
+[e :U _LCD_DisplayOn_DIG4_SYM03Num ]
+[f ]
+"229
+[; ;mcc_generated_files/lcd.c: 229:  LCDDATA7bits.SEG14COM2 = 1;LCDDATA6bits.SEG2COM2 = 1;LCDDATA9bits.SEG2COM3 = 1;LCDDATA0bits.SEG2COM0 = 1;LCDDATA10bits.SEG14COM3 = 1;LCDDATA4bits.SEG14COM1 = 1;LCDDATA3bits.SEG2COM1 = 1;
+[e = . . _LCDDATA7bits 0 6 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA10bits 0 6 -> -> 1 `i `uc ]
+[e = . . _LCDDATA4bits 0 6 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 2 -> -> 1 `i `uc ]
+"230
+[; ;mcc_generated_files/lcd.c: 230: }
+[e :UE 412 ]
+}
+"232
+[; ;mcc_generated_files/lcd.c: 232: void LCD_DisplayOff_DIG4_SYM03Num()
+[v _LCD_DisplayOff_DIG4_SYM03Num `(v ~T0 @X0 1 ef ]
+"233
+[; ;mcc_generated_files/lcd.c: 233: {
+{
+[e :U _LCD_DisplayOff_DIG4_SYM03Num ]
+[f ]
+"234
+[; ;mcc_generated_files/lcd.c: 234:  LCDDATA7bits.SEG14COM2 = 0;LCDDATA6bits.SEG2COM2 = 0;LCDDATA9bits.SEG2COM3 = 0;LCDDATA0bits.SEG2COM0 = 0;LCDDATA10bits.SEG14COM3 = 0;LCDDATA4bits.SEG14COM1 = 0;LCDDATA3bits.SEG2COM1 = 0;
+[e = . . _LCDDATA7bits 0 6 -> -> 0 `i `uc ]
+[e = . . _LCDDATA6bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA0bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA10bits 0 6 -> -> 0 `i `uc ]
+[e = . . _LCDDATA4bits 0 6 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 2 -> -> 0 `i `uc ]
+"235
+[; ;mcc_generated_files/lcd.c: 235: }
+[e :UE 413 ]
+}
+"237
+[; ;mcc_generated_files/lcd.c: 237: void LCD_DIG4_SYM03Num (unsigned char num)
+[v _LCD_DIG4_SYM03Num `(v ~T0 @X0 1 ef1`uc ]
+"238
+[; ;mcc_generated_files/lcd.c: 238: {
+{
+[e :U _LCD_DIG4_SYM03Num ]
+"237
+[; ;mcc_generated_files/lcd.c: 237: void LCD_DIG4_SYM03Num (unsigned char num)
+[v _num `uc ~T0 @X0 1 r1 ]
+"238
+[; ;mcc_generated_files/lcd.c: 238: {
+[f ]
+"239
+[; ;mcc_generated_files/lcd.c: 239:     switch (num)
+[e $U 416  ]
+"240
+[; ;mcc_generated_files/lcd.c: 240:     {
+{
+"241
+[; ;mcc_generated_files/lcd.c: 241:         case 0: LCDDATA7bits.SEG14COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA10bits.SEG14COM3 = 1; LCDDATA4bits.SEG14COM1 = 1; LCDDATA3bits.SEG2COM1 = 0; break;
+[e :U 417 ]
+[e = . . _LCDDATA7bits 0 6 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA10bits 0 6 -> -> 1 `i `uc ]
+[e = . . _LCDDATA4bits 0 6 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 2 -> -> 0 `i `uc ]
+[e $U 415  ]
+"242
+[; ;mcc_generated_files/lcd.c: 242:         case 1: LCDDATA7bits.SEG14COM2 = 0; LCDDATA6bits.SEG2COM2 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA0bits.SEG2COM0 = 0; LCDDATA10bits.SEG14COM3 = 0; LCDDATA4bits.SEG14COM1 = 0; LCDDATA3bits.SEG2COM1 = 0; break;
+[e :U 418 ]
+[e = . . _LCDDATA7bits 0 6 -> -> 0 `i `uc ]
+[e = . . _LCDDATA6bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA10bits 0 6 -> -> 0 `i `uc ]
+[e = . . _LCDDATA4bits 0 6 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 2 -> -> 0 `i `uc ]
+[e $U 415  ]
+"243
+[; ;mcc_generated_files/lcd.c: 243:         case 2: LCDDATA7bits.SEG14COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; LCDDATA9bits.SEG2COM3 = 0; LCDDATA0bits.SEG2COM0 = 1; LCDDATA10bits.SEG14COM3 = 1; LCDDATA4bits.SEG14COM1 = 0; LCDDATA3bits.SEG2COM1 = 1; break;
+[e :U 419 ]
+[e = . . _LCDDATA7bits 0 6 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA0bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA10bits 0 6 -> -> 1 `i `uc ]
+[e = . . _LCDDATA4bits 0 6 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 2 -> -> 1 `i `uc ]
+[e $U 415  ]
+"244
+[; ;mcc_generated_files/lcd.c: 244:         case 3: LCDDATA7bits.SEG14COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA10bits.SEG14COM3 = 0; LCDDATA4bits.SEG14COM1 = 0; LCDDATA3bits.SEG2COM1 = 1; break;
+[e :U 420 ]
+[e = . . _LCDDATA7bits 0 6 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA10bits 0 6 -> -> 0 `i `uc ]
+[e = . . _LCDDATA4bits 0 6 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 2 -> -> 1 `i `uc ]
+[e $U 415  ]
+"245
+[; ;mcc_generated_files/lcd.c: 245:         case 4: LCDDATA7bits.SEG14COM2 = 0; LCDDATA6bits.SEG2COM2 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA0bits.SEG2COM0 = 0; LCDDATA10bits.SEG14COM3 = 0; LCDDATA4bits.SEG14COM1 = 1; LCDDATA3bits.SEG2COM1 = 1; break;
+[e :U 421 ]
+[e = . . _LCDDATA7bits 0 6 -> -> 0 `i `uc ]
+[e = . . _LCDDATA6bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA10bits 0 6 -> -> 0 `i `uc ]
+[e = . . _LCDDATA4bits 0 6 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 2 -> -> 1 `i `uc ]
+[e $U 415  ]
+"246
+[; ;mcc_generated_files/lcd.c: 246:         case 5: LCDDATA7bits.SEG14COM2 = 1; LCDDATA6bits.SEG2COM2 = 0; LCDDATA9bits.SEG2COM3 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA10bits.SEG14COM3 = 0; LCDDATA4bits.SEG14COM1 = 1; LCDDATA3bits.SEG2COM1 = 1; break;
+[e :U 422 ]
+[e = . . _LCDDATA7bits 0 6 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA10bits 0 6 -> -> 0 `i `uc ]
+[e = . . _LCDDATA4bits 0 6 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 2 -> -> 1 `i `uc ]
+[e $U 415  ]
+"247
+[; ;mcc_generated_files/lcd.c: 247:         case 6: LCDDATA7bits.SEG14COM2 = 1; LCDDATA6bits.SEG2COM2 = 0; LCDDATA9bits.SEG2COM3 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA10bits.SEG14COM3 = 1; LCDDATA4bits.SEG14COM1 = 1; LCDDATA3bits.SEG2COM1 = 1; break;
+[e :U 423 ]
+[e = . . _LCDDATA7bits 0 6 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA10bits 0 6 -> -> 1 `i `uc ]
+[e = . . _LCDDATA4bits 0 6 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 2 -> -> 1 `i `uc ]
+[e $U 415  ]
+"248
+[; ;mcc_generated_files/lcd.c: 248:         case 7: LCDDATA7bits.SEG14COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA0bits.SEG2COM0 = 0; LCDDATA10bits.SEG14COM3 = 0; LCDDATA4bits.SEG14COM1 = 0; LCDDATA3bits.SEG2COM1 = 0; break;
+[e :U 424 ]
+[e = . . _LCDDATA7bits 0 6 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA10bits 0 6 -> -> 0 `i `uc ]
+[e = . . _LCDDATA4bits 0 6 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 2 -> -> 0 `i `uc ]
+[e $U 415  ]
+"249
+[; ;mcc_generated_files/lcd.c: 249:         case 8: LCDDATA7bits.SEG14COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA10bits.SEG14COM3 = 1; LCDDATA4bits.SEG14COM1 = 1; LCDDATA3bits.SEG2COM1 = 1; break;
+[e :U 425 ]
+[e = . . _LCDDATA7bits 0 6 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA10bits 0 6 -> -> 1 `i `uc ]
+[e = . . _LCDDATA4bits 0 6 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 2 -> -> 1 `i `uc ]
+[e $U 415  ]
+"250
+[; ;mcc_generated_files/lcd.c: 250:         case 9: LCDDATA7bits.SEG14COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA10bits.SEG14COM3 = 0; LCDDATA4bits.SEG14COM1 = 1; LCDDATA3bits.SEG2COM1 = 1; break;
+[e :U 426 ]
+[e = . . _LCDDATA7bits 0 6 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA10bits 0 6 -> -> 0 `i `uc ]
+[e = . . _LCDDATA4bits 0 6 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 2 -> -> 1 `i `uc ]
+[e $U 415  ]
+"252
+[; ;mcc_generated_files/lcd.c: 252:         default: LCDDATA7bits.SEG14COM2 = 0; LCDDATA6bits.SEG2COM2 = 0; LCDDATA9bits.SEG2COM3 = 0; LCDDATA0bits.SEG2COM0 = 0; LCDDATA10bits.SEG14COM3 = 0; LCDDATA4bits.SEG14COM1 = 0; LCDDATA3bits.SEG2COM1 = 0;
+[e :U 427 ]
+[e = . . _LCDDATA7bits 0 6 -> -> 0 `i `uc ]
+[e = . . _LCDDATA6bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA0bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA10bits 0 6 -> -> 0 `i `uc ]
+[e = . . _LCDDATA4bits 0 6 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 2 -> -> 0 `i `uc ]
+"253
+[; ;mcc_generated_files/lcd.c: 253:     }
+}
+[e $U 415  ]
+[e :U 416 ]
+[e [\ -> _num `i , $ -> 0 `i 417
+ , $ -> 1 `i 418
+ , $ -> 2 `i 419
+ , $ -> 3 `i 420
+ , $ -> 4 `i 421
+ , $ -> 5 `i 422
+ , $ -> 6 `i 423
+ , $ -> 7 `i 424
+ , $ -> 8 `i 425
+ , $ -> 9 `i 426
+ 427 ]
+[e :U 415 ]
+"254
+[; ;mcc_generated_files/lcd.c: 254: }
+[e :UE 414 ]
+}
