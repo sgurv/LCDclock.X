@@ -12,31 +12,36 @@
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
 $dist/default/production\LCDclock.X.production.o
-cinit CODE 0 7ED 7ED 13 2
-text1 CODE 0 54F 54F 1C 2
-text2 CODE 0 4D9 4D9 4 2
-text3 CODE 0 512 512 C 2
-text4 CODE 0 4FC 4FC A 2
-text5 CODE 0 535 535 1A 2
-text6 CODE 0 506 506 C 2
-text7 CODE 0 51E 51E 17 2
-text8 CODE 0 4F3 4F3 9 2
-text9 CODE 0 4D5 4D5 4 2
-text10 CODE 0 56B 56B 22 2
-text11 CODE 0 4E2 4E2 5 2
-text12 CODE 0 4DD 4DD 5 2
-text13 CODE 0 4E7 4E7 6 2
-text14 CODE 0 75F 75F 8E 2
-text15 CODE 0 6D1 6D1 8E 2
-text16 CODE 0 643 643 8E 2
-text17 CODE 0 5B5 5B5 8E 2
-maintext CODE 0 58D 58D 28 2
-cstackCOMMON COMMON 1 78 78 5 1
+cinit CODE 0 7F4 7F4 C 2
+text1 CODE 0 51A 51A 47 2
+text2 CODE 0 4AA 4AA 34 2
+text3 CODE 0 4DE 4DE 3C 2
+text4 CODE 0 468 468 1F 2
+text5 CODE 0 3EA 3EA 4 2
+text6 CODE 0 42B 42B C 2
+text7 CODE 0 415 415 A 2
+text8 CODE 0 44F 44F 19 2
+text9 CODE 0 41F 41F C 2
+text10 CODE 0 437 437 18 2
+text11 CODE 0 40C 40C 9 2
+text12 CODE 0 3E6 3E6 4 2
+text13 CODE 0 487 487 23 2
+text14 CODE 0 400 400 6 2
+text15 CODE 0 3FA 3FA 6 2
+text16 CODE 0 3F4 3F4 6 2
+text17 CODE 0 3EE 3EE 6 2
+text18 CODE 0 766 766 8E 2
+text19 CODE 0 6D8 6D8 8E 2
+text20 CODE 0 64A 64A 8E 2
+text21 CODE 0 5BC 5BC 8E 2
+maintext CODE 0 561 561 5B 2
+cstackCOMMON COMMON 1 70 70 D 1
+cstackBANK0 BANK0 1 46 46 A 1
 stringtext1 STRCODE 0 800 800 20 2
-bssBANK0 BANK0 1 20 20 1F 1
-clrtext CODE 0 4ED 4ED 6 2
-bssCOMMON COMMON 1 70 70 8 1
-$C:\Users\SANDEE~1\AppData\Local\Temp\s7js.o
+bssBANK0 BANK0 1 20 20 26 1
+clrtext CODE 0 406 406 6 2
+bssCOMMON COMMON 1 7D 7D 1 1
+$C:\Users\SANDEE~1\AppData\Local\Temp\s748.o
 reset_vec CODE 0 0 0 2 2
 end_init CODE 0 2 2 2 2
 config CONFIG 0 8007 8007 2 2
@@ -46,7 +51,7 @@ config CONFIG 0 8007 8007 2 2
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
-RAM 3F-6F 1
+RAM 50-6F 1
 RAM A0-EF 1
 RAM 120-16F 1
 RAM 1A0-1EF 1
@@ -59,7 +64,7 @@ RAM 4A0-4EF 1
 RAM 520-56F 1
 RAM 5A0-5EF 1
 RAM 620-64F 1
-BANK0 3F-6F 1
+BANK0 50-6F 1
 BANK1 A0-EF 1
 BANK2 120-16F 1
 BANK3 1A0-1EF 1
@@ -69,9 +74,9 @@ BANK6 320-36F 1
 BANK7 3A0-3EF 1
 BANK8 420-46F 1
 BANK9 4A0-4EF 1
-CONST 4-4D4 2
+CONST 4-3E5 2
 CONST 820-3FFF 2
-ENTRY 4-4D4 2
+ENTRY 4-3E5 2
 ENTRY 820-3FFF 2
 IDLOC 8000-8003 2
 SFR10 500-51F 1
@@ -96,8 +101,8 @@ SFR28 E00-E6F 1
 SFR29 E80-EEF 1
 SFR30 F00-F6F 1
 SFR31 F80-FEF 1
-STACK 201F-23EF 1
-CODE 4-4D4 2
+STACK 2030-23EF 1
+CODE 4-3E5 2
 CODE 820-3FFF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
@@ -113,11 +118,10 @@ BANK10 520-56F 1
 BANK11 5A0-5EF 1
 BANK12 620-64F 1
 BIGRAM 2000-23EF 1
-COMMON 7D-7D 1
 EEDATA F000-F0FF 2
-STRCODE 4-4D4 2
+STRCODE 4-3E5 2
 STRCODE 820-3FFF 2
-STRING 4-4D4 2
+STRING 4-3E5 2
 STRING 820-3FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
@@ -133,203 +137,241 @@ STRING 820-3FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\LCDclock.X.production.o
-7ED cinit CODE >4088:C:\Users\SANDEE~1\AppData\Local\Temp\s7js.s
-7ED cinit CODE >4091:C:\Users\SANDEE~1\AppData\Local\Temp\s7js.s
-7ED cinit CODE >4136:C:\Users\SANDEE~1\AppData\Local\Temp\s7js.s
-7EE cinit CODE >4137:C:\Users\SANDEE~1\AppData\Local\Temp\s7js.s
-7EF cinit CODE >4138:C:\Users\SANDEE~1\AppData\Local\Temp\s7js.s
-7F0 cinit CODE >4139:C:\Users\SANDEE~1\AppData\Local\Temp\s7js.s
-7F1 cinit CODE >4140:C:\Users\SANDEE~1\AppData\Local\Temp\s7js.s
-7F2 cinit CODE >4141:C:\Users\SANDEE~1\AppData\Local\Temp\s7js.s
-7F5 cinit CODE >4145:C:\Users\SANDEE~1\AppData\Local\Temp\s7js.s
-7F6 cinit CODE >4146:C:\Users\SANDEE~1\AppData\Local\Temp\s7js.s
-7F7 cinit CODE >4147:C:\Users\SANDEE~1\AppData\Local\Temp\s7js.s
-7F8 cinit CODE >4148:C:\Users\SANDEE~1\AppData\Local\Temp\s7js.s
-7F9 cinit CODE >4149:C:\Users\SANDEE~1\AppData\Local\Temp\s7js.s
-7FA cinit CODE >4150:C:\Users\SANDEE~1\AppData\Local\Temp\s7js.s
-7FD cinit CODE >4156:C:\Users\SANDEE~1\AppData\Local\Temp\s7js.s
-7FD cinit CODE >4158:C:\Users\SANDEE~1\AppData\Local\Temp\s7js.s
-7FE cinit CODE >4159:C:\Users\SANDEE~1\AppData\Local\Temp\s7js.s
-5B5 text17 CODE >150:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-5B6 text17 CODE >152:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-5B7 text17 CODE >154:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-5C0 text17 CODE >155:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-5C9 text17 CODE >156:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-5D2 text17 CODE >157:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-5DB text17 CODE >158:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-5E4 text17 CODE >159:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-5ED text17 CODE >160:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-5F6 text17 CODE >161:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-5FF text17 CODE >162:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-608 text17 CODE >163:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-611 text17 CODE >165:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-619 text17 CODE >166:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-642 text17 CODE >167:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-643 text16 CODE >179:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-644 text16 CODE >181:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-645 text16 CODE >183:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-64E text16 CODE >184:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-657 text16 CODE >185:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-660 text16 CODE >186:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-669 text16 CODE >187:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-672 text16 CODE >188:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-67B text16 CODE >189:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-684 text16 CODE >190:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-68D text16 CODE >191:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-696 text16 CODE >192:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-69F text16 CODE >194:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-6A7 text16 CODE >195:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-6D0 text16 CODE >196:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-6D1 text15 CODE >208:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-6D2 text15 CODE >210:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-6D3 text15 CODE >212:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-6DC text15 CODE >213:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-6E5 text15 CODE >214:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-6EE text15 CODE >215:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-6F7 text15 CODE >216:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-700 text15 CODE >217:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-709 text15 CODE >218:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-712 text15 CODE >219:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-71B text15 CODE >220:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-724 text15 CODE >221:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-72D text15 CODE >223:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-735 text15 CODE >224:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-75E text15 CODE >225:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-75F text14 CODE >237:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-760 text14 CODE >239:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-761 text14 CODE >241:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-76A text14 CODE >242:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-773 text14 CODE >243:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-77C text14 CODE >244:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-785 text14 CODE >245:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-78E text14 CODE >246:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-797 text14 CODE >247:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-7A0 text14 CODE >248:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-7A9 text14 CODE >249:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-7B2 text14 CODE >250:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-7BB text14 CODE >252:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-7C3 text14 CODE >253:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-7EC text14 CODE >254:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-4E7 text13 CODE >165:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/eusart.c
-4E7 text13 CODE >166:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/eusart.c
-4EC text13 CODE >167:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/eusart.c
-4DD text12 CODE >157:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/eusart.c
-4DD text12 CODE >158:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/eusart.c
-4E1 text12 CODE >159:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/eusart.c
-4E2 text11 CODE >161:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/eusart.c
-4E2 text11 CODE >162:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/eusart.c
-4E6 text11 CODE >163:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/eusart.c
-56B text10 CODE >66:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/eusart.c
-56B text10 CODE >71:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/eusart.c
-56E text10 CODE >74:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/eusart.c
-570 text10 CODE >77:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/eusart.c
-572 text10 CODE >80:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/eusart.c
-574 text10 CODE >83:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/eusart.c
-576 text10 CODE >86:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/eusart.c
-57D text10 CODE >87:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/eusart.c
-584 text10 CODE >88:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/eusart.c
-58B text10 CODE >90:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/eusart.c
-58C text10 CODE >92:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/eusart.c
-4D5 text9 CODE >58:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/fvr.c
-4D5 text9 CODE >61:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/fvr.c
-4D8 text9 CODE >62:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/fvr.c
-4F3 text8 CODE >167:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/i2c_master.c
-4F3 text8 CODE >169:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/i2c_master.c
-4F5 text8 CODE >170:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/i2c_master.c
-4F7 text8 CODE >171:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/i2c_master.c
-4F8 text8 CODE >172:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/i2c_master.c
-4FA text8 CODE >173:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/i2c_master.c
-4FB text8 CODE >174:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/i2c_master.c
-51E text7 CODE >58:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-51E text7 CODE >61:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-520 text7 CODE >65:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-521 text7 CODE >68:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-523 text7 CODE >71:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-524 text7 CODE >74:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-526 text7 CODE >77:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-527 text7 CODE >78:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-528 text7 CODE >79:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-529 text7 CODE >80:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-52A text7 CODE >81:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-52B text7 CODE >82:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-52C text7 CODE >83:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-52D text7 CODE >84:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-52E text7 CODE >87:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-530 text7 CODE >88:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-532 text7 CODE >91:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-534 text7 CODE >93:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
-506 text6 CODE >64:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/mcc.c
-506 text6 CODE >67:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/mcc.c
-509 text6 CODE >69:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/mcc.c
-50A text6 CODE >71:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/mcc.c
-50C text6 CODE >73:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/mcc.c
-50C text6 CODE >75:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/mcc.c
-511 text6 CODE >76:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/mcc.c
-535 text5 CODE >55:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/pin_manager.c
-535 text5 CODE >60:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/pin_manager.c
-537 text5 CODE >61:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/pin_manager.c
-538 text5 CODE >62:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/pin_manager.c
-539 text5 CODE >63:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/pin_manager.c
-53A text5 CODE >68:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/pin_manager.c
-53D text5 CODE >69:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/pin_manager.c
-53E text5 CODE >70:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/pin_manager.c
-540 text5 CODE >71:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/pin_manager.c
-542 text5 CODE >76:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/pin_manager.c
-545 text5 CODE >77:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/pin_manager.c
-547 text5 CODE >82:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/pin_manager.c
-549 text5 CODE >83:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/pin_manager.c
-54A text5 CODE >84:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/pin_manager.c
-54C text5 CODE >90:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/pin_manager.c
-54E text5 CODE >97:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/pin_manager.c
-4FC text4 CODE >63:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/tmr0.c
-4FC text4 CODE >68:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/tmr0.c
-501 text4 CODE >71:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/tmr0.c
-503 text4 CODE >74:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/tmr0.c
-504 text4 CODE >77:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/tmr0.c
-505 text4 CODE >78:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/tmr0.c
-512 text3 CODE >63:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/tmr1.c
-512 text3 CODE >68:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/tmr1.c
-514 text3 CODE >71:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/tmr1.c
-515 text3 CODE >74:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/tmr1.c
-516 text3 CODE >77:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/tmr1.c
-517 text3 CODE >80:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/tmr1.c
-51B text3 CODE >83:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/tmr1.c
-51D text3 CODE >84:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/tmr1.c
-4D9 text2 CODE >78:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/mcc.c
-4D9 text2 CODE >81:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/mcc.c
-4DC text2 CODE >82:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/mcc.c
-54F text1 CODE >50:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/mcc.c
-54F text1 CODE >53:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/mcc.c
-552 text1 CODE >54:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/mcc.c
-555 text1 CODE >55:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/mcc.c
-558 text1 CODE >56:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/mcc.c
-55B text1 CODE >57:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/mcc.c
-55E text1 CODE >58:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/mcc.c
-561 text1 CODE >59:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/mcc.c
-564 text1 CODE >60:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/mcc.c
-567 text1 CODE >61:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/mcc.c
-56A text1 CODE >62:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/mcc.c
-58D maintext CODE >49:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\main.c
-58D maintext CODE >52:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\main.c
-590 maintext CODE >69:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\main.c
-590 maintext CODE >72:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\main.c
-591 maintext CODE >73:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\main.c
-595 maintext CODE >74:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\main.c
-599 maintext CODE >75:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\main.c
-59D maintext CODE >76:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\main.c
-5A1 maintext CODE >77:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\main.c
-5A3 maintext CODE >78:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\main.c
-5A4 maintext CODE >79:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\main.c
-5A5 maintext CODE >80:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\main.c
-5A6 maintext CODE >81:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\main.c
-4ED clrtext CODE >4125:C:\Users\SANDEE~1\AppData\Local\Temp\s7js.s
-4ED clrtext CODE >4126:C:\Users\SANDEE~1\AppData\Local\Temp\s7js.s
-4EE clrtext CODE >4127:C:\Users\SANDEE~1\AppData\Local\Temp\s7js.s
-4EE clrtext CODE >4128:C:\Users\SANDEE~1\AppData\Local\Temp\s7js.s
-4EF clrtext CODE >4129:C:\Users\SANDEE~1\AppData\Local\Temp\s7js.s
-4F0 clrtext CODE >4130:C:\Users\SANDEE~1\AppData\Local\Temp\s7js.s
-4F1 clrtext CODE >4131:C:\Users\SANDEE~1\AppData\Local\Temp\s7js.s
-4F2 clrtext CODE >4132:C:\Users\SANDEE~1\AppData\Local\Temp\s7js.s
+7F4 cinit CODE >4426:C:\Users\SANDEE~1\AppData\Local\Temp\s748.s
+7F4 cinit CODE >4429:C:\Users\SANDEE~1\AppData\Local\Temp\s748.s
+7F4 cinit CODE >4474:C:\Users\SANDEE~1\AppData\Local\Temp\s748.s
+7F5 cinit CODE >4478:C:\Users\SANDEE~1\AppData\Local\Temp\s748.s
+7F6 cinit CODE >4479:C:\Users\SANDEE~1\AppData\Local\Temp\s748.s
+7F7 cinit CODE >4480:C:\Users\SANDEE~1\AppData\Local\Temp\s748.s
+7F8 cinit CODE >4481:C:\Users\SANDEE~1\AppData\Local\Temp\s748.s
+7F9 cinit CODE >4482:C:\Users\SANDEE~1\AppData\Local\Temp\s748.s
+7FA cinit CODE >4483:C:\Users\SANDEE~1\AppData\Local\Temp\s748.s
+7FD cinit CODE >4489:C:\Users\SANDEE~1\AppData\Local\Temp\s748.s
+7FD cinit CODE >4491:C:\Users\SANDEE~1\AppData\Local\Temp\s748.s
+7FE cinit CODE >4492:C:\Users\SANDEE~1\AppData\Local\Temp\s748.s
+5BC text21 CODE >150:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+5BD text21 CODE >152:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+5BE text21 CODE >154:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+5C7 text21 CODE >155:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+5D0 text21 CODE >156:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+5D9 text21 CODE >157:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+5E2 text21 CODE >158:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+5EB text21 CODE >159:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+5F4 text21 CODE >160:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+5FD text21 CODE >161:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+606 text21 CODE >162:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+60F text21 CODE >163:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+618 text21 CODE >165:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+620 text21 CODE >166:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+649 text21 CODE >167:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+64A text20 CODE >179:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+64B text20 CODE >181:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+64C text20 CODE >183:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+655 text20 CODE >184:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+65E text20 CODE >185:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+667 text20 CODE >186:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+670 text20 CODE >187:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+679 text20 CODE >188:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+682 text20 CODE >189:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+68B text20 CODE >190:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+694 text20 CODE >191:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+69D text20 CODE >192:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+6A6 text20 CODE >194:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+6AE text20 CODE >195:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+6D7 text20 CODE >196:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+6D8 text19 CODE >208:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+6D9 text19 CODE >210:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+6DA text19 CODE >212:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+6E3 text19 CODE >213:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+6EC text19 CODE >214:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+6F5 text19 CODE >215:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+6FE text19 CODE >216:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+707 text19 CODE >217:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+710 text19 CODE >218:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+719 text19 CODE >219:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+722 text19 CODE >220:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+72B text19 CODE >221:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+734 text19 CODE >223:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+73C text19 CODE >224:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+765 text19 CODE >225:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+766 text18 CODE >237:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+767 text18 CODE >239:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+768 text18 CODE >241:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+771 text18 CODE >242:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+77A text18 CODE >243:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+783 text18 CODE >244:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+78C text18 CODE >245:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+795 text18 CODE >246:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+79E text18 CODE >247:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+7A7 text18 CODE >248:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+7B0 text18 CODE >249:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+7B9 text18 CODE >250:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+7C2 text18 CODE >252:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+7CA text18 CODE >253:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+7F3 text18 CODE >254:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+3EE text17 CODE >58:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/dac.c
+3EE text17 CODE >61:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/dac.c
+3F1 text17 CODE >63:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/dac.c
+3F3 text17 CODE >64:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/dac.c
+3F4 text16 CODE >165:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/eusart.c
+3F4 text16 CODE >166:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/eusart.c
+3F9 text16 CODE >167:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/eusart.c
+3FA text15 CODE >157:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/eusart.c
+3FA text15 CODE >158:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/eusart.c
+3FF text15 CODE >159:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/eusart.c
+400 text14 CODE >161:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/eusart.c
+400 text14 CODE >162:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/eusart.c
+405 text14 CODE >163:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/eusart.c
+487 text13 CODE >66:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/eusart.c
+487 text13 CODE >71:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/eusart.c
+48A text13 CODE >74:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/eusart.c
+48C text13 CODE >77:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/eusart.c
+48E text13 CODE >80:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/eusart.c
+490 text13 CODE >83:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/eusart.c
+492 text13 CODE >86:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/eusart.c
+499 text13 CODE >87:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/eusart.c
+4A0 text13 CODE >88:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/eusart.c
+4A7 text13 CODE >90:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/eusart.c
+4A9 text13 CODE >92:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/eusart.c
+3E6 text12 CODE >58:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/fvr.c
+3E6 text12 CODE >61:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/fvr.c
+3E9 text12 CODE >62:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/fvr.c
+40C text11 CODE >167:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/i2c_master.c
+40C text11 CODE >169:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/i2c_master.c
+40E text11 CODE >170:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/i2c_master.c
+410 text11 CODE >171:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/i2c_master.c
+411 text11 CODE >172:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/i2c_master.c
+413 text11 CODE >173:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/i2c_master.c
+414 text11 CODE >174:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/i2c_master.c
+437 text10 CODE >58:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+437 text10 CODE >61:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+439 text10 CODE >65:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+43B text10 CODE >68:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+43D text10 CODE >71:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+43F text10 CODE >74:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+440 text10 CODE >77:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+441 text10 CODE >78:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+442 text10 CODE >79:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+443 text10 CODE >80:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+444 text10 CODE >81:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+445 text10 CODE >82:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+446 text10 CODE >83:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+447 text10 CODE >84:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+448 text10 CODE >87:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+44A text10 CODE >88:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+44C text10 CODE >91:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+44E text10 CODE >93:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/lcd.c
+41F text9 CODE >65:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/mcc.c
+41F text9 CODE >68:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/mcc.c
+422 text9 CODE >70:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/mcc.c
+423 text9 CODE >72:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/mcc.c
+425 text9 CODE >74:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/mcc.c
+425 text9 CODE >76:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/mcc.c
+42A text9 CODE >77:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/mcc.c
+44F text8 CODE >55:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/pin_manager.c
+44F text8 CODE >60:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/pin_manager.c
+451 text8 CODE >61:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/pin_manager.c
+452 text8 CODE >62:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/pin_manager.c
+453 text8 CODE >63:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/pin_manager.c
+454 text8 CODE >68:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/pin_manager.c
+457 text8 CODE >69:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/pin_manager.c
+458 text8 CODE >70:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/pin_manager.c
+45A text8 CODE >71:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/pin_manager.c
+45C text8 CODE >76:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/pin_manager.c
+45F text8 CODE >77:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/pin_manager.c
+460 text8 CODE >82:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/pin_manager.c
+462 text8 CODE >83:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/pin_manager.c
+463 text8 CODE >84:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/pin_manager.c
+465 text8 CODE >90:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/pin_manager.c
+467 text8 CODE >97:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/pin_manager.c
+415 text7 CODE >63:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/tmr0.c
+415 text7 CODE >68:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/tmr0.c
+41A text7 CODE >71:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/tmr0.c
+41C text7 CODE >74:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/tmr0.c
+41D text7 CODE >77:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/tmr0.c
+41E text7 CODE >78:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/tmr0.c
+42B text6 CODE >63:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/tmr1.c
+42B text6 CODE >68:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/tmr1.c
+42D text6 CODE >71:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/tmr1.c
+42E text6 CODE >74:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/tmr1.c
+42F text6 CODE >77:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/tmr1.c
+430 text6 CODE >80:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/tmr1.c
+434 text6 CODE >83:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/tmr1.c
+436 text6 CODE >84:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/tmr1.c
+3EA text5 CODE >79:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/mcc.c
+3EA text5 CODE >82:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/mcc.c
+3ED text5 CODE >83:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/mcc.c
+468 text4 CODE >50:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/mcc.c
+468 text4 CODE >53:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/mcc.c
+46B text4 CODE >54:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/mcc.c
+46E text4 CODE >55:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/mcc.c
+471 text4 CODE >56:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/mcc.c
+474 text4 CODE >57:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/mcc.c
+477 text4 CODE >58:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/mcc.c
+47A text4 CODE >59:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/mcc.c
+47D text4 CODE >60:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/mcc.c
+480 text4 CODE >61:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/mcc.c
+483 text4 CODE >62:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/mcc.c
+486 text4 CODE >63:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/mcc.c
+4DE text3 CODE >5:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\lwdiv.c
+4DE text3 CODE >13:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\lwdiv.c
+4E0 text3 CODE >14:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\lwdiv.c
+4E6 text3 CODE >15:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\lwdiv.c
+4E8 text3 CODE >16:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\lwdiv.c
+4E9 text3 CODE >17:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\lwdiv.c
+4EE text3 CODE >18:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\lwdiv.c
+4F2 text3 CODE >16:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\lwdiv.c
+4F6 text3 CODE >21:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\lwdiv.c
+4FB text3 CODE >22:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\lwdiv.c
+505 text3 CODE >23:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\lwdiv.c
+509 text3 CODE >24:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\lwdiv.c
+50A text3 CODE >26:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\lwdiv.c
+50F text3 CODE >27:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\lwdiv.c
+515 text3 CODE >29:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\lwdiv.c
+519 text3 CODE >30:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\lwdiv.c
+4AA text2 CODE >5:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\lwmod.c
+4AA text2 CODE >12:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\lwmod.c
+4B0 text2 CODE >13:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\lwmod.c
+4B2 text2 CODE >14:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\lwmod.c
+4B3 text2 CODE >15:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\lwmod.c
+4B8 text2 CODE >16:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\lwmod.c
+4BC text2 CODE >14:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\lwmod.c
+4C0 text2 CODE >19:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\lwmod.c
+4CA text2 CODE >20:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\lwmod.c
+4CE text2 CODE >21:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\lwmod.c
+4D3 text2 CODE >22:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\lwmod.c
+4D9 text2 CODE >24:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\lwmod.c
+4DD text2 CODE >25:C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\lwmod.c
+51A text1 CODE >97:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\main.c
+51A text1 CODE >98:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\main.c
+51D text1 CODE >99:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\main.c
+51F text1 CODE >101:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\main.c
+520 text1 CODE >102:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\main.c
+546 text1 CODE >103:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\main.c
+555 text1 CODE >101:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\main.c
+55B text1 CODE >106:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\main.c
+560 text1 CODE >107:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\main.c
+561 maintext CODE >51:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\main.c
+561 maintext CODE >53:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\main.c
+564 maintext CODE >55:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\main.c
+567 maintext CODE >72:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\main.c
+567 maintext CODE >75:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\main.c
+568 maintext CODE >77:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\main.c
+575 maintext CODE >79:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\main.c
+582 maintext CODE >80:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\main.c
+588 maintext CODE >81:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\main.c
+597 maintext CODE >82:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\main.c
+59D maintext CODE >89:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\main.c
+5A2 maintext CODE >90:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\main.c
+5AD maintext CODE >92:C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\main.c
+406 clrtext CODE >4463:C:\Users\SANDEE~1\AppData\Local\Temp\s748.s
+406 clrtext CODE >4464:C:\Users\SANDEE~1\AppData\Local\Temp\s748.s
+407 clrtext CODE >4465:C:\Users\SANDEE~1\AppData\Local\Temp\s748.s
+407 clrtext CODE >4466:C:\Users\SANDEE~1\AppData\Local\Temp\s748.s
+408 clrtext CODE >4467:C:\Users\SANDEE~1\AppData\Local\Temp\s748.s
+409 clrtext CODE >4468:C:\Users\SANDEE~1\AppData\Local\Temp\s748.s
+40A clrtext CODE >4469:C:\Users\SANDEE~1\AppData\Local\Temp\s748.s
+40B clrtext CODE >4470:C:\Users\SANDEE~1\AppData\Local\Temp\s748.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -343,21 +385,22 @@ $dist/default/production\LCDclock.X.production.o
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
 ___latbits 3 0 ABS 0 - dist/default/production\LCDclock.X.production.o
-_LCD_DIG3_SYM02Num DA2 0 CODE 0 text15 dist/default/production\LCDclock.X.production.o
+___lwmod@counter 75 0 COMMON 1 cstackCOMMON dist/default/production\LCDclock.X.production.o
+_LCD_DIG3_SYM02Num DB0 0 CODE 0 text19 dist/default/production\LCDclock.X.production.o
 __Hspace_0 8009 0 ABS 0 - -
-__Hspace_1 7D 0 ABS 0 - -
+__Hspace_1 7E 0 ABS 0 - -
 __Hspace_2 0 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
 _LCDDATA10bits 7AA 0 ABS 0 - dist/default/production\LCDclock.X.production.o
-_LCD_Initialize A3C 0 CODE 0 text7 dist/default/production\LCDclock.X.production.o
-_LCD_DIG4_SYM03Num EBE 0 CODE 0 text14 dist/default/production\LCDclock.X.production.o
+_LCD_Initialize 86E 0 CODE 0 text10 dist/default/production\LCDclock.X.production.o
+_LCD_DIG4_SYM03Num ECC 0 CODE 0 text18 dist/default/production\LCDclock.X.production.o
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __CFG_MCLRE$ON 0 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 _T1CONbits 18 0 ABS 0 - dist/default/production\LCDclock.X.production.o
-__end_of_WDT_Initialize 9BA 0 CODE 0 text2 dist/default/production\LCDclock.X.production.o
+__end_of_WDT_Initialize 7DC 0 CODE 0 text5 dist/default/production\LCDclock.X.production.o
 _I2C_CallbackReturnStop 0 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 __Hstrings 0 0 ABS 0 strings -
-LCD_DIG2_SYM01Num@num 7A 0 COMMON 1 cstackCOMMON dist/default/production\LCDclock.X.production.o
+LCD_DIG2_SYM01Num@num 72 0 COMMON 1 cstackCOMMON dist/default/production\LCDclock.X.production.o
 _LATA 10C 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 _LATB 10D 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 _LATC 10E 0 ABS 0 - dist/default/production\LCDclock.X.production.o
@@ -366,15 +409,18 @@ _PLLR 4D6 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 _TMR0 15 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 _WPUB 20D 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 _WPUE 210 0 ABS 0 - dist/default/production\LCDclock.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\SANDEE~1\AppData\Local\Temp\s7js.o
-_main B1A 0 CODE 0 maintext dist/default/production\LCDclock.X.production.o
+___sp 0 0 STACK 2 stack C:\Users\SANDEE~1\AppData\Local\Temp\s748.o
+_main AC2 0 CODE 0 maintext dist/default/production\LCDclock.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\LCDclock.X.production.o
-start 4 0 CODE 0 init C:\Users\SANDEE~1\AppData\Local\Temp\s7js.o
+start 4 0 CODE 0 init C:\Users\SANDEE~1\AppData\Local\Temp\s748.o
 __size_of_main 0 0 ABS 0 - dist/default/production\LCDclock.X.production.o
+__size_of___lwdiv 0 0 ABS 0 - dist/default/production\LCDclock.X.production.o
+__size_of___lwmod 0 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 _I2C_DO_ADDRESS_NACK 0 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 __HbssCOMMON 0 0 ABS 0 bssCOMMON -
-__end_of_EUSART_SetFramingErrorHandler 9C4 0 CODE 0 text12 dist/default/production\LCDclock.X.production.o
-__end_of_EUSART_SetOverrunErrorHandler 9CE 0 CODE 0 text11 dist/default/production\LCDclock.X.production.o
+intToBCD@shift 48 0 BANK0 1 cstackBANK0 dist/default/production\LCDclock.X.production.o
+__end_of_EUSART_SetFramingErrorHandler 800 0 CODE 0 text15 dist/default/production\LCDclock.X.production.o
+__end_of_EUSART_SetOverrunErrorHandler 80C 0 CODE 0 text14 dist/default/production\LCDclock.X.production.o
 _OPTION_REGbits 95 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 _LCDDATA0 7A0 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 _LCDDATA1 7A1 0 ABS 0 - dist/default/production\LCDclock.X.production.o
@@ -385,19 +431,20 @@ _LCDDATA7 7A7 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 _LCDDATA9 7A9 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 _I2C_DO_RX 0 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 _I2C_DO_TX 0 0 ABS 0 - dist/default/production\LCDclock.X.production.o
-__end_of_EUSART_Initialize B1A 0 CODE 0 text10 dist/default/production\LCDclock.X.production.o
+__end_of_EUSART_Initialize 954 0 CODE 0 text13 dist/default/production\LCDclock.X.production.o
 __Hpowerup 0 0 CODE 0 powerup -
 _I2C_DO_TX_EMPTY 0 0 ABS 0 - dist/default/production\LCDclock.X.production.o
+__size_of_intToBCD 0 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 __size_of_TMR1_Initialize 0 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 __end_of_i2c_fsmStateTable 1040 0 STRCODE 0 stringtext1 dist/default/production\LCDclock.X.production.o
 __size_of_SYSTEM_Initialize 0 0 ABS 0 - dist/default/production\LCDclock.X.production.o
-intlevel0 0 0 ENTRY 0 functab C:\Users\SANDEE~1\AppData\Local\Temp\s7js.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\SANDEE~1\AppData\Local\Temp\s7js.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\SANDEE~1\AppData\Local\Temp\s7js.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\SANDEE~1\AppData\Local\Temp\s7js.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\SANDEE~1\AppData\Local\Temp\s7js.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\SANDEE~1\AppData\Local\Temp\s7js.o
-__end_of_LCD_Initialize A6A 0 CODE 0 text7 dist/default/production\LCDclock.X.production.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\SANDEE~1\AppData\Local\Temp\s748.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\SANDEE~1\AppData\Local\Temp\s748.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\SANDEE~1\AppData\Local\Temp\s748.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\SANDEE~1\AppData\Local\Temp\s748.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\SANDEE~1\AppData\Local\Temp\s748.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\SANDEE~1\AppData\Local\Temp\s748.o
+__end_of_LCD_Initialize 89E 0 CODE 0 text10 dist/default/production\LCDclock.X.production.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 wtemp0 7E 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
@@ -417,51 +464,63 @@ _rdBlkRegCompleteHandler 0 0 ABS 0 - dist/default/production\LCDclock.X.producti
 _ANSELA 18C 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 _ANSELB 18D 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 _APFCON 11D 0 ABS 0 - dist/default/production\LCDclock.X.production.o
-_FVR_Initialize 9AA 0 CODE 0 text9 dist/default/production\LCDclock.X.production.o
+_FVR_Initialize 7CC 0 CODE 0 text12 dist/default/production\LCDclock.X.production.o
 _BORCON 116 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 _EECON1bits 195 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 _LCDDATA10 7AA 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 _FVRCONbits 117 0 ABS 0 - dist/default/production\LCDclock.X.production.o
-LCD_DIG3_SYM02Num@num 7A 0 COMMON 1 cstackCOMMON dist/default/production\LCDclock.X.production.o
+LCD_DIG3_SYM02Num@num 72 0 COMMON 1 cstackCOMMON dist/default/production\LCDclock.X.production.o
+_DACCON0 118 0 ABS 0 - dist/default/production\LCDclock.X.production.o
+_DACCON1 119 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 _EEADRH 192 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 _EEADRL 191 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 _EECON2 196 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 _EEDATH 194 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 _EEDATL 193 0 ABS 0 - dist/default/production\LCDclock.X.production.o
+_intToBCD A34 0 CODE 0 text1 dist/default/production\LCDclock.X.production.o
 _I2C_DO_RX_NACK_RESTART 0 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 __Lmaintext 0 0 ABS 0 maintext -
 _FVRCON 117 0 ABS 0 - dist/default/production\LCDclock.X.production.o
+___lwmod@divisor 70 0 COMMON 1 cstackCOMMON dist/default/production\LCDclock.X.production.o
+__end_of___lwdiv A34 0 CODE 0 text3 dist/default/production\LCDclock.X.production.o
+__end_of___lwmod 9BC 0 CODE 0 text2 dist/default/production\LCDclock.X.production.o
+__end_of_intToBCD AC2 0 CODE 0 text1 dist/default/production\LCDclock.X.production.o
 _OPTION_REG 95 0 ABS 0 - dist/default/production\LCDclock.X.production.o
-___stackhi 23EF 0 ABS 0 - C:\Users\SANDEE~1\AppData\Local\Temp\s7js.o
-___stacklo 201F 0 ABS 0 - C:\Users\SANDEE~1\AppData\Local\Temp\s7js.o
-_EUSART_Initialize AD6 0 CODE 0 text10 dist/default/production\LCDclock.X.production.o
+___stackhi 23EF 0 ABS 0 - C:\Users\SANDEE~1\AppData\Local\Temp\s748.o
+___stacklo 2030 0 ABS 0 - C:\Users\SANDEE~1\AppData\Local\Temp\s748.o
+_EUSART_Initialize 90E 0 CODE 0 text13 dist/default/production\LCDclock.X.production.o
+___lwdiv@quotient 75 0 COMMON 1 cstackCOMMON dist/default/production\LCDclock.X.production.o
 _LCDCON 791 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 _LCDCST 794 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 _LCDREF 793 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 _LCDSE0 798 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 _LCDSE1 799 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 _i2c_fsmStateTable 1000 0 STRCODE 0 stringtext1 dist/default/production\LCDclock.X.production.o
-_PIN_MANAGER_Initialize A6A 0 CODE 0 text5 dist/default/production\LCDclock.X.production.o
-__end_of_FVR_Initialize 9B2 0 CODE 0 text9 dist/default/production\LCDclock.X.production.o
-start_initialization FDA 0 CODE 0 cinit dist/default/production\LCDclock.X.production.o
-_EUSART_SetErrorHandler 9CE 0 CODE 0 text13 dist/default/production\LCDclock.X.production.o
+___lwmod@dividend 72 0 COMMON 1 cstackCOMMON dist/default/production\LCDclock.X.production.o
+_PIN_MANAGER_Initialize 89E 0 CODE 0 text8 dist/default/production\LCDclock.X.production.o
+__end_of_FVR_Initialize 7D4 0 CODE 0 text12 dist/default/production\LCDclock.X.production.o
+start_initialization FE8 0 CODE 0 cinit dist/default/production\LCDclock.X.production.o
+_EUSART_SetErrorHandler 7E8 0 CODE 0 text16 dist/default/production\LCDclock.X.production.o
 _OSCCON 99 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 _LCDPSbits 792 0 ABS 0 - dist/default/production\LCDclock.X.production.o
-EUSART_SetOverrunErrorHandler@interruptHandler 78 0 COMMON 1 cstackCOMMON dist/default/production\LCDclock.X.production.o
+EUSART_SetOverrunErrorHandler@interruptHandler 70 0 COMMON 1 cstackCOMMON dist/default/production\LCDclock.X.production.o
 _LCDRLbits 795 0 ABS 0 - dist/default/production\LCDclock.X.production.o
+intToBCD@binaryInput 78 0 COMMON 1 cstackCOMMON dist/default/production\LCDclock.X.production.o
 __size_of_EUSART_SetFramingErrorHandler 0 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 __size_of_EUSART_SetOverrunErrorHandler 0 0 ABS 0 - dist/default/production\LCDclock.X.production.o
-__end_of_SYSTEM_Initialize AD6 0 CODE 0 text1 dist/default/production\LCDclock.X.production.o
-clear_ram0 9DA 0 CODE 0 clrtext dist/default/production\LCDclock.X.production.o
+__end_of_SYSTEM_Initialize 90E 0 CODE 0 text4 dist/default/production\LCDclock.X.production.o
+_DAC_Initialize 7DC 0 CODE 0 text17 dist/default/production\LCDclock.X.production.o
+clear_ram0 80C 0 CODE 0 clrtext dist/default/production\LCDclock.X.production.o
 _SPBRGH 19C 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 _SPBRGL 19B 0 ABS 0 - dist/default/production\LCDclock.X.production.o
+__pcstackBANK0 46 0 BANK0 1 cstackBANK0 dist/default/production\LCDclock.X.production.o
 _T1GCON 19 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 _SSPADD 212 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 _SSPBUF 211 0 ABS 0 - dist/default/production\LCDclock.X.production.o
-LCD_DIG4_SYM03Num@num 7A 0 COMMON 1 cstackCOMMON dist/default/production\LCDclock.X.production.o
+LCD_DIG4_SYM03Num@num 72 0 COMMON 1 cstackCOMMON dist/default/production\LCDclock.X.production.o
 _I2C_DO_SEND_RESTART 0 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 _WDTCON 97 0 ABS 0 - dist/default/production\LCDclock.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\SANDEE~1\AppData\Local\Temp\s7js.o
+___int_sp 0 0 STACK 2 stack C:\Users\SANDEE~1\AppData\Local\Temp\s748.o
 _rd2RegCompleteHandler 0 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
@@ -500,6 +559,7 @@ __Hsfr30 0 0 ABS 0 sfr30 -
 __Hsfr31 0 0 ABS 0 sfr31 -
 __Hstack 0 0 STACK 2 stack -
 __size_of_I2C_Initialize 0 0 ABS 0 - dist/default/production\LCDclock.X.production.o
+___lwdiv@counter 77 0 COMMON 1 cstackCOMMON dist/default/production\LCDclock.X.production.o
 __Hbank10 0 0 ABS 0 bank10 -
 __Hbank11 0 0 ABS 0 bank11 -
 __Hbank12 0 0 ABS 0 bank12 -
@@ -528,6 +588,7 @@ __Hmaintext 0 0 ABS 0 maintext -
 __CFG_FOSC$INTOSC 0 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 __Hcommon 0 0 ABS 0 common -
 __Hconfig 10012 0 CONFIG 0 config -
+intToBCD@bcdResult 46 0 BANK0 1 cstackBANK0 dist/default/production\LCDclock.X.production.o
 __Lbank0 0 0 ABS 0 bank0 -
 __Lbank1 0 0 ABS 0 bank1 -
 __Lbank2 0 0 ABS 0 bank2 -
@@ -538,10 +599,10 @@ __Lbank6 0 0 ABS 0 bank6 -
 __Lbank7 0 0 ABS 0 bank7 -
 __Lbank8 0 0 ABS 0 bank8 -
 __Lbank9 0 0 ABS 0 bank9 -
-__Lcinit FDA 0 CODE 0 cinit -
+__Lcinit FE8 0 CODE 0 cinit -
 _T1GCONbits 19 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 __Lidloc 0 0 IDLOC 0 idloc -
-EUSART_SetErrorHandler@interruptHandler 78 0 COMMON 1 cstackCOMMON dist/default/production\LCDclock.X.production.o
+EUSART_SetErrorHandler@interruptHandler 70 0 COMMON 1 cstackCOMMON dist/default/production\LCDclock.X.production.o
 __Lsfr10 0 0 ABS 0 sfr10 -
 __Lsfr11 0 0 ABS 0 sfr11 -
 __Lsfr12 0 0 ABS 0 sfr12 -
@@ -596,19 +657,22 @@ __Lsfr8 0 0 ABS 0 sfr8 -
 __Lsfr9 0 0 ABS 0 sfr9 -
 __Ltext 0 0 ABS 0 text -
 __pstringtext1 1000 0 STRCODE 0 stringtext1 dist/default/production\LCDclock.X.production.o
+__end_of_DAC_Initialize 7E8 0 CODE 0 text17 dist/default/production\LCDclock.X.production.o
+__LcstackBANK0 0 0 ABS 0 cstackBANK0 -
 __HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
 __size_of_WDT_Initialize 0 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 __S0 8009 0 ABS 0 - -
-__S1 7D 0 ABS 0 - -
+__S1 7E 0 ABS 0 - -
 __S2 0 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
+?_intToBCD 78 0 COMMON 1 cstackCOMMON dist/default/production\LCDclock.X.production.o
 _I2C_DO_SEND_STOP 0 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 _I2C_Status 20 0 BANK0 1 bssBANK0 dist/default/production\LCDclock.X.production.o
 __CFG_PLLEN$ON 0 0 ABS 0 - dist/default/production\LCDclock.X.production.o
-_SYSTEM_Initialize A9E 0 CODE 0 text1 dist/default/production\LCDclock.X.production.o
+_SYSTEM_Initialize 8D0 0 CODE 0 text4 dist/default/production\LCDclock.X.production.o
 __CFG_BOREN$ON 0 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 __Lintentry 4 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec C:\Users\SANDEE~1\AppData\Local\Temp\s7js.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\SANDEE~1\AppData\Local\Temp\s748.o
 __size_of_LCD_DIG1_SYM00Num 0 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 __size_of_LCD_Initialize 0 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 _I2C_DO_RESET 0 0 ABS 0 - dist/default/production\LCDclock.X.production.o
@@ -619,19 +683,25 @@ __Lstringtext1 0 0 ABS 0 stringtext1 -
 __size_of_LCD_DIG3_SYM02Num 0 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 _RCSTAbits 19D 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 _PIE1bits 91 0 ABS 0 - dist/default/production\LCDclock.X.production.o
-EUSART_SetFramingErrorHandler@interruptHandler 78 0 COMMON 1 cstackCOMMON dist/default/production\LCDclock.X.production.o
-__ptext10 AD6 0 CODE 0 text10 dist/default/production\LCDclock.X.production.o
-__ptext11 9C4 0 CODE 0 text11 dist/default/production\LCDclock.X.production.o
-__ptext12 9BA 0 CODE 0 text12 dist/default/production\LCDclock.X.production.o
-__ptext13 9CE 0 CODE 0 text13 dist/default/production\LCDclock.X.production.o
-__ptext14 EBE 0 CODE 0 text14 dist/default/production\LCDclock.X.production.o
-__ptext15 DA2 0 CODE 0 text15 dist/default/production\LCDclock.X.production.o
-__ptext16 C86 0 CODE 0 text16 dist/default/production\LCDclock.X.production.o
-__ptext17 B6A 0 CODE 0 text17 dist/default/production\LCDclock.X.production.o
+EUSART_SetFramingErrorHandler@interruptHandler 70 0 COMMON 1 cstackCOMMON dist/default/production\LCDclock.X.production.o
+__ptext10 86E 0 CODE 0 text10 dist/default/production\LCDclock.X.production.o
+__ptext11 818 0 CODE 0 text11 dist/default/production\LCDclock.X.production.o
+__ptext12 7CC 0 CODE 0 text12 dist/default/production\LCDclock.X.production.o
+__ptext13 90E 0 CODE 0 text13 dist/default/production\LCDclock.X.production.o
+__ptext14 800 0 CODE 0 text14 dist/default/production\LCDclock.X.production.o
+__ptext15 7F4 0 CODE 0 text15 dist/default/production\LCDclock.X.production.o
+__ptext16 7E8 0 CODE 0 text16 dist/default/production\LCDclock.X.production.o
+__ptext17 7DC 0 CODE 0 text17 dist/default/production\LCDclock.X.production.o
+__ptext18 ECC 0 CODE 0 text18 dist/default/production\LCDclock.X.production.o
+__ptext19 DB0 0 CODE 0 text19 dist/default/production\LCDclock.X.production.o
+__ptext20 C94 0 CODE 0 text20 dist/default/production\LCDclock.X.production.o
+__ptext21 B78 0 CODE 0 text21 dist/default/production\LCDclock.X.production.o
 __size_of_LCD_DIG4_SYM03Num 0 0 ABS 0 - dist/default/production\LCDclock.X.production.o
-__end_of_PIN_MANAGER_Initialize A9E 0 CODE 0 text5 dist/default/production\LCDclock.X.production.o
-__end_of_TMR0_Initialize A0C 0 CODE 0 text4 dist/default/production\LCDclock.X.production.o
+__end_of_PIN_MANAGER_Initialize 8D0 0 CODE 0 text8 dist/default/production\LCDclock.X.production.o
+__end_of_TMR0_Initialize 83E 0 CODE 0 text7 dist/default/production\LCDclock.X.production.o
 _BAUDCON 19F 0 ABS 0 - dist/default/production\LCDclock.X.production.o
+___lwdiv 9BC 0 CODE 0 text3 dist/default/production\LCDclock.X.production.o
+___lwmod 954 0 CODE 0 text2 dist/default/production\LCDclock.X.production.o
 __Lbank10 0 0 ABS 0 bank10 -
 __Lbank11 0 0 ABS 0 bank11 -
 __Lbank12 0 0 ABS 0 bank12 -
@@ -654,29 +724,31 @@ __Lbank28 0 0 BANK28 1 bank28 -
 __Lbank29 0 0 BANK29 1 bank29 -
 __Lbank30 0 0 BANK30 1 bank30 -
 __Lbank31 0 0 BANK31 1 bank31 -
-__pmaintext B1A 0 CODE 0 maintext dist/default/production\LCDclock.X.production.o
+__pmaintext AC2 0 CODE 0 maintext dist/default/production\LCDclock.X.production.o
 __Lbigram 0 0 ABS 0 bigram -
 __CFG_BORV$LO 0 0 ABS 0 - dist/default/production\LCDclock.X.production.o
-__end_of_EUSART_SetErrorHandler 9DA 0 CODE 0 text13 dist/default/production\LCDclock.X.production.o
+__end_of_EUSART_SetErrorHandler 7F4 0 CODE 0 text16 dist/default/production\LCDclock.X.production.o
 __Lcommon 0 0 ABS 0 common -
 __Lconfig 1000E 0 CONFIG 0 config -
 __CFG_CP$OFF 0 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 __CFG_IESO$ON 0 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 __CFG_WDTE$OFF 0 0 ABS 0 - dist/default/production\LCDclock.X.production.o
-_EUSART_FramingErrorHandler 74 0 COMMON 1 bssCOMMON dist/default/production\LCDclock.X.production.o
-_EUSART_OverrunErrorHandler 72 0 COMMON 1 bssCOMMON dist/default/production\LCDclock.X.production.o
+___lwdiv@divisor 70 0 COMMON 1 cstackCOMMON dist/default/production\LCDclock.X.production.o
+_EUSART_FramingErrorHandler 43 0 BANK0 1 bssBANK0 dist/default/production\LCDclock.X.production.o
+_EUSART_OverrunErrorHandler 41 0 BANK0 1 bssBANK0 dist/default/production\LCDclock.X.production.o
 __CFG_VCAPEN$OFF 0 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 _I2C_DO_IDLE 0 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 _I2C_DO_RCEN 0 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 _OSCTUNE 98 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 _I2C_CallbackReturnReset 0 0 ABS 0 - dist/default/production\LCDclock.X.production.o
-_EUSART_ErrorHandler 3D 0 BANK0 1 bssBANK0 dist/default/production\LCDclock.X.production.o
+_EUSART_ErrorHandler 3F 0 BANK0 1 bssBANK0 dist/default/production\LCDclock.X.production.o
 _I2C_DO_SEND_ADR_READ 0 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
 __Lspace_2 0 0 ABS 0 - -
 __Lspace_3 0 0 ABS 0 - -
-__pbssCOMMON 70 0 COMMON 1 bssCOMMON dist/default/production\LCDclock.X.production.o
+__pbssCOMMON 7D 0 COMMON 1 bssCOMMON dist/default/production\LCDclock.X.production.o
+__HcstackBANK0 0 0 ABS 0 cstackBANK0 -
 _rd1RegCompleteHandler 0 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 _PIR1bits 11 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 _PIR2bits 12 0 ABS 0 - dist/default/production\LCDclock.X.production.o
@@ -684,57 +756,63 @@ __Lend_init 4 0 CODE 0 end_init -
 _EUSART_DefaultErrorHandler 0 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 __CFG_LVP$ON 0 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 __LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
-_EUSART_SetFramingErrorHandler 9BA 0 CODE 0 text12 dist/default/production\LCDclock.X.production.o
-_EUSART_SetOverrunErrorHandler 9C4 0 CODE 0 text11 dist/default/production\LCDclock.X.production.o
+_EUSART_SetFramingErrorHandler 7F4 0 CODE 0 text15 dist/default/production\LCDclock.X.production.o
+_EUSART_SetOverrunErrorHandler 800 0 CODE 0 text14 dist/default/production\LCDclock.X.production.o
 end_of_initialization FFA 0 CODE 0 cinit dist/default/production\LCDclock.X.production.o
-_TMR0_Initialize 9F8 0 CODE 0 text4 dist/default/production\LCDclock.X.production.o
+_TMR0_Initialize 82A 0 CODE 0 text7 dist/default/production\LCDclock.X.production.o
 __Hintentry 4 0 CODE 0 intentry -
 __CFG_STVREN$ON 0 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 _LCDCONbits 791 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 __Lstrings 0 0 ABS 0 strings -
+___lwdiv@dividend 72 0 COMMON 1 cstackCOMMON dist/default/production\LCDclock.X.production.o
 __size_of_FVR_Initialize 0 0 ABS 0 - dist/default/production\LCDclock.X.production.o
+?___lwdiv 70 0 COMMON 1 cstackCOMMON dist/default/production\LCDclock.X.production.o
+?___lwmod 70 0 COMMON 1 cstackCOMMON dist/default/production\LCDclock.X.production.o
 __Hreset_vec 4 0 CODE 0 reset_vec -
 __HbssBANK0 0 0 ABS 0 bssBANK0 -
 _I2C_DO_RX_NACK_STOP 0 0 ABS 0 - dist/default/production\LCDclock.X.production.o
+main@temp_num 4C 0 BANK0 1 cstackBANK0 dist/default/production\LCDclock.X.production.o
 _SSPCON1bits 215 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 _SSPCON2bits 216 0 ABS 0 - dist/default/production\LCDclock.X.production.o
-__ptext1 A9E 0 CODE 0 text1 dist/default/production\LCDclock.X.production.o
-__ptext2 9B2 0 CODE 0 text2 dist/default/production\LCDclock.X.production.o
-__ptext3 A24 0 CODE 0 text3 dist/default/production\LCDclock.X.production.o
-__ptext4 9F8 0 CODE 0 text4 dist/default/production\LCDclock.X.production.o
-__ptext5 A6A 0 CODE 0 text5 dist/default/production\LCDclock.X.production.o
-__ptext6 A0C 0 CODE 0 text6 dist/default/production\LCDclock.X.production.o
-__ptext7 A3C 0 CODE 0 text7 dist/default/production\LCDclock.X.production.o
-__ptext8 9E6 0 CODE 0 text8 dist/default/production\LCDclock.X.production.o
-__ptext9 9AA 0 CODE 0 text9 dist/default/production\LCDclock.X.production.o
+__ptext1 A34 0 CODE 0 text1 dist/default/production\LCDclock.X.production.o
+__ptext2 954 0 CODE 0 text2 dist/default/production\LCDclock.X.production.o
+__ptext3 9BC 0 CODE 0 text3 dist/default/production\LCDclock.X.production.o
+__ptext4 8D0 0 CODE 0 text4 dist/default/production\LCDclock.X.production.o
+__ptext5 7D4 0 CODE 0 text5 dist/default/production\LCDclock.X.production.o
+__ptext6 856 0 CODE 0 text6 dist/default/production\LCDclock.X.production.o
+__ptext7 82A 0 CODE 0 text7 dist/default/production\LCDclock.X.production.o
+__ptext8 89E 0 CODE 0 text8 dist/default/production\LCDclock.X.production.o
+__ptext9 83E 0 CODE 0 text9 dist/default/production\LCDclock.X.production.o
 _LCDCSTbits 794 0 ABS 0 - dist/default/production\LCDclock.X.production.o
-__end_of_LCD_DIG1_SYM00Num C86 0 CODE 0 text17 dist/default/production\LCDclock.X.production.o
+__end_of_LCD_DIG1_SYM00Num C94 0 CODE 0 text21 dist/default/production\LCDclock.X.production.o
 __Lpowerup 0 0 CODE 0 powerup -
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
-__end_of_TMR1_Initialize A3C 0 CODE 0 text3 dist/default/production\LCDclock.X.production.o
-__end_of_LCD_DIG2_SYM01Num DA2 0 CODE 0 text16 dist/default/production\LCDclock.X.production.o
+__end_of_TMR1_Initialize 86E 0 CODE 0 text6 dist/default/production\LCDclock.X.production.o
+__end_of_LCD_DIG2_SYM01Num DB0 0 CODE 0 text20 dist/default/production\LCDclock.X.production.o
 __Lreset_vec 0 0 CODE 0 reset_vec -
 _I2C_DO_RX_ACK 0 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 __Hstringtext1 0 0 ABS 0 stringtext1 -
-__end_of_LCD_DIG3_SYM02Num EBE 0 CODE 0 text15 dist/default/production\LCDclock.X.production.o
+__end_of_LCD_DIG3_SYM02Num ECC 0 CODE 0 text19 dist/default/production\LCDclock.X.production.o
 __CFG_CLKOUTEN$OFF 0 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 _I2C_DO_SEND_RESTART_WRITE 0 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 __end_of__initialization FFA 0 CODE 0 cinit dist/default/production\LCDclock.X.production.o
-__end_of_LCD_DIG4_SYM03Num FDA 0 CODE 0 text14 dist/default/production\LCDclock.X.production.o
+__end_of_LCD_DIG4_SYM03Num FE8 0 CODE 0 text18 dist/default/production\LCDclock.X.production.o
 __Lfunctab 0 0 ENTRY 0 functab -
-_timer0ReloadVal 76 0 COMMON 1 bssCOMMON dist/default/production\LCDclock.X.production.o
+_timer0ReloadVal 7D 0 COMMON 1 bssCOMMON dist/default/production\LCDclock.X.production.o
 __Lclrtext 0 0 ABS 0 clrtext -
-_I2C_Initialize 9E6 0 CODE 0 text8 dist/default/production\LCDclock.X.production.o
-_timer1ReloadVal 70 0 COMMON 1 bssCOMMON dist/default/production\LCDclock.X.production.o
+_I2C_Initialize 818 0 CODE 0 text11 dist/default/production\LCDclock.X.production.o
+_timer1ReloadVal 3D 0 BANK0 1 bssBANK0 dist/default/production\LCDclock.X.production.o
 __size_of_EUSART_Initialize 0 0 ABS 0 - dist/default/production\LCDclock.X.production.o
-__pcstackCOMMON 78 0 COMMON 1 cstackCOMMON dist/default/production\LCDclock.X.production.o
+__pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/production\LCDclock.X.production.o
 _TXSTAbits 19E 0 ABS 0 - dist/default/production\LCDclock.X.production.o
+main@bcd_num 4E 0 BANK0 1 cstackBANK0 dist/default/production\LCDclock.X.production.o
 _SSPCON1 215 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 _SSPCON2 216 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 _SSPSTAT 214 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 __Hend_init 8 0 CODE 0 end_init -
-LCD_DIG1_SYM00Num@num 7A 0 COMMON 1 cstackCOMMON dist/default/production\LCDclock.X.production.o
-__end_of_main B6A 0 CODE 0 maintext dist/default/production\LCDclock.X.production.o
+LCD_DIG1_SYM00Num@num 72 0 COMMON 1 cstackCOMMON dist/default/production\LCDclock.X.production.o
+__size_of_DAC_Initialize 0 0 ABS 0 - dist/default/production\LCDclock.X.production.o
+__end_of_main B78 0 CODE 0 maintext dist/default/production\LCDclock.X.production.o
 _LCDPS 792 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 _LCDRL 795 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 _RCREG 199 0 ABS 0 - dist/default/production\LCDclock.X.production.o
@@ -751,22 +829,22 @@ _TXSTA 19E 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 __size_of_TMR0_Initialize 0 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 __Hram 0 0 ABS 0 ram -
 __Lram 0 0 ABS 0 ram -
-_TMR1_Initialize A24 0 CODE 0 text3 dist/default/production\LCDclock.X.production.o
+_TMR1_Initialize 856 0 CODE 0 text6 dist/default/production\LCDclock.X.production.o
 __CFG_CPD$OFF 0 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 __size_of_PIN_MANAGER_Initialize 0 0 ABS 0 - dist/default/production\LCDclock.X.production.o
-_eusartRxLastError 77 0 COMMON 1 bssCOMMON dist/default/production\LCDclock.X.production.o
-_WDT_Initialize 9B2 0 CODE 0 text2 dist/default/production\LCDclock.X.production.o
+_eusartRxLastError 45 0 BANK0 1 bssBANK0 dist/default/production\LCDclock.X.production.o
+_WDT_Initialize 7D4 0 CODE 0 text5 dist/default/production\LCDclock.X.production.o
 _SSPSTATbits 214 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 __size_of_EUSART_SetErrorHandler 0 0 ABS 0 - dist/default/production\LCDclock.X.production.o
-__end_of_OSCILLATOR_Initialize A24 0 CODE 0 text6 dist/default/production\LCDclock.X.production.o
-__initialization FDA 0 CODE 0 cinit dist/default/production\LCDclock.X.production.o
+__end_of_OSCILLATOR_Initialize 856 0 CODE 0 text9 dist/default/production\LCDclock.X.production.o
+__initialization FE8 0 CODE 0 cinit dist/default/production\LCDclock.X.production.o
 __CFG_PWRTE$OFF 0 0 ABS 0 - dist/default/production\LCDclock.X.production.o
 __pbssBANK0 20 0 BANK0 1 bssBANK0 dist/default/production\LCDclock.X.production.o
 __CFG_WRT$OFF 0 0 ABS 0 - dist/default/production\LCDclock.X.production.o
-_LCD_DIG1_SYM00Num B6A 0 CODE 0 text17 dist/default/production\LCDclock.X.production.o
-__end_of_I2C_Initialize 9F8 0 CODE 0 text8 dist/default/production\LCDclock.X.production.o
-_LCD_DIG2_SYM01Num C86 0 CODE 0 text16 dist/default/production\LCDclock.X.production.o
-_OSCILLATOR_Initialize A0C 0 CODE 0 text6 dist/default/production\LCDclock.X.production.o
+_LCD_DIG1_SYM00Num B78 0 CODE 0 text21 dist/default/production\LCDclock.X.production.o
+__end_of_I2C_Initialize 82A 0 CODE 0 text11 dist/default/production\LCDclock.X.production.o
+_LCD_DIG2_SYM01Num C94 0 CODE 0 text20 dist/default/production\LCDclock.X.production.o
+_OSCILLATOR_Initialize 83E 0 CODE 0 text9 dist/default/production\LCDclock.X.production.o
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
 # The beginning of the section is indicated by %SPLITSTAB.
@@ -792,30 +870,34 @@ _OSCILLATOR_Initialize A0C 0 CODE 0 text6 dist/default/production\LCDclock.X.pro
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-cinit 0 7ED FDA 13 2
-text1 0 54F A9E 1C 2
-text2 0 4D9 9B2 4 2
-text3 0 512 A24 C 2
-text4 0 4FC 9F8 A 2
-text5 0 535 A6A 1A 2
-text6 0 506 A0C C 2
-text7 0 51E A3C 17 2
-text8 0 4F3 9E6 9 2
-text9 0 4D5 9AA 4 2
-text10 0 56B AD6 22 2
-text11 0 4E2 9C4 5 2
-text12 0 4DD 9BA 5 2
-text13 0 4E7 9CE 6 2
-text14 0 75F EBE 8E 2
-text15 0 6D1 DA2 8E 2
-text16 0 643 C86 8E 2
-text17 0 5B5 B6A 8E 2
-maintext 0 58D B1A 28 2
+cinit 0 7F4 FE8 C 2
+text1 0 51A A34 47 2
+text2 0 4AA 954 34 2
+text3 0 4DE 9BC 3C 2
+text4 0 468 8D0 1F 2
+text5 0 3EA 7D4 4 2
+text6 0 42B 856 C 2
+text7 0 415 82A A 2
+text8 0 44F 89E 19 2
+text9 0 41F 83E C 2
+text10 0 437 86E 18 2
+text11 0 40C 818 9 2
+text12 0 3E6 7CC 4 2
+text13 0 487 90E 23 2
+text14 0 400 800 6 2
+text15 0 3FA 7F4 6 2
+text16 0 3F4 7E8 6 2
+text17 0 3EE 7DC 6 2
+text18 0 766 ECC 8E 2
+text19 0 6D8 DB0 8E 2
+text20 0 64A C94 8E 2
+text21 0 5BC B78 8E 2
+maintext 0 561 AC2 5B 2
+cstackCOMMON 1 70 70 E 1
 stringtext1 0 800 1000 20 2
 reset_vec 0 0 0 4 2
-bssBANK0 1 20 20 1F 1
-clrtext 0 4ED 9DA 6 2
-bssCOMMON 1 70 70 D 1
+bssBANK0 1 20 20 30 1
+clrtext 0 406 80C 6 2
 config 0 8007 1000E 2 2
 # OTES Section
 # This section contains data of all the note-psects.  The beginning of the section

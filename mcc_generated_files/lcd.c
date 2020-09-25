@@ -61,17 +61,17 @@ void LCD_Initialize(void)
     LCDCONbits.LCDEN = 0;
 
     // set the LCD to the options selected in the User Interface
-    // BIASMD Static; LP 1:1; WFT Type-A waveform; 
-    LCDPS = 0x00;
+    // BIASMD Static; LP 1:2; WFT Type-A waveform; 
+    LCDPS = 0x01;
     
-    // LCDIRI disabled; VLCD1PE disabled; VLCD2PE disabled; VLCD3PE disabled; LCDIRS FVR; LCDIRE enabled; 
-    LCDREF = 0xC0;
+    // LCDIRI enabled; VLCD1PE disabled; VLCD2PE disabled; VLCD3PE disabled; LCDIRS VDD; LCDIRE enabled; 
+    LCDREF = 0xA0;
     
-    // LRLAP disabled; LRLBP disabled; LRLAT Always B Power mode; 
-    LCDRL = 0x00;
+    // LRLAP disabled; LRLBP Low; LRLAT Always B Power mode; 
+    LCDRL = 0x10;
     
-    // LCDCST 4/7; 
-    LCDCST = 0x04;
+    // LCDCST Min; 
+    LCDCST = 0x00;
     
     //SegCom Data Registers
 	LCDDATA0 = 0x00;

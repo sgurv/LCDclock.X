@@ -1,26 +1,24 @@
 /**
-  Generated Pin Manager File
+  DAC Generated Driver File
 
-  Company:
+  @Company
     Microchip Technology Inc.
 
-  File Name:
-    pin_manager.c
+  @File Name
+    dac.c
 
-  Summary:
-    This is the Pin Manager file generated using PIC10 / PIC12 / PIC16 / PIC18 MCUs
+  @Summary
+    This is the generated driver implementation file for the DAC driver using PIC10 / PIC12 / PIC16 / PIC18 MCUs
 
-  Description:
-    This header file provides implementations for pin APIs for all pins selected in the GUI.
+  @Description
+    This source file provides APIs for DAC.
     Generation Information :
         Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.81.5
         Device            :  PIC16F1938
-        Driver Version    :  2.11
+        Driver Version    :  2.10
     The generated drivers are tested against the following:
         Compiler          :  XC8 2.20 and above
-        MPLAB             :  MPLAB X 5.40
-
-    Copyright (c) 2013 - 2015 released Microchip Technology Inc.  All rights reserved.
+        MPLAB 	          :  MPLAB X 5.40
 */
 
 /*
@@ -46,60 +44,34 @@
     SOFTWARE.
 */
 
-#include "pin_manager.h"
+/**
+  Section: Included Files
+*/
 
+#include <xc.h>
+#include "dac.h"
 
+/**
+  Section: DAC APIs
+*/
 
-
-
-void PIN_MANAGER_Initialize(void)
+void DAC_Initialize(void)
 {
-    /**
-    LATx registers
-    */
-    LATE = 0x00;
-    LATA = 0x00;
-    LATB = 0x00;
-    LATC = 0x00;
-
-    /**
-    TRISx registers
-    */
-    TRISE = 0x08;
-    TRISA = 0x00;
-    TRISB = 0x0F;
-    TRISC = 0xBF;
-
-    /**
-    ANSELx registers
-    */
-    ANSELB = 0x0F;
-    ANSELA = 0x00;
-
-    /**
-    WPUx registers
-    */
-    WPUE = 0x00;
-    WPUB = 0x00;
-    OPTION_REGbits.nWPUEN = 1;
-
-
-    /**
-    APFCONx registers
-    */
-    APFCON = 0x00;
-
-
-
-
-   
-    
-}
-  
-void PIN_MANAGER_IOC(void)
-{   
+    // DACOE disabled; DACEN enabled; DACLPS neg_ref; DACNSS VSS; DACPSS FVR_buf2; 
+    DACCON0 = 0x88;
+    // DACR 16; 
+    DACCON1 = 0x10;
 }
 
+void DAC_SetOutput(uint8_t inputData)
+{
+    DACCON1  = inputData;
+}
+
+uint8_t DAC_GetOutput(void)
+{
+    return DACCON1;
+}
 /**
  End of File
 */

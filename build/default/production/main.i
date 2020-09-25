@@ -5221,6 +5221,15 @@ void DATAEE_WriteByte(uint8_t bAdd, uint8_t bData);
 uint8_t DATAEE_ReadByte(uint8_t bAdd);
 # 59 "./mcc_generated_files/mcc.h" 2
 
+# 1 "./mcc_generated_files/dac.h" 1
+# 93 "./mcc_generated_files/dac.h"
+void DAC_Initialize(void);
+# 129 "./mcc_generated_files/dac.h"
+void DAC_SetOutput(uint8_t inputData);
+# 163 "./mcc_generated_files/dac.h"
+uint8_t DAC_GetOutput(void);
+# 60 "./mcc_generated_files/mcc.h" 2
+
 # 1 "./mcc_generated_files/eusart.h" 1
 # 75 "./mcc_generated_files/eusart.h"
 typedef union {
@@ -5252,7 +5261,7 @@ void EUSART_SetFramingErrorHandler(void (* interruptHandler)(void));
 void EUSART_SetOverrunErrorHandler(void (* interruptHandler)(void));
 # 397 "./mcc_generated_files/eusart.h"
 void EUSART_SetErrorHandler(void (* interruptHandler)(void));
-# 60 "./mcc_generated_files/mcc.h" 2
+# 61 "./mcc_generated_files/mcc.h" 2
 
 # 1 "./mcc_generated_files/lcd.h" 1
 # 211 "./mcc_generated_files/lcd.h"
@@ -5299,12 +5308,12 @@ void LCD_DisplayOn_DIG4_SYM03Num();
 void LCD_DisplayOff_DIG4_SYM03Num();
 # 659 "./mcc_generated_files/lcd.h"
 void LCD_DIG4_SYM03Num (unsigned char num);
-# 61 "./mcc_generated_files/mcc.h" 2
-# 76 "./mcc_generated_files/mcc.h"
+# 62 "./mcc_generated_files/mcc.h" 2
+# 77 "./mcc_generated_files/mcc.h"
 void SYSTEM_Initialize(void);
-# 89 "./mcc_generated_files/mcc.h"
+# 90 "./mcc_generated_files/mcc.h"
 void OSCILLATOR_Initialize(void);
-# 101 "./mcc_generated_files/mcc.h"
+# 102 "./mcc_generated_files/mcc.h"
 void WDT_Initialize(void);
 # 44 "main.c" 2
 
@@ -5312,24 +5321,47 @@ void WDT_Initialize(void);
 
 
 
+uint16_t intToBCD(uint16_t binaryInput);
+
 void main(void)
 {
+    uint16_t temp_num = 0,bcd_num;
 
     SYSTEM_Initialize();
-# 69 "main.c"
+# 72 "main.c"
     while (1)
     {
 
         __asm("clrwdt");
-        LCD_DIG1_SYM00Num(1);
-        LCD_DIG2_SYM01Num(2);
-        LCD_DIG3_SYM02Num(3);
-        LCD_DIG4_SYM03Num(4);
-        LCDDATA0bits.SEG5COM0 = 1;
-        LCDDATA1bits.SEG13COM0 = 1;
-        LCDDATA1bits.SEG14COM0 = 1;
-        LCDDATA0bits.SEG4COM0 = 1;
-        _delay((unsigned long)((1000)*(32000000/4000.0)));
+
+        bcd_num = intToBCD(temp_num);
+
+        LCD_DIG1_SYM00Num((bcd_num >> 12) & 0x000F);
+        LCD_DIG2_SYM01Num((bcd_num >> 8) & 0x000F);
+        LCD_DIG3_SYM02Num((bcd_num >> 4) & 0x000F);
+        LCD_DIG4_SYM03Num(bcd_num & 0x000F);
+
+
+
+
+
+
+        temp_num++;
+        if(temp_num > 9999) temp_num = 0;
+
+        _delay((unsigned long)((400)*(32000000/4000.0)));
 
     }
+}
+
+uint16_t intToBCD(uint16_t binaryInput){
+    uint16_t bcdResult = 0;
+    uint16_t shift = 0;
+
+    while (binaryInput > 0) {
+      bcdResult |= (binaryInput % 10) << (shift++ << 2);
+      binaryInput /= 10;
+    }
+
+    return bcdResult;
 }

@@ -57,6 +57,7 @@
 #include "tmr0.h"
 #include "fvr.h"
 #include "memory.h"
+#include "dac.h"
 #include "eusart.h"
 #include "lcd.h"
 

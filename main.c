@@ -46,9 +46,11 @@
 /*
                          Main application
  */
+uint16_t intToBCD(uint16_t binaryInput);
+
 void main(void)
 {
-    uint8_t temp_num = 0;
+    uint16_t temp_num = 0,bcd_num;
     // initialize the device
     SYSTEM_Initialize();
 
@@ -72,22 +74,36 @@ void main(void)
         // Add your application code
         CLRWDT();
         
-        LCD_DIG1_SYM00Num(temp_num);
-        LCD_DIG2_SYM01Num(temp_num+1);
-        LCD_DIG3_SYM02Num(temp_num+2);
-        LCD_DIG4_SYM03Num(temp_num+3);
+        bcd_num = intToBCD(temp_num);
         
-        D1_SYM04ON;
-        D2_SYM05ON;
-        D3_SYM06ON;
-        P_SYM07ON;
+        LCD_DIG1_SYM00Num((bcd_num >> 12) & 0x000F);
+        LCD_DIG2_SYM01Num((bcd_num >> 8) & 0x000F);
+        LCD_DIG3_SYM02Num((bcd_num >> 4) & 0x000F);
+        LCD_DIG4_SYM03Num(bcd_num & 0x000F);
+        
+//        D1_SYM04ON;
+//        D2_SYM05ON;
+//        D3_SYM06ON;
+//        P_SYM07ON;
         
         temp_num++;
-        if(temp_num > 6) temp_num = 0;
+        if(temp_num > 9999) temp_num = 0;
         
-        __delay_ms(1000);
+        __delay_ms(400);
         
     }
+}
+
+uint16_t intToBCD(uint16_t binaryInput){
+    uint16_t bcdResult = 0;
+    uint16_t shift = 0;
+    
+    while (binaryInput > 0) {
+      bcdResult |= (binaryInput % 10) << (shift++ << 2);
+      binaryInput /= 10;
+    }
+    
+    return bcdResult;
 }
 /**
  End of File

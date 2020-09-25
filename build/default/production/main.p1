@@ -1,8 +1,11 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [p mainexit ]
-"76 ./mcc_generated_files/mcc.h
-[; ;./mcc_generated_files/mcc.h: 76: void SYSTEM_Initialize(void);
+"77 ./mcc_generated_files/mcc.h
+[; ;./mcc_generated_files/mcc.h: 77: void SYSTEM_Initialize(void);
 [v _SYSTEM_Initialize `(v ~T0 @X0 0 ef ]
+"49 main.c
+[; ;main.c: 49: uint16_t intToBCD(uint16_t binaryInput);
+[v _intToBCD `(us ~T0 @X0 0 ef1`us ]
 "485 ./mcc_generated_files/lcd.h
 [; ;./mcc_generated_files/lcd.h: 485: void LCD_DIG1_SYM00Num (unsigned char num);
 [v _LCD_DIG1_SYM00Num `(v ~T0 @X0 0 ef1`uc ]
@@ -15,28 +18,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "659
 [; ;./mcc_generated_files/lcd.h: 659: void LCD_DIG4_SYM03Num (unsigned char num);
 [v _LCD_DIG4_SYM03Num `(v ~T0 @X0 0 ef1`uc ]
-"6401 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6401:     struct {
-[s S317 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S317 . SEG0COM0 SEG1COM0 SEG2COM0 SEG3COM0 SEG4COM0 SEG5COM0 SEG6COM0 SEG7COM0 ]
-"6400
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6400: typedef union {
-[u S316 `S317 1 ]
-[n S316 . . ]
-"6412
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6412: extern volatile LCDDATA0bits_t LCDDATA0bits __attribute__((address(0x7A0)));
-[v _LCDDATA0bits `VS316 ~T0 @X0 0 e@1952 ]
-"6463
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6463:     struct {
-[s S319 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S319 . SEG8COM0 SEG9COM0 SEG10COM0 SEG11COM0 SEG12COM0 SEG13COM0 SEG14COM0 SEG15COM0 ]
-"6462
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6462: typedef union {
-[u S318 `S319 1 ]
-[n S318 . . ]
-"6474
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 6474: extern volatile LCDDATA1bits_t LCDDATA1bits __attribute__((address(0x7A1)));
-[v _LCDDATA1bits `VS318 ~T0 @X0 0 e@1953 ]
 [v F2657 `(v ~T0 @X0 1 tf1`ul ]
 "92 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic.h
 [v __delay `JF2657 ~T0 @X0 0 e ]
@@ -537,60 +518,106 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic16f1938.h: 7105: __asm("TOSH equ 0FEFh");
 [; <" TOSH equ 0FEFh ;# ">
 [v $root$_main `(v ~T0 @X0 0 e ]
-"49 main.c
-[; ;main.c: 49: void main(void)
+"51 main.c
+[; ;main.c: 51: void main(void)
 [v _main `(v ~T0 @X0 1 ef ]
-"50
-[; ;main.c: 50: {
+"52
+[; ;main.c: 52: {
 {
 [e :U _main ]
 [f ]
-"52
-[; ;main.c: 52:     SYSTEM_Initialize();
+"53
+[; ;main.c: 53:     uint16_t temp_num = 0,bcd_num;
+[v _temp_num `us ~T0 @X0 1 a ]
+[e = _temp_num -> -> 0 `i `us ]
+[v _bcd_num `us ~T0 @X0 1 a ]
+"55
+[; ;main.c: 55:     SYSTEM_Initialize();
 [e ( _SYSTEM_Initialize ..  ]
-"69
-[; ;main.c: 69:     while (1)
-[e :U 360 ]
-"70
-[; ;main.c: 70:     {
-{
 "72
-[; ;main.c: 72:         __asm("clrwdt");
-[; <" clrwdt ;# ">
+[; ;main.c: 72:     while (1)
+[e :U 360 ]
 "73
-[; ;main.c: 73:         LCD_DIG1_SYM00Num(1);
-[e ( _LCD_DIG1_SYM00Num (1 -> -> 1 `i `uc ]
-"74
-[; ;main.c: 74:         LCD_DIG2_SYM01Num(2);
-[e ( _LCD_DIG2_SYM01Num (1 -> -> 2 `i `uc ]
+[; ;main.c: 73:     {
+{
 "75
-[; ;main.c: 75:         LCD_DIG3_SYM02Num(3);
-[e ( _LCD_DIG3_SYM02Num (1 -> -> 3 `i `uc ]
-"76
-[; ;main.c: 76:         LCD_DIG4_SYM03Num(4);
-[e ( _LCD_DIG4_SYM03Num (1 -> -> 4 `i `uc ]
+[; ;main.c: 75:         __asm("clrwdt");
+[; <" clrwdt ;# ">
 "77
-[; ;main.c: 77:         LCDDATA0bits.SEG5COM0 = 1;
-[e = . . _LCDDATA0bits 0 5 -> -> 1 `i `uc ]
-"78
-[; ;main.c: 78:         LCDDATA1bits.SEG13COM0 = 1;
-[e = . . _LCDDATA1bits 0 5 -> -> 1 `i `uc ]
+[; ;main.c: 77:         bcd_num = intToBCD(temp_num);
+[e = _bcd_num ( _intToBCD (1 _temp_num ]
 "79
-[; ;main.c: 79:         LCDDATA1bits.SEG14COM0 = 1;
-[e = . . _LCDDATA1bits 0 6 -> -> 1 `i `uc ]
+[; ;main.c: 79:         LCD_DIG1_SYM00Num((bcd_num >> 12) & 0x000F);
+[e ( _LCD_DIG1_SYM00Num (1 -> & >> -> _bcd_num `ui -> 12 `i -> -> 15 `i `ui `uc ]
 "80
-[; ;main.c: 80:         LCDDATA0bits.SEG4COM0 = 1;
-[e = . . _LCDDATA0bits 0 4 -> -> 1 `i `uc ]
+[; ;main.c: 80:         LCD_DIG2_SYM01Num((bcd_num >> 8) & 0x000F);
+[e ( _LCD_DIG2_SYM01Num (1 -> & >> -> _bcd_num `ui -> 8 `i -> -> 15 `i `ui `uc ]
 "81
-[; ;main.c: 81:         _delay((unsigned long)((1000)*(32000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
-"83
-[; ;main.c: 83:     }
+[; ;main.c: 81:         LCD_DIG3_SYM02Num((bcd_num >> 4) & 0x000F);
+[e ( _LCD_DIG3_SYM02Num (1 -> & >> -> _bcd_num `ui -> 4 `i -> -> 15 `i `ui `uc ]
+"82
+[; ;main.c: 82:         LCD_DIG4_SYM03Num(bcd_num & 0x000F);
+[e ( _LCD_DIG4_SYM03Num (1 -> & -> _bcd_num `ui -> -> 15 `i `ui `uc ]
+"89
+[; ;main.c: 89:         temp_num++;
+[e ++ _temp_num -> -> 1 `i `us ]
+"90
+[; ;main.c: 90:         if(temp_num > 9999) temp_num = 0;
+[e $ ! > -> _temp_num `ui -> -> 9999 `i `ui 362  ]
+[e = _temp_num -> -> 0 `i `us ]
+[e :U 362 ]
+"92
+[; ;main.c: 92:         _delay((unsigned long)((400)*(32000000/4000.0)));
+[e ( __delay (1 -> * -> -> 400 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
+"94
+[; ;main.c: 94:     }
 }
 [e :U 359 ]
 [e $U 360  ]
 [e :U 361 ]
-"84
-[; ;main.c: 84: }
+"95
+[; ;main.c: 95: }
 [e :UE 358 ]
+}
+"97
+[; ;main.c: 97: uint16_t intToBCD(uint16_t binaryInput){
+[v _intToBCD `(us ~T0 @X0 1 ef1`us ]
+{
+[e :U _intToBCD ]
+[v _binaryInput `us ~T0 @X0 1 r1 ]
+[f ]
+"98
+[; ;main.c: 98:     uint16_t bcdResult = 0;
+[v _bcdResult `us ~T0 @X0 1 a ]
+[e = _bcdResult -> -> 0 `i `us ]
+"99
+[; ;main.c: 99:     uint16_t shift = 0;
+[v _shift `us ~T0 @X0 1 a ]
+[e = _shift -> -> 0 `i `us ]
+"101
+[; ;main.c: 101:     while (binaryInput > 0) {
+[e $U 364  ]
+[e :U 365 ]
+{
+"102
+[; ;main.c: 102:       bcdResult |= (binaryInput % 10) << (shift++ << 2);
+[e =| _bcdResult -> << % -> _binaryInput `ui -> -> 10 `i `ui << -> ++ _shift -> -> 1 `i `us `ui -> 2 `i `us ]
+"103
+[; ;main.c: 103:       binaryInput /= 10;
+[e =/ _binaryInput -> -> 10 `i `ui ]
+"104
+[; ;main.c: 104:     }
+}
+[e :U 364 ]
+"101
+[; ;main.c: 101:     while (binaryInput > 0) {
+[e $ > -> _binaryInput `ui -> -> 0 `i `ui 365  ]
+[e :U 366 ]
+"106
+[; ;main.c: 106:     return bcdResult;
+[e ) _bcdResult ]
+[e $UE 363  ]
+"107
+[; ;main.c: 107: }
+[e :UE 363 ]
 }
