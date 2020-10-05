@@ -13,11 +13,11 @@
   @Description
     This header file provides APIs for driver for DAC.
     Generation Information :
-        Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.81.5
+        Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.81.6
         Device            :  PIC16F1938
         Driver Version    :  2.10
     The generated drivers are tested against the following:
-        Compiler          :  XC8 2.20 and above
+        Compiler          :  XC8 2.30 and above
         MPLAB 	          :  MPLAB X 5.40
 */
 

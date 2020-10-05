@@ -1,21 +1,21 @@
 /**
-  FVR Generated Driver API Header File
+  CCP4 Generated Driver API Header File
 
   @Company
     Microchip Technology Inc.
 
   @File Name
-    fvr.h
+    ccp4.h
 
   @Summary
-    This is the generated header file for the FVR driver using PIC10 / PIC12 / PIC16 / PIC18 MCUs
+    This is the generated header file for the CCP4 driver using PIC10 / PIC12 / PIC16 / PIC18 MCUs
 
   @Description
-    This header file provides APIs for driver for FVR.
+    This header file provides APIs for driver for CCP4.
     Generation Information :
         Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.81.6
         Device            :  PIC16F1938
-        Driver Version    :  2.01
+        Driver Version    :  2.0.3
     The generated drivers are tested against the following:
         Compiler          :  XC8 2.30 and above
         MPLAB 	          :  MPLAB X 5.40
@@ -44,15 +44,16 @@
     SOFTWARE.
 */
 
-#ifndef FVR_H
-#define FVR_H
+#ifndef CCP4_H
+#define CCP4_H
 
 /**
   Section: Included Files
 */
 
-#include <stdbool.h>
+#include <xc.h>
 #include <stdint.h>
+#include <stdbool.h>
 
 #ifdef __cplusplus  // Provide C++ Compatibility
 
@@ -60,17 +61,46 @@
 
 #endif
 
+/** 
+   Section: Data Type Definition
+*/
+
 /**
-  Section: FVR APIs
+ @Summary
+   Defines the values to convert from 16bit to two 8 bit and vice versa
+
+ @Description
+   This routine used to get two 8 bit values from 16bit also
+   two 8 bit value are combine to get 16bit.
+
+ Remarks:
+   None
+ */
+
+typedef union CCPR4Reg_tag
+{
+   struct
+   {
+      uint8_t ccpr4l;
+      uint8_t ccpr4h;
+   };
+   struct
+   {
+      uint16_t ccpr4_16Bit;
+   };
+} CCP4_PERIOD_REG_T ;
+
+/**
+  Section: Capture Module APIs
 */
 
 /**
   @Summary
-    Initializes the FVR
+    Initializes the CCP4
 
   @Description
-    This routine initializes the FVR.
-    This routine must be called before any other FVR routine is called.
+    This routine initializes the CCP4_Initialize.
+    This routine must be called before any other CCP4 routine is called.
     This routine should only be called once during system initialization.
 
   @Preconditions
@@ -85,46 +115,70 @@
   @Comment
     
 
-  @Example
+ @Example
     <code>
-    FVR_Initialize();
+    CCP4_Initialize();
     </code>
-*/
- void FVR_Initialize(void);
+ */
+void CCP4_Initialize(void);
 
 /**
   @Summary
-    Gets the FVR output ready status.
+    Implements ISR
 
   @Description
-    This routine gets the FVR output ready status.
+    This routine is used to implement the ISR for the interrupt-driven
+    implementations.
 
-  @Preconditions
-    The FVR_Initialize() routine should be called
-    prior to use this routine.
+  @Returns
+    None
 
   @Param
     None
+*/
+void CCP4_CaptureISR(void);
+
+/**
+  @Summary
+    Setter for CCP4 CallBack function
+
+  @Description
+    Calling this function will set a new custom call back function that will be 
+    called from the Capture ISR.
+
+  @Preconditions
+    Initialize the CCP4 module with interrupt before calling this function.
+
+  @Param
+    A pointer to the new function
 
   @Returns
-     true  - FVR module is ready for use.
-     false - FVR module is not ready for use.
+    None
 
   @Example
     <code>
-    FVR_Initialize();
-
-    if(FVR_IsOutputReady())
+    void Capture_CallBack(uint16_t capturedValue)
     {
-          //user code
+        // Custom callback routine
     }
-    else
+    
+    void main(void)
     {
-          //user code
+        // initialize the device
+        SYSTEM_Initialize();
+        
+        // set the custom callback
+        CCP4_SetCallBack(Capture_CallBack);
+        
+        while(1)
+        {
+            //Add your application code
+        }
     }
     </code>
 */
-bool FVR_IsOutputReady(void);
+ void CCP4_SetCallBack(void (*customCallBack)(uint16_t));
+ 
 
 #ifdef __cplusplus  // Provide C++ Compatibility
 
@@ -132,7 +186,7 @@ bool FVR_IsOutputReady(void);
 
 #endif
 
-#endif // FVR_H
+#endif  //CCP4_H
 /**
  End of File
 */

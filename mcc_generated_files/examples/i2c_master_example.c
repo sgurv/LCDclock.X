@@ -13,11 +13,11 @@
   @Description
     This header file provides implementations for driver APIs for I2C.
     Generation Information :
-        Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.81.5
+        Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.81.6
         Device            :  PIC16F1938
         Driver Version    :  1.0.0
     The generated drivers are tested against the following:
-        Compiler          :  XC8 2.20 and above or later
+        Compiler          :  XC8 2.30 and above or later
         MPLAB             :  MPLAB X 5.40
 */
 

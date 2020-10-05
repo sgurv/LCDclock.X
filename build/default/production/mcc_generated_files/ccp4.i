@@ -1,4 +1,4 @@
-# 1 "mcc_generated_files/memory.c"
+# 1 "mcc_generated_files/ccp4.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,8 +6,8 @@
 # 1 "<built-in>" 2
 # 1 "D:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "mcc_generated_files/memory.c" 2
-# 51 "mcc_generated_files/memory.c"
+# 1 "mcc_generated_files/ccp4.c" 2
+# 51 "mcc_generated_files/ccp4.c"
 # 1 "D:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\\pic\\include\\xc.h" 1 3
 # 18 "D:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -4817,13 +4817,10 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "D:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\\pic\\include\\xc.h" 2 3
-# 51 "mcc_generated_files/memory.c" 2
+# 51 "mcc_generated_files/ccp4.c" 2
 
-# 1 "mcc_generated_files/memory.h" 1
-# 54 "mcc_generated_files/memory.h"
-# 1 "D:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdbool.h" 1 3
-# 54 "mcc_generated_files/memory.h" 2
-
+# 1 "mcc_generated_files/ccp4.h" 1
+# 55 "mcc_generated_files/ccp4.h"
 # 1 "D:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdint.h" 1 3
 # 22 "D:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdint.h" 3
 # 1 "D:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 1 3
@@ -4909,187 +4906,82 @@ typedef int32_t int_fast32_t;
 typedef uint16_t uint_fast16_t;
 typedef uint32_t uint_fast32_t;
 # 144 "D:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdint.h" 2 3
-# 55 "mcc_generated_files/memory.h" 2
-# 99 "mcc_generated_files/memory.h"
-uint16_t FLASH_ReadWord(uint16_t flashAddr);
-# 128 "mcc_generated_files/memory.h"
-void FLASH_WriteWord(uint16_t flashAddr, uint16_t *ramBuf, uint16_t word);
-# 164 "mcc_generated_files/memory.h"
-int8_t FLASH_WriteBlock(uint16_t writeAddr, uint16_t *flashWordArray);
-# 189 "mcc_generated_files/memory.h"
-void FLASH_EraseBlock(uint16_t startAddr);
-# 220 "mcc_generated_files/memory.h"
-void DATAEE_WriteByte(uint8_t bAdd, uint8_t bData);
-# 246 "mcc_generated_files/memory.h"
-uint8_t DATAEE_ReadByte(uint8_t bAdd);
-# 52 "mcc_generated_files/memory.c" 2
+# 55 "mcc_generated_files/ccp4.h" 2
 
-
-
-
-
-
-uint16_t FLASH_ReadWord(uint16_t flashAddr)
+# 1 "D:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdbool.h" 1 3
+# 56 "mcc_generated_files/ccp4.h" 2
+# 80 "mcc_generated_files/ccp4.h"
+typedef union CCPR4Reg_tag
 {
-    uint8_t GIEBitValue = INTCONbits.GIE;
-
-    INTCONbits.GIE = 0;
-    EEADRL = (flashAddr & 0x00FF);
-    EEADRH = ((flashAddr & 0xFF00) >> 8);
-
-    EECON1bits.CFGS = 0;
-    EECON1bits.EEPGD = 1;
-    EECON1bits.RD = 1;
-    __nop();
-    __nop();
-    INTCONbits.GIE = GIEBitValue;
-
-    return ((uint16_t)((EEDATH << 8) | EEDATL));
-}
-
-void FLASH_WriteWord(uint16_t flashAddr, uint16_t *ramBuf, uint16_t word)
-{
-    uint16_t blockStartAddr = (uint16_t)(flashAddr & ((0x4000 -1) ^ (32 -1)));
-    uint8_t offset = (uint8_t)(flashAddr & (32 -1));
-    uint8_t i;
-
-
-    for (i=0; i<32; i++)
-    {
-        ramBuf[i] = FLASH_ReadWord((blockStartAddr+i));
-    }
-
-
-    ramBuf[offset] = word;
-
-
-    FLASH_WriteBlock(blockStartAddr, ramBuf);
-}
-
-int8_t FLASH_WriteBlock(uint16_t writeAddr, uint16_t *flashWordArray)
-{
-    uint16_t blockStartAddr = (uint16_t )(writeAddr & ((0x4000 -1) ^ (32 -1)));
-    uint8_t GIEBitValue = INTCONbits.GIE;
-    uint8_t i,j,numberOfWriteBlocks=0,dataCounter=0;
-
-    numberOfWriteBlocks = (32/32);
-
-
-    if( writeAddr != blockStartAddr )
-    {
-        return -1;
-    }
-
-    INTCONbits.GIE = 0;
-
-
-    FLASH_EraseBlock(writeAddr);
-
-    for(j=0; j<numberOfWriteBlocks; j++)
-    {
-
-  EECON1bits.EEPGD = 1;
-  EECON1bits.CFGS = 0;
-  EECON1bits.WREN = 1;
-  EECON1bits.LWLO = 1;
-
-  for (i=0; i<32; i++)
-  {
-
-   EEADRL = (writeAddr & 0xFF);
-
-   EEADRH = ((writeAddr & 0xFF00) >> 8);
-
-
-   EEDATL = flashWordArray[dataCounter];
-   EEDATH = ((flashWordArray[dataCounter] & 0xFF00) >> 8);
-   dataCounter++;
-
-   if(i == (32 -1))
+   struct
    {
+      uint8_t ccpr4l;
+      uint8_t ccpr4h;
+   };
+   struct
+   {
+      uint16_t ccpr4_16Bit;
+   };
+} CCP4_PERIOD_REG_T ;
+# 123 "mcc_generated_files/ccp4.h"
+void CCP4_Initialize(void);
+# 139 "mcc_generated_files/ccp4.h"
+void CCP4_CaptureISR(void);
+# 180 "mcc_generated_files/ccp4.h"
+ void CCP4_SetCallBack(void (*customCallBack)(uint16_t));
+# 52 "mcc_generated_files/ccp4.c" 2
 
-    EECON1bits.LWLO = 0;
-   }
 
-   EECON2 = 0x55;
-   EECON2 = 0xAA;
-   EECON1bits.WR = 1;
-   __nop();
-   __nop();
+static void (*CCP4_CallBack)(uint16_t);
 
-   writeAddr++;
-  }
- }
 
-    EECON1bits.WREN = 0;
-    INTCONbits.GIE = GIEBitValue;
 
-    return 0;
+
+
+static void CCP4_DefaultCallBack(uint16_t capturedValue)
+{
+
 }
 
-void FLASH_EraseBlock(uint16_t startAddr)
+void CCP4_Initialize(void)
 {
-    uint8_t GIEBitValue = INTCONbits.GIE;
-
-    INTCONbits.GIE = 0;
-
-    EEADRL = (startAddr & 0xFF);
-
-    EEADRH = ((startAddr & 0xFF00) >> 8);
 
 
-    EECON1bits.CFGS = 0;
-    EECON1bits.EEPGD = 1;
-    EECON1bits.FREE = 1;
-    EECON1bits.WREN = 1;
+
+ CCP4CON = 0x04;
 
 
-    EECON2 = 0x55;
-    EECON2 = 0xAA;
-    EECON1bits.WR = 1;
-    __nop();
-    __nop();
+ CCPR4L = 0x00;
 
-    EECON1bits.WREN = 0;
-    INTCONbits.GIE = GIEBitValue;
+
+ CCPR4H = 0x00;
+
+
+    CCP4_SetCallBack(CCP4_DefaultCallBack);
+
+
+
+    PIR3bits.CCP4IF = 0;
+
+
+    PIE3bits.CCP4IE = 1;
 }
 
-
-
-
-
-void DATAEE_WriteByte(uint8_t bAdd, uint8_t bData)
+void CCP4_CaptureISR(void)
 {
-    uint8_t GIEBitValue = 0;
+    CCP4_PERIOD_REG_T module;
 
-    EEADRL = (uint8_t)(bAdd & 0x0ff);
-    EEDATL = bData;
-    EECON1bits.EEPGD = 0;
-    EECON1bits.CFGS = 0;
-    EECON1bits.WREN = 1;
 
-    GIEBitValue = INTCONbits.GIE;
-    INTCONbits.GIE = 0;
-    EECON2 = 0x55;
-    EECON2 = 0xAA;
-    EECON1bits.WR = 1;
+    PIR3bits.CCP4IF = 0;
 
-    while (EECON1bits.WR)
-    {
-    }
 
-    EECON1bits.WREN = 0;
-    INTCONbits.GIE = GIEBitValue;
+    module.ccpr4l = CCPR4L;
+    module.ccpr4h = CCPR4H;
+
+
+    CCP4_CallBack(module.ccpr4_16Bit);
 }
 
-uint8_t DATAEE_ReadByte(uint8_t bAdd)
-{
-    EEADRL = (uint8_t)(bAdd & 0x0ff);
-    EECON1bits.CFGS = 0;
-    EECON1bits.EEPGD = 0;
-    EECON1bits.RD = 1;
-    __nop();
-    __nop();
-
-    return (EEDATL);
+void CCP4_SetCallBack(void (*customCallBack)(uint16_t)){
+    CCP4_CallBack = customCallBack;
 }

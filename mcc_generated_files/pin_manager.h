@@ -13,11 +13,11 @@
   @Description
     This header file provides APIs for driver for .
     Generation Information :
-        Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.81.5
+        Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.81.6
         Device            :  PIC16F1938
         Driver Version    :  2.11
     The generated drivers are tested against the following:
-        Compiler          :  XC8 2.20 and above
+        Compiler          :  XC8 2.30 and above
         MPLAB 	          :  MPLAB X 5.40	
 */
 
@@ -140,6 +140,18 @@
 #define RA7_GetValue()              PORTAbits.RA7
 #define RA7_SetDigitalInput()    do { TRISAbits.TRISA7 = 1; } while(0)
 #define RA7_SetDigitalOutput()   do { TRISAbits.TRISA7 = 0; } while(0)
+
+// get/set RB0 procedures
+#define RB0_SetHigh()            do { LATBbits.LATB0 = 1; } while(0)
+#define RB0_SetLow()             do { LATBbits.LATB0 = 0; } while(0)
+#define RB0_Toggle()             do { LATBbits.LATB0 = ~LATBbits.LATB0; } while(0)
+#define RB0_GetValue()              PORTBbits.RB0
+#define RB0_SetDigitalInput()    do { TRISBbits.TRISB0 = 1; } while(0)
+#define RB0_SetDigitalOutput()   do { TRISBbits.TRISB0 = 0; } while(0)
+#define RB0_SetPullup()             do { WPUBbits.WPUB0 = 1; } while(0)
+#define RB0_ResetPullup()           do { WPUBbits.WPUB0 = 0; } while(0)
+#define RB0_SetAnalogMode()         do { ANSELBbits.ANSB0 = 1; } while(0)
+#define RB0_SetDigitalMode()        do { ANSELBbits.ANSB0 = 0; } while(0)
 
 // get/set RB4 procedures
 #define RB4_SetHigh()            do { LATBbits.LATB4 = 1; } while(0)

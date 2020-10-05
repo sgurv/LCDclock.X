@@ -1,24 +1,24 @@
 /**
-  @Generated PIC10 / PIC12 / PIC16 / PIC18 MCUs Source File
+  CCP4 Generated Driver File
 
-  @Company:
+  @Company
     Microchip Technology Inc.
 
-  @File Name:
-    mcc.c
+  @File Name
+    ccp4.c
 
-  @Summary:
-    This is the mcc.c file generated using PIC10 / PIC12 / PIC16 / PIC18 MCUs
+  @Summary
+    This is the generated driver implementation file for the CCP4 driver using PIC10 / PIC12 / PIC16 / PIC18 MCUs
 
-  @Description:
-    This header file provides implementations for driver APIs for all modules selected in the GUI.
+  @Description
+    This source file provides implementations for driver APIs for CCP4.
     Generation Information :
         Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.81.6
         Device            :  PIC16F1938
-        Driver Version    :  2.00
+        Driver Version    :  2.0.3
     The generated drivers are tested against the following:
-        Compiler          :  XC8 2.30 and above or later
-        MPLAB             :  MPLAB X 5.40
+        Compiler          :  XC8 2.30 and above
+         MPLAB 	          :  MPLAB X 5.40
 */
 
 /*
@@ -44,45 +44,66 @@
     SOFTWARE.
 */
 
-#include "mcc.h"
+/**
+  Section: Included Files
+*/
 
+#include <xc.h>
+#include "ccp4.h"
 
-void SYSTEM_Initialize(void)
+static void (*CCP4_CallBack)(uint16_t);
+
+/**
+  Section: Capture Module APIs:
+*/
+
+static void CCP4_DefaultCallBack(uint16_t capturedValue)
 {
-
-    I2C_Initialize();
-    PIN_MANAGER_Initialize();
-    OSCILLATOR_Initialize();
-    WDT_Initialize();
-    DAC_Initialize();
-    FVR_Initialize();
-    CCP4_Initialize();
-    TMR1_Initialize();
-    TMR0_Initialize();
-    EUSART_Initialize();
-    LCD_Initialize();
+    // Add your code here
 }
 
-void OSCILLATOR_Initialize(void)
+void CCP4_Initialize(void)
 {
-    // SCS FOSC; SPLLEN disabled; IRCF 8MHz_HF; 
-    OSCCON = 0x70;
-    // TUN 0; 
-    OSCTUNE = 0x00;
-    // SBOREN disabled; 
-    BORCON = 0x00;
-    // Wait for PLL to stabilize
-    while(PLLR == 0)
-    {
-    }
+    // Set the CCP4 to the options selected in the User Interface
+	
+	// CCP4M Falling edge; DC4B 0; 
+	CCP4CON = 0x04;    
+	
+	// CCPR4L 0; 
+	CCPR4L = 0x00;    
+	
+	// CCPR4H 0; 
+	CCPR4H = 0x00;    
+    
+    // Set the default call back function for CCP4
+    CCP4_SetCallBack(CCP4_DefaultCallBack);
+
+    
+    // Clear the CCP4 interrupt flag
+    PIR3bits.CCP4IF = 0;
+
+    // Enable the CCP4 interrupt
+    PIE3bits.CCP4IE = 1;
 }
 
-void WDT_Initialize(void)
+void CCP4_CaptureISR(void)
 {
-    // WDTPS 1:65536; SWDTEN OFF; 
-    WDTCON = 0x16;
+    CCP4_PERIOD_REG_T module;
+
+    // Clear the CCP4 interrupt flag
+    PIR3bits.CCP4IF = 0;
+    
+    // Copy captured value.
+    module.ccpr4l = CCPR4L;
+    module.ccpr4h = CCPR4H;
+    
+    // Return 16bit captured value
+    CCP4_CallBack(module.ccpr4_16Bit);
 }
 
+void CCP4_SetCallBack(void (*customCallBack)(uint16_t)){
+    CCP4_CallBack = customCallBack;
+}
 /**
  End of File
 */

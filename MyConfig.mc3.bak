@@ -9,12 +9,12 @@
          <string>class com.microchip.mcc.mcu8.systemManager.wdt.WDT</string>
       </entry>
       <entry>
-         <string>DAC</string>
-         <string>class com.microchip.mcc.mcu8.modules.dac.DAC</string>
-      </entry>
-      <entry>
          <string>MSSP</string>
          <string>class com.microchip.mcc.mcu8.modules.mssp.MSSP</string>
+      </entry>
+      <entry>
+         <string>DAC</string>
+         <string>class com.microchip.mcc.mcu8.modules.dac.DAC</string>
       </entry>
       <entry>
          <string>Pin Module</string>
@@ -25,12 +25,12 @@
          <string>class com.microchip.mcc.mcu8.systemManager.reset.RESET</string>
       </entry>
       <entry>
-         <string>LCD</string>
-         <string>class com.microchip.mcc.mcu8.modules.lcd.LCD</string>
-      </entry>
-      <entry>
          <string>Interrupt Module</string>
          <string>class com.microchip.mcc.mcu8.interruptManager.InterruptManager</string>
+      </entry>
+      <entry>
+         <string>LCD</string>
+         <string>class com.microchip.mcc.mcu8.modules.lcd.LCD</string>
       </entry>
       <entry>
          <string>System Module</string>
@@ -62,7 +62,7 @@
       </entry>
    </usedClasses>
    <usedLibraries class="java.util.ArrayList">
-      <ILibraryFile class="com.microchip.mcc.core.library.BaseLibraryFile" libraryClass="com.microchip.mcc.mcu8.Mcu8PeripheralLibrary" version="1.81.6"/>
+      <ILibraryFile class="com.microchip.mcc.core.library.BaseLibraryFile" libraryClass="com.microchip.mcc.mcu8.Mcu8PeripheralLibrary" version="1.81.5"/>
    </usedLibraries>
    <tokenMap class="java.util.HashMap">
       <entry>
@@ -250,12 +250,12 @@
          <value>1</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="MEMORY" registerAlias="EECON1" settingAlias="RD" alias="initiate_read"/>
-         <value>1</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="TMR1" name="inputMode"/>
          <value>tmrMode</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="MEMORY" registerAlias="EECON1" settingAlias="RD" alias="initiate_read"/>
+         <value>1</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="iocUserSet RB4"/>
@@ -514,12 +514,12 @@
          <value>1</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="MEMORY" registerAlias="EECON1" settingAlias="WR" alias="initiate_write"/>
-         <value>1</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="TMR1" registerAlias="TCON" settingAlias="TCKPS" alias="1:8"/>
          <value>3</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="MEMORY" registerAlias="EECON1" settingAlias="WR" alias="initiate_write"/>
+         <value>1</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="LCD" registerAlias="LCDDATA9" settingAlias="SEG3COM3"/>
@@ -1002,12 +1002,12 @@
          <value>1</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DAC" registerAlias="DACCON0" settingAlias="DACOE" alias="disabled"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="LCD" name="CUSTOM_FRAME_FREQ"/>
          <value>2583.33</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DAC" registerAlias="DACCON0" settingAlias="DACOE" alias="disabled"/>
+         <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="Pin Module" registerAlias="OPTION_REG"/>
@@ -1018,12 +1018,12 @@
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="LCD" registerAlias="LCDREF"/>
-         <value>160</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="FVR" registerAlias="FVRCON" settingAlias="TSRNG"/>
          <value>Lo_range</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="LCD" registerAlias="LCDREF"/>
+         <value>160</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="MSSP" name="clockSourceSectionFilter"/>
@@ -1062,12 +1062,12 @@
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="EUSART" name="EUSART_RCIISRFunction"/>
-         <value>RxDefaultInterruptHandler</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="FVR" registerAlias="FVRCON" settingAlias="TSEN" alias="enabled"/>
          <value>1</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="EUSART" name="EUSART_RCIISRFunction"/>
+         <value>RxDefaultInterruptHandler</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="LCD" registerAlias="LCDDATA1" settingAlias="SEG10COM0"/>
@@ -1158,12 +1158,12 @@
          <value>100ns</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="LCD" name="_SYM10"/>
-         <value/>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="FVR" registerAlias="FVRCON" settingAlias="ADFVR" alias="2x"/>
          <value>2</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="LCD" name="_SYM10"/>
+         <value/>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="LCD" name="_SYM11"/>
@@ -1206,16 +1206,16 @@
          <value/>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="MEMORY" registerAlias="EEDATH" settingAlias="EEDATH"/>
-         <value>0</value>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="LCD" name="_SYM15"/>
+         <value/>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="TMR0" name="minPeriod"/>
          <value>0.000000125</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="LCD" name="_SYM15"/>
-         <value/>
+         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="MEMORY" registerAlias="EEDATH" settingAlias="EEDATH"/>
+         <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="LCD" name="_SYM16"/>
@@ -1242,12 +1242,12 @@
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="LCD" name="CUST_AVAIL_PIXELS"/>
-         <value>64</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="FVR" registerAlias="FVRCON" settingAlias="TSEN" alias="disabled"/>
          <value>0</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="LCD" name="CUST_AVAIL_PIXELS"/>
+         <value>64</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="LCD" registerAlias="LCDDATA4" settingAlias="SEG15COM1" alias="enabled"/>
@@ -1334,12 +1334,12 @@
          <value/>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="LCD" name="_SYM34"/>
-         <value/>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="FVR" registerAlias="FVRCON" settingAlias="ADFVR" alias="4x"/>
          <value>3</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="LCD" name="_SYM34"/>
+         <value/>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="LCD" name="_SYM30"/>
@@ -1358,16 +1358,16 @@
          <value/>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="CCP4" name="pwmCCPRDisplayValue"/>
-         <value>0</value>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="LCD" name="_SYM36"/>
+         <value/>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="EUSART" registerAlias="TXSTA" settingAlias="SENDB"/>
          <value>sync_break_complete</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="LCD" name="_SYM36"/>
-         <value/>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="CCP4" name="pwmCCPRDisplayValue"/>
+         <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="LCD" name="_SYM37"/>
@@ -1398,24 +1398,24 @@
          <value>1</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="CCP4" registerAlias="CCPTMRS" settingAlias="CTSEL" alias="PWM4timer4"/>
-         <value>1</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="MSSP" registerAlias="SSPBUF"/>
          <value>0</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="CCP4" registerAlias="CCPTMRS" settingAlias="CTSEL" alias="PWM4timer4"/>
+         <value>1</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="LCD" registerAlias="LCDDATA10" settingAlias="SEG12COM3" alias="disabled"/>
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="CCP4" registerAlias="CCPTMRS" settingAlias="CTSEL" alias="PWM4timer6"/>
-         <value>2</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="LCD" name="_SYM64"/>
          <value/>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="CCP4" registerAlias="CCPTMRS" settingAlias="CTSEL" alias="PWM4timer6"/>
+         <value>2</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="LCD" name="_SYM65"/>
@@ -1590,12 +1590,12 @@
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="LCD" name="_SYM86"/>
-         <value/>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="FVR" registerAlias="FVRCON" settingAlias="ADFVR" alias="1x"/>
          <value>1</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="LCD" name="_SYM86"/>
+         <value/>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="LCD" name="_SYM87"/>
@@ -1650,12 +1650,12 @@
          <value/>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="CCP4" name="pwmResolution"/>
-         <value>10 bits</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="LCD" name="_SYM77"/>
          <value/>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="CCP4" name="pwmResolution"/>
+         <value>10 bits</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="LCD" name="_SYM78"/>
@@ -1834,12 +1834,12 @@
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="EUSART" registerAlias="RCSTA" settingAlias="RX9"/>
-         <value>8-bit</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="LCD" registerAlias="LCDSE0" settingAlias="SE1"/>
          <value>enabled</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="EUSART" registerAlias="RCSTA" settingAlias="RX9"/>
+         <value>8-bit</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="MSSP" name="spiInputSampleFilter"/>
@@ -2086,12 +2086,12 @@
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="EUSART" name="CK"/>
-         <value>enabled</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="LCD" registerAlias="LCDDATA1"/>
          <value>0</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="EUSART" name="CK"/>
+         <value>enabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="INTERNAL OSCILLATOR" registerAlias="OSCTUNE" settingAlias="TUN"/>
@@ -2106,11 +2106,11 @@
          <value>clear</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="MEMORY" registerAlias="EECON1" settingAlias="WREN" alias="disabled"/>
+         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="LCD" registerAlias="LCDDATA7" settingAlias="SEG15COM2" alias="disabled"/>
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="LCD" registerAlias="LCDDATA7" settingAlias="SEG15COM2" alias="disabled"/>
+         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="MEMORY" registerAlias="EECON1" settingAlias="WREN" alias="disabled"/>
          <value>0</value>
       </entry>
       <entry>
@@ -2126,12 +2126,12 @@
          <value>3</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="EUSART" registerAlias="BAUDCON" settingAlias="RCIDL"/>
-         <value>idle</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="LCD" registerAlias="LCDPS" settingAlias="BIASMD" alias="Static"/>
          <value>0</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="EUSART" registerAlias="BAUDCON" settingAlias="RCIDL"/>
+         <value>idle</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="MSSP" registerAlias="SSPSTAT" settingAlias="CKE" alias="enabled"/>
@@ -2182,12 +2182,12 @@
          <value>4</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="TMR1" registerAlias="TGCON" settingAlias="TGPOL" alias="high"/>
-         <value>1</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="LCD" registerAlias="LCDDATA3"/>
          <value>0</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="TMR1" registerAlias="TGCON" settingAlias="TGPOL" alias="high"/>
+         <value>1</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="EUSART" registerAlias="TXSTA" settingAlias="TX9" alias="8-bit"/>
@@ -2346,12 +2346,12 @@
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="DAC" name="refRequiredRef"/>
-         <value>1.000</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="TMR1" registerAlias="TMRL"/>
          <value>0</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="DAC" name="refRequiredRef"/>
+         <value>1.000</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="MEMORY" registerAlias="EEADRL" settingAlias="EEADRL"/>
@@ -2514,12 +2514,12 @@
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="TMR1" registerAlias="TGCON" settingAlias="TGSS"/>
-         <value>T1G_pin</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="LCD" registerAlias="LCDDATA9" settingAlias="SEG7COM3"/>
          <value>disabled</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="TMR1" registerAlias="TGCON" settingAlias="TGSS"/>
+         <value>T1G_pin</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="LCD" registerAlias="LCDDATA7" settingAlias="SEG11COM2" alias="enabled"/>
@@ -2566,16 +2566,16 @@
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="CCP4" name="timerselpresence"/>
-         <value>timerselnotpresent</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="MSSP" registerAlias="BCLI" settingAlias="order"/>
          <value>-1</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="LCD" registerAlias="LCDCST" settingAlias="LCDCST" alias="3/7"/>
          <value>3</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="CCP4" name="timerselpresence"/>
+         <value>timerselnotpresent</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="System Module" registerAlias="CONFIG2" settingAlias="LVP" alias="OFF"/>
@@ -2618,12 +2618,12 @@
          <value/>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="EUSART" registerAlias="TXSTA" settingAlias="BRGH" alias="lo_speed"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="LCD" name="_SYM334"/>
          <value/>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="EUSART" registerAlias="TXSTA" settingAlias="BRGH" alias="lo_speed"/>
+         <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="LCD" name="_SYM337"/>
@@ -2646,12 +2646,12 @@
          <value/>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="CCP4" registerAlias="CCPCON" settingAlias="CCPM" alias="Toggle"/>
-         <value>2</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="LCD" name="_SYM320"/>
          <value/>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="CCP4" registerAlias="CCPCON" settingAlias="CCPM" alias="Toggle"/>
+         <value>2</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DAC" registerAlias="DACCON0" settingAlias="DACPSS" alias="VDD"/>
@@ -2806,12 +2806,12 @@
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="CCP4" registerAlias="CCPCON" settingAlias="CCPM" alias="Falling edge"/>
-         <value>4</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="LCD" name="_SYM308"/>
          <value/>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="CCP4" registerAlias="CCPCON" settingAlias="CCPM" alias="Falling edge"/>
+         <value>4</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="LCD" name="_SYM307"/>
@@ -2922,12 +2922,12 @@
          <value/>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="MEMORY" registerAlias="EECON1" settingAlias="WREN"/>
-         <value>disabled</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="LCD" name="_SYM376"/>
          <value/>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="MEMORY" registerAlias="EECON1" settingAlias="WREN"/>
+         <value>disabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="LCD" name="_SYM379"/>
@@ -2942,12 +2942,12 @@
          <value>1</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="EUSART" registerAlias="RCSTA" settingAlias="RX9" alias="8-bit"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="LCD" name="_SYM360"/>
          <value/>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="EUSART" registerAlias="RCSTA" settingAlias="RX9" alias="8-bit"/>
+         <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="DAC" registerAlias="DACCON0"/>
@@ -3142,12 +3142,12 @@
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="EUSART" registerAlias="SPBRGH"/>
-         <value>3</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="LCD" name="_SYM341"/>
          <value/>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="EUSART" registerAlias="SPBRGH"/>
+         <value>3</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="MSSP" registerAlias="SSPSTAT" settingAlias="UA"/>
@@ -3434,12 +3434,12 @@
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="MEMORY" registerAlias="EECON1" settingAlias="WR"/>
-         <value>write_complete</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="EUSART" registerAlias="SPBRGL"/>
          <value>64</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="MEMORY" registerAlias="EECON1" settingAlias="WR"/>
+         <value>write_complete</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="trisUserSetRB5"/>
@@ -3846,12 +3846,12 @@
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="DAC" name="refPosRef"/>
-         <value>4.00</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="TMR1" registerAlias="TGCON" settingAlias="TGVAL" alias="disabled"/>
          <value>0</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="DAC" name="refPosRef"/>
+         <value>4.00</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="TMR1" name="tckiPin"/>
@@ -3926,12 +3926,12 @@
          <value>disabled</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="CCP4" registerAlias="CCPI" settingAlias="enable"/>
-         <value>enabled</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="TMR0" registerAlias="OPTION_REG" settingAlias="TMRSE"/>
          <value>Increment_hi_lo</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="CCP4" registerAlias="CCPI" settingAlias="enable"/>
+         <value>enabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="trisUserSetRA5"/>
@@ -4302,12 +4302,12 @@
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DAC" registerAlias="DACCON1" settingAlias="DACR"/>
-         <value>16</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="LCD" registerAlias="LCDSE1" settingAlias="SE9" alias="enabled"/>
          <value>1</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DAC" registerAlias="DACCON1" settingAlias="DACR"/>
+         <value>16</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="LATB" settingAlias="LATB0" alias="clear"/>
@@ -4410,12 +4410,12 @@
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="CCP4" registerAlias="CCPCON" settingAlias="DCB"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="TMR1" name="timerClockActual"/>
          <value>15.258789</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="CCP4" registerAlias="CCPCON" settingAlias="DCB"/>
+         <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="TMR1" registerAlias="TMRGI" settingAlias="flag"/>
@@ -4454,12 +4454,12 @@
          <value>1</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="EUSART" registerAlias="TXSTA" settingAlias="BRGH" alias="hi_speed"/>
-         <value>1</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="LCD" registerAlias="LCDDATA6" settingAlias="SEG3COM2" alias="disabled"/>
          <value>0</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="EUSART" registerAlias="TXSTA" settingAlias="BRGH" alias="hi_speed"/>
+         <value>1</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="TRISC" settingAlias="TRISC1"/>
@@ -4634,12 +4634,12 @@
          <value>input</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="CCP4" registerAlias="CCPCON" settingAlias="CCPM" alias="Autoconversion"/>
-         <value>11</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="LCD" registerAlias="LCDDATA1" settingAlias="SEG13COM0" alias="disabled"/>
          <value>0</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="CCP4" registerAlias="CCPCON" settingAlias="CCPM" alias="Autoconversion"/>
+         <value>11</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="WDT" registerAlias="WDTCON0" settingAlias="WDTPS" alias="1:4096"/>
@@ -4778,12 +4778,12 @@
          <value>easysetup</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="TMR1" registerAlias="TGCON" settingAlias="TGPOL" alias="low"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="LCD" name="_SYM259"/>
          <value/>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="TMR1" registerAlias="TGCON" settingAlias="TGPOL" alias="low"/>
+         <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="LCD" name="_SYM241"/>
@@ -4822,12 +4822,12 @@
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="TMR1" registerAlias="TMRI" settingAlias="order"/>
-         <value>-1</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="LCD" registerAlias="LCDDATA6" settingAlias="SEG3COM2"/>
          <value>disabled</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="TMR1" registerAlias="TMRI" settingAlias="order"/>
+         <value>-1</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="MSSP" name="sspin"/>
@@ -4922,12 +4922,12 @@
          <value/>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="EUSART" registerAlias="TXSTA" settingAlias="TXEN" alias="disabled"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="LCD" name="_SYM233"/>
          <value/>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="EUSART" registerAlias="TXSTA" settingAlias="TXEN" alias="disabled"/>
+         <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="LCD" name="_SYM236"/>
@@ -4966,12 +4966,12 @@
          <value/>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="TMR1" name="dependentModuleKey"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="LCD" name="_SYM220"/>
          <value/>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="TMR1" name="dependentModuleKey"/>
+         <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="CCP4" registerAlias="CCPRH" settingAlias="CCPRH"/>
@@ -5042,12 +5042,12 @@
          <value/>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="TMR0" name="requestedPeriod"/>
-         <value>0.000032</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="LCD" name="_SYM291"/>
          <value/>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="TMR0" name="requestedPeriod"/>
+         <value>0.000032</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="LCD" name="_SYM294"/>
@@ -5166,12 +5166,12 @@
          <value>disabled</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="EUSART" registerAlias="TXSTA" settingAlias="TRMT"/>
-         <value>TSR_empty</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="LCD" name="_SYM289"/>
          <value/>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="EUSART" registerAlias="TXSTA" settingAlias="TRMT"/>
+         <value>TSR_empty</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="LCD" name="_SYM288"/>
@@ -5250,10 +5250,6 @@
          <value/>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="MEMORY" registerAlias="EEDATL" settingAlias="EEDATL"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="LCD" name="_SYM265"/>
          <value/>
       </entry>
@@ -5262,16 +5258,20 @@
          <value>1</value>
       </entry>
       <entry>
+         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="MEMORY" registerAlias="EEDATL" settingAlias="EEDATL"/>
+         <value>0</value>
+      </entry>
+      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="LCD" name="_SYM264"/>
          <value/>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="MEMORY" registerAlias="EECON1" settingAlias="FREE"/>
-         <value>write</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="LCD" registerAlias="LCDDATA9" settingAlias="SEG3COM3" alias="disabled"/>
          <value>0</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="MEMORY" registerAlias="EECON1" settingAlias="FREE"/>
+         <value>write</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="MSSP" registerAlias="SSPCON1" settingAlias="SSPM" alias="FOSC/64"/>
@@ -5290,12 +5290,12 @@
          <value/>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="LCD" name="_SYM266"/>
-         <value/>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="FVR" registerAlias="FVRCON" settingAlias="CDAFVR"/>
          <value>2x</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="LCD" name="_SYM266"/>
+         <value/>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="LCD" name="_SYM269"/>
@@ -5446,12 +5446,12 @@
          <value>22</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="MEMORY" registerAlias="EEADRL"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="MSSP" registerAlias="SSPCON3" settingAlias="BOEN"/>
          <value>disabled</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="MEMORY" registerAlias="EEADRL"/>
+         <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="EUSART" registerAlias="BAUDCON" settingAlias="BRG16" alias="8bit_generator"/>
@@ -5614,12 +5614,12 @@
          <value>2</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="EUSART" registerAlias="TXSTA" settingAlias="TX9" alias="9-bit"/>
-         <value>1</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="LCD" registerAlias="LCDCON" settingAlias="LMUX" alias="1/3 COM(2:0)"/>
          <value>2</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="EUSART" registerAlias="TXSTA" settingAlias="TX9" alias="9-bit"/>
+         <value>1</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="System Module" registerAlias="CONFIG2" settingAlias="PLLEN"/>
@@ -5766,12 +5766,12 @@
          <value>High Speed</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="EUSART" name="templateNameValue"/>
-         <value>eusart_noninterrupt</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="LCD" registerAlias="LCDCST" settingAlias="LCDCST" alias="Min"/>
          <value>0</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="EUSART" name="templateNameValue"/>
+         <value>eusart_noninterrupt</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="TMR1" registerAlias="TGCON" settingAlias="TGGO"/>
@@ -5870,12 +5870,12 @@
          <value>1</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="TMR0" registerAlias="TMR" settingAlias="TMR"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="LCD" registerAlias="LCDSE0" settingAlias="SE7" alias="enabled"/>
          <value>1</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="TMR0" registerAlias="TMR" settingAlias="TMR"/>
+         <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="MSSP" registerAlias="SSPCON2" settingAlias="RSEN"/>
@@ -6426,12 +6426,12 @@
          <value>output</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="TMR1" name="clockFreq"/>
-         <value>32000000</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="LCD" registerAlias="LCDDATA0" settingAlias="SEG7COM0" alias="disabled"/>
          <value>0</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="TMR1" name="clockFreq"/>
+         <value>32000000</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="TRISB" settingAlias="TRISB5" alias="input"/>
@@ -6502,12 +6502,12 @@
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="MEMORY" registerAlias="EEDATL"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="MSSP" name="sdipin"/>
          <value>enabled</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="MEMORY" registerAlias="EEDATL"/>
+         <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="TRISB" settingAlias="TRISB3" alias="output"/>
@@ -6562,12 +6562,12 @@
          <value>RA5</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="TMR0" registerAlias="OPTION_REG" settingAlias="PS" alias="1:64"/>
-         <value>5</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="LCD" name="_SYM137"/>
          <value/>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="TMR0" registerAlias="OPTION_REG" settingAlias="PS" alias="1:64"/>
+         <value>5</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="LCD" name="_SYM136"/>
@@ -6678,12 +6678,12 @@
          <value/>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="EUSART" registerAlias="RCI" settingAlias="order"/>
-         <value>-1</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="LCD" name="_SYM123"/>
          <value/>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="EUSART" registerAlias="RCI" settingAlias="order"/>
+         <value>-1</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="LCD" name="_SYM126"/>
@@ -6850,12 +6850,12 @@
          <value/>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DAC" registerAlias="DACCON0" settingAlias="DACLPS" alias="pos_ref"/>
-         <value>1</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="LCD" name="_SYM105"/>
          <value/>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DAC" registerAlias="DACCON0" settingAlias="DACLPS" alias="pos_ref"/>
+         <value>1</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="IOCBF" settingAlias="IOCBF1"/>
@@ -6886,12 +6886,12 @@
          <value/>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="MEMORY" registerAlias="EEDATH"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="LCD" name="_SYM175"/>
          <value/>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="MEMORY" registerAlias="EEDATH"/>
+         <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="LCD" name="_SYM174"/>
@@ -6994,12 +6994,12 @@
          <value>1000000</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="CCP4" registerAlias="CCPRL"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="LCD" registerAlias="LCDRL" settingAlias="LRLAT" alias="A power 7, B power  9"/>
          <value>7</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="CCP4" registerAlias="CCPRL"/>
+         <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="IOCBF" settingAlias="IOCBF0"/>
@@ -7170,12 +7170,12 @@
          <value/>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="TMR0" registerAlias="OPTION_REG" settingAlias="PS" alias="1:32"/>
-         <value>4</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="LCD" name="_SYM147"/>
          <value/>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="TMR0" registerAlias="OPTION_REG" settingAlias="PS" alias="1:32"/>
+         <value>4</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="LCD" name="_SYM149"/>
@@ -7286,12 +7286,12 @@
          <value>1</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="MEMORY" registerAlias="EECON1" settingAlias="FREE" alias=""/>
-         <value>1</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="LCD" name="_SYM198"/>
          <value/>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="MEMORY" registerAlias="EECON1" settingAlias="FREE" alias=""/>
+         <value>1</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="MEMORY" registerAlias="EECON1" settingAlias="EEPGD" alias="access_flash"/>
@@ -7314,12 +7314,12 @@
          <value/>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DAC" registerAlias="DACCON0" settingAlias="DACNSS"/>
-         <value>VSS</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="LCD" name="_SYM190"/>
          <value/>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DAC" registerAlias="DACCON0" settingAlias="DACNSS"/>
+         <value>VSS</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="LCD" registerAlias="LCDDATA4" settingAlias="SEG8COM1" alias="enabled"/>
@@ -7366,16 +7366,16 @@
          <value/>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="MEMORY" name="useDATAEE"/>
-         <value>enabled</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="LCD" name="_SYM188"/>
          <value/>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="LCD" registerAlias="LCDDATA10" settingAlias="SEG8COM3" alias="enabled"/>
          <value>1</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="MEMORY" name="useDATAEE"/>
+         <value>enabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="LCD" name="_SYM187"/>
@@ -7678,11 +7678,11 @@
          <value>disabled</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="MEMORY" registerAlias="EECON1" settingAlias="WRERR" alias="program_error"/>
+         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="MSSP" registerAlias="SSPCON1" settingAlias="CKP" alias="Idle:High, Active:Low"/>
          <value>1</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="MSSP" registerAlias="SSPCON1" settingAlias="CKP" alias="Idle:High, Active:Low"/>
+         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="MEMORY" registerAlias="EECON1" settingAlias="WRERR" alias="program_error"/>
          <value>1</value>
       </entry>
       <entry>
@@ -7701,119 +7701,119 @@
    <generatedFileHashHistoryMap class="java.util.HashMap">
       <entry>
          <file>mcc_generated_files\interrupt_manager.h</file>
-         <hash>754a1d06d09af4f3ed4de7404d12934c4979e7e7ba65f8c36485b7837110a682</hash>
+         <hash>e6a3dcb0976075f2c8610ca44a65d198ea91171a8e63ef3b09415d7f647766b5</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\memory.c</file>
-         <hash>40ec8cd27290a25ba4afc4dbb0b6e51443462e692509dad3e54b73cb4dab62a8</hash>
+         <hash>0a9a39386c695a4d1c0d653a255d1aab304faa52d1acf6c2330822da8c1e7d86</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\i2c_master.c</file>
-         <hash>0f3af9b02c7a9246e2921eb72cf15a1bd0701a1b616526bcae1de386b601ed91</hash>
+         <hash>b69837109fbb51d57a0e87625eec4b3dc81aa581f9fc98d51239bcb762464b91</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\i2c_master.h</file>
-         <hash>dd1e43cd36ed2c69a447833ef4f24172c3218cfe3757a2167ba9a12141298a7c</hash>
+         <hash>790ce85223b3d444f7bd207ea766fa68d7809baf81f3970bb7dc4af459745a1f</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\eusart.h</file>
-         <hash>405ff563dcff42989400184815f4f65516fb274ac51e2c3dfc4158c405a61607</hash>
+         <hash>73831f4ef97842d364dbefc4e397b1a29693e91f1cb903fca03c23efe791259b</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\lcd.h</file>
-         <hash>74853d0bd6cbf905e4007322fb201543e36ecfd21151a170c4642673434ea74c</hash>
+         <hash>50e6cc169e09186ef9394dd153462cec0a699c00ee648fe203d6a8f0ae4f8162</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\examples\i2c_master_example.h</file>
-         <hash>1a3458e5f7aee28e1c1d66637cc2122988068d699110341ca539120cf7f60d2a</hash>
+         <hash>be7185cc88f907dea45efa9da797cb047cbcbf223d178cefe583dcdfc4be87db</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\fvr.h</file>
-         <hash>8ccf704c1dc0e29b2b260f4ba5f0c08928721eee6725ea93a703a11cf438b35e</hash>
+         <hash>73e624a14f0493c46f2ce89e774d6e6fb8faf1bd62c867d74399bfe519b100e0</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\dac.c</file>
-         <hash>b3adf745a60bd456638e6d6cb54b06b7f8c454d441ae473b024664dc72caa0db</hash>
+         <hash>93e113bc199aa4440a41e1d06e539ba4e505c9c33a2feb763d1eda3cc39543b1</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\fvr.c</file>
-         <hash>802c52fd69ec5b915e6e45ca4987c43d5ff0fcbef96e16cedcb256b784ca221a</hash>
+         <hash>7a945965527cf68a58f39daf4e3f7374da7aa1a3b7735421afcc785a937b7ef2</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\dac.h</file>
-         <hash>b1acd0cbbb410cee4a06023a98833c37504b53bcb72fd74a3d1eee7459330958</hash>
+         <hash>f50975afc49e8d0cb3aa1d0471009401bc20aa25ec66a97739426d5d5b4f5e1f</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\examples\i2c_master_example.c</file>
-         <hash>f11e1d740174b8eea4b6ba29fb988d5865787c6a87a6448928f2daf207760907</hash>
+         <hash>ed7a2414606b018977a9fd810f2eecfd6ef80ec17751ca1516029eac63debd32</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\mcc.c</file>
-         <hash>11377b633fa6dd6b4f2d7591348d844d84e71ff7fcae5b56689edc3d039a43b2</hash>
+         <hash>ee655555debd3c3e56e0ee813ea9a2250eb46cdcc07bbbcf93c9fd9626351136</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\mcc.h</file>
-         <hash>7e03ec36e2a88fd3a12450148a60b550eeade3cc0b691d50f290dbe7112f3974</hash>
+         <hash>0e06dab69c4a729c1a2efb0ab24268ce05cecea06e930cf4b163b37a52adfd12</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\device_config.h</file>
-         <hash>47a5d87bfeea7ee43871e1e3fb30bae4ddfd8697adac12956af9ccf50cac6333</hash>
+         <hash>186b77db0866c90858db60d6e585efdede8571447f86e26732f495912e7766f7</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\tmr1.h</file>
-         <hash>72b10ca2513cb3c8645f51bd9576d28d66fdac316f45c6c26e2c643f29952f1a</hash>
+         <hash>75964f7014755bddf5bf7a8477cbe5da0410f629d00151c1f1a41624da2b1066</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\tmr0.h</file>
-         <hash>e7b26196e0ba6ae44094e6c5edd4581926625d553af7ab5908c25bbc16fdba75</hash>
+         <hash>1247d88b8d01eb094beef2509b21174bd6207c045a4376c9891586751c87c842</hash>
       </entry>
       <entry>
          <file>main.c</file>
-         <hash>43a5f499713ceb0fc230dc8712792154a2c1e25986a810bc0727a26b5ea94d69</hash>
+         <hash>a44688ea7f72a446bc933fa3ec054cbebbadea90be66c923f7b238644e13a890</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\device_config.c</file>
-         <hash>eca4dad5412b3e2dced07f813bd8f723c74ec93a5f41ec6c4369f2944348c962</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\pin_manager.h</file>
-         <hash>8c21f1a5915610439624a4a6dbbd9742e19f9176c45d3bf9d489307e505b1b8c</hash>
+         <hash>db91b94489ddda6270bf8001c39b56c279111a43037f1326c61906da8a09e969</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\ccp4.h</file>
-         <hash>7e41162004059fe23064feb6b857ad35179ec6a47b5c0a8beca91010117af566</hash>
+         <hash>cf814eb37f7e262f227cda06dd4644d05b01cc5bcfca08ae427d477be1259dd4</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\tmr1.c</file>
-         <hash>157cd498c236a58cab5762e0041bd7e14e25ebc7c8b74be73556e657b1ec61eb</hash>
+         <file>mcc_generated_files\pin_manager.h</file>
+         <hash>93b9107c4c89ce4ca2dd90e5c279a2a94ecdc282489c166957da79be113eb4b6</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\lcd.c</file>
-         <hash>4bcb1d0fa31962b2e839991eb47e8c2c2f712edd8f53395fb4511cc2d7c15d70</hash>
+         <hash>df3b7c4c9b25468161e175d67fa1402879b8dfa758f3daeab93d4b6a17cba3eb</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\tmr1.c</file>
+         <hash>00f35173c4868d051817c7a0b8cbb24a3e1a3ffdf4943892b361003b09764af0</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\eusart.c</file>
-         <hash>5a8fbb34154f6ebfc12427a215668d861fd832d52a91a69ebc6d71c1a01e26de</hash>
+         <hash>b2104e070d79012db8c09eecbf1a24247b1620b6181c8bca4486503cc5a2f2d7</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\ccp4.c</file>
-         <hash>61559db7b78bcf84c12fd680f1f00bc2c32699d7e11b35dc3aebd3ac1e5d3c14</hash>
+         <hash>82cd365a67a25faf665188dd38052399afcbc4aea5abab06c87c5be751a0374c</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\tmr0.c</file>
-         <hash>6a4755eea22b66c87109ad7df766319a5969bc4f03868823e003f35158cba3aa</hash>
+         <hash>37c6ac85f904b114ac39ac24cffb40bd67bb38d6154aaf66a4acf1c1518146e5</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\pin_manager.c</file>
-         <hash>d31a33c9c265894e6e4c65a2d7b3d3b9cc3d7861656c8e67f34ad0453b13e443</hash>
+         <hash>e88a90bdbd3b7f5a284213354723064d344f6cf234add584872ea71cfbb7e1d6</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\interrupt_manager.c</file>
-         <hash>c2945e96c03d2f4abeba43281792d43fe615d8b04d9804fa3c8caf7186e22dcf</hash>
+         <hash>bcd286da049a72bd623df5cb46ec94170344eac310ed14d3183652a10ccab6e4</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\memory.h</file>
-         <hash>3161790f0df04ab9496dfcad6c7d67a45634dec8697e64924a21d9f975b3c94e</hash>
+         <hash>dea4d36b81e2740483faf2dbe3f330898907d0ebdf9f228096258c88d456138a</hash>
       </entry>
    </generatedFileHashHistoryMap>
    <mc3libFileHashHistoryMap class="java.util.HashMap"/>
