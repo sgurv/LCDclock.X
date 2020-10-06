@@ -69,7 +69,7 @@
         <targetDevice>PIC16F1938</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>noID</platformTool>
+        <platformTool>PICkit3PlatformTool</platformTool>
         <languageToolchain>XC8</languageToolchain>
         <languageToolchainVersion>2.30</languageToolchainVersion>
         <platform>3</platform>
@@ -223,7 +223,7 @@
         <property key="programoptions.testmodeentrymethod" value="VDDFirst"/>
         <property key="programoptions.usehighvoltageonmclr" value="false"/>
         <property key="programoptions.uselvpprogramming" value="false"/>
-        <property key="voltagevalue" value="2.875"/>
+        <property key="voltagevalue" value="3.125"/>
       </PICkit3PlatformTool>
       <XC8-CO>
         <property key="coverage-enable" value=""/>

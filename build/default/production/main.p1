@@ -1331,15 +1331,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _LCDDATA7bits 0 4 -> -> 0 `i `uc ]
 [e $U 413  ]
 "249
-[; ;main.c: 249:         case 0x0D: LCDDATA9bits.SEG5COM3 = 0; LCDDATA10bits.SEG12COM3 = 1; LCDDATA4bits.SEG12COM1 = 1; LCDDATA1bits.SEG12COM0 = 1; LCDDATA3bits.SEG5COM1 = 1; LCDDATA6bits.SEG5COM2 = 1; LCDDATA7bits.SEG12COM2 = 0; break;
+[; ;main.c: 249:         case 0x0D: LCDDATA9bits.SEG5COM3 = 0; LCDDATA10bits.SEG12COM3 = 1; LCDDATA4bits.SEG12COM1 = 1; LCDDATA1bits.SEG12COM0 = 1; LCDDATA3bits.SEG5COM1 = 1; LCDDATA6bits.SEG5COM2 = 0; LCDDATA7bits.SEG12COM2 = 1; break;
 [e :U 428 ]
 [e = . . _LCDDATA9bits 0 5 -> -> 0 `i `uc ]
 [e = . . _LCDDATA10bits 0 4 -> -> 1 `i `uc ]
 [e = . . _LCDDATA4bits 0 4 -> -> 1 `i `uc ]
 [e = . . _LCDDATA1bits 0 4 -> -> 1 `i `uc ]
 [e = . . _LCDDATA3bits 0 5 -> -> 1 `i `uc ]
-[e = . . _LCDDATA6bits 0 5 -> -> 1 `i `uc ]
-[e = . . _LCDDATA7bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA6bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA7bits 0 4 -> -> 1 `i `uc ]
 [e $U 413  ]
 "250
 [; ;main.c: 250:         case 0x0E: LCDDATA9bits.SEG5COM3 = 1; LCDDATA10bits.SEG12COM3 = 0; LCDDATA4bits.SEG12COM1 = 0; LCDDATA1bits.SEG12COM0 = 1; LCDDATA3bits.SEG5COM1 = 1; LCDDATA6bits.SEG5COM2 = 1; LCDDATA7bits.SEG12COM2 = 1; break;
@@ -1563,15 +1563,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _LCDDATA6bits 0 1 -> -> 0 `i `uc ]
 [e $U 433  ]
 "274
-[; ;main.c: 274:         case 0x0D: LCDDATA10bits.SEG13COM3 = 0; LCDDATA9bits.SEG1COM3 = 1; LCDDATA3bits.SEG1COM1 = 1; LCDDATA0bits.SEG1COM0 = 1; LCDDATA4bits.SEG13COM1 = 1; LCDDATA7bits.SEG13COM2 = 1; LCDDATA6bits.SEG1COM2 = 0; break;
+[; ;main.c: 274:         case 0x0D: LCDDATA10bits.SEG13COM3 = 0; LCDDATA9bits.SEG1COM3 = 1; LCDDATA3bits.SEG1COM1 = 1; LCDDATA0bits.SEG1COM0 = 1; LCDDATA4bits.SEG13COM1 = 1; LCDDATA7bits.SEG13COM2 = 0; LCDDATA6bits.SEG1COM2 = 1; break;
 [e :U 448 ]
 [e = . . _LCDDATA10bits 0 5 -> -> 0 `i `uc ]
 [e = . . _LCDDATA9bits 0 1 -> -> 1 `i `uc ]
 [e = . . _LCDDATA3bits 0 1 -> -> 1 `i `uc ]
 [e = . . _LCDDATA0bits 0 1 -> -> 1 `i `uc ]
 [e = . . _LCDDATA4bits 0 5 -> -> 1 `i `uc ]
-[e = . . _LCDDATA7bits 0 5 -> -> 1 `i `uc ]
-[e = . . _LCDDATA6bits 0 1 -> -> 0 `i `uc ]
+[e = . . _LCDDATA7bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA6bits 0 1 -> -> 1 `i `uc ]
 [e $U 433  ]
 "275
 [; ;main.c: 275:         case 0x0E: LCDDATA10bits.SEG13COM3 = 1; LCDDATA9bits.SEG1COM3 = 0; LCDDATA3bits.SEG1COM1 = 0; LCDDATA0bits.SEG1COM0 = 1; LCDDATA4bits.SEG13COM1 = 1; LCDDATA7bits.SEG13COM2 = 1; LCDDATA6bits.SEG1COM2 = 1; break;
@@ -1811,7 +1811,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _LCDDATA6bits 0 2 -> -> 0 `i `uc ]
 [e $U 453  ]
 "299
-[; ;main.c: 299:         case 0x0D: case 'D': case 'd': LCDDATA10bits.SEG14COM3 = 0; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG14COM1 = 1; LCDDATA7bits.SEG14COM2 = 1; LCDDATA6bits.SEG2COM2 = 0; break;
+[; ;main.c: 299:         case 0x0D: case 'D': case 'd': LCDDATA10bits.SEG14COM3 = 0; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG14COM1 = 1; LCDDATA7bits.SEG14COM2 = 0; LCDDATA6bits.SEG2COM2 = 1; break;
 [e :U 484 ]
 [e :U 485 ]
 [e :U 486 ]
@@ -1820,8 +1820,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _LCDDATA3bits 0 2 -> -> 1 `i `uc ]
 [e = . . _LCDDATA0bits 0 2 -> -> 1 `i `uc ]
 [e = . . _LCDDATA4bits 0 6 -> -> 1 `i `uc ]
-[e = . . _LCDDATA7bits 0 6 -> -> 1 `i `uc ]
-[e = . . _LCDDATA6bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA7bits 0 6 -> -> 0 `i `uc ]
+[e = . . _LCDDATA6bits 0 2 -> -> 1 `i `uc ]
 [e $U 453  ]
 "300
 [; ;main.c: 300:         case 0x0E: case 'E': case 'e': LCDDATA10bits.SEG14COM3 = 1; LCDDATA9bits.SEG2COM3 = 0; LCDDATA3bits.SEG2COM1 = 0; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG14COM1 = 1; LCDDATA7bits.SEG14COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;

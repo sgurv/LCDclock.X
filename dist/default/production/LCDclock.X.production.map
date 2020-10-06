@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=D:\Program Files\Microchip\xc8\v2.30\pic\dat\en_msgs.txt -cn \
   -h+dist/default/production\LCDclock.X.production.sym \
   --cmf=dist/default/production\LCDclock.X.production.cmf -z -Q16F1938 \
-  -oC:\Users\SANDEE~1\AppData\Local\Temp\s6lkx2 --defsym=__MPLAB_BUILD=1 \
+  -oC:\Users\SANDEE~1\AppData\Local\Temp\s1jox2 --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/LCDclock.X.production.map -E1 -ver=XC8 Compiler \
   --acfsm=1493 -ASTACK=02034h-023EFh -pstack=STACK -ACODE=00h-07FFhx8 \
   -ASTRCODE=00h-03FFFh -ASTRING=00h-0FFhx64 -ACONST=00h-0FFhx64 \
@@ -32,7 +32,7 @@ Linker command line:
   -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 \
   -DENTRY=2 -preset_vec=00h,intentry=04h,init,end_init -ppowerup=CODE \
   -pcinit=CODE -pfunctab=ENTRY -k \
-  C:\Users\SANDEE~1\AppData\Local\Temp\s6lkxe.o \
+  C:\Users\SANDEE~1\AppData\Local\Temp\s1joxe.o \
   dist/default/production\LCDclock.X.production.o 
 
 Object code version is 3.11
@@ -42,7 +42,7 @@ Machine type is 16F1938
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\SANDEE~1\AppData\Local\Temp\s6lkxe.o
+C:\Users\SANDEE~1\AppData\Local\Temp\s1joxe.o
                 end_init                             19       19        2        8       0
                 reset_vec                             0        0        2        0       0
                 config                             8007     8007        2        0       4
@@ -366,10 +366,9 @@ UNUSED ADDRESS RANGES
 
                                   Symbol Table
 
-CCP4_CallBack@bit_count                        bssCOMMON    0007B
-CCP4_CallBack@capturedValue                    cstackCOMMON 00072
+CCP4_CallBack@main$F1838@bit_count             bssCOMMON    0007B
+CCP4_CallBack@main$F1838@capturedValue         cstackCOMMON 00072
 CCP4_CaptureISR@module                         cstackCOMMON 00079
-CCP4_DefaultCallBack@capturedValue             cstackCOMMON 00072
 CCP4_SetCallBack@customCallBack                cstackBANK0  0004C
 EUSART_SetErrorHandler@interruptHandler        cstackBANK0  0004C
 EUSART_SetFramingErrorHandler@interruptHandler cstackBANK0  0004C
@@ -385,8 +384,8 @@ _APFCON                                        (abs)        0011D
 _BAUDCON                                       (abs)        0019F
 _BORCON                                        (abs)        00116
 _CCP4CON                                       (abs)        0031A
-_CCP4_CallBack                                 text24       00206
-_CCP4_CallBack@ccp4$F1929                      bssBANK0     0003D
+_CCP4_CallBack                                 bssBANK0     0003D
+_CCP4_CallBack@main$F1838                      text24       00206
 _CCP4_CaptureISR                               text23       006B2
 _CCP4_DefaultCallBack                          text25       00742
 _CCP4_Initialize                               text16       006C8
@@ -715,7 +714,7 @@ ___latbits                                     (abs)        00003
 ___sp                                          stack        00000
 ___stackhi                                     (abs)        023EF
 ___stacklo                                     (abs)        02034
-__end_of_CCP4_CallBack                         text24       00302
+__end_of_CCP4_CallBack@main$F1838              text24       00302
 __end_of_CCP4_CaptureISR                       text23       006C8
 __end_of_CCP4_DefaultCallBack                  text25       00743
 __end_of_CCP4_Initialize                       text16       006DA
@@ -777,7 +776,7 @@ __ptext6                                       text6        00680
 __ptext7                                       text7        006F7
 __ptext8                                       text8        0069A
 __ptext9                                       text9        0070D
-__size_of_CCP4_CallBack                        (abs)        00000
+__size_of_CCP4_CallBack@main$F1838             (abs)        00000
 __size_of_CCP4_CaptureISR                      (abs)        00000
 __size_of_CCP4_DefaultCallBack                 (abs)        00000
 __size_of_CCP4_Initialize                      (abs)        00000
@@ -1377,7 +1376,7 @@ Total ram usage:        0 bytes
 		line 104 in file "mcc_generated_files/ccp4.c"
  Parameters:    Size  Location     Type
   customCallBa    2    0[BANK0 ] PTR FTN(unsigned short ,
-		 -> CCP4_DefaultCallBack(1), CCP4_CallBack(1), 
+		 -> CCP4_CallBack@main$F1838(1), CCP4_DefaultCallBack(1), 
  Auto vars:     Size  Location     Type
 		None
  Return value:  Size  Location     Type
@@ -1399,8 +1398,8 @@ Total ram usage:        2 bytes
  This function calls:
 		Nothing
  This function is called by:
-		_main
 		_CCP4_Initialize
+		_main
  This function uses a non-reentrant model
 
 
@@ -1579,14 +1578,14 @@ Total ram usage:        3 bytes
  Hardware stack levels required when called:    2
  This function calls:
 		Absolute function
-		_CCP4_CallBack
+		_CCP4_CallBack@main$F1838
 		_CCP4_DefaultCallBack
  This function is called by:
 		_INTERRUPT_InterruptManager
  This function uses a non-reentrant model
 
 
- *************** function _CCP4_CallBack *****************
+ *************** function _CCP4_CallBack@main$F1838 *****************
  Defined at:
 		line 140 in file "main.c"
  Parameters:    Size  Location     Type
@@ -1672,7 +1671,7 @@ Total ram usage:        2 bytes
  This function calls:
 		Nothing
  This function is called by:
-		_CCP4_CallBack
+		_CCP4_CallBack@main$F1838
 		_TMR1_Reload
  This function uses a non-reentrant model
 
@@ -1752,12 +1751,12 @@ mcc_generated_files/dac.c
 mcc_generated_files/dac.c estimated size: 6
 
 main.c
+		_CCP4_CallBack@main$F1838		CODE           	0206	0000	252
 		_LCD_Digit1Num 		CODE           	04B0	0000	215
 		_LCD_Digit2Num 		CODE           	03D9	0000	215
 		_LCD_Digit3Num 		CODE           	0302	0000	215
 		_LCD_Digit4Num 		CODE           	002A	0000	476
 		_main          		CODE           	0587	0000	90
-		_CCP4_CallBack 		CODE           	0206	0000	252
 		_reverseBits   		CODE           	05E1	0000	55
 
 main.c estimated size: 1518
