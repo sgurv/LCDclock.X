@@ -42,7 +42,7 @@
 */
 
 #include "mcc_generated_files/mcc.h"
-
+#include "APDS9960.h"
 /*
                          Main application
  */
@@ -78,7 +78,7 @@ void main(void)
     ir_address = ir_address_complement = ir_command = ir_command_complement = 0;
     
     CCP4_SetCallBack(CCP4_CallBack);
-
+    
     // When using interrupts, you need to set the Global and Peripheral Interrupt Enable bits
     // Use the following macros to:
 
@@ -93,28 +93,78 @@ void main(void)
 
     // Disable the Peripheral Interrupts
     //INTERRUPT_PeripheralInterruptDisable();
+    
+    if(APDS9960Init()){
+        bcd_num = 1;
+    } else {
+        bcd_num = 0;
+    }
+    
+    LCD_Digit4Num(bcd_num & 0x000F);
+    //enableLightSensor(false); // without interrupt
+    
+    //setProximityGain(PGAIN_2X); // Adjust the Proximity sensor gain
+    
+    enableProximitySensor(false); // without interrupt
+    
+    //enableGestureSensor(false); // without interrupt
 
     while (1)
     {
         // Add your application code
         CLRWDT();
+      
+//        D1_SYM04ON;
+//        D2_SYM05ON;
+//        D3_SYM06ON;
+//        P_SYM07ON;
         
-//        bcd_num = intToBCD(temp_num);
-//        
-//        LCD_Digit1Num((bcd_num >> 12) & 0x000F);
-//        LCD_Digit2Num((bcd_num >> 8) & 0x000F);
-//        LCD_Digit3Num((bcd_num >> 4) & 0x000F);
-//        LCD_Digit4Num(bcd_num & 0x000F);
-//        
-////        D1_SYM04ON;
-////        D2_SYM05ON;
-////        D3_SYM06ON;
-////        P_SYM07ON;
-//        
-//        temp_num++;
-//        if(temp_num > 9999) temp_num = 0;
-//        
-//        __delay_ms(400);
+        D1_SYM04OFF;
+        D2_SYM05OFF;
+        D3_SYM06OFF;
+        P_SYM07OFF;
+     
+        //temp_num = readAmbientLight(); // works
+        temp_num = readProximity(); // works
+        
+        if(isGestureAvailable()){
+            switch ( readGesture() ) {
+                case DIR_UP:
+                    LCD_Digit4Num('U');
+                    break;
+                case DIR_DOWN:
+                    LCD_Digit4Num('D');
+                    break;
+                case DIR_LEFT:
+                    LCD_Digit4Num('L');
+                    break;
+                case DIR_RIGHT:
+                    LCD_Digit4Num('R');
+                    break;
+                case DIR_NEAR:
+                    LCD_Digit4Num('N');
+                    break;
+                case DIR_FAR:
+                    LCD_Digit4Num('F');
+                    break;
+                default:
+                    LCD_Digit4Num(0);
+            }
+        } else {
+            //temp_num = getStatusRegister();
+            
+            bcd_num = intToBCD(temp_num);
+
+            LCD_Digit1Num((bcd_num >> 12) & 0x000F);
+            LCD_Digit2Num((bcd_num >> 8) & 0x000F);
+            LCD_Digit3Num((bcd_num >> 4) & 0x000F);
+            //LCD_Digit4Num(bcd_num & 0x000F);
+            LCD_Digit4Num('P');
+        }
+        
+
+        
+        __delay_ms(400);
         
         if(ir_flag == IR_DONE || ir_flag == IR_REPEAT){
             
@@ -298,15 +348,15 @@ void LCD_Digit4Num (unsigned char num)
         case 0x0D: case 'D': case 'd': DIG4_SYM03AOFF;   DIG4_SYM03BON;   DIG4_SYM03CON;   DIG4_SYM03DON;   DIG4_SYM03EON;   DIG4_SYM03FOFF;   DIG4_SYM03GON;   break;
         case 0x0E: case 'E': case 'e':  DIG4_SYM03AON;   DIG4_SYM03BOFF;   DIG4_SYM03COFF;   DIG4_SYM03DON;   DIG4_SYM03EON;   DIG4_SYM03FON;   DIG4_SYM03GON;   break;
         case 0x0F: case 'F': case 'f': DIG4_SYM03AON;   DIG4_SYM03BOFF;   DIG4_SYM03COFF;   DIG4_SYM03DOFF;   DIG4_SYM03EON;   DIG4_SYM03FON;   DIG4_SYM03GON;   break;
-        case 'G': case 'g': DIG4_SYM03AON;   DIG4_SYM03BON;   DIG4_SYM03CON;   DIG4_SYM03DON;   DIG4_SYM03EON;   DIG4_SYM03FON;   DIG4_SYM03GON;   break;
-        case 'H': case 'h': DIG4_SYM03AON;   DIG4_SYM03BON;   DIG4_SYM03CON;   DIG4_SYM03DON;   DIG4_SYM03EON;   DIG4_SYM03FON;   DIG4_SYM03GON;   break;
+        case 'G': case 'g': DIG4_SYM03AON;   DIG4_SYM03BOFF;   DIG4_SYM03CON;   DIG4_SYM03DON;   DIG4_SYM03EON;   DIG4_SYM03FON;   DIG4_SYM03GON;   break;
+        case 'H': case 'h': DIG4_SYM03AOFF;   DIG4_SYM03BON;   DIG4_SYM03CON;   DIG4_SYM03DOFF;   DIG4_SYM03EON;   DIG4_SYM03FON;   DIG4_SYM03GON;   break;
         case 'I': case 'i': DIG4_SYM03AON;   DIG4_SYM03BON;   DIG4_SYM03CON;   DIG4_SYM03DON;   DIG4_SYM03EON;   DIG4_SYM03FON;   DIG4_SYM03GON;   break;
-        case 'J': case 'j': DIG4_SYM03AON;   DIG4_SYM03BON;   DIG4_SYM03CON;   DIG4_SYM03DON;   DIG4_SYM03EON;   DIG4_SYM03FON;   DIG4_SYM03GON;   break;
+        case 'J': case 'j': DIG4_SYM03AOFF;   DIG4_SYM03BON;   DIG4_SYM03CON;   DIG4_SYM03DON;   DIG4_SYM03EON;   DIG4_SYM03FOFF;   DIG4_SYM03GOFF;   break;
         case 'K': case 'k': DIG4_SYM03AON;   DIG4_SYM03BON;   DIG4_SYM03CON;   DIG4_SYM03DON;   DIG4_SYM03EON;   DIG4_SYM03FON;   DIG4_SYM03GON;   break;
-        case 'L': case 'l': DIG4_SYM03AON;   DIG4_SYM03BON;   DIG4_SYM03CON;   DIG4_SYM03DON;   DIG4_SYM03EON;   DIG4_SYM03FON;   DIG4_SYM03GON;   break;
-        case 'N': case 'n': DIG4_SYM03AON;   DIG4_SYM03BON;   DIG4_SYM03CON;   DIG4_SYM03DON;   DIG4_SYM03EON;   DIG4_SYM03FON;   DIG4_SYM03GON;   break;
-        case 'O': case 'o': DIG4_SYM03AON;   DIG4_SYM03BON;   DIG4_SYM03CON;   DIG4_SYM03DON;   DIG4_SYM03EON;   DIG4_SYM03FON;   DIG4_SYM03GON;   break;
-        case 'P': case 'p': DIG4_SYM03AON;   DIG4_SYM03BON;   DIG4_SYM03CON;   DIG4_SYM03DON;   DIG4_SYM03EON;   DIG4_SYM03FON;   DIG4_SYM03GON;   break;
+        case 'L': case 'l': DIG4_SYM03AOFF;   DIG4_SYM03BOFF;   DIG4_SYM03COFF;   DIG4_SYM03DON;   DIG4_SYM03EON;   DIG4_SYM03FON;   DIG4_SYM03GOFF;   break;
+        case 'N': case 'n': DIG4_SYM03AOFF;   DIG4_SYM03BOFF;   DIG4_SYM03CON;   DIG4_SYM03DOFF;   DIG4_SYM03EON;   DIG4_SYM03FOFF;   DIG4_SYM03GOFF;   break;
+        case 'O': case 'o': DIG4_SYM03AOFF;   DIG4_SYM03BOFF;   DIG4_SYM03CON;   DIG4_SYM03DON;   DIG4_SYM03EON;   DIG4_SYM03FOFF;   DIG4_SYM03GON;   break;
+        case 'P': case 'p': DIG4_SYM03AON;   DIG4_SYM03BON;   DIG4_SYM03COFF;   DIG4_SYM03DOFF;   DIG4_SYM03EON;   DIG4_SYM03FON;   DIG4_SYM03GON;   break;
         case 'S': case 's': DIG4_SYM03AON;   DIG4_SYM03BON;   DIG4_SYM03CON;   DIG4_SYM03DON;   DIG4_SYM03EON;   DIG4_SYM03FON;   DIG4_SYM03GON;   break;
         case 'T': case 't': DIG4_SYM03AON;   DIG4_SYM03BON;   DIG4_SYM03CON;   DIG4_SYM03DON;   DIG4_SYM03EON;   DIG4_SYM03FON;   DIG4_SYM03GON;   break;
         case 'U': case 'u': DIG4_SYM03AON;   DIG4_SYM03BON;   DIG4_SYM03CON;   DIG4_SYM03DON;   DIG4_SYM03EON;   DIG4_SYM03FON;   DIG4_SYM03GON;   break;

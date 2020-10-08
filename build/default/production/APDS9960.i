@@ -1,4 +1,4 @@
-# 1 "mcc_generated_files/interrupt_manager.c"
+# 1 "APDS9960.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,13 +6,9 @@
 # 1 "<built-in>" 2
 # 1 "D:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "mcc_generated_files/interrupt_manager.c" 2
-# 49 "mcc_generated_files/interrupt_manager.c"
-# 1 "mcc_generated_files/interrupt_manager.h" 1
-# 49 "mcc_generated_files/interrupt_manager.c" 2
-
-# 1 "mcc_generated_files/mcc.h" 1
-# 49 "mcc_generated_files/mcc.h"
+# 1 "APDS9960.c" 2
+# 1 "./mcc_generated_files/mcc.h" 1
+# 49 "./mcc_generated_files/mcc.h"
 # 1 "D:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\\pic\\include\\xc.h" 1 3
 # 18 "D:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -4822,17 +4818,17 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "D:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\\pic\\include\\xc.h" 2 3
-# 49 "mcc_generated_files/mcc.h" 2
+# 49 "./mcc_generated_files/mcc.h" 2
 
-# 1 "mcc_generated_files/device_config.h" 1
-# 50 "mcc_generated_files/mcc.h" 2
+# 1 "./mcc_generated_files/device_config.h" 1
+# 50 "./mcc_generated_files/mcc.h" 2
 
-# 1 "mcc_generated_files/pin_manager.h" 1
-# 238 "mcc_generated_files/pin_manager.h"
+# 1 "./mcc_generated_files/pin_manager.h" 1
+# 238 "./mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize (void);
-# 250 "mcc_generated_files/pin_manager.h"
+# 250 "./mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_IOC(void);
-# 51 "mcc_generated_files/mcc.h" 2
+# 51 "./mcc_generated_files/mcc.h" 2
 
 # 1 "D:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdint.h" 1 3
 # 22 "D:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdint.h" 3
@@ -4919,10 +4915,10 @@ typedef int32_t int_fast32_t;
 typedef uint16_t uint_fast16_t;
 typedef uint32_t uint_fast32_t;
 # 144 "D:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdint.h" 2 3
-# 52 "mcc_generated_files/mcc.h" 2
+# 52 "./mcc_generated_files/mcc.h" 2
 
 # 1 "D:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdbool.h" 1 3
-# 53 "mcc_generated_files/mcc.h" 2
+# 53 "./mcc_generated_files/mcc.h" 2
 
 # 1 "D:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\conio.h" 1 3
 
@@ -4955,11 +4951,13 @@ extern __bit kbhit(void);
 
 extern char * cgets(char *);
 extern void cputs(const char *);
-# 54 "mcc_generated_files/mcc.h" 2
+# 54 "./mcc_generated_files/mcc.h" 2
 
+# 1 "./mcc_generated_files/interrupt_manager.h" 1
+# 55 "./mcc_generated_files/mcc.h" 2
 
-# 1 "mcc_generated_files/i2c_master.h" 1
-# 54 "mcc_generated_files/i2c_master.h"
+# 1 "./mcc_generated_files/i2c_master.h" 1
+# 54 "./mcc_generated_files/i2c_master.h"
 # 1 "D:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdio.h" 1 3
 # 24 "D:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdio.h" 3
 # 1 "D:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 1 3
@@ -5098,7 +5096,7 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 54 "mcc_generated_files/i2c_master.h" 2
+# 54 "./mcc_generated_files/i2c_master.h" 2
 
 
 
@@ -5135,11 +5133,11 @@ i2c_operations_t I2C_CallbackRestartRead(void *funPtr);
 
 
 void I2C_Initialize(void);
-# 101 "mcc_generated_files/i2c_master.h"
+# 101 "./mcc_generated_files/i2c_master.h"
 i2c_error_t I2C_Open(i2c_address_t address);
-# 111 "mcc_generated_files/i2c_master.h"
+# 111 "./mcc_generated_files/i2c_master.h"
 i2c_error_t I2C_Close(void);
-# 123 "mcc_generated_files/i2c_master.h"
+# 123 "./mcc_generated_files/i2c_master.h"
 i2c_error_t I2C_MasterOperation(_Bool read);
 
 
@@ -5151,58 +5149,58 @@ i2c_error_t I2C_MasterWrite(void);
 
 
 i2c_error_t I2C_MasterRead(void);
-# 142 "mcc_generated_files/i2c_master.h"
+# 142 "./mcc_generated_files/i2c_master.h"
 void I2C_SetTimeout(uint8_t timeOut);
-# 152 "mcc_generated_files/i2c_master.h"
+# 152 "./mcc_generated_files/i2c_master.h"
 void I2C_SetBuffer(void *buffer, size_t bufferSize);
-# 164 "mcc_generated_files/i2c_master.h"
+# 164 "./mcc_generated_files/i2c_master.h"
 void I2C_SetDataCompleteCallback(i2c_callback_t cb, void *ptr);
-# 174 "mcc_generated_files/i2c_master.h"
+# 174 "./mcc_generated_files/i2c_master.h"
 void I2C_SetWriteCollisionCallback(i2c_callback_t cb, void *ptr);
-# 184 "mcc_generated_files/i2c_master.h"
+# 184 "./mcc_generated_files/i2c_master.h"
 void I2C_SetAddressNackCallback(i2c_callback_t cb, void *ptr);
-# 194 "mcc_generated_files/i2c_master.h"
+# 194 "./mcc_generated_files/i2c_master.h"
 void I2C_SetDataNackCallback(i2c_callback_t cb, void *ptr);
-# 204 "mcc_generated_files/i2c_master.h"
+# 204 "./mcc_generated_files/i2c_master.h"
 void I2C_SetTimeoutCallback(i2c_callback_t cb, void *ptr);
-# 56 "mcc_generated_files/mcc.h" 2
+# 56 "./mcc_generated_files/mcc.h" 2
 
-# 1 "mcc_generated_files/tmr1.h" 1
-# 100 "mcc_generated_files/tmr1.h"
+# 1 "./mcc_generated_files/tmr1.h" 1
+# 100 "./mcc_generated_files/tmr1.h"
 void TMR1_Initialize(void);
-# 129 "mcc_generated_files/tmr1.h"
+# 129 "./mcc_generated_files/tmr1.h"
 void TMR1_StartTimer(void);
-# 161 "mcc_generated_files/tmr1.h"
+# 161 "./mcc_generated_files/tmr1.h"
 void TMR1_StopTimer(void);
-# 196 "mcc_generated_files/tmr1.h"
+# 196 "./mcc_generated_files/tmr1.h"
 uint16_t TMR1_ReadTimer(void);
-# 235 "mcc_generated_files/tmr1.h"
+# 235 "./mcc_generated_files/tmr1.h"
 void TMR1_WriteTimer(uint16_t timerVal);
-# 271 "mcc_generated_files/tmr1.h"
+# 271 "./mcc_generated_files/tmr1.h"
 void TMR1_Reload(void);
-# 310 "mcc_generated_files/tmr1.h"
+# 310 "./mcc_generated_files/tmr1.h"
 void TMR1_StartSinglePulseAcquisition(void);
-# 349 "mcc_generated_files/tmr1.h"
+# 349 "./mcc_generated_files/tmr1.h"
 uint8_t TMR1_CheckGateValueStatus(void);
-# 387 "mcc_generated_files/tmr1.h"
+# 387 "./mcc_generated_files/tmr1.h"
 _Bool TMR1_HasOverflowOccured(void);
-# 57 "mcc_generated_files/mcc.h" 2
+# 57 "./mcc_generated_files/mcc.h" 2
 
-# 1 "mcc_generated_files/tmr0.h" 1
-# 98 "mcc_generated_files/tmr0.h"
+# 1 "./mcc_generated_files/tmr0.h" 1
+# 98 "./mcc_generated_files/tmr0.h"
 void TMR0_Initialize(void);
-# 129 "mcc_generated_files/tmr0.h"
+# 129 "./mcc_generated_files/tmr0.h"
 uint8_t TMR0_ReadTimer(void);
-# 168 "mcc_generated_files/tmr0.h"
+# 168 "./mcc_generated_files/tmr0.h"
 void TMR0_WriteTimer(uint8_t timerVal);
-# 204 "mcc_generated_files/tmr0.h"
+# 204 "./mcc_generated_files/tmr0.h"
 void TMR0_Reload(void);
-# 242 "mcc_generated_files/tmr0.h"
+# 242 "./mcc_generated_files/tmr0.h"
 _Bool TMR0_HasOverflowOccured(void);
-# 58 "mcc_generated_files/mcc.h" 2
+# 58 "./mcc_generated_files/mcc.h" 2
 
-# 1 "mcc_generated_files/ccp4.h" 1
-# 80 "mcc_generated_files/ccp4.h"
+# 1 "./mcc_generated_files/ccp4.h" 1
+# 80 "./mcc_generated_files/ccp4.h"
 typedef union CCPR4Reg_tag
 {
    struct
@@ -5215,47 +5213,47 @@ typedef union CCPR4Reg_tag
       uint16_t ccpr4_16Bit;
    };
 } CCP4_PERIOD_REG_T ;
-# 123 "mcc_generated_files/ccp4.h"
+# 123 "./mcc_generated_files/ccp4.h"
 void CCP4_Initialize(void);
-# 139 "mcc_generated_files/ccp4.h"
+# 139 "./mcc_generated_files/ccp4.h"
 void CCP4_CaptureISR(void);
-# 180 "mcc_generated_files/ccp4.h"
+# 180 "./mcc_generated_files/ccp4.h"
  void CCP4_SetCallBack(void (*customCallBack)(uint16_t));
-# 59 "mcc_generated_files/mcc.h" 2
+# 59 "./mcc_generated_files/mcc.h" 2
 
-# 1 "mcc_generated_files/fvr.h" 1
-# 93 "mcc_generated_files/fvr.h"
+# 1 "./mcc_generated_files/fvr.h" 1
+# 93 "./mcc_generated_files/fvr.h"
  void FVR_Initialize(void);
-# 127 "mcc_generated_files/fvr.h"
+# 127 "./mcc_generated_files/fvr.h"
 _Bool FVR_IsOutputReady(void);
-# 60 "mcc_generated_files/mcc.h" 2
+# 60 "./mcc_generated_files/mcc.h" 2
 
-# 1 "mcc_generated_files/memory.h" 1
-# 99 "mcc_generated_files/memory.h"
+# 1 "./mcc_generated_files/memory.h" 1
+# 99 "./mcc_generated_files/memory.h"
 uint16_t FLASH_ReadWord(uint16_t flashAddr);
-# 128 "mcc_generated_files/memory.h"
+# 128 "./mcc_generated_files/memory.h"
 void FLASH_WriteWord(uint16_t flashAddr, uint16_t *ramBuf, uint16_t word);
-# 164 "mcc_generated_files/memory.h"
+# 164 "./mcc_generated_files/memory.h"
 int8_t FLASH_WriteBlock(uint16_t writeAddr, uint16_t *flashWordArray);
-# 189 "mcc_generated_files/memory.h"
+# 189 "./mcc_generated_files/memory.h"
 void FLASH_EraseBlock(uint16_t startAddr);
-# 220 "mcc_generated_files/memory.h"
+# 220 "./mcc_generated_files/memory.h"
 void DATAEE_WriteByte(uint8_t bAdd, uint8_t bData);
-# 246 "mcc_generated_files/memory.h"
+# 246 "./mcc_generated_files/memory.h"
 uint8_t DATAEE_ReadByte(uint8_t bAdd);
-# 61 "mcc_generated_files/mcc.h" 2
+# 61 "./mcc_generated_files/mcc.h" 2
 
-# 1 "mcc_generated_files/dac.h" 1
-# 93 "mcc_generated_files/dac.h"
+# 1 "./mcc_generated_files/dac.h" 1
+# 93 "./mcc_generated_files/dac.h"
 void DAC_Initialize(void);
-# 129 "mcc_generated_files/dac.h"
+# 129 "./mcc_generated_files/dac.h"
 void DAC_SetOutput(uint8_t inputData);
-# 163 "mcc_generated_files/dac.h"
+# 163 "./mcc_generated_files/dac.h"
 uint8_t DAC_GetOutput(void);
-# 62 "mcc_generated_files/mcc.h" 2
+# 62 "./mcc_generated_files/mcc.h" 2
 
-# 1 "mcc_generated_files/eusart.h" 1
-# 75 "mcc_generated_files/eusart.h"
+# 1 "./mcc_generated_files/eusart.h" 1
+# 75 "./mcc_generated_files/eusart.h"
 typedef union {
     struct {
         unsigned perr : 1;
@@ -5277,87 +5275,87 @@ extern volatile uint8_t eusartRxCount;
 
 extern void (*EUSART_TxDefaultInterruptHandler)(void);
 extern void (*EUSART_RxDefaultInterruptHandler)(void);
-# 117 "mcc_generated_files/eusart.h"
+# 117 "./mcc_generated_files/eusart.h"
 void EUSART_Initialize(void);
-# 165 "mcc_generated_files/eusart.h"
+# 165 "./mcc_generated_files/eusart.h"
 _Bool EUSART_is_tx_ready(void);
-# 213 "mcc_generated_files/eusart.h"
+# 213 "./mcc_generated_files/eusart.h"
 _Bool EUSART_is_rx_ready(void);
-# 260 "mcc_generated_files/eusart.h"
+# 260 "./mcc_generated_files/eusart.h"
 _Bool EUSART_is_tx_done(void);
-# 308 "mcc_generated_files/eusart.h"
+# 308 "./mcc_generated_files/eusart.h"
 eusart_status_t EUSART_get_last_status(void);
-# 328 "mcc_generated_files/eusart.h"
+# 328 "./mcc_generated_files/eusart.h"
 uint8_t EUSART_Read(void);
-# 348 "mcc_generated_files/eusart.h"
+# 348 "./mcc_generated_files/eusart.h"
 void EUSART_Write(uint8_t txData);
-# 369 "mcc_generated_files/eusart.h"
+# 369 "./mcc_generated_files/eusart.h"
 void EUSART_Transmit_ISR(void);
-# 390 "mcc_generated_files/eusart.h"
+# 390 "./mcc_generated_files/eusart.h"
 void EUSART_Receive_ISR(void);
-# 411 "mcc_generated_files/eusart.h"
+# 411 "./mcc_generated_files/eusart.h"
 void EUSART_RxDataHandler(void);
-# 429 "mcc_generated_files/eusart.h"
+# 429 "./mcc_generated_files/eusart.h"
 void EUSART_SetFramingErrorHandler(void (* interruptHandler)(void));
-# 447 "mcc_generated_files/eusart.h"
+# 447 "./mcc_generated_files/eusart.h"
 void EUSART_SetOverrunErrorHandler(void (* interruptHandler)(void));
-# 465 "mcc_generated_files/eusart.h"
+# 465 "./mcc_generated_files/eusart.h"
 void EUSART_SetErrorHandler(void (* interruptHandler)(void));
-# 485 "mcc_generated_files/eusart.h"
+# 485 "./mcc_generated_files/eusart.h"
 void EUSART_SetTxInterruptHandler(void (* interruptHandler)(void));
-# 505 "mcc_generated_files/eusart.h"
+# 505 "./mcc_generated_files/eusart.h"
 void EUSART_SetRxInterruptHandler(void (* interruptHandler)(void));
-# 63 "mcc_generated_files/mcc.h" 2
+# 63 "./mcc_generated_files/mcc.h" 2
 
-# 1 "mcc_generated_files/lcd.h" 1
-# 211 "mcc_generated_files/lcd.h"
+# 1 "./mcc_generated_files/lcd.h" 1
+# 211 "./mcc_generated_files/lcd.h"
 void LCD_Initialize(void);
-# 234 "mcc_generated_files/lcd.h"
+# 234 "./mcc_generated_files/lcd.h"
 void LCD_Enable (void);
-# 257 "mcc_generated_files/lcd.h"
+# 257 "./mcc_generated_files/lcd.h"
 void LCD_Disable (void);
-# 280 "mcc_generated_files/lcd.h"
+# 280 "./mcc_generated_files/lcd.h"
 void LCD_EnableSleepMode (void);
-# 303 "mcc_generated_files/lcd.h"
+# 303 "./mcc_generated_files/lcd.h"
 void LCD_DisableSleepMode (void);
-# 327 "mcc_generated_files/lcd.h"
+# 327 "./mcc_generated_files/lcd.h"
 void LCD_SetContrast (unsigned int value);
-# 351 "mcc_generated_files/lcd.h"
+# 351 "./mcc_generated_files/lcd.h"
 void LCD_SetIntervalAPowerMode (unsigned int value);
-# 375 "mcc_generated_files/lcd.h"
+# 375 "./mcc_generated_files/lcd.h"
 void LCD_SetIntervalBPowerMode (unsigned int value);
-# 399 "mcc_generated_files/lcd.h"
+# 399 "./mcc_generated_files/lcd.h"
 void LCD_SetPowerDistribution (unsigned int value);
-# 424 "mcc_generated_files/lcd.h"
+# 424 "./mcc_generated_files/lcd.h"
 _Bool LCD_IsActive (void);
-# 446 "mcc_generated_files/lcd.h"
+# 446 "./mcc_generated_files/lcd.h"
 void LCD_DisplayOn_DIG1_SYM00Num();
-# 466 "mcc_generated_files/lcd.h"
+# 466 "./mcc_generated_files/lcd.h"
 void LCD_DisplayOff_DIG1_SYM00Num();
-# 485 "mcc_generated_files/lcd.h"
+# 485 "./mcc_generated_files/lcd.h"
 void LCD_DIG1_SYM00Num (unsigned char num);
-# 504 "mcc_generated_files/lcd.h"
+# 504 "./mcc_generated_files/lcd.h"
 void LCD_DisplayOn_DIG2_SYM01Num();
-# 524 "mcc_generated_files/lcd.h"
+# 524 "./mcc_generated_files/lcd.h"
 void LCD_DisplayOff_DIG2_SYM01Num();
-# 543 "mcc_generated_files/lcd.h"
+# 543 "./mcc_generated_files/lcd.h"
 void LCD_DIG2_SYM01Num (unsigned char num);
-# 562 "mcc_generated_files/lcd.h"
+# 562 "./mcc_generated_files/lcd.h"
 void LCD_DisplayOn_DIG3_SYM02Num();
-# 582 "mcc_generated_files/lcd.h"
+# 582 "./mcc_generated_files/lcd.h"
 void LCD_DisplayOff_DIG3_SYM02Num();
-# 601 "mcc_generated_files/lcd.h"
+# 601 "./mcc_generated_files/lcd.h"
 void LCD_DIG3_SYM02Num (unsigned char num);
-# 620 "mcc_generated_files/lcd.h"
+# 620 "./mcc_generated_files/lcd.h"
 void LCD_DisplayOn_DIG4_SYM03Num();
-# 640 "mcc_generated_files/lcd.h"
+# 640 "./mcc_generated_files/lcd.h"
 void LCD_DisplayOff_DIG4_SYM03Num();
-# 659 "mcc_generated_files/lcd.h"
+# 659 "./mcc_generated_files/lcd.h"
 void LCD_DIG4_SYM03Num (unsigned char num);
-# 64 "mcc_generated_files/mcc.h" 2
+# 64 "./mcc_generated_files/mcc.h" 2
 
-# 1 "mcc_generated_files/drivers/i2c_simple_master.h" 1
-# 37 "mcc_generated_files/drivers/i2c_simple_master.h"
+# 1 "./mcc_generated_files/drivers/i2c_simple_master.h" 1
+# 37 "./mcc_generated_files/drivers/i2c_simple_master.h"
 uint8_t i2c_read1ByteRegister(i2c_address_t address, uint8_t reg);
 uint16_t i2c_read2ByteRegister(i2c_address_t address, uint8_t reg);
 void i2c_write1ByteRegister(i2c_address_t address, uint8_t reg, uint8_t data);
@@ -5366,40 +5364,1812 @@ void i2c_write2ByteRegister(i2c_address_t address, uint8_t reg, uint16_t data);
 void i2c_writeNBytes(i2c_address_t address, void* data, size_t len);
 void i2c_readDataBlock(i2c_address_t address, uint8_t reg, void *data, size_t len);
 void i2c_readNBytes(i2c_address_t address, void *data, size_t len);
-# 65 "mcc_generated_files/mcc.h" 2
-# 80 "mcc_generated_files/mcc.h"
+# 65 "./mcc_generated_files/mcc.h" 2
+# 80 "./mcc_generated_files/mcc.h"
 void SYSTEM_Initialize(void);
-# 93 "mcc_generated_files/mcc.h"
+# 93 "./mcc_generated_files/mcc.h"
 void OSCILLATOR_Initialize(void);
-# 105 "mcc_generated_files/mcc.h"
+# 105 "./mcc_generated_files/mcc.h"
 void WDT_Initialize(void);
-# 50 "mcc_generated_files/interrupt_manager.c" 2
+# 1 "APDS9960.c" 2
+
+# 1 "./APDS9960.h" 1
+# 188 "./APDS9960.h"
+enum {
+  DIR_NONE,
+  DIR_LEFT,
+  DIR_RIGHT,
+  DIR_UP,
+  DIR_DOWN,
+  DIR_NEAR,
+  DIR_FAR,
+  DIR_ALL
+};
 
 
-void __attribute__((picinterrupt(("")))) INTERRUPT_InterruptManager (void)
+enum {
+  NA_STATE,
+  NEAR_STATE,
+  FAR_STATE,
+  ALL_STATE
+};
+
+
+typedef struct gesture_data_type {
+    uint8_t u_data[32];
+    uint8_t d_data[32];
+    uint8_t l_data[32];
+    uint8_t r_data[32];
+    uint8_t index;
+    uint8_t total_gestures;
+    uint8_t in_threshold;
+    uint8_t out_threshold;
+} gesture_data_type;
+
+_Bool APDS9960Init(void);
+uint8_t getStatusRegister();
+uint8_t getMode();
+_Bool setMode(uint8_t mode, uint8_t enable);
+
+
+_Bool enablePower();
+_Bool disablePower();
+
+
+_Bool enableLightSensor(_Bool interrupts);
+_Bool disableLightSensor();
+_Bool enableProximitySensor(_Bool interrupts);
+_Bool disableProximitySensor();
+_Bool enableGestureSensor(_Bool interrupts);
+_Bool disableGestureSensor();
+
+
+uint8_t getLEDDrive();
+_Bool setLEDDrive(uint8_t drive);
+uint8_t getGestureLEDDrive();
+_Bool setGestureLEDDrive(uint8_t drive);
+
+
+uint8_t getAmbientLightGain();
+_Bool setAmbientLightGain(uint8_t gain);
+uint8_t getProximityGain();
+_Bool setProximityGain(uint8_t gain);
+uint8_t getGestureGain();
+_Bool setGestureGain(uint8_t gain);
+
+
+uint16_t getLightIntLowThreshold(void);
+_Bool setLightIntLowThreshold(uint16_t threshold);
+uint16_t getLightIntHighThreshold(void);
+_Bool setLightIntHighThreshold(uint16_t threshold);
+
+
+uint8_t getProximityIntLowThreshold(void);
+_Bool setProximityIntLowThreshold(uint8_t threshold);
+uint8_t getProximityIntHighThreshold();
+_Bool setProximityIntHighThreshold(uint8_t threshold);
+
+
+uint8_t getAmbientLightIntEnable();
+_Bool setAmbientLightIntEnable(uint8_t enable);
+uint8_t getProximityIntEnable();
+_Bool setProximityIntEnable(uint8_t enable);
+uint8_t getGestureIntEnable();
+_Bool setGestureIntEnable(uint8_t enable);
+
+
+_Bool clearAmbientLightInt();
+_Bool clearProximityInt();
+
+
+uint16_t readAmbientLight(void);
+uint16_t readRedLight(void);
+uint16_t readGreenLight(void);
+uint16_t readBlueLight(void);
+
+
+uint8_t readProximity();
+
+
+_Bool isGestureAvailable();
+int readGesture();
+
+
+_Bool wireWriteByte(uint8_t val);
+_Bool wireWriteDataByte(uint8_t reg, uint8_t val);
+_Bool wireWriteDataBlock(uint8_t reg, uint8_t *val, unsigned int len);
+uint8_t wireReadDataByte(uint8_t reg);
+int wireReadDataBlock(uint8_t reg, uint8_t *val, unsigned int len);
+# 2 "APDS9960.c" 2
+
+
+
+
+gesture_data_type gesture_data_;
+int gesture_ud_delta_;
+int gesture_lr_delta_;
+int gesture_ud_count_;
+int gesture_lr_count_;
+int gesture_near_count_;
+int gesture_far_count_;
+int gesture_state_;
+int gesture_motion_;
+
+uint8_t fifo_data[128];
+
+
+
+void resetGestureParameters();
+_Bool processGestureData();
+_Bool decodeGesture();
+
+
+uint8_t getProxIntLowThresh();
+_Bool setProxIntLowThresh(uint8_t threshold);
+uint8_t getProxIntHighThresh();
+_Bool setProxIntHighThresh(uint8_t threshold);
+
+
+uint8_t getLEDBoost();
+_Bool setLEDBoost(uint8_t boost);
+
+
+uint8_t getProxGainCompEnable();
+_Bool setProxGainCompEnable(uint8_t enable);
+uint8_t getProxPhotoMask();
+_Bool setProxPhotoMask(uint8_t mask);
+
+
+uint8_t getGestureEnterThresh();
+_Bool setGestureEnterThresh(uint8_t threshold);
+uint8_t getGestureExitThresh();
+_Bool setGestureExitThresh(uint8_t threshold);
+
+
+uint8_t getGestureWaitTime();
+_Bool setGestureWaitTime(uint8_t time);
+
+
+uint8_t getGestureMode();
+_Bool setGestureMode(uint8_t mode);
+
+_Bool APDS9960Init(void)
+{
+    uint8_t id;
+
+
+
+
+    id = wireReadDataByte(0x92);
+
+    if( !(id == 0xAB || id == 0x9C) ) {
+        return 0;
+    }
+
+
+    if( !setMode(7, 0) ) {
+        return 0;
+    }
+
+
+    if( !wireWriteDataByte(0x81, 219) ) {
+        return 0;
+    }
+    if( !wireWriteDataByte(0x83, 246) ) {
+        return 0;
+    }
+    if( !wireWriteDataByte(0x8E, 0x87) ) {
+        return 0;
+    }
+    if( !wireWriteDataByte(0x9D, 0) ) {
+        return 0;
+    }
+    if( !wireWriteDataByte(0x9E, 0) ) {
+        return 0;
+    }
+    if( !wireWriteDataByte(0x8D, 0x60) ) {
+        return 0;
+    }
+    if( !setLEDDrive(0) ) {
+        return 0;
+    }
+    if( !setProximityGain(2) ) {
+        return 0;
+    }
+    if( !setAmbientLightGain(1) ) {
+        return 0;
+    }
+    if( !setProxIntLowThresh(0) ) {
+        return 0;
+    }
+    if( !setProxIntHighThresh(50) ) {
+        return 0;
+    }
+    if( !setLightIntLowThreshold(0xFFFF) ) {
+        return 0;
+    }
+    if( !setLightIntHighThreshold(0) ) {
+        return 0;
+    }
+    if( !wireWriteDataByte(0x8C, 0x11) ) {
+        return 0;
+    }
+    if( !wireWriteDataByte(0x90, 0x01) ) {
+        return 0;
+    }
+    if( !wireWriteDataByte(0x9F, 0) ) {
+        return 0;
+    }
+
+
+    if( !setGestureEnterThresh(40) ) {
+        return 0;
+    }
+    if( !setGestureExitThresh(30) ) {
+        return 0;
+    }
+    if( !wireWriteDataByte(0xA2, 0x40) ) {
+        return 0;
+    }
+    if( !setGestureGain(2) ) {
+        return 0;
+    }
+    if( !setGestureLEDDrive(0) ) {
+        return 0;
+    }
+    if( !setGestureWaitTime(1) ) {
+        return 0;
+    }
+    if( !wireWriteDataByte(0xA4, 0) ) {
+        return 0;
+    }
+    if( !wireWriteDataByte(0xA5, 0) ) {
+        return 0;
+    }
+    if( !wireWriteDataByte(0xA7, 0) ) {
+        return 0;
+    }
+    if( !wireWriteDataByte(0xA9, 0) ) {
+        return 0;
+    }
+    if( !wireWriteDataByte(0xA6, 0xC9) ) {
+        return 0;
+    }
+    if( !wireWriteDataByte(0xAA, 0) ) {
+        return 0;
+    }
+    if( !setGestureIntEnable(0) ) {
+        return 0;
+    }
+
+    return 1;
+}
+
+
+
+
+
+
+uint8_t getStatusRegister()
+{
+    uint8_t status_value;
+
+
+    status_value = wireReadDataByte(0x93);
+
+    return status_value;
+}
+
+
+
+
+
+
+uint8_t getMode()
+{
+    uint8_t enable_value;
+
+
+    enable_value = wireReadDataByte(0x80);
+
+    return enable_value;
+}
+# 203 "APDS9960.c"
+_Bool setMode(uint8_t mode, uint8_t enable)
+{
+    uint8_t reg_val;
+
+
+    reg_val = getMode();
+    if( reg_val == 0xFF ) {
+        return 0;
+    }
+
+
+    enable = enable & 0x01;
+    if( mode >= 0 && mode <= 6 ) {
+        if (enable) {
+            reg_val |= (1 << mode);
+        } else {
+            reg_val &= ~(1 << mode);
+        }
+    } else if( mode == 7 ) {
+        if (enable) {
+            reg_val = 0x7F;
+        } else {
+            reg_val = 0x00;
+        }
+    }
+
+
+    if( !wireWriteDataByte(0x80, reg_val) ) {
+        return 0;
+    }
+
+    return 1;
+}
+
+
+
+
+
+
+
+_Bool enableLightSensor(_Bool interrupts)
 {
 
-    if(INTCONbits.PEIE == 1)
-    {
-        if(PIE1bits.TXIE == 1 && PIR1bits.TXIF == 1)
-        {
-            EUSART_TxDefaultInterruptHandler();
-        }
-        else if(PIE1bits.RCIE == 1 && PIR1bits.RCIF == 1)
-        {
-            EUSART_RxDefaultInterruptHandler();
-        }
-        else if(PIE3bits.CCP4IE == 1 && PIR3bits.CCP4IF == 1)
-        {
-            CCP4_CaptureISR();
-        }
-        else
-        {
 
+    if( !setAmbientLightGain(1) ) {
+        return 0;
+    }
+    if( interrupts ) {
+        if( !setAmbientLightIntEnable(1) ) {
+            return 0;
+        }
+    } else {
+        if( !setAmbientLightIntEnable(0) ) {
+            return 0;
         }
     }
-    else
-    {
-
+    if( !enablePower() ){
+        return 0;
     }
+    if( !setMode(1, 1) ) {
+        return 0;
+    }
+
+    return 1;
+
+}
+
+
+
+
+
+
+_Bool disableLightSensor()
+{
+    if( !setAmbientLightIntEnable(0) ) {
+        return 0;
+    }
+    if( !setMode(1, 0) ) {
+        return 0;
+    }
+
+    return 1;
+}
+
+
+
+
+
+
+
+_Bool enableProximitySensor(_Bool interrupts)
+{
+
+    if( !setProximityGain(2) ) {
+        return 0;
+    }
+    if( !setLEDDrive(0) ) {
+        return 0;
+    }
+    if( interrupts ) {
+        if( !setProximityIntEnable(1) ) {
+            return 0;
+        }
+    } else {
+        if( !setProximityIntEnable(0) ) {
+            return 0;
+        }
+    }
+    if( !enablePower() ){
+        return 0;
+    }
+    if( !setMode(2, 1) ) {
+        return 0;
+    }
+
+    return 1;
+}
+
+
+
+
+
+
+_Bool disableProximitySensor()
+{
+ if( !setProximityIntEnable(0) ) {
+  return 0;
+ }
+ if( !setMode(2, 0) ) {
+  return 0;
+ }
+
+ return 1;
+}
+
+
+
+
+
+
+
+_Bool enableGestureSensor(_Bool interrupts)
+{
+
+
+
+
+
+
+
+    resetGestureParameters();
+    if( !wireWriteDataByte(0x83, 0xFF) ) {
+        return 0;
+    }
+    if( !wireWriteDataByte(0x8E, 0x89) ) {
+        return 0;
+    }
+    if( !setLEDBoost(3) ) {
+        return 0;
+    }
+    if( interrupts ) {
+        if( !setGestureIntEnable(1) ) {
+            return 0;
+        }
+    } else {
+        if( !setGestureIntEnable(0) ) {
+            return 0;
+        }
+    }
+    if( !setGestureMode(1) ) {
+        return 0;
+    }
+    if( !enablePower() ){
+        return 0;
+    }
+    if( !setMode(3, 1) ) {
+        return 0;
+    }
+    if( !setMode(2, 1) ) {
+        return 0;
+    }
+    if( !setMode(6, 1) ) {
+        return 0;
+    }
+
+    return 1;
+}
+
+
+
+
+
+
+_Bool disableGestureSensor()
+{
+    resetGestureParameters();
+    if( !setGestureIntEnable(0) ) {
+        return 0;
+    }
+    if( !setGestureMode(0) ) {
+        return 0;
+    }
+    if( !setMode(6, 0) ) {
+        return 0;
+    }
+
+    return 1;
+}
+
+
+
+
+
+
+_Bool isGestureAvailable()
+{
+    uint8_t val;
+
+
+    val = wireReadDataByte(0xAF);
+
+
+    val &= 0b00000001;
+
+
+    if( val == 1) {
+        return 1;
+    } else {
+        return 0;
+    }
+}
+
+
+
+
+
+
+
+int readGesture()
+{
+    uint8_t fifo_level = 0;
+    uint8_t bytes_read = 0;
+
+    uint8_t gstatus;
+    int motion;
+    int i;
+
+
+    if( !isGestureAvailable() || !(getMode() & 0b01000001) ) {
+        return DIR_NONE;
+    }
+
+
+    while(1) {
+        __asm("clrwdt");
+
+        _delay((unsigned long)((30)*(32000000/4000.0)));
+
+
+        gstatus = wireReadDataByte(0xAF);
+
+
+        if( (gstatus & 0b00000001) == 0b00000001 ) {
+
+
+            fifo_level = wireReadDataByte(0xAE);
+
+
+
+
+
+
+
+            if( fifo_level > 0) {
+                bytes_read = wireReadDataBlock( 0xFC,
+                                                (uint8_t*)fifo_data,
+                                                (fifo_level * 4) );
+                if( bytes_read == -1 ) {
+                    return 0xFF;
+                }
+# 493 "APDS9960.c"
+                if( bytes_read >= 4 ) {
+                    for( i = 0; i < bytes_read; i += 4 ) {
+                        gesture_data_.u_data[gesture_data_.index] = fifo_data[i + 0];
+
+                        gesture_data_.d_data[gesture_data_.index] = fifo_data[i + 1];
+
+                        gesture_data_.l_data[gesture_data_.index] = fifo_data[i + 2];
+
+                        gesture_data_.r_data[gesture_data_.index] = fifo_data[i + 3];
+
+                        gesture_data_.index++;
+                        gesture_data_.total_gestures++;
+                    }
+# 517 "APDS9960.c"
+                    if( processGestureData() ) {
+                        if( decodeGesture() ) {
+
+
+
+
+                        }
+                    }
+
+
+                    gesture_data_.index = 0;
+                    gesture_data_.total_gestures = 0;
+                }
+            }
+        } else {
+
+
+            _delay((unsigned long)((30)*(32000000/4000.0)));
+            decodeGesture();
+            motion = gesture_motion_;
+
+
+
+
+            resetGestureParameters();
+            return motion;
+        }
+    }
+}
+
+
+
+
+
+
+_Bool enablePower()
+{
+    if( !setMode(0, 1) ) {
+        return 0;
+    }
+
+    return 1;
+}
+
+
+
+
+
+
+_Bool disablePower()
+{
+    if( !setMode(0, 0) ) {
+        return 0;
+    }
+
+    return 1;
+}
+# 585 "APDS9960.c"
+uint16_t readAmbientLight(void)
+{
+    uint8_t val_byte;
+    uint16_t val = 0;
+
+
+    val_byte = wireReadDataByte(0x94);
+    val = val_byte;
+
+
+    val_byte = wireReadDataByte(0x95);
+    val = val + ((uint16_t)val_byte << 8);
+
+    return val;
+}
+
+
+
+
+
+
+
+uint16_t readRedLight(void)
+{
+    uint8_t val_byte;
+    uint16_t val = 0;
+
+
+    val_byte = wireReadDataByte(0x96);
+    val = val_byte;
+
+
+    val_byte = wireReadDataByte(0x97);
+    val = val + ((uint16_t)val_byte << 8);
+
+    return val;
+}
+
+
+
+
+
+
+
+uint16_t readGreenLight(void)
+{
+    uint8_t val_byte;
+    uint16_t val = 0;
+
+
+    val_byte = wireReadDataByte(0x98);
+    val = val_byte;
+
+
+    val_byte = wireReadDataByte(0x99);
+    val = val + ((uint16_t)val_byte << 8);
+
+    return val;
+}
+
+
+
+
+
+
+
+uint16_t readBlueLight(void)
+{
+    uint8_t val_byte;
+    uint16_t val = 0;
+
+
+    val_byte = wireReadDataByte(0x9A);
+    val = val_byte;
+
+
+    val_byte = wireReadDataByte(0x9B);
+    val = val + ((uint16_t)val_byte << 8);
+
+    return val;
+}
+# 677 "APDS9960.c"
+uint8_t readProximity(void)
+{
+    uint8_t val = 0;
+
+
+    val = wireReadDataByte(0x9C);
+
+    return val;
+}
+# 694 "APDS9960.c"
+void resetGestureParameters()
+{
+    gesture_data_.index = 0;
+    gesture_data_.total_gestures = 0;
+
+    gesture_ud_delta_ = 0;
+    gesture_lr_delta_ = 0;
+
+    gesture_ud_count_ = 0;
+    gesture_lr_count_ = 0;
+
+    gesture_near_count_ = 0;
+    gesture_far_count_ = 0;
+
+    gesture_state_ = 0;
+    gesture_motion_ = DIR_NONE;
+}
+
+
+
+
+
+
+_Bool processGestureData()
+{
+    uint8_t u_first = 0;
+    uint8_t d_first = 0;
+    uint8_t l_first = 0;
+    uint8_t r_first = 0;
+    uint8_t u_last = 0;
+    uint8_t d_last = 0;
+    uint8_t l_last = 0;
+    uint8_t r_last = 0;
+    int ud_ratio_first;
+    int lr_ratio_first;
+    int ud_ratio_last;
+    int lr_ratio_last;
+    int ud_delta;
+    int lr_delta;
+    int i;
+
+
+    if( gesture_data_.total_gestures <= 4 ) {
+        return 0;
+    }
+
+
+    if( (gesture_data_.total_gestures <= 32) && (gesture_data_.total_gestures > 0) ) {
+
+
+
+        for( i = 0; i < gesture_data_.total_gestures; i++ ) {
+            if( (gesture_data_.u_data[i] > 10) &&
+                (gesture_data_.d_data[i] > 10) &&
+                (gesture_data_.l_data[i] > 10) &&
+                (gesture_data_.r_data[i] > 10) ) {
+
+                u_first = gesture_data_.u_data[i];
+                d_first = gesture_data_.d_data[i];
+                l_first = gesture_data_.l_data[i];
+                r_first = gesture_data_.r_data[i];
+                break;
+            }
+        }
+
+
+        if( (u_first == 0) || (d_first == 0) || (l_first == 0) || (r_first == 0) ) {
+
+
+            return 0;
+        }
+
+        for( i = gesture_data_.total_gestures - 1; i >= 0; i-- ) {
+# 778 "APDS9960.c"
+            if( (gesture_data_.u_data[i] > 10) &&
+                (gesture_data_.d_data[i] > 10) &&
+                (gesture_data_.l_data[i] > 10) &&
+                (gesture_data_.r_data[i] > 10) ) {
+
+                u_last = gesture_data_.u_data[i];
+                d_last = gesture_data_.d_data[i];
+                l_last = gesture_data_.l_data[i];
+                r_last = gesture_data_.r_data[i];
+                break;
+            }
+        }
+    }
+
+
+    ud_ratio_first = ((u_first - d_first) * 100) / (u_first + d_first);
+    lr_ratio_first = ((l_first - r_first) * 100) / (l_first + r_first);
+    ud_ratio_last = ((u_last - d_last) * 100) / (u_last + d_last);
+    lr_ratio_last = ((l_last - r_last) * 100) / (l_last + r_last);
+# 821 "APDS9960.c"
+    ud_delta = ud_ratio_last - ud_ratio_first;
+    lr_delta = lr_ratio_last - lr_ratio_first;
+# 833 "APDS9960.c"
+    gesture_ud_delta_ += ud_delta;
+    gesture_lr_delta_ += lr_delta;
+# 845 "APDS9960.c"
+    if( gesture_ud_delta_ >= 50 ) {
+        gesture_ud_count_ = 1;
+    } else if( gesture_ud_delta_ <= -50 ) {
+        gesture_ud_count_ = -1;
+    } else {
+        gesture_ud_count_ = 0;
+    }
+
+
+    if( gesture_lr_delta_ >= 50 ) {
+        gesture_lr_count_ = 1;
+    } else if( gesture_lr_delta_ <= -50 ) {
+        gesture_lr_count_ = -1;
+    } else {
+        gesture_lr_count_ = 0;
+    }
+
+
+    if( (gesture_ud_count_ == 0) && (gesture_lr_count_ == 0) ) {
+        if( (abs(ud_delta) < 20) && (abs(lr_delta) < 20) ) {
+
+
+            if( (ud_delta == 0) && (lr_delta == 0) ) {
+                gesture_near_count_++;
+            } else if( (ud_delta != 0) || (lr_delta != 0) ) {
+                gesture_far_count_++;
+            }
+
+            if( (gesture_near_count_ >= 10) && (gesture_far_count_ >= 2) ) {
+                if( (ud_delta == 0) && (lr_delta == 0) ) {
+                    gesture_state_ = NEAR_STATE;
+                } else if( (ud_delta != 0) && (lr_delta != 0) ) {
+                    gesture_state_ = FAR_STATE;
+                }
+                return 1;
+            }
+        }
+    } else {
+        if( (abs(ud_delta) < 20) && (abs(lr_delta) < 20) ) {
+
+
+            if( (ud_delta == 0) && (lr_delta == 0) ) {
+                gesture_near_count_++;
+            }
+
+            if( gesture_near_count_ >= 10 ) {
+                gesture_ud_count_ = 0;
+                gesture_lr_count_ = 0;
+                gesture_ud_delta_ = 0;
+                gesture_lr_delta_ = 0;
+            }
+        }
+    }
+# 911 "APDS9960.c"
+    return 0;
+}
+
+
+
+
+
+
+_Bool decodeGesture()
+{
+
+    if( gesture_state_ == NEAR_STATE ) {
+        gesture_motion_ = DIR_NEAR;
+        return 1;
+    } else if ( gesture_state_ == FAR_STATE ) {
+        gesture_motion_ = DIR_FAR;
+        return 1;
+    }
+
+
+    if( (gesture_ud_count_ == -1) && (gesture_lr_count_ == 0) ) {
+        gesture_motion_ = DIR_UP;
+    } else if( (gesture_ud_count_ == 1) && (gesture_lr_count_ == 0) ) {
+        gesture_motion_ = DIR_DOWN;
+    } else if( (gesture_ud_count_ == 0) && (gesture_lr_count_ == 1) ) {
+        gesture_motion_ = DIR_RIGHT;
+    } else if( (gesture_ud_count_ == 0) && (gesture_lr_count_ == -1) ) {
+        gesture_motion_ = DIR_LEFT;
+    } else if( (gesture_ud_count_ == -1) && (gesture_lr_count_ == 1) ) {
+        if( abs(gesture_ud_delta_) > abs(gesture_lr_delta_) ) {
+            gesture_motion_ = DIR_UP;
+        } else {
+            gesture_motion_ = DIR_RIGHT;
+        }
+    } else if( (gesture_ud_count_ == 1) && (gesture_lr_count_ == -1) ) {
+        if( abs(gesture_ud_delta_) > abs(gesture_lr_delta_) ) {
+            gesture_motion_ = DIR_DOWN;
+        } else {
+            gesture_motion_ = DIR_LEFT;
+        }
+    } else if( (gesture_ud_count_ == -1) && (gesture_lr_count_ == -1) ) {
+        if( abs(gesture_ud_delta_) > abs(gesture_lr_delta_) ) {
+            gesture_motion_ = DIR_UP;
+        } else {
+            gesture_motion_ = DIR_LEFT;
+        }
+    } else if( (gesture_ud_count_ == 1) && (gesture_lr_count_ == 1) ) {
+        if( abs(gesture_ud_delta_) > abs(gesture_lr_delta_) ) {
+            gesture_motion_ = DIR_DOWN;
+        } else {
+            gesture_motion_ = DIR_RIGHT;
+        }
+    } else {
+        return 0;
+    }
+
+    return 1;
+}
+# 979 "APDS9960.c"
+uint8_t getProxIntLowThresh()
+{
+    uint8_t val = 0;
+
+
+    val = wireReadDataByte(0x89);
+
+    return val;
+}
+
+
+
+
+
+
+
+_Bool setProxIntLowThresh(uint8_t threshold)
+{
+    if( !wireWriteDataByte(0x89, threshold) ) {
+        return 0;
+    }
+
+    return 1;
+}
+
+
+
+
+
+
+uint8_t getProxIntHighThresh()
+{
+    uint8_t val = 0;
+
+
+    val = wireReadDataByte(0x8B);
+
+    return val;
+}
+
+
+
+
+
+
+
+_Bool setProxIntHighThresh(uint8_t threshold)
+{
+    if( !wireWriteDataByte(0x8B, threshold) ) {
+        return 0;
+    }
+
+    return 1;
+}
+# 1045 "APDS9960.c"
+uint8_t getLEDDrive()
+{
+    uint8_t val;
+
+
+    val = wireReadDataByte(0x8F);
+
+
+    val = (val >> 6) & 0b00000011;
+
+    return val;
+}
+# 1070 "APDS9960.c"
+_Bool setLEDDrive(uint8_t drive)
+{
+    uint8_t val;
+
+
+    val = wireReadDataByte(0x8F);
+
+
+    drive &= 0b00000011;
+    drive = drive << 6;
+    val &= 0b00111111;
+    val |= drive;
+
+
+    if( !wireWriteDataByte(0x8F, val) ) {
+        return 0;
+    }
+
+    return 1;
+}
+# 1102 "APDS9960.c"
+uint8_t getProximityGain()
+{
+    uint8_t val;
+
+
+    val = wireReadDataByte(0x8F);
+
+
+    val = (val >> 2) & 0b00000011;
+
+    return val;
+}
+# 1127 "APDS9960.c"
+_Bool setProximityGain(uint8_t drive)
+{
+    uint8_t val;
+
+
+    val = wireReadDataByte(0x8F);
+
+
+    drive &= 0b00000011;
+    drive = drive << 2;
+    val &= 0b11110011;
+    val |= drive;
+
+
+    if( !wireWriteDataByte(0x8F, val) ) {
+        return 0;
+    }
+
+    return 1;
+}
+# 1159 "APDS9960.c"
+uint8_t getAmbientLightGain()
+{
+    uint8_t val;
+
+
+    val = wireReadDataByte(0x8F);
+
+
+    val &= 0b00000011;
+
+    return val;
+}
+# 1184 "APDS9960.c"
+_Bool setAmbientLightGain(uint8_t drive)
+{
+    uint8_t val;
+
+
+    val = wireReadDataByte(0x8F);
+
+
+    drive &= 0b00000011;
+    val &= 0b11111100;
+    val |= drive;
+
+
+    if( !wireWriteDataByte(0x8F, val) ) {
+        return 0;
+    }
+
+    return 1;
+}
+# 1215 "APDS9960.c"
+uint8_t getLEDBoost()
+{
+    uint8_t val;
+
+
+    val = wireReadDataByte(0x90);
+
+
+    val = (val >> 4) & 0b00000011;
+
+    return val;
+}
+# 1240 "APDS9960.c"
+_Bool setLEDBoost(uint8_t boost)
+{
+    uint8_t val;
+
+
+    val = wireReadDataByte(0x90);
+
+
+    boost &= 0b00000011;
+    boost = boost << 4;
+    val &= 0b11001111;
+    val |= boost;
+
+
+    if( !wireWriteDataByte(0x90, val) ) {
+        return 0;
+    }
+
+    return 1;
+}
+
+
+
+
+
+
+uint8_t getProxGainCompEnable()
+{
+    uint8_t val;
+
+
+    val = wireReadDataByte(0x9F);
+
+
+    val = (val >> 5) & 0b00000001;
+
+    return val;
+}
+
+
+
+
+
+
+
+ _Bool setProxGainCompEnable(uint8_t enable)
+{
+    uint8_t val;
+
+
+    val = wireReadDataByte(0x9F);
+
+
+    enable &= 0b00000001;
+    enable = enable << 5;
+    val &= 0b11011111;
+    val |= enable;
+
+
+    if( !wireWriteDataByte(0x9F, val) ) {
+        return 0;
+    }
+
+    return 1;
+}
+# 1318 "APDS9960.c"
+uint8_t getProxPhotoMask()
+{
+    uint8_t val;
+
+
+    val = wireReadDataByte(0x9F);
+
+
+    val &= 0b00001111;
+
+    return val;
+}
+# 1345 "APDS9960.c"
+_Bool setProxPhotoMask(uint8_t mask)
+{
+    uint8_t val;
+
+
+    val = wireReadDataByte(0x9F);
+
+
+    mask &= 0b00001111;
+    val &= 0b11110000;
+    val |= mask;
+
+
+    if( !wireWriteDataByte(0x9F, val) ) {
+        return 0;
+    }
+
+    return 1;
+}
+
+
+
+
+
+
+uint8_t getGestureEnterThresh()
+{
+    uint8_t val = 0;
+
+
+    val = wireReadDataByte(0xA0);
+
+    return val;
+}
+
+
+
+
+
+
+
+_Bool setGestureEnterThresh(uint8_t threshold)
+{
+    if( !wireWriteDataByte(0xA0, threshold) ) {
+        return 0;
+    }
+
+    return 1;
+}
+
+
+
+
+
+
+uint8_t getGestureExitThresh()
+{
+    uint8_t val = 0;
+
+
+    val = wireReadDataByte(0xA1);
+
+    return val;
+}
+
+
+
+
+
+
+
+_Bool setGestureExitThresh(uint8_t threshold)
+{
+    if( !wireWriteDataByte(0xA1, threshold) ) {
+        return 0;
+    }
+
+    return 1;
+}
+# 1436 "APDS9960.c"
+uint8_t getGestureGain()
+{
+    uint8_t val;
+
+
+    val = wireReadDataByte(0xA3);
+
+
+    val = (val >> 5) & 0b00000011;
+
+    return val;
+}
+# 1461 "APDS9960.c"
+_Bool setGestureGain(uint8_t gain)
+{
+    uint8_t val;
+
+
+    val = wireReadDataByte(0xA3);
+
+
+    gain &= 0b00000011;
+    gain = gain << 5;
+    val &= 0b10011111;
+    val |= gain;
+
+
+    if( !wireWriteDataByte(0xA3, val) ) {
+        return 0;
+    }
+
+    return 1;
+}
+# 1493 "APDS9960.c"
+uint8_t getGestureLEDDrive()
+{
+    uint8_t val;
+
+
+    val = wireReadDataByte(0xA3);
+
+
+    val = (val >> 3) & 0b00000011;
+
+    return val;
+}
+# 1518 "APDS9960.c"
+_Bool setGestureLEDDrive(uint8_t drive)
+{
+    uint8_t val;
+
+
+    val = wireReadDataByte(0xA3);
+
+
+    drive &= 0b00000011;
+    drive = drive << 3;
+    val &= 0b11100111;
+    val |= drive;
+
+
+    if( !wireWriteDataByte(0xA3, val) ) {
+        return 0;
+    }
+
+    return 1;
+}
+# 1554 "APDS9960.c"
+uint8_t getGestureWaitTime()
+{
+    uint8_t val;
+
+
+    val = wireReadDataByte(0xA3);
+
+
+    val &= 0b00000111;
+
+    return val;
+}
+# 1583 "APDS9960.c"
+_Bool setGestureWaitTime(uint8_t time)
+{
+    uint8_t val;
+
+
+    val = wireReadDataByte(0xA3);
+
+
+    time &= 0b00000111;
+    val &= 0b11111000;
+    val |= time;
+
+
+    if( !wireWriteDataByte(0xA3, val) ) {
+        return 0;
+    }
+
+    return 1;
+}
+
+
+
+
+
+
+
+uint16_t getLightIntLowThreshold(void)
+{
+    uint8_t val_byte;
+    uint16_t threshold = 0;
+
+
+    val_byte = wireReadDataByte(0x84);
+    threshold = val_byte;
+
+
+    val_byte = wireReadDataByte(0x85);
+    threshold = threshold + ((uint16_t)val_byte << 8);
+
+    return 1;
+}
+
+
+
+
+
+
+
+_Bool setLightIntLowThreshold(uint16_t threshold)
+{
+    uint8_t val_low;
+    uint8_t val_high;
+
+
+    val_low = threshold & 0x00FF;
+    val_high = (threshold & 0xFF00) >> 8;
+
+
+    if( !wireWriteDataByte(0x84, val_low) ) {
+        return 0;
+    }
+
+
+    if( !wireWriteDataByte(0x85, val_high) ) {
+        return 0;
+    }
+
+    return 1;
+}
+
+
+
+
+
+
+
+uint16_t getLightIntHighThreshold(void)
+{
+    uint8_t val_byte;
+    uint16_t threshold = 0;
+
+
+    val_byte = wireReadDataByte(0x86);
+    threshold = val_byte;
+
+
+    val_byte = wireReadDataByte(0x87);
+    threshold = threshold + ((uint16_t)val_byte << 8);
+
+    return 1;
+}
+
+
+
+
+
+
+
+_Bool setLightIntHighThreshold(uint16_t threshold)
+{
+    uint8_t val_low;
+    uint8_t val_high;
+
+
+    val_low = threshold & 0x00FF;
+    val_high = (threshold & 0xFF00) >> 8;
+
+
+    if( !wireWriteDataByte(0x86, val_low) ) {
+        return 0;
+    }
+
+
+    if( !wireWriteDataByte(0x87, val_high) ) {
+        return 0;
+    }
+
+    return 1;
+}
+
+
+
+
+
+
+
+uint8_t getProximityIntLowThreshold(void)
+{
+    uint8_t threshold = 0;
+
+
+    threshold = wireReadDataByte(0x89);
+
+    return 1;
+}
+
+
+
+
+
+
+
+_Bool setProximityIntLowThreshold(uint8_t threshold)
+{
+
+
+    if( !wireWriteDataByte(0x89, threshold) ) {
+        return 0;
+    }
+
+    return 1;
+}
+
+
+
+
+
+
+
+uint8_t getProximityIntHighThreshold(void)
+{
+    uint8_t threshold = 0;
+
+
+    threshold = wireReadDataByte(0x8B);
+
+    return 1;
+}
+
+
+
+
+
+
+
+_Bool setProximityIntHighThreshold(uint8_t threshold)
+{
+
+
+    if( !wireWriteDataByte(0x8B, threshold) ) {
+        return 0;
+    }
+
+    return 1;
+}
+
+
+
+
+
+
+uint8_t getAmbientLightIntEnable()
+{
+    uint8_t val;
+
+
+    val = wireReadDataByte(0x80);
+
+
+    val = (val >> 4) & 0b00000001;
+
+    return val;
+}
+
+
+
+
+
+
+
+_Bool setAmbientLightIntEnable(uint8_t enable)
+{
+    uint8_t val;
+
+
+    val = wireReadDataByte(0x80);
+
+
+    enable &= 0b00000001;
+    enable = enable << 4;
+    val &= 0b11101111;
+    val |= enable;
+
+
+    if( !wireWriteDataByte(0x80, val) ) {
+        return 0;
+    }
+
+    return 1;
+}
+
+
+
+
+
+
+uint8_t getProximityIntEnable()
+{
+    uint8_t val;
+
+
+    val = wireReadDataByte(0x80);
+
+
+    val = (val >> 5) & 0b00000001;
+
+    return val;
+}
+
+
+
+
+
+
+
+_Bool setProximityIntEnable(uint8_t enable)
+{
+    uint8_t val;
+
+
+    val = wireReadDataByte(0x80);
+
+
+    enable &= 0b00000001;
+    enable = enable << 5;
+    val &= 0b11011111;
+    val |= enable;
+
+
+    if( !wireWriteDataByte(0x80, val) ) {
+        return 0;
+    }
+
+    return 1;
+}
+
+
+
+
+
+
+uint8_t getGestureIntEnable()
+{
+    uint8_t val;
+
+
+    val = wireReadDataByte(0xAB);
+
+
+    val = (val >> 1) & 0b00000001;
+
+    return val;
+}
+
+
+
+
+
+
+
+_Bool setGestureIntEnable(uint8_t enable)
+{
+    uint8_t val;
+
+
+    val = wireReadDataByte(0xAB);
+
+
+    enable &= 0b00000001;
+    enable = enable << 1;
+    val &= 0b11111101;
+    val |= enable;
+
+
+    if( !wireWriteDataByte(0xAB, val) ) {
+        return 0;
+    }
+
+    return 1;
+}
+
+
+
+
+
+
+_Bool clearAmbientLightInt()
+{
+    uint8_t throwaway;
+    throwaway = wireReadDataByte(0xE7);
+
+    return 1;
+}
+
+
+
+
+
+
+_Bool clearProximityInt()
+{
+    uint8_t throwaway;
+    throwaway = wireReadDataByte(0xE5);
+
+    return 1;
+}
+
+
+
+
+
+
+uint8_t getGestureMode()
+{
+    uint8_t val;
+
+
+    val = wireReadDataByte(0xAB);
+
+
+    val &= 0b00000001;
+
+    return val;
+}
+
+
+
+
+
+
+
+_Bool setGestureMode(uint8_t mode)
+{
+    uint8_t val;
+
+
+    val = wireReadDataByte(0xAB);
+
+
+    mode &= 0b00000001;
+    val &= 0b11111110;
+    val |= mode;
+
+
+    val = wireWriteDataByte(0xAB,val);
+
+    return 1;
+}
+# 1983 "APDS9960.c"
+_Bool wireWriteByte(uint8_t val)
+{
+    i2c_writeNBytes(0x39,&val,1);
+
+    return 1;
+}
+# 1997 "APDS9960.c"
+_Bool wireWriteDataByte(uint8_t reg, uint8_t val)
+{
+    i2c_write1ByteRegister(0x39,reg,val);
+
+    return 1;
+}
+# 2012 "APDS9960.c"
+_Bool wireWriteDataBlock( uint8_t reg,
+                                        uint8_t *val,
+                                        unsigned int len)
+{
+
+    i2c_writeNBytes(0x39,&reg,1);
+    i2c_writeNBytes(0x39,&val,len);
+    return 1;
+}
+# 2029 "APDS9960.c"
+uint8_t wireReadDataByte(uint8_t reg)
+{
+
+    return i2c_read1ByteRegister(0x39, reg);
+
+}
+# 2044 "APDS9960.c"
+int wireReadDataBlock( uint8_t reg,
+                                        uint8_t *val,
+                                        unsigned int len)
+{
+    unsigned char i = len;
+
+
+   i2c_readDataBlock(0x39,reg,val,len);
+
+    return i;
 }

@@ -59,18 +59,129 @@ I2C_TIMEOUT 4
 I2C_NULL 5
 ]
 "77 C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\main.c
-[e E3222 e_ir_flag `uc
+[e E3367 e_ir_flag `uc
 IR_NONE 0
 IR_BUSY 1
 IR_DONE 2
 IR_REPEAT 3
 ]
+"152
+[e E3266 . `uc
+DIR_NONE 0
+DIR_LEFT 1
+DIR_RIGHT 2
+DIR_UP 3
+DIR_DOWN 4
+DIR_NEAR 5
+DIR_FAR 6
+DIR_ALL 7
+]
+"34 C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/drivers/i2c_simple_master.c
+[e E360 . `uc
+I2C_STOP 1
+I2C_RESTART_READ 2
+I2C_RESTART_WRITE 3
+I2C_CONTINUE 4
+I2C_RESET_LINK 5
+]
+"53
+[e E355 . `uc
+I2C_NOERR 0
+I2C_BUSY 1
+I2C_FAIL 2
+]
+"452 C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\APDS9960.c
+[e E3266 . `uc
+DIR_NONE 0
+DIR_LEFT 1
+DIR_RIGHT 2
+DIR_UP 3
+DIR_DOWN 4
+DIR_NEAR 5
+DIR_FAR 6
+DIR_ALL 7
+]
+"875
+[e E3275 . `uc
+NA_STATE 0
+NEAR_STATE 1
+FAR_STATE 2
+ALL_STATE 3
+]
+"54
+[v _APDS9960Init APDS9960Init `(a  1 e 1 0 ]
+"186
+[v _getMode getMode `(uc  1 e 1 0 ]
+"203
+[v _setMode setMode `(a  1 e 1 0 ]
+"293
+[v _enableProximitySensor enableProximitySensor `(a  1 e 1 0 ]
+"417
+[v _isGestureAvailable isGestureAvailable `(a  1 e 1 0 ]
+"441
+[v _readGesture readGesture `(i  1 e 2 0 ]
+"552
+[v _enablePower enablePower `(a  1 e 1 0 ]
+"677
+[v _readProximity readProximity `(uc  1 e 1 0 ]
+"694
+[v _resetGestureParameters resetGestureParameters `(v  1 e 1 0 ]
+"717
+[v _processGestureData processGestureData `(a  1 e 1 0 ]
+"919
+[v _decodeGesture decodeGesture `(a  1 e 1 0 ]
+"995
+[v _setProxIntLowThresh setProxIntLowThresh `(a  1 e 1 0 ]
+"1025
+[v _setProxIntHighThresh setProxIntHighThresh `(a  1 e 1 0 ]
+"1070
+[v _setLEDDrive setLEDDrive `(a  1 e 1 0 ]
+"1127
+[v _setProximityGain setProximityGain `(a  1 e 1 0 ]
+"1184
+[v _setAmbientLightGain setAmbientLightGain `(a  1 e 1 0 ]
+"1240
+[v _setLEDBoost setLEDBoost `(a  1 e 1 0 ]
+"1386
+[v _setGestureEnterThresh setGestureEnterThresh `(a  1 e 1 0 ]
+"1416
+[v _setGestureExitThresh setGestureExitThresh `(a  1 e 1 0 ]
+"1461
+[v _setGestureGain setGestureGain `(a  1 e 1 0 ]
+"1518
+[v _setGestureLEDDrive setGestureLEDDrive `(a  1 e 1 0 ]
+"1583
+[v _setGestureWaitTime setGestureWaitTime `(a  1 e 1 0 ]
+"1631
+[v _setLightIntLowThreshold setLightIntLowThreshold `(a  1 e 1 0 ]
+"1681
+[v _setLightIntHighThreshold setLightIntHighThreshold `(a  1 e 1 0 ]
+"1793
+[v _setAmbientLightIntEnable setAmbientLightIntEnable `(a  1 e 1 0 ]
+"1838
+[v _setProximityIntEnable setProximityIntEnable `(a  1 e 1 0 ]
+"1883
+[v _setGestureIntEnable setGestureIntEnable `(a  1 e 1 0 ]
+"1954
+[v _setGestureMode setGestureMode `(a  1 e 1 0 ]
+"1997
+[v _wireWriteDataByte wireWriteDataByte `(a  1 e 1 0 ]
+"2029
+[v _wireReadDataByte wireReadDataByte `(uc  1 e 1 0 ]
+"2044
+[v _wireReadDataBlock wireReadDataBlock `(i  1 e 2 0 ]
+"1 D:\Program Files\Microchip\xc8\v2.30\pic\sources\c99\common\abs.c
+[v _abs abs `(i  1 e 2 0 ]
+"5 D:\Program Files\Microchip\xc8\v2.30\pic\sources\c99\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
 "5 D:\Program Files\Microchip\xc8\v2.30\pic\sources\c99\common\lwdiv.c
 [v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
 "5 D:\Program Files\Microchip\xc8\v2.30\pic\sources\c99\common\lwmod.c
 [v ___lwmod __lwmod `(ui  1 e 2 0 ]
 "10 D:\Program Files\Microchip\xc8\v2.30\pic\sources\c99\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
+"15 D:\Program Files\Microchip\xc8\v2.30\pic\sources\c99\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
 "4 D:\Program Files\Microchip\xc8\v2.30\pic\sources\c99\common\Umul8_16.c
 [v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
 "6 D:\Program Files\Microchip\xc8\v2.30\pic\sources\c99\pic\__eeprom.c
@@ -79,17 +190,19 @@ IR_REPEAT 3
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
 "70 C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\main.c
 [v _main main `(v  1 e 1 0 ]
-"140
-[v _CCP4_CallBack@main$F1838 CCP4_CallBack `(v  1 s 1 CCP4_CallBack ]
-"207
+"189
+[v _CCP4_CallBack@main$F1923 CCP4_CallBack `(v  1 s 1 CCP4_CallBack ]
+"256
 [v _LCD_Digit1Num LCD_Digit1Num `(v  1 e 1 0 ]
-"232
+"281
 [v _LCD_Digit2Num LCD_Digit2Num `(v  1 e 1 0 ]
-"257
+"306
 [v _LCD_Digit3Num LCD_Digit3Num `(v  1 e 1 0 ]
-"282
+"331
 [v _LCD_Digit4Num LCD_Digit4Num `(v  1 e 1 0 ]
-"332
+"369
+[v _intToBCD intToBCD `(us  1 e 2 0 ]
+"381
 [v _reverseBits reverseBits `(uc  1 e 1 0 ]
 "60 C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/ccp4.c
 [v _CCP4_DefaultCallBack CCP4_DefaultCallBack `(v  1 s 1 CCP4_DefaultCallBack ]
@@ -101,20 +214,48 @@ IR_REPEAT 3
 [v _CCP4_SetCallBack CCP4_SetCallBack `(v  1 e 1 0 ]
 "58 C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/dac.c
 [v _DAC_Initialize DAC_Initialize `(v  1 e 1 0 ]
-"66 C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/eusart.c
+"34 C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/drivers/i2c_simple_master.c
+[v _wr1RegCompleteHandler@i2c_simple_master$F2173 wr1RegCompleteHandler `(E360  1 s 1 wr1RegCompleteHandler ]
+"51
+[v _i2c_write1ByteRegister i2c_write1ByteRegister `(v  1 e 1 0 ]
+"71
+[v _i2c_writeNBytes i2c_writeNBytes `(v  1 e 1 0 ]
+"81
+[v _rd1RegCompleteHandler@i2c_simple_master$F2183 rd1RegCompleteHandler `(E360  1 s 1 rd1RegCompleteHandler ]
+"97
+[v _i2c_read1ByteRegister i2c_read1ByteRegister `(uc  1 e 1 0 ]
+"119
+[v _rd2RegCompleteHandler@i2c_simple_master$F2191 rd2RegCompleteHandler `(E360  1 s 1 rd2RegCompleteHandler ]
+"151
+[v _wr2RegCompleteHandler@i2c_simple_master$F2197 wr2RegCompleteHandler `(E360  1 s 1 wr2RegCompleteHandler ]
+"185
+[v _rdBlkRegCompleteHandler@i2c_simple_master$F2203 rdBlkRegCompleteHandler `(E360  1 s 1 rdBlkRegCompleteHandler ]
+"203
+[v _i2c_readDataBlock i2c_readDataBlock `(v  1 e 1 0 ]
+"88 C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/eusart.c
 [v _EUSART_Initialize EUSART_Initialize `(v  1 e 1 0 ]
-"144
+"197
+[v _EUSART_Transmit_ISR EUSART_Transmit_ISR `(v  1 e 1 0 ]
+"216
+[v _EUSART_Receive_ISR EUSART_Receive_ISR `(v  1 e 1 0 ]
+"240
+[v _EUSART_RxDataHandler EUSART_RxDataHandler `(v  1 e 1 0 ]
+"250
 [v _EUSART_DefaultFramingErrorHandler EUSART_DefaultFramingErrorHandler `(v  1 e 1 0 ]
-"146
+"252
 [v _EUSART_DefaultOverrunErrorHandler EUSART_DefaultOverrunErrorHandler `(v  1 e 1 0 ]
-"154
+"260
 [v _EUSART_DefaultErrorHandler EUSART_DefaultErrorHandler `(v  1 e 1 0 ]
-"157
+"264
 [v _EUSART_SetFramingErrorHandler EUSART_SetFramingErrorHandler `(v  1 e 1 0 ]
-"161
+"268
 [v _EUSART_SetOverrunErrorHandler EUSART_SetOverrunErrorHandler `(v  1 e 1 0 ]
-"165
+"272
 [v _EUSART_SetErrorHandler EUSART_SetErrorHandler `(v  1 e 1 0 ]
+"276
+[v _EUSART_SetTxInterruptHandler EUSART_SetTxInterruptHandler `(v  1 e 1 0 ]
+"280
+[v _EUSART_SetRxInterruptHandler EUSART_SetRxInterruptHandler `(v  1 e 1 0 ]
 "142 C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/examples/i2c_master_example.c
 [v _rd1RegCompleteHandler rd1RegCompleteHandler `(E360  1 s 1 rd1RegCompleteHandler ]
 "149
@@ -247,6 +388,27 @@ IR_REPEAT 3
 [v _TMR1_Initialize TMR1_Initialize `(v  1 e 1 0 ]
 "113
 [v _TMR1_WriteTimer TMR1_WriteTimer `(v  1 e 1 0 ]
+[s S2219 gesture_data_type 132 `[32]uc 1 u_data 32 0 `[32]uc 1 d_data 32 32 `[32]uc 1 l_data 32 64 `[32]uc 1 r_data 32 96 `uc 1 index 1 128 `uc 1 total_gestures 1 129 `uc 1 in_threshold 1 130 `uc 1 out_threshold 1 131 ]
+"6 C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\APDS9960.c
+[v _gesture_data_ gesture_data_ `S2219  1 e 132 @8940 ]
+"7
+[v _gesture_ud_delta_ gesture_ud_delta_ `i  1 e 2 0 ]
+"8
+[v _gesture_lr_delta_ gesture_lr_delta_ `i  1 e 2 0 ]
+"9
+[v _gesture_ud_count_ gesture_ud_count_ `i  1 e 2 0 ]
+"10
+[v _gesture_lr_count_ gesture_lr_count_ `i  1 e 2 0 ]
+"11
+[v _gesture_near_count_ gesture_near_count_ `i  1 e 2 0 ]
+"12
+[v _gesture_far_count_ gesture_far_count_ `i  1 e 2 0 ]
+"13
+[v _gesture_state_ gesture_state_ `i  1 e 2 0 ]
+"14
+[v _gesture_motion_ gesture_motion_ `i  1 e 2 0 ]
+"16
+[v _fifo_data fifo_data `[128]uc  1 e 128 @9072 ]
 [s S153 . 1 `uc 1 IOCIF 1 0 :1:0 
 `uc 1 INTF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
@@ -264,7 +426,7 @@ IR_REPEAT 3
 ]
 [u S167 . 1 `S153 1 . 1 0 `S162 1 . 1 0 ]
 [v _INTCONbits INTCONbits `VES167  1 e 1 @11 ]
-[s S772 . 1 `uc 1 TMR1IF 1 0 :1:0 
+[s S1343 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
 `uc 1 SSPIF 1 0 :1:3 
@@ -274,21 +436,9 @@ IR_REPEAT 3
 `uc 1 TMR1GIF 1 0 :1:7 
 ]
 "653
-[u S781 . 1 `S772 1 . 1 0 ]
-[v _PIR1bits PIR1bits `VES781  1 e 1 @17 ]
-[s S1234 . 1 `uc 1 CCP2IF 1 0 :1:0 
-`uc 1 . 1 0 :1:1 
-`uc 1 LCDIF 1 0 :1:2 
-`uc 1 BCLIF 1 0 :1:3 
-`uc 1 EEIF 1 0 :1:4 
-`uc 1 C1IF 1 0 :1:5 
-`uc 1 C2IF 1 0 :1:6 
-`uc 1 OSFIF 1 0 :1:7 
-]
-"715
-[u S1243 . 1 `S1234 1 . 1 0 ]
-[v _PIR2bits PIR2bits `VES1243  1 e 1 @18 ]
-[s S1697 . 1 `uc 1 . 1 0 :1:0 
+[u S1352 . 1 `S1343 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES1352  1 e 1 @17 ]
+[s S1752 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 TMR4IF 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 TMR6IF 1 0 :1:3 
@@ -297,8 +447,8 @@ IR_REPEAT 3
 `uc 1 CCP5IF 1 0 :1:6 
 ]
 "771
-[u S1705 . 1 `S1697 1 . 1 0 ]
-[v _PIR3bits PIR3bits `VES1705  1 e 1 @19 ]
+[u S1760 . 1 `S1752 1 . 1 0 ]
+[v _PIR3bits PIR3bits `VES1760  1 e 1 @19 ]
 "801
 [v _TMR0 TMR0 `VEuc  1 e 1 @21 ]
 "828
@@ -307,7 +457,7 @@ IR_REPEAT 3
 [v _TMR1H TMR1H `VEuc  1 e 1 @23 ]
 "868
 [v _T1CON T1CON `VEuc  1 e 1 @24 ]
-[s S1587 . 1 `uc 1 TMR1ON 1 0 :1:0 
+[s S1642 . 1 `uc 1 TMR1ON 1 0 :1:0 
 `uc 1 . 1 0 :1:1 
 `uc 1 nT1SYNC 1 0 :1:2 
 `uc 1 T1OSCEN 1 0 :1:3 
@@ -317,30 +467,14 @@ IR_REPEAT 3
 `uc 1 TMR1CS1 1 0 :1:7 
 ]
 "890
-[s S1596 . 1 `uc 1 . 1 0 :4:0 
+[s S1651 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 T1CKPS 1 0 :2:4 
 `uc 1 TMR1CS 1 0 :2:6 
 ]
-[u S1600 . 1 `S1587 1 . 1 0 `S1596 1 . 1 0 ]
-[v _T1CONbits T1CONbits `VES1600  1 e 1 @24 ]
+[u S1655 . 1 `S1642 1 . 1 0 `S1651 1 . 1 0 ]
+[v _T1CONbits T1CONbits `VES1655  1 e 1 @24 ]
 "940
 [v _T1GCON T1GCON `VEuc  1 e 1 @25 ]
-[s S1617 . 1 `uc 1 T1GSS0 1 0 :1:0 
-`uc 1 T1GSS1 1 0 :1:1 
-`uc 1 T1GVAL 1 0 :1:2 
-`uc 1 T1GGO_nDONE 1 0 :1:3 
-`uc 1 T1GSPM 1 0 :1:4 
-`uc 1 T1GTM 1 0 :1:5 
-`uc 1 T1GPOL 1 0 :1:6 
-`uc 1 TMR1GE 1 0 :1:7 
-]
-"962
-[s S1626 . 1 `uc 1 T1GSS 1 0 :2:0 
-`uc 1 . 1 0 :1:2 
-`uc 1 T1GGO 1 0 :1:3 
-]
-[u S1630 . 1 `S1617 1 . 1 0 `S1626 1 . 1 0 ]
-[v _T1GCONbits T1GCONbits `VES1630  1 e 1 @25 ]
 "1228
 [v _TRISA TRISA `VEuc  1 e 1 @140 ]
 "1290
@@ -349,7 +483,7 @@ IR_REPEAT 3
 [v _TRISC TRISC `VEuc  1 e 1 @142 ]
 "1414
 [v _TRISE TRISE `VEuc  1 e 1 @144 ]
-[s S1276 . 1 `uc 1 TMR1IE 1 0 :1:0 
+[s S739 . 1 `uc 1 TMR1IE 1 0 :1:0 
 `uc 1 TMR2IE 1 0 :1:1 
 `uc 1 CCP1IE 1 0 :1:2 
 `uc 1 SSPIE 1 0 :1:3 
@@ -359,9 +493,9 @@ IR_REPEAT 3
 `uc 1 TMR1GIE 1 0 :1:7 
 ]
 "1452
-[u S1285 . 1 `S1276 1 . 1 0 ]
-[v _PIE1bits PIE1bits `VES1285  1 e 1 @145 ]
-[s S1716 . 1 `uc 1 . 1 0 :1:0 
+[u S748 . 1 `S739 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES748  1 e 1 @145 ]
+[s S1771 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 TMR4IE 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 TMR6IE 1 0 :1:3 
@@ -370,8 +504,8 @@ IR_REPEAT 3
 `uc 1 CCP5IE 1 0 :1:6 
 ]
 "1570
-[u S1724 . 1 `S1716 1 . 1 0 ]
-[v _PIE3bits PIE3bits `VES1724  1 e 1 @147 ]
+[u S1779 . 1 `S1771 1 . 1 0 ]
+[v _PIE3bits PIE3bits `VES1779  1 e 1 @147 ]
 "1600
 [v _OPTION_REG OPTION_REG `VEuc  1 e 1 @149 ]
 [s S683 . 1 `uc 1 PS0 1 0 :1:0 
@@ -409,21 +543,6 @@ IR_REPEAT 3
 [v _BORCON BORCON `VEuc  1 e 1 @278 ]
 "2699
 [v _FVRCON FVRCON `VEuc  1 e 1 @279 ]
-[s S896 . 1 `uc 1 ADFVR0 1 0 :1:0 
-`uc 1 ADFVR1 1 0 :1:1 
-`uc 1 CDAFVR0 1 0 :1:2 
-`uc 1 CDAFVR1 1 0 :1:3 
-`uc 1 TSRNG 1 0 :1:4 
-`uc 1 TSEN 1 0 :1:5 
-`uc 1 FVRRDY 1 0 :1:6 
-`uc 1 FVREN 1 0 :1:7 
-]
-"2720
-[s S905 . 1 `uc 1 ADFVR 1 0 :2:0 
-`uc 1 CDAFVR 1 0 :2:2 
-]
-[u S908 . 1 `S896 1 . 1 0 `S905 1 . 1 0 ]
-[v _FVRCONbits FVRCONbits `VES908  1 e 1 @279 ]
 "2775
 [v _DACCON0 DACCON0 `VEuc  1 e 1 @280 ]
 "2836
@@ -434,28 +553,6 @@ IR_REPEAT 3
 [v _ANSELA ANSELA `VEuc  1 e 1 @396 ]
 "3135
 [v _ANSELB ANSELB `VEuc  1 e 1 @397 ]
-"3200
-[v _EEADRL EEADRL `VEuc  1 e 1 @401 ]
-"3220
-[v _EEADRH EEADRH `VEuc  1 e 1 @402 ]
-"3247
-[v _EEDATL EEDATL `VEuc  1 e 1 @403 ]
-"3285
-[v _EEDATH EEDATH `VEuc  1 e 1 @404 ]
-[s S187 . 1 `uc 1 RD 1 0 :1:0 
-`uc 1 WR 1 0 :1:1 
-`uc 1 WREN 1 0 :1:2 
-`uc 1 WRERR 1 0 :1:3 
-`uc 1 FREE 1 0 :1:4 
-`uc 1 LWLO 1 0 :1:5 
-`uc 1 CFGS 1 0 :1:6 
-`uc 1 EEPGD 1 0 :1:7 
-]
-"3322
-[u S196 . 1 `S187 1 . 1 0 ]
-[v _EECON1bits EECON1bits `VES196  1 e 1 @405 ]
-"3367
-[v _EECON2 EECON2 `VEuc  1 e 1 @406 ]
 "3387
 [v _RCREG RCREG `VEuc  1 e 1 @409 ]
 "3407
@@ -466,7 +563,7 @@ IR_REPEAT 3
 [v _SPBRGH SPBRGH `VEuc  1 e 1 @412 ]
 "3526
 [v _RCSTA RCSTA `VEuc  1 e 1 @413 ]
-[s S814 . 1 `uc 1 RX9D 1 0 :1:0 
+[s S837 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -476,22 +573,10 @@ IR_REPEAT 3
 `uc 1 SPEN 1 0 :1:7 
 ]
 "3543
-[u S823 . 1 `S814 1 . 1 0 ]
-[v _RCSTAbits RCSTAbits `VES823  1 e 1 @413 ]
+[u S846 . 1 `S837 1 . 1 0 ]
+[v _RCSTAbits RCSTAbits `VES846  1 e 1 @413 ]
 "3588
 [v _TXSTA TXSTA `VEuc  1 e 1 @414 ]
-[s S793 . 1 `uc 1 TX9D 1 0 :1:0 
-`uc 1 TRMT 1 0 :1:1 
-`uc 1 BRGH 1 0 :1:2 
-`uc 1 SENDB 1 0 :1:3 
-`uc 1 SYNC 1 0 :1:4 
-`uc 1 TXEN 1 0 :1:5 
-`uc 1 TX9 1 0 :1:6 
-`uc 1 CSRC 1 0 :1:7 
-]
-"3605
-[u S802 . 1 `S793 1 . 1 0 ]
-[v _TXSTAbits TXSTAbits `VES802  1 e 1 @414 ]
 "3650
 [v _BAUDCON BAUDCON `VEuc  1 e 1 @415 ]
 "3702
@@ -504,21 +589,9 @@ IR_REPEAT 3
 [v _SSPADD SSPADD `VEuc  1 e 1 @530 ]
 "3853
 [v _SSPSTAT SSPSTAT `VEuc  1 e 1 @532 ]
-[s S1255 . 1 `uc 1 BF 1 0 :1:0 
-`uc 1 UA 1 0 :1:1 
-`uc 1 R_nW 1 0 :1:2 
-`uc 1 S 1 0 :1:3 
-`uc 1 P 1 0 :1:4 
-`uc 1 D_nA 1 0 :1:5 
-`uc 1 CKE 1 0 :1:6 
-`uc 1 SMP 1 0 :1:7 
-]
-"3870
-[u S1264 . 1 `S1255 1 . 1 0 ]
-[v _SSPSTATbits SSPSTATbits `VES1264  1 e 1 @532 ]
 "3915
 [v _SSPCON1 SSPCON1 `VEuc  1 e 1 @533 ]
-[s S1053 . 1 `uc 1 SSPM0 1 0 :1:0 
+[s S1108 . 1 `uc 1 SSPM0 1 0 :1:0 
 `uc 1 SSPM1 1 0 :1:1 
 `uc 1 SSPM2 1 0 :1:2 
 `uc 1 SSPM3 1 0 :1:3 
@@ -528,11 +601,11 @@ IR_REPEAT 3
 `uc 1 WCOL 1 0 :1:7 
 ]
 "3937
-[u S1062 . 1 `S1053 1 . 1 0 ]
-[v _SSPCON1bits SSPCON1bits `VES1062  1 e 1 @533 ]
+[u S1117 . 1 `S1108 1 . 1 0 ]
+[v _SSPCON1bits SSPCON1bits `VES1117  1 e 1 @533 ]
 "4037
 [v _SSPCON2 SSPCON2 `VEuc  1 e 1 @534 ]
-[s S1213 . 1 `uc 1 SEN 1 0 :1:0 
+[s S1268 . 1 `uc 1 SEN 1 0 :1:0 
 `uc 1 RSEN 1 0 :1:1 
 `uc 1 PEN 1 0 :1:2 
 `uc 1 RCEN 1 0 :1:3 
@@ -542,8 +615,8 @@ IR_REPEAT 3
 `uc 1 GCEN 1 0 :1:7 
 ]
 "4054
-[u S1222 . 1 `S1213 1 . 1 0 ]
-[v _SSPCON2bits SSPCON2bits `VES1222  1 e 1 @534 ]
+[u S1277 . 1 `S1268 1 . 1 0 ]
+[v _SSPCON2bits SSPCON2bits `VES1277  1 e 1 @534 ]
 "5341
 [v _CCPR4L CCPR4L `VEuc  1 e 1 @792 ]
 "5361
@@ -569,52 +642,12 @@ IR_REPEAT 3
 [v _LCDCONbits LCDCONbits `VES283  1 e 1 @1937 ]
 "6031
 [v _LCDPS LCDPS `VEuc  1 e 1 @1938 ]
-[s S362 . 1 `uc 1 LP0 1 0 :1:0 
-`uc 1 LP1 1 0 :1:1 
-`uc 1 LP2 1 0 :1:2 
-`uc 1 LP3 1 0 :1:3 
-`uc 1 WA 1 0 :1:4 
-`uc 1 LCDA 1 0 :1:5 
-`uc 1 BIASMD 1 0 :1:6 
-`uc 1 WFT 1 0 :1:7 
-]
-"6051
-[s S371 . 1 `uc 1 LP 1 0 :4:0 
-]
-[u S373 . 1 `S362 1 . 1 0 `S371 1 . 1 0 ]
-[v _LCDPSbits LCDPSbits `VES373  1 e 1 @1938 ]
 "6101
 [v _LCDREF LCDREF `VEuc  1 e 1 @1939 ]
 "6153
 [v _LCDCST LCDCST `VEuc  1 e 1 @1940 ]
-[s S314 . 1 `uc 1 LCDCST0 1 0 :1:0 
-`uc 1 LCDCST1 1 0 :1:1 
-`uc 1 LCDCST2 1 0 :1:2 
-]
-"6168
-[s S318 . 1 `uc 1 LCDCST 1 0 :3:0 
-]
-[u S320 . 1 `S314 1 . 1 0 `S318 1 . 1 0 ]
-[v _LCDCSTbits LCDCSTbits `VES320  1 e 1 @1940 ]
 "6193
 [v _LCDRL LCDRL `VEuc  1 e 1 @1941 ]
-[s S330 . 1 `uc 1 LRLAT0 1 0 :1:0 
-`uc 1 LRLAT1 1 0 :1:1 
-`uc 1 LRLAT2 1 0 :1:2 
-`uc 1 . 1 0 :1:3 
-`uc 1 LRLBP0 1 0 :1:4 
-`uc 1 LRLBP1 1 0 :1:5 
-`uc 1 LRLAP0 1 0 :1:6 
-`uc 1 LRLAP1 1 0 :1:7 
-]
-"6216
-[s S339 . 1 `uc 1 LRLAT 1 0 :3:0 
-`uc 1 . 1 0 :1:3 
-`uc 1 LRLBP 1 0 :2:4 
-`uc 1 LRLAP 1 0 :2:6 
-]
-[u S344 . 1 `S330 1 . 1 0 `S339 1 . 1 0 ]
-[v _LCDRLbits LCDRLbits `VES344  1 e 1 @1941 ]
 "6271
 [v _LCDSE0 LCDSE0 `VEuc  1 e 1 @1944 ]
 "6333
@@ -742,29 +775,51 @@ IR_REPEAT 3
 [v _ir_flag ir_flag `VEuc  1 e 1 0 ]
 "54 C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/ccp4.c
 [v _CCP4_CallBack CCP4_CallBack `*.37(v  1 s 2 CCP4_CallBack ]
+"62 C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/eusart.c
+[v _eusartTxHead eusartTxHead `VEuc  1 e 1 0 ]
+"63
+[v _eusartTxTail eusartTxTail `VEuc  1 e 1 0 ]
+"64
+[v _eusartTxBuffer eusartTxBuffer `VE[8]uc  1 e 8 0 ]
+"65
+[v _eusartTxBufferRemaining eusartTxBufferRemaining `VEuc  1 e 1 0 ]
+"67
+[v _eusartRxHead eusartRxHead `VEuc  1 e 1 0 ]
+"68
+[v _eusartRxTail eusartRxTail `VEuc  1 e 1 0 ]
+"69
+[v _eusartRxBuffer eusartRxBuffer `VE[8]uc  1 e 8 0 ]
 [s S726 . 1 `uc 1 perr 1 0 :1:0 
 `uc 1 ferr 1 0 :1:1 
 `uc 1 oerr 1 0 :1:2 
 `uc 1 reserved 1 0 :5:3 
 ]
-"52 C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/eusart.c
+"70
 [u S731 . 1 `S726 1 . 1 0 `uc 1 status 1 0 ]
+[v _eusartRxStatusBuffer eusartRxStatusBuffer `VE[8]S731  1 e 8 0 ]
+"71
+[v _eusartRxCount eusartRxCount `VEuc  1 e 1 0 ]
+"72
 [v _eusartRxLastError eusartRxLastError `VES731  1 e 1 0 ]
-"58
+"77
+[v _EUSART_TxDefaultInterruptHandler EUSART_TxDefaultInterruptHandler `*.37(v  1 e 2 0 ]
+"78
+[v _EUSART_RxDefaultInterruptHandler EUSART_RxDefaultInterruptHandler `*.37(v  1 e 2 0 ]
+"80
 [v _EUSART_FramingErrorHandler EUSART_FramingErrorHandler `*.37(v  1 e 2 0 ]
-"59
+"81
 [v _EUSART_OverrunErrorHandler EUSART_OverrunErrorHandler `*.37(v  1 e 2 0 ]
-"60
+"82
 [v _EUSART_ErrorHandler EUSART_ErrorHandler `*.37(v  1 e 2 0 ]
 "146 C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/i2c_master.c
 [v _i2c_fsmStateTable i2c_fsmStateTable `DC[16]*.37(E3090  1 e 32 0 ]
-[s S1027 . 29 `[6]*.37(E360 1 callbackTable 12 0 `[6]*.1v 1 callbackPayload 6 12 `us 1 time_out 2 18 `us 1 time_out_value 2 20 `uc 1 address 1 22 `*.1uc 1 data_ptr 1 23 `ui 1 data_length 2 24 `E3090 1 state 1 26 `E355 1 error 1 27 `uc 1 addressNackCheck 1 28 :1:0 
-`uc 1 busy 1 28 :1:1 
-`uc 1 inUse 1 28 :1:2 
-`uc 1 bufferFree 1 28 :1:3 
+[s S1082 . 36 `[6]*.37(E360 1 callbackTable 12 0 `[6]*.39v 1 callbackPayload 12 12 `us 1 time_out 2 24 `us 1 time_out_value 2 26 `uc 1 address 1 28 `*.39uc 1 data_ptr 2 29 `ui 1 data_length 2 31 `E3090 1 state 1 33 `E355 1 error 1 34 `uc 1 addressNackCheck 1 35 :1:0 
+`uc 1 busy 1 35 :1:1 
+`uc 1 inUse 1 35 :1:2 
+`uc 1 bufferFree 1 35 :1:3 
 ]
 "165
-[v _I2C_Status I2C_Status `S1027  1 e 29 0 ]
+[v _I2C_Status I2C_Status `S1082  1 e 36 0 ]
 "58 C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/tmr0.c
 [v _timer0ReloadVal timer0ReloadVal `VEuc  1 e 1 0 ]
 "57 C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/tmr1.c
@@ -772,17 +827,214 @@ IR_REPEAT 3
 "70 C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
+"72
+[v main@bcd_num bcd_num `us  1 a 2 63 ]
+[v main@temp_num temp_num `us  1 a 2 60 ]
 "73
-[v main@temp8 temp8 `uc  1 a 1 7 ]
-"138
+[v main@temp8 temp8 `uc  1 a 1 62 ]
+"187
 } 0
-"332
+"381
 [v _reverseBits reverseBits `(uc  1 e 1 0 ]
 {
 [v reverseBits@b b `uc  1 a 1 wreg ]
 [v reverseBits@b b `uc  1 a 1 wreg ]
 [v reverseBits@b b `uc  1 a 1 3 ]
-"337
+"386
+} 0
+"677 C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\APDS9960.c
+[v _readProximity readProximity `(uc  1 e 1 0 ]
+{
+"679
+[v readProximity@val val `uc  1 a 1 32 ]
+"685
+} 0
+"441
+[v _readGesture readGesture `(i  1 e 2 0 ]
+{
+"448
+[v readGesture@i i `i  1 a 2 56 ]
+"447
+[v readGesture@motion motion `i  1 a 2 51 ]
+"444
+[v readGesture@bytes_read bytes_read `uc  1 a 1 55 ]
+"443
+[v readGesture@fifo_level fifo_level `uc  1 a 1 54 ]
+"446
+[v readGesture@gstatus gstatus `uc  1 a 1 53 ]
+"545
+} 0
+"2044
+[v _wireReadDataBlock wireReadDataBlock `(i  1 e 2 0 ]
+{
+[v wireReadDataBlock@reg reg `uc  1 a 1 wreg ]
+"2048
+[v wireReadDataBlock@i i `uc  1 a 1 39 ]
+"2044
+[v wireReadDataBlock@reg reg `uc  1 a 1 wreg ]
+"2045
+[v wireReadDataBlock@val val `*.39uc  1 p 2 32 ]
+"2046
+[v wireReadDataBlock@len len `ui  1 p 2 34 ]
+"2048
+[v wireReadDataBlock@reg reg `uc  1 a 1 38 ]
+"2054
+} 0
+"203 C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/drivers/i2c_simple_master.c
+[v _i2c_readDataBlock i2c_readDataBlock `(v  1 e 1 0 ]
+{
+[v i2c_readDataBlock@address address `uc  1 a 1 wreg ]
+[s S94 . 4 `ui 1 len 2 0 `*.39uc 1 data 2 2 ]
+"206
+[v i2c_readDataBlock@d d `S94  1 a 4 28 ]
+"203
+[v i2c_readDataBlock@address address `uc  1 a 1 wreg ]
+[v i2c_readDataBlock@reg reg `uc  1 p 1 22 ]
+[v i2c_readDataBlock@data data `*.39v  1 p 2 23 ]
+[v i2c_readDataBlock@len len `ui  1 p 2 25 ]
+"207
+[v i2c_readDataBlock@address address `uc  1 a 1 27 ]
+"216
+} 0
+"694 C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\APDS9960.c
+[v _resetGestureParameters resetGestureParameters `(v  1 e 1 0 ]
+{
+"710
+} 0
+"717
+[v _processGestureData processGestureData `(a  1 e 1 0 ]
+{
+"733
+[v processGestureData@i i `i  1 a 2 38 ]
+"732
+[v processGestureData@lr_delta lr_delta `i  1 a 2 36 ]
+"731
+[v processGestureData@ud_delta ud_delta `i  1 a 2 34 ]
+"730
+[v processGestureData@lr_ratio_last lr_ratio_last `i  1 a 2 24 ]
+"729
+[v processGestureData@ud_ratio_last ud_ratio_last `i  1 a 2 22 ]
+"728
+[v processGestureData@lr_ratio_first lr_ratio_first `i  1 a 2 20 ]
+"727
+[v processGestureData@ud_ratio_first ud_ratio_first `i  1 a 2 18 ]
+"722
+[v processGestureData@r_first r_first `uc  1 a 1 33 ]
+"721
+[v processGestureData@l_first l_first `uc  1 a 1 32 ]
+"720
+[v processGestureData@d_first d_first `uc  1 a 1 31 ]
+"719
+[v processGestureData@u_first u_first `uc  1 a 1 30 ]
+"726
+[v processGestureData@r_last r_last `uc  1 a 1 29 ]
+"725
+[v processGestureData@l_last l_last `uc  1 a 1 28 ]
+"724
+[v processGestureData@d_last d_last `uc  1 a 1 27 ]
+"723
+[v processGestureData@u_last u_last `uc  1 a 1 26 ]
+"912
+} 0
+"15 D:\Program Files\Microchip\xc8\v2.30\pic\sources\c99\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+{
+"17
+[v ___wmul@product product `ui  1 a 2 4 ]
+"15
+[v ___wmul@multiplier multiplier `ui  1 p 2 0 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
+"53
+} 0
+"5 D:\Program Files\Microchip\xc8\v2.30\pic\sources\c99\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+{
+"10
+[v ___awdiv@quotient quotient `i  1 a 2 13 ]
+"11
+[v ___awdiv@sign sign `uc  1 a 1 12 ]
+[v ___awdiv@counter counter `uc  1 a 1 11 ]
+"5
+[v ___awdiv@divisor divisor `i  1 p 2 6 ]
+[v ___awdiv@dividend dividend `i  1 p 2 8 ]
+"41
+} 0
+"417 C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\APDS9960.c
+[v _isGestureAvailable isGestureAvailable `(a  1 e 1 0 ]
+{
+"419
+[v isGestureAvailable@val val `uc  1 a 1 32 ]
+"433
+} 0
+"919
+[v _decodeGesture decodeGesture `(a  1 e 1 0 ]
+{
+"968
+} 0
+"1 D:\Program Files\Microchip\xc8\v2.30\pic\sources\c99\common\abs.c
+[v _abs abs `(i  1 e 2 0 ]
+{
+[v abs@a a `i  1 p 2 0 ]
+"4
+} 0
+"369 C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\main.c
+[v _intToBCD intToBCD `(us  1 e 2 0 ]
+{
+"371
+[v intToBCD@shift shift `us  1 a 2 15 ]
+"370
+[v intToBCD@bcdResult bcdResult `us  1 a 2 13 ]
+"369
+[v intToBCD@binaryInput binaryInput `us  1 p 2 8 ]
+"379
+} 0
+"5 D:\Program Files\Microchip\xc8\v2.30\pic\sources\c99\common\lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+{
+"10
+[v ___lwmod@counter counter `uc  1 a 1 5 ]
+"5
+[v ___lwmod@divisor divisor `ui  1 p 2 0 ]
+[v ___lwmod@dividend dividend `ui  1 p 2 2 ]
+"25
+} 0
+"5 D:\Program Files\Microchip\xc8\v2.30\pic\sources\c99\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+{
+"10
+[v ___lwdiv@quotient quotient `ui  1 a 2 5 ]
+"11
+[v ___lwdiv@counter counter `uc  1 a 1 7 ]
+"5
+[v ___lwdiv@divisor divisor `ui  1 p 2 0 ]
+[v ___lwdiv@dividend dividend `ui  1 p 2 2 ]
+"30
+} 0
+"293 C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\APDS9960.c
+[v _enableProximitySensor enableProximitySensor `(a  1 e 1 0 ]
+{
+[v enableProximitySensor@interrupts interrupts `a  1 a 1 wreg ]
+[v enableProximitySensor@interrupts interrupts `a  1 a 1 wreg ]
+"296
+[v enableProximitySensor@interrupts interrupts `a  1 a 1 38 ]
+"319
+} 0
+"1838
+[v _setProximityIntEnable setProximityIntEnable `(a  1 e 1 0 ]
+{
+[v setProximityIntEnable@enable enable `uc  1 a 1 wreg ]
+"1840
+[v setProximityIntEnable@val val `uc  1 a 1 33 ]
+"1838
+[v setProximityIntEnable@enable enable `uc  1 a 1 wreg ]
+"1843
+[v setProximityIntEnable@enable enable `uc  1 a 1 34 ]
+"1857
+} 0
+"552
+[v _enablePower enablePower `(a  1 e 1 0 ]
+{
+"559
 } 0
 "50 C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/mcc.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
@@ -829,28 +1081,40 @@ IR_REPEAT 3
 {
 "62
 } 0
-"66 C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/eusart.c
+"88 C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/eusart.c
 [v _EUSART_Initialize EUSART_Initialize `(v  1 e 1 0 ]
 {
-"92
+"130
 } 0
-"161
+"276
+[v _EUSART_SetTxInterruptHandler EUSART_SetTxInterruptHandler `(v  1 e 1 0 ]
+{
+[v EUSART_SetTxInterruptHandler@interruptHandler interruptHandler `*.37(v  1 p 2 0 ]
+"278
+} 0
+"280
+[v _EUSART_SetRxInterruptHandler EUSART_SetRxInterruptHandler `(v  1 e 1 0 ]
+{
+[v EUSART_SetRxInterruptHandler@interruptHandler interruptHandler `*.37(v  1 p 2 0 ]
+"282
+} 0
+"268
 [v _EUSART_SetOverrunErrorHandler EUSART_SetOverrunErrorHandler `(v  1 e 1 0 ]
 {
 [v EUSART_SetOverrunErrorHandler@interruptHandler interruptHandler `*.37(v  1 p 2 0 ]
-"163
+"270
 } 0
-"157
+"264
 [v _EUSART_SetFramingErrorHandler EUSART_SetFramingErrorHandler `(v  1 e 1 0 ]
 {
 [v EUSART_SetFramingErrorHandler@interruptHandler interruptHandler `*.37(v  1 p 2 0 ]
-"159
+"266
 } 0
-"165
+"272
 [v _EUSART_SetErrorHandler EUSART_SetErrorHandler `(v  1 e 1 0 ]
 {
 [v EUSART_SetErrorHandler@interruptHandler interruptHandler `*.37(v  1 p 2 0 ]
-"167
+"274
 } 0
 "58 C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/dac.c
 [v _DAC_Initialize DAC_Initialize `(v  1 e 1 0 ]
@@ -868,60 +1132,611 @@ IR_REPEAT 3
 [v CCP4_SetCallBack@customCallBack customCallBack `*.37(v  1 p 2 0 ]
 "106
 } 0
-"282 C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\main.c
+"331 C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\main.c
 [v _LCD_Digit4Num LCD_Digit4Num `(v  1 e 1 0 ]
 {
 [v LCD_Digit4Num@num num `uc  1 a 1 wreg ]
 [v LCD_Digit4Num@num num `uc  1 a 1 wreg ]
 [v LCD_Digit4Num@num num `uc  1 a 1 2 ]
-"318
+"367
 } 0
-"257
+"306
 [v _LCD_Digit3Num LCD_Digit3Num `(v  1 e 1 0 ]
 {
 [v LCD_Digit3Num@num num `uc  1 a 1 wreg ]
 [v LCD_Digit3Num@num num `uc  1 a 1 wreg ]
 [v LCD_Digit3Num@num num `uc  1 a 1 2 ]
-"280
+"329
 } 0
-"232
+"281
 [v _LCD_Digit2Num LCD_Digit2Num `(v  1 e 1 0 ]
 {
 [v LCD_Digit2Num@num num `uc  1 a 1 wreg ]
 [v LCD_Digit2Num@num num `uc  1 a 1 wreg ]
 [v LCD_Digit2Num@num num `uc  1 a 1 2 ]
-"255
+"304
 } 0
-"207
+"256
 [v _LCD_Digit1Num LCD_Digit1Num `(v  1 e 1 0 ]
 {
 [v LCD_Digit1Num@num num `uc  1 a 1 wreg ]
 [v LCD_Digit1Num@num num `uc  1 a 1 wreg ]
 [v LCD_Digit1Num@num num `uc  1 a 1 2 ]
-"230
+"279
+} 0
+"54 C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\APDS9960.c
+[v _APDS9960Init APDS9960Init `(a  1 e 1 0 ]
+{
+"56
+[v APDS9960Init@id id `uc  1 a 1 39 ]
+"164
+} 0
+"1127
+[v _setProximityGain setProximityGain `(a  1 e 1 0 ]
+{
+[v setProximityGain@drive drive `uc  1 a 1 wreg ]
+"1129
+[v setProximityGain@val val `uc  1 a 1 33 ]
+"1127
+[v setProximityGain@drive drive `uc  1 a 1 wreg ]
+"1132
+[v setProximityGain@drive drive `uc  1 a 1 34 ]
+"1146
+} 0
+"995
+[v _setProxIntLowThresh setProxIntLowThresh `(a  1 e 1 0 ]
+{
+[v setProxIntLowThresh@threshold threshold `uc  1 a 1 wreg ]
+[v setProxIntLowThresh@threshold threshold `uc  1 a 1 wreg ]
+"997
+[v setProxIntLowThresh@threshold threshold `uc  1 a 1 30 ]
+"1002
+} 0
+"1025
+[v _setProxIntHighThresh setProxIntHighThresh `(a  1 e 1 0 ]
+{
+[v setProxIntHighThresh@threshold threshold `uc  1 a 1 wreg ]
+[v setProxIntHighThresh@threshold threshold `uc  1 a 1 wreg ]
+"1027
+[v setProxIntHighThresh@threshold threshold `uc  1 a 1 30 ]
+"1032
+} 0
+"203
+[v _setMode setMode `(a  1 e 1 0 ]
+{
+[v setMode@mode mode `uc  1 a 1 wreg ]
+"205
+[v setMode@reg_val reg_val `uc  1 a 1 36 ]
+"203
+[v setMode@mode mode `uc  1 a 1 wreg ]
+[v setMode@enable enable `uc  1 p 1 33 ]
+"208
+[v setMode@mode mode `uc  1 a 1 37 ]
+"235
+} 0
+"186
+[v _getMode getMode `(uc  1 e 1 0 ]
+{
+"188
+[v getMode@enable_value enable_value `uc  1 a 1 32 ]
+"194
+} 0
+"1631
+[v _setLightIntLowThreshold setLightIntLowThreshold `(a  1 e 1 0 ]
+{
+"1634
+[v setLightIntLowThreshold@val_high val_high `uc  1 a 1 33 ]
+"1633
+[v setLightIntLowThreshold@val_low val_low `uc  1 a 1 32 ]
+"1631
+[v setLightIntLowThreshold@threshold threshold `us  1 p 2 29 ]
+"1651
+} 0
+"1681
+[v _setLightIntHighThreshold setLightIntHighThreshold `(a  1 e 1 0 ]
+{
+"1684
+[v setLightIntHighThreshold@val_high val_high `uc  1 a 1 33 ]
+"1683
+[v setLightIntHighThreshold@val_low val_low `uc  1 a 1 32 ]
+"1681
+[v setLightIntHighThreshold@threshold threshold `us  1 p 2 29 ]
+"1701
+} 0
+"1070
+[v _setLEDDrive setLEDDrive `(a  1 e 1 0 ]
+{
+[v setLEDDrive@drive drive `uc  1 a 1 wreg ]
+"1072
+[v setLEDDrive@val val `uc  1 a 1 33 ]
+"1070
+[v setLEDDrive@drive drive `uc  1 a 1 wreg ]
+"1075
+[v setLEDDrive@drive drive `uc  1 a 1 34 ]
+"1089
+} 0
+"1583
+[v _setGestureWaitTime setGestureWaitTime `(a  1 e 1 0 ]
+{
+[v setGestureWaitTime@time time `uc  1 a 1 wreg ]
+"1585
+[v setGestureWaitTime@val val `uc  1 a 1 33 ]
+"1583
+[v setGestureWaitTime@time time `uc  1 a 1 wreg ]
+"1588
+[v setGestureWaitTime@time time `uc  1 a 1 32 ]
+"1601
+} 0
+"1518
+[v _setGestureLEDDrive setGestureLEDDrive `(a  1 e 1 0 ]
+{
+[v setGestureLEDDrive@drive drive `uc  1 a 1 wreg ]
+"1520
+[v setGestureLEDDrive@val val `uc  1 a 1 33 ]
+"1518
+[v setGestureLEDDrive@drive drive `uc  1 a 1 wreg ]
+"1523
+[v setGestureLEDDrive@drive drive `uc  1 a 1 34 ]
+"1537
+} 0
+"1883
+[v _setGestureIntEnable setGestureIntEnable `(a  1 e 1 0 ]
+{
+[v setGestureIntEnable@enable enable `uc  1 a 1 wreg ]
+"1885
+[v setGestureIntEnable@val val `uc  1 a 1 32 ]
+"1883
+[v setGestureIntEnable@enable enable `uc  1 a 1 wreg ]
+"1888
+[v setGestureIntEnable@enable enable `uc  1 a 1 33 ]
+"1902
+} 0
+"1461
+[v _setGestureGain setGestureGain `(a  1 e 1 0 ]
+{
+[v setGestureGain@gain gain `uc  1 a 1 wreg ]
+"1463
+[v setGestureGain@val val `uc  1 a 1 33 ]
+"1461
+[v setGestureGain@gain gain `uc  1 a 1 wreg ]
+"1466
+[v setGestureGain@gain gain `uc  1 a 1 34 ]
+"1480
+} 0
+"1416
+[v _setGestureExitThresh setGestureExitThresh `(a  1 e 1 0 ]
+{
+[v setGestureExitThresh@threshold threshold `uc  1 a 1 wreg ]
+[v setGestureExitThresh@threshold threshold `uc  1 a 1 wreg ]
+"1418
+[v setGestureExitThresh@threshold threshold `uc  1 a 1 30 ]
+"1423
+} 0
+"1386
+[v _setGestureEnterThresh setGestureEnterThresh `(a  1 e 1 0 ]
+{
+[v setGestureEnterThresh@threshold threshold `uc  1 a 1 wreg ]
+[v setGestureEnterThresh@threshold threshold `uc  1 a 1 wreg ]
+"1388
+[v setGestureEnterThresh@threshold threshold `uc  1 a 1 30 ]
+"1393
+} 0
+"1184
+[v _setAmbientLightGain setAmbientLightGain `(a  1 e 1 0 ]
+{
+[v setAmbientLightGain@drive drive `uc  1 a 1 wreg ]
+"1186
+[v setAmbientLightGain@val val `uc  1 a 1 33 ]
+"1184
+[v setAmbientLightGain@drive drive `uc  1 a 1 wreg ]
+"1189
+[v setAmbientLightGain@drive drive `uc  1 a 1 32 ]
+"1202
+} 0
+"1997
+[v _wireWriteDataByte wireWriteDataByte `(a  1 e 1 0 ]
+{
+[v wireWriteDataByte@reg reg `uc  1 a 1 wreg ]
+[v wireWriteDataByte@reg reg `uc  1 a 1 wreg ]
+[v wireWriteDataByte@val val `uc  1 p 1 25 ]
+"1999
+[v wireWriteDataByte@reg reg `uc  1 a 1 28 ]
+"2002
+} 0
+"51 C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/drivers/i2c_simple_master.c
+[v _i2c_write1ByteRegister i2c_write1ByteRegister `(v  1 e 1 0 ]
+{
+[v i2c_write1ByteRegister@address address `uc  1 a 1 wreg ]
+[v i2c_write1ByteRegister@address address `uc  1 a 1 wreg ]
+[v i2c_write1ByteRegister@reg reg `uc  1 p 1 22 ]
+[v i2c_write1ByteRegister@data data `uc  1 p 1 23 ]
+[v i2c_write1ByteRegister@address address `uc  1 a 1 24 ]
+"59
+} 0
+"2029 C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\APDS9960.c
+[v _wireReadDataByte wireReadDataByte `(uc  1 e 1 0 ]
+{
+[v wireReadDataByte@reg reg `uc  1 a 1 wreg ]
+[v wireReadDataByte@reg reg `uc  1 a 1 wreg ]
+"2032
+[v wireReadDataByte@reg reg `uc  1 a 1 30 ]
+"2034
+} 0
+"97 C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/drivers/i2c_simple_master.c
+[v _i2c_read1ByteRegister i2c_read1ByteRegister `(uc  1 e 1 0 ]
+{
+[v i2c_read1ByteRegister@address address `uc  1 a 1 wreg ]
+"101
+[v i2c_read1ByteRegister@x x `i  1 a 2 26 ]
+"99
+[v i2c_read1ByteRegister@d2 d2 `uc  1 a 1 28 ]
+"100
+[v i2c_read1ByteRegister@e e `E355  1 a 1 25 ]
+"97
+[v i2c_read1ByteRegister@address address `uc  1 a 1 wreg ]
+[v i2c_read1ByteRegister@reg reg `uc  1 p 1 22 ]
+"99
+[v i2c_read1ByteRegister@address address `uc  1 a 1 24 ]
+"116
+} 0
+"283 C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/i2c_master.c
+[v _I2C_SetAddressNackCallback I2C_SetAddressNackCallback `(v  1 e 1 0 ]
+{
+[v I2C_SetAddressNackCallback@cb cb `*.37(E360  1 p 2 9 ]
+[v I2C_SetAddressNackCallback@ptr ptr `*.1v  1 p 1 11 ]
+"286
+} 0
+"176
+[v _I2C_Open I2C_Open `(E355  1 e 1 0 ]
+{
+[v I2C_Open@address address `uc  1 a 1 wreg ]
+"178
+[v I2C_Open@returnValue returnValue `E355  1 a 1 1 ]
+"176
+[v I2C_Open@address address `uc  1 a 1 wreg ]
+"178
+[v I2C_Open@address address `uc  1 a 1 0 ]
+"207
+} 0
+"543
+[v _I2C_MasterOpen I2C_MasterOpen `T(a  1 s 1 I2C_MasterOpen ]
+{
+"555
+} 0
+"251
+[v _I2C_MasterWrite I2C_MasterWrite `(E355  1 e 1 0 ]
+{
+"254
+} 0
+"224
+[v _I2C_MasterOperation I2C_MasterOperation `(E355  1 e 1 0 ]
+{
+[v I2C_MasterOperation@read read `a  1 a 1 wreg ]
+"226
+[v I2C_MasterOperation@returnValue returnValue `E355  1 a 1 21 ]
+"224
+[v I2C_MasterOperation@read read `a  1 a 1 wreg ]
+"226
+[v I2C_MasterOperation@read read `a  1 a 1 20 ]
+"244
+} 0
+"312
+[v _I2C_Poller I2C_Poller `(v  1 s 1 I2C_Poller ]
+{
+"319
+} 0
+"650
+[v _I2C_MasterWaitForEvent I2C_MasterWaitForEvent `T(v  1 s 1 I2C_MasterWaitForEvent ]
+{
+"659
+} 0
+"321
+[v _I2C_MasterFsm I2C_MasterFsm `T(v  1 s 1 I2C_MasterFsm ]
+{
+"330
+} 0
+"500
+[v _I2C_DO_ADDRESS_NACK I2C_DO_ADDRESS_NACK `(E3090  1 s 1 I2C_DO_ADDRESS_NACK ]
+{
+"512
+} 0
+"494
+[v _I2C_DO_RESET I2C_DO_RESET `(E3090  1 s 1 I2C_DO_RESET ]
+{
+"499
+} 0
+"488
+[v _I2C_DO_RX_NACK_RESTART I2C_DO_RX_NACK_RESTART `(E3090  1 s 1 I2C_DO_RX_NACK_RESTART ]
+{
+"492
+} 0
+"482
+[v _I2C_DO_RX_NACK_STOP I2C_DO_RX_NACK_STOP `(E3090  1 s 1 I2C_DO_RX_NACK_STOP ]
+{
+"486
+} 0
+"475
+[v _I2C_DO_RX_ACK I2C_DO_RX_ACK `(E3090  1 s 1 I2C_DO_RX_ACK ]
+{
+"479
+} 0
+"469
+[v _I2C_DO_SEND_STOP I2C_DO_SEND_STOP `(E3090  1 s 1 I2C_DO_SEND_STOP ]
+{
+"473
+} 0
+"463
+[v _I2C_DO_SEND_RESTART I2C_DO_SEND_RESTART `(E3090  1 s 1 I2C_DO_SEND_RESTART ]
+{
+"467
+} 0
+"456
+[v _I2C_DO_SEND_RESTART_WRITE I2C_DO_SEND_RESTART_WRITE `(E3090  1 s 1 I2C_DO_SEND_RESTART_WRITE ]
+{
+"460
+} 0
+"450
+[v _I2C_DO_SEND_RESTART_READ I2C_DO_SEND_RESTART_READ `(E3090  1 s 1 I2C_DO_SEND_RESTART_READ ]
+{
+"454
+} 0
+"402
+[v _I2C_DO_RCEN I2C_DO_RCEN `(E3090  1 s 1 I2C_DO_RCEN ]
+{
+"407
+} 0
+"378
+[v _I2C_DO_RX I2C_DO_RX `(E3090  1 s 1 I2C_DO_RX ]
+{
+"400
+} 0
+"354
+[v _I2C_DO_TX I2C_DO_TX `(E3090  1 s 1 I2C_DO_TX ]
+{
+"376
+} 0
+"347
+[v _I2C_DO_SEND_ADR_WRITE I2C_DO_SEND_ADR_WRITE `(E3090  1 s 1 I2C_DO_SEND_ADR_WRITE ]
+{
+"352
+} 0
+"340
+[v _I2C_DO_SEND_ADR_READ I2C_DO_SEND_ADR_READ `(E3090  1 s 1 I2C_DO_SEND_ADR_READ ]
+{
+"345
+} 0
+"333
+[v _I2C_DO_IDLE I2C_DO_IDLE `(E3090  1 s 1 I2C_DO_IDLE ]
+{
+"338
+} 0
+"409
+[v _I2C_DO_TX_EMPTY I2C_DO_TX_EMPTY `(E3090  1 s 1 I2C_DO_TX_EMPTY ]
+{
+"424
+} 0
+"645
+[v _I2C_MasterSetIrq I2C_MasterSetIrq `T(v  1 s 1 I2C_MasterSetIrq ]
+{
+"648
+} 0
+"598
+[v _I2C_MasterIsNack I2C_MasterIsNack `T(a  1 s 1 I2C_MasterIsNack ]
+{
+"601
+} 0
+"568
+[v _I2C_MasterSendTxData I2C_MasterSendTxData `T(v  1 s 1 I2C_MasterSendTxData ]
+{
+[v I2C_MasterSendTxData@data data `uc  1 a 1 wreg ]
+[v I2C_MasterSendTxData@data data `uc  1 a 1 wreg ]
+"570
+[v I2C_MasterSendTxData@data data `uc  1 a 1 0 ]
+"571
+} 0
+"603
+[v _I2C_MasterSendAck I2C_MasterSendAck `T(v  1 s 1 I2C_MasterSendAck ]
+{
+"607
+} 0
+"563
+[v _I2C_MasterGetRxData I2C_MasterGetRxData `T(uc  1 s 1 I2C_MasterGetRxData ]
+{
+"566
+} 0
+"609
+[v _I2C_MasterSendNack I2C_MasterSendNack `T(v  1 s 1 I2C_MasterSendNack ]
+{
+"613
+} 0
+"583
+[v _I2C_MasterStartRx I2C_MasterStartRx `T(v  1 s 1 I2C_MasterStartRx ]
+{
+"586
+} 0
+"185 C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/drivers/i2c_simple_master.c
+[v _rdBlkRegCompleteHandler@i2c_simple_master$F2203 rdBlkRegCompleteHandler `(E360  1 s 1 rdBlkRegCompleteHandler ]
+{
+[v rdBlkRegCompleteHandler@i2c_simple_master$F2203@p p `*.39v  1 p 2 13 ]
+"190
+} 0
+"119
+[v _rd2RegCompleteHandler@i2c_simple_master$F2191 rd2RegCompleteHandler `(E360  1 s 1 rd2RegCompleteHandler ]
+{
+[v rd2RegCompleteHandler@i2c_simple_master$F2191@p p `*.39v  1 p 2 13 ]
+"124
+} 0
+"81
+[v _rd1RegCompleteHandler@i2c_simple_master$F2183 rd1RegCompleteHandler `(E360  1 s 1 rd1RegCompleteHandler ]
+{
+[v rd1RegCompleteHandler@i2c_simple_master$F2183@p p `*.39v  1 p 2 13 ]
+"86
+} 0
+"34
+[v _wr1RegCompleteHandler@i2c_simple_master$F2173 wr1RegCompleteHandler `(E360  1 s 1 wr1RegCompleteHandler ]
+{
+[v wr1RegCompleteHandler@i2c_simple_master$F2173@p p `*.39v  1 p 2 13 ]
+"39
+} 0
+"525 C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/i2c_master.c
+[v _I2C_CallbackReturnReset I2C_CallbackReturnReset `(E360  1 e 1 0 ]
+{
+"528
+} 0
+"520
+[v _I2C_CallbackReturnStop I2C_CallbackReturnStop `(E360  1 e 1 0 ]
+{
+"523
+} 0
+"170 C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/examples/i2c_master_example.c
+[v _rdBlkRegCompleteHandler rdBlkRegCompleteHandler `(E360  1 s 1 rdBlkRegCompleteHandler ]
+{
+[v rdBlkRegCompleteHandler@ptr ptr `*.39v  1 p 2 13 ]
+"175
+} 0
+"163
+[v _wr2RegCompleteHandler wr2RegCompleteHandler `(E360  1 s 1 wr2RegCompleteHandler ]
+{
+[v wr2RegCompleteHandler@ptr ptr `*.39v  1 p 2 13 ]
+"168
+} 0
+"156
+[v _wr1RegCompleteHandler wr1RegCompleteHandler `(E360  1 s 1 wr1RegCompleteHandler ]
+{
+[v wr1RegCompleteHandler@ptr ptr `*.39v  1 p 2 13 ]
+"161
+} 0
+"149
+[v _rd2RegCompleteHandler rd2RegCompleteHandler `(E360  1 s 1 rd2RegCompleteHandler ]
+{
+[v rd2RegCompleteHandler@ptr ptr `*.39v  1 p 2 13 ]
+"154
+} 0
+"142
+[v _rd1RegCompleteHandler rd1RegCompleteHandler `(E360  1 s 1 rd1RegCompleteHandler ]
+{
+[v rd1RegCompleteHandler@ptr ptr `*.39v  1 p 2 13 ]
+"147
+} 0
+"151 C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/drivers/i2c_simple_master.c
+[v _wr2RegCompleteHandler@i2c_simple_master$F2197 wr2RegCompleteHandler `(E360  1 s 1 wr2RegCompleteHandler ]
+{
+[v wr2RegCompleteHandler@i2c_simple_master$F2197@p p `*.39v  1 p 2 13 ]
+"156
+} 0
+"273 C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/i2c_master.c
+[v _I2C_SetDataCompleteCallback I2C_SetDataCompleteCallback `(v  1 e 1 0 ]
+{
+[v I2C_SetDataCompleteCallback@cb cb `*.37(E360  1 p 2 9 ]
+[v I2C_SetDataCompleteCallback@ptr ptr `*.39v  1 p 2 11 ]
+"276
+} 0
+"298
+[v _I2C_SetCallback I2C_SetCallback `(v  1 s 1 I2C_SetCallback ]
+{
+[v I2C_SetCallback@idx idx `E3108  1 a 1 wreg ]
+[v I2C_SetCallback@idx idx `E3108  1 a 1 wreg ]
+[v I2C_SetCallback@cb cb `*.37(E360  1 p 2 0 ]
+[v I2C_SetCallback@ptr ptr `*.39v  1 p 2 2 ]
+"300
+[v I2C_SetCallback@idx idx `E3108  1 a 1 8 ]
+"310
+} 0
+"263
+[v _I2C_SetBuffer I2C_SetBuffer `(v  1 e 1 0 ]
+{
+[v I2C_SetBuffer@buffer buffer `*.39v  1 p 2 0 ]
+[v I2C_SetBuffer@bufferSize bufferSize `ui  1 p 2 2 ]
+"271
+} 0
+"593
+[v _I2C_MasterStop I2C_MasterStop `T(v  1 s 1 I2C_MasterStop ]
+{
+"596
+} 0
+"573
+[v _I2C_MasterEnableRestart I2C_MasterEnableRestart `T(v  1 s 1 I2C_MasterEnableRestart ]
+{
+"576
+} 0
+"588
+[v _I2C_MasterStart I2C_MasterStart `T(v  1 s 1 I2C_MasterStart ]
+{
+"591
+} 0
+"209
+[v _I2C_Close I2C_Close `(E355  1 e 1 0 ]
+{
+"211
+[v I2C_Close@returnValue returnValue `E355  1 a 1 1 ]
+"222
+} 0
+"635
+[v _I2C_MasterDisableIrq I2C_MasterDisableIrq `T(v  1 s 1 I2C_MasterDisableIrq ]
+{
+"638
+} 0
+"557
+[v _I2C_MasterClose I2C_MasterClose `T(v  1 s 1 I2C_MasterClose ]
+{
+"561
+} 0
+"640
+[v _I2C_MasterClearIrq I2C_MasterClearIrq `T(v  1 s 1 I2C_MasterClearIrq ]
+{
+"643
 } 0
 "52 C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/interrupt_manager.c
 [v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `II(v  1 e 1 0 ]
 {
-"70
+"78
+} 0
+"197 C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/eusart.c
+[v _EUSART_Transmit_ISR EUSART_Transmit_ISR `(v  1 e 1 0 ]
+{
+"214
+} 0
+"216
+[v _EUSART_Receive_ISR EUSART_Receive_ISR `(v  1 e 1 0 ]
+{
+"238
+} 0
+"252
+[v _EUSART_DefaultOverrunErrorHandler EUSART_DefaultOverrunErrorHandler `(v  1 e 1 0 ]
+{
+"258
+} 0
+"250
+[v _EUSART_DefaultFramingErrorHandler EUSART_DefaultFramingErrorHandler `(v  1 e 1 0 ]
+{
+} 0
+"260
+[v _EUSART_DefaultErrorHandler EUSART_DefaultErrorHandler `(v  1 e 1 0 ]
+{
+"262
+} 0
+"240
+[v _EUSART_RxDataHandler EUSART_RxDataHandler `(v  1 e 1 0 ]
+{
+"248
 } 0
 "89 C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/ccp4.c
 [v _CCP4_CaptureISR CCP4_CaptureISR `(v  1 e 1 0 ]
 {
-[s S1735 . 2 `uc 1 ccpr4l 1 0 `uc 1 ccpr4h 1 1 ]
+[s S1790 . 2 `uc 1 ccpr4l 1 0 `uc 1 ccpr4h 1 1 ]
 "91
-[s S1738 . 2 `us 1 ccpr4_16Bit 2 0 ]
-[u S1740 CCPR4Reg_tag 2 `S1735 1 . 2 0 `S1738 1 . 2 0 ]
-[v CCP4_CaptureISR@module module `S1740  1 a 2 9 ]
+[s S1793 . 2 `us 1 ccpr4_16Bit 2 0 ]
+[u S1795 CCPR4Reg_tag 2 `S1790 1 . 2 0 `S1793 1 . 2 0 ]
+[v CCP4_CaptureISR@module module `S1795  1 a 2 9 ]
 "102
 } 0
-"140 C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\main.c
-[v _CCP4_CallBack@main$F1838 CCP4_CallBack `(v  1 s 1 CCP4_CallBack ]
+"189 C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\main.c
+[v _CCP4_CallBack@main$F1923 CCP4_CallBack `(v  1 s 1 CCP4_CallBack ]
 {
-[v CCP4_CallBack@main$F1838@capturedValue capturedValue `us  1 p 2 2 ]
-"142
-[v CCP4_CallBack@main$F1838@bit_count bit_count `uc  1 s 1 bit_count ]
-"205
+[v CCP4_CallBack@main$F1923@capturedValue capturedValue `us  1 p 2 2 ]
+"191
+[v CCP4_CallBack@main$F1923@bit_count bit_count `uc  1 s 1 bit_count ]
+"254
 } 0
 "60 C:\Users\sandeep optron\MPLABXProjects\LCDclock.X\mcc_generated_files/ccp4.c
 [v _CCP4_DefaultCallBack CCP4_DefaultCallBack `(v  1 s 1 CCP4_DefaultCallBack ]

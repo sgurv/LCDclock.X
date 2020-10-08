@@ -4825,9 +4825,9 @@ extern __bank0 __bit __timeout;
 # 50 "./mcc_generated_files/mcc.h" 2
 
 # 1 "./mcc_generated_files/pin_manager.h" 1
-# 242 "./mcc_generated_files/pin_manager.h"
+# 238 "./mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize (void);
-# 254 "./mcc_generated_files/pin_manager.h"
+# 250 "./mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_IOC(void);
 # 51 "./mcc_generated_files/mcc.h" 2
 
@@ -5264,26 +5264,48 @@ typedef union {
     };
     uint8_t status;
 }eusart_status_t;
-# 110 "./mcc_generated_files/eusart.h"
+
+
+
+
+extern volatile uint8_t eusartTxBufferRemaining;
+extern volatile uint8_t eusartRxCount;
+
+
+
+
+extern void (*EUSART_TxDefaultInterruptHandler)(void);
+extern void (*EUSART_RxDefaultInterruptHandler)(void);
+# 117 "./mcc_generated_files/eusart.h"
 void EUSART_Initialize(void);
-# 158 "./mcc_generated_files/eusart.h"
+# 165 "./mcc_generated_files/eusart.h"
 _Bool EUSART_is_tx_ready(void);
-# 206 "./mcc_generated_files/eusart.h"
+# 213 "./mcc_generated_files/eusart.h"
 _Bool EUSART_is_rx_ready(void);
-# 253 "./mcc_generated_files/eusart.h"
+# 260 "./mcc_generated_files/eusart.h"
 _Bool EUSART_is_tx_done(void);
-# 301 "./mcc_generated_files/eusart.h"
+# 308 "./mcc_generated_files/eusart.h"
 eusart_status_t EUSART_get_last_status(void);
-# 321 "./mcc_generated_files/eusart.h"
+# 328 "./mcc_generated_files/eusart.h"
 uint8_t EUSART_Read(void);
-# 341 "./mcc_generated_files/eusart.h"
+# 348 "./mcc_generated_files/eusart.h"
 void EUSART_Write(uint8_t txData);
-# 361 "./mcc_generated_files/eusart.h"
+# 369 "./mcc_generated_files/eusart.h"
+void EUSART_Transmit_ISR(void);
+# 390 "./mcc_generated_files/eusart.h"
+void EUSART_Receive_ISR(void);
+# 411 "./mcc_generated_files/eusart.h"
+void EUSART_RxDataHandler(void);
+# 429 "./mcc_generated_files/eusart.h"
 void EUSART_SetFramingErrorHandler(void (* interruptHandler)(void));
-# 379 "./mcc_generated_files/eusart.h"
+# 447 "./mcc_generated_files/eusart.h"
 void EUSART_SetOverrunErrorHandler(void (* interruptHandler)(void));
-# 397 "./mcc_generated_files/eusart.h"
+# 465 "./mcc_generated_files/eusart.h"
 void EUSART_SetErrorHandler(void (* interruptHandler)(void));
+# 485 "./mcc_generated_files/eusart.h"
+void EUSART_SetTxInterruptHandler(void (* interruptHandler)(void));
+# 505 "./mcc_generated_files/eusart.h"
+void EUSART_SetRxInterruptHandler(void (* interruptHandler)(void));
 # 63 "./mcc_generated_files/mcc.h" 2
 
 # 1 "./mcc_generated_files/lcd.h" 1
@@ -5332,14 +5354,134 @@ void LCD_DisplayOff_DIG4_SYM03Num();
 # 659 "./mcc_generated_files/lcd.h"
 void LCD_DIG4_SYM03Num (unsigned char num);
 # 64 "./mcc_generated_files/mcc.h" 2
-# 79 "./mcc_generated_files/mcc.h"
+
+# 1 "./mcc_generated_files/drivers/i2c_simple_master.h" 1
+# 37 "./mcc_generated_files/drivers/i2c_simple_master.h"
+uint8_t i2c_read1ByteRegister(i2c_address_t address, uint8_t reg);
+uint16_t i2c_read2ByteRegister(i2c_address_t address, uint8_t reg);
+void i2c_write1ByteRegister(i2c_address_t address, uint8_t reg, uint8_t data);
+void i2c_write2ByteRegister(i2c_address_t address, uint8_t reg, uint16_t data);
+
+void i2c_writeNBytes(i2c_address_t address, void* data, size_t len);
+void i2c_readDataBlock(i2c_address_t address, uint8_t reg, void *data, size_t len);
+void i2c_readNBytes(i2c_address_t address, void *data, size_t len);
+# 65 "./mcc_generated_files/mcc.h" 2
+# 80 "./mcc_generated_files/mcc.h"
 void SYSTEM_Initialize(void);
-# 92 "./mcc_generated_files/mcc.h"
+# 93 "./mcc_generated_files/mcc.h"
 void OSCILLATOR_Initialize(void);
-# 104 "./mcc_generated_files/mcc.h"
+# 105 "./mcc_generated_files/mcc.h"
 void WDT_Initialize(void);
 # 44 "main.c" 2
 
+# 1 "./APDS9960.h" 1
+# 188 "./APDS9960.h"
+enum {
+  DIR_NONE,
+  DIR_LEFT,
+  DIR_RIGHT,
+  DIR_UP,
+  DIR_DOWN,
+  DIR_NEAR,
+  DIR_FAR,
+  DIR_ALL
+};
+
+
+enum {
+  NA_STATE,
+  NEAR_STATE,
+  FAR_STATE,
+  ALL_STATE
+};
+
+
+typedef struct gesture_data_type {
+    uint8_t u_data[32];
+    uint8_t d_data[32];
+    uint8_t l_data[32];
+    uint8_t r_data[32];
+    uint8_t index;
+    uint8_t total_gestures;
+    uint8_t in_threshold;
+    uint8_t out_threshold;
+} gesture_data_type;
+
+_Bool APDS9960Init(void);
+uint8_t getStatusRegister();
+uint8_t getMode();
+_Bool setMode(uint8_t mode, uint8_t enable);
+
+
+_Bool enablePower();
+_Bool disablePower();
+
+
+_Bool enableLightSensor(_Bool interrupts);
+_Bool disableLightSensor();
+_Bool enableProximitySensor(_Bool interrupts);
+_Bool disableProximitySensor();
+_Bool enableGestureSensor(_Bool interrupts);
+_Bool disableGestureSensor();
+
+
+uint8_t getLEDDrive();
+_Bool setLEDDrive(uint8_t drive);
+uint8_t getGestureLEDDrive();
+_Bool setGestureLEDDrive(uint8_t drive);
+
+
+uint8_t getAmbientLightGain();
+_Bool setAmbientLightGain(uint8_t gain);
+uint8_t getProximityGain();
+_Bool setProximityGain(uint8_t gain);
+uint8_t getGestureGain();
+_Bool setGestureGain(uint8_t gain);
+
+
+uint16_t getLightIntLowThreshold(void);
+_Bool setLightIntLowThreshold(uint16_t threshold);
+uint16_t getLightIntHighThreshold(void);
+_Bool setLightIntHighThreshold(uint16_t threshold);
+
+
+uint8_t getProximityIntLowThreshold(void);
+_Bool setProximityIntLowThreshold(uint8_t threshold);
+uint8_t getProximityIntHighThreshold();
+_Bool setProximityIntHighThreshold(uint8_t threshold);
+
+
+uint8_t getAmbientLightIntEnable();
+_Bool setAmbientLightIntEnable(uint8_t enable);
+uint8_t getProximityIntEnable();
+_Bool setProximityIntEnable(uint8_t enable);
+uint8_t getGestureIntEnable();
+_Bool setGestureIntEnable(uint8_t enable);
+
+
+_Bool clearAmbientLightInt();
+_Bool clearProximityInt();
+
+
+uint16_t readAmbientLight(void);
+uint16_t readRedLight(void);
+uint16_t readGreenLight(void);
+uint16_t readBlueLight(void);
+
+
+uint8_t readProximity();
+
+
+_Bool isGestureAvailable();
+int readGesture();
+
+
+_Bool wireWriteByte(uint8_t val);
+_Bool wireWriteDataByte(uint8_t reg, uint8_t val);
+_Bool wireWriteDataBlock(uint8_t reg, uint8_t *val, unsigned int len);
+uint8_t wireReadDataByte(uint8_t reg);
+int wireReadDataBlock(uint8_t reg, uint8_t *val, unsigned int len);
+# 45 "main.c" 2
 
 
 
@@ -5392,11 +5534,78 @@ void main(void)
 
 
 
+    if(APDS9960Init()){
+        bcd_num = 1;
+    } else {
+        bcd_num = 0;
+    }
+
+    LCD_Digit4Num(bcd_num & 0x000F);
+
+
+
+
+    enableProximitySensor(0);
+
+
+
     while (1)
     {
 
         __asm("clrwdt");
-# 119 "main.c"
+
+
+
+
+
+
+        LCDDATA0bits.SEG5COM0 = 0;
+        LCDDATA0bits.SEG3COM0 = 0;
+        LCDDATA1bits.SEG10COM0 = 0;
+        LCDDATA0bits.SEG4COM0 = 0;
+
+
+        temp_num = readProximity();
+
+        if(isGestureAvailable()){
+            switch ( readGesture() ) {
+                case DIR_UP:
+                    LCD_Digit4Num('U');
+                    break;
+                case DIR_DOWN:
+                    LCD_Digit4Num('D');
+                    break;
+                case DIR_LEFT:
+                    LCD_Digit4Num('L');
+                    break;
+                case DIR_RIGHT:
+                    LCD_Digit4Num('R');
+                    break;
+                case DIR_NEAR:
+                    LCD_Digit4Num('N');
+                    break;
+                case DIR_FAR:
+                    LCD_Digit4Num('F');
+                    break;
+                default:
+                    LCD_Digit4Num(0);
+            }
+        } else {
+
+
+            bcd_num = intToBCD(temp_num);
+
+            LCD_Digit1Num((bcd_num >> 12) & 0x000F);
+            LCD_Digit2Num((bcd_num >> 8) & 0x000F);
+            LCD_Digit3Num((bcd_num >> 4) & 0x000F);
+
+            LCD_Digit4Num('P');
+        }
+
+
+
+        _delay((unsigned long)((400)*(32000000/4000.0)));
+
         if(ir_flag == IR_DONE || ir_flag == IR_REPEAT){
 
             temp8 = reverseBits(ir_address);
@@ -5413,7 +5622,6 @@ void main(void)
 
             ir_flag = IR_NONE;
         }
-
 
     }
 }
@@ -5539,24 +5747,24 @@ void LCD_Digit3Num (unsigned char num)
 {
     switch (num)
     {
-        case 0: LCDDATA10bits.SEG13COM3 = 1; LCDDATA9bits.SEG1COM3 = 1; LCDDATA3bits.SEG1COM1 = 1; LCDDATA0bits.SEG1COM0 = 1; LCDDATA4bits.SEG13COM1 = 1; LCDDATA7bits.SEG13COM2 = 1; LCDDATA6bits.SEG1COM2 = 0; break;
-        case 1: LCDDATA10bits.SEG13COM3 = 0; LCDDATA9bits.SEG1COM3 = 1; LCDDATA3bits.SEG1COM1 = 1; LCDDATA0bits.SEG1COM0 = 0; LCDDATA4bits.SEG13COM1 = 0; LCDDATA7bits.SEG13COM2 = 0; LCDDATA6bits.SEG1COM2 = 0; break;
-        case 2: LCDDATA10bits.SEG13COM3 = 1; LCDDATA9bits.SEG1COM3 = 1; LCDDATA3bits.SEG1COM1 = 0; LCDDATA0bits.SEG1COM0 = 1; LCDDATA4bits.SEG13COM1 = 1; LCDDATA7bits.SEG13COM2 = 0; LCDDATA6bits.SEG1COM2 = 1; break;
-        case 3: LCDDATA10bits.SEG13COM3 = 1; LCDDATA9bits.SEG1COM3 = 1; LCDDATA3bits.SEG1COM1 = 1; LCDDATA0bits.SEG1COM0 = 1; LCDDATA4bits.SEG13COM1 = 0; LCDDATA7bits.SEG13COM2 = 0; LCDDATA6bits.SEG1COM2 = 1; break;
-        case 4: LCDDATA10bits.SEG13COM3 = 0; LCDDATA9bits.SEG1COM3 = 1; LCDDATA3bits.SEG1COM1 = 1; LCDDATA0bits.SEG1COM0 = 0; LCDDATA4bits.SEG13COM1 = 0; LCDDATA7bits.SEG13COM2 = 1; LCDDATA6bits.SEG1COM2 = 1; break;
-        case 5: LCDDATA10bits.SEG13COM3 = 1; LCDDATA9bits.SEG1COM3 = 0; LCDDATA3bits.SEG1COM1 = 1; LCDDATA0bits.SEG1COM0 = 1; LCDDATA4bits.SEG13COM1 = 0; LCDDATA7bits.SEG13COM2 = 1; LCDDATA6bits.SEG1COM2 = 1; break;
-        case 6: LCDDATA10bits.SEG13COM3 = 1; LCDDATA9bits.SEG1COM3 = 0; LCDDATA3bits.SEG1COM1 = 1; LCDDATA0bits.SEG1COM0 = 1; LCDDATA4bits.SEG13COM1 = 1; LCDDATA7bits.SEG13COM2 = 1; LCDDATA6bits.SEG1COM2 = 1; break;
-        case 7: LCDDATA10bits.SEG13COM3 = 1; LCDDATA9bits.SEG1COM3 = 1; LCDDATA3bits.SEG1COM1 = 1; LCDDATA0bits.SEG1COM0 = 0; LCDDATA4bits.SEG13COM1 = 0; LCDDATA7bits.SEG13COM2 = 0; LCDDATA6bits.SEG1COM2 = 0; break;
-        case 8: LCDDATA10bits.SEG13COM3 = 1; LCDDATA9bits.SEG1COM3 = 1; LCDDATA3bits.SEG1COM1 = 1; LCDDATA0bits.SEG1COM0 = 1; LCDDATA4bits.SEG13COM1 = 1; LCDDATA7bits.SEG13COM2 = 1; LCDDATA6bits.SEG1COM2 = 1; break;
-        case 9: LCDDATA10bits.SEG13COM3 = 1; LCDDATA9bits.SEG1COM3 = 1; LCDDATA3bits.SEG1COM1 = 1; LCDDATA0bits.SEG1COM0 = 1; LCDDATA4bits.SEG13COM1 = 0; LCDDATA7bits.SEG13COM2 = 1; LCDDATA6bits.SEG1COM2 = 1; break;
-        case 0x0A: LCDDATA10bits.SEG13COM3 = 1; LCDDATA9bits.SEG1COM3 = 1; LCDDATA3bits.SEG1COM1 = 1; LCDDATA0bits.SEG1COM0 = 0; LCDDATA4bits.SEG13COM1 = 1; LCDDATA7bits.SEG13COM2 = 1; LCDDATA6bits.SEG1COM2 = 1; break;
-        case 0x0B: LCDDATA10bits.SEG13COM3 = 0; LCDDATA9bits.SEG1COM3 = 0; LCDDATA3bits.SEG1COM1 = 1; LCDDATA0bits.SEG1COM0 = 1; LCDDATA4bits.SEG13COM1 = 1; LCDDATA7bits.SEG13COM2 = 1; LCDDATA6bits.SEG1COM2 = 1; break;
-        case 0x0C: LCDDATA10bits.SEG13COM3 = 1; LCDDATA9bits.SEG1COM3 = 0; LCDDATA3bits.SEG1COM1 = 0; LCDDATA0bits.SEG1COM0 = 1; LCDDATA4bits.SEG13COM1 = 1; LCDDATA7bits.SEG13COM2 = 1; LCDDATA6bits.SEG1COM2 = 0; break;
-        case 0x0D: LCDDATA10bits.SEG13COM3 = 0; LCDDATA9bits.SEG1COM3 = 1; LCDDATA3bits.SEG1COM1 = 1; LCDDATA0bits.SEG1COM0 = 1; LCDDATA4bits.SEG13COM1 = 1; LCDDATA7bits.SEG13COM2 = 0; LCDDATA6bits.SEG1COM2 = 1; break;
-        case 0x0E: LCDDATA10bits.SEG13COM3 = 1; LCDDATA9bits.SEG1COM3 = 0; LCDDATA3bits.SEG1COM1 = 0; LCDDATA0bits.SEG1COM0 = 1; LCDDATA4bits.SEG13COM1 = 1; LCDDATA7bits.SEG13COM2 = 1; LCDDATA6bits.SEG1COM2 = 1; break;
-        case 0x0F: LCDDATA10bits.SEG13COM3 = 1; LCDDATA9bits.SEG1COM3 = 0; LCDDATA3bits.SEG1COM1 = 0; LCDDATA0bits.SEG1COM0 = 0; LCDDATA4bits.SEG13COM1 = 1; LCDDATA7bits.SEG13COM2 = 1; LCDDATA6bits.SEG1COM2 = 1; break;
+        case 0: LCDDATA9bits.SEG3COM3 = 1; LCDDATA9bits.SEG1COM3 = 1; LCDDATA3bits.SEG1COM1 = 1; LCDDATA0bits.SEG1COM0 = 1; LCDDATA3bits.SEG3COM1 = 1; LCDDATA6bits.SEG3COM2 = 1; LCDDATA6bits.SEG1COM2 = 0; break;
+        case 1: LCDDATA9bits.SEG3COM3 = 0; LCDDATA9bits.SEG1COM3 = 1; LCDDATA3bits.SEG1COM1 = 1; LCDDATA0bits.SEG1COM0 = 0; LCDDATA3bits.SEG3COM1 = 0; LCDDATA6bits.SEG3COM2 = 0; LCDDATA6bits.SEG1COM2 = 0; break;
+        case 2: LCDDATA9bits.SEG3COM3 = 1; LCDDATA9bits.SEG1COM3 = 1; LCDDATA3bits.SEG1COM1 = 0; LCDDATA0bits.SEG1COM0 = 1; LCDDATA3bits.SEG3COM1 = 1; LCDDATA6bits.SEG3COM2 = 0; LCDDATA6bits.SEG1COM2 = 1; break;
+        case 3: LCDDATA9bits.SEG3COM3 = 1; LCDDATA9bits.SEG1COM3 = 1; LCDDATA3bits.SEG1COM1 = 1; LCDDATA0bits.SEG1COM0 = 1; LCDDATA3bits.SEG3COM1 = 0; LCDDATA6bits.SEG3COM2 = 0; LCDDATA6bits.SEG1COM2 = 1; break;
+        case 4: LCDDATA9bits.SEG3COM3 = 0; LCDDATA9bits.SEG1COM3 = 1; LCDDATA3bits.SEG1COM1 = 1; LCDDATA0bits.SEG1COM0 = 0; LCDDATA3bits.SEG3COM1 = 0; LCDDATA6bits.SEG3COM2 = 1; LCDDATA6bits.SEG1COM2 = 1; break;
+        case 5: LCDDATA9bits.SEG3COM3 = 1; LCDDATA9bits.SEG1COM3 = 0; LCDDATA3bits.SEG1COM1 = 1; LCDDATA0bits.SEG1COM0 = 1; LCDDATA3bits.SEG3COM1 = 0; LCDDATA6bits.SEG3COM2 = 1; LCDDATA6bits.SEG1COM2 = 1; break;
+        case 6: LCDDATA9bits.SEG3COM3 = 1; LCDDATA9bits.SEG1COM3 = 0; LCDDATA3bits.SEG1COM1 = 1; LCDDATA0bits.SEG1COM0 = 1; LCDDATA3bits.SEG3COM1 = 1; LCDDATA6bits.SEG3COM2 = 1; LCDDATA6bits.SEG1COM2 = 1; break;
+        case 7: LCDDATA9bits.SEG3COM3 = 1; LCDDATA9bits.SEG1COM3 = 1; LCDDATA3bits.SEG1COM1 = 1; LCDDATA0bits.SEG1COM0 = 0; LCDDATA3bits.SEG3COM1 = 0; LCDDATA6bits.SEG3COM2 = 0; LCDDATA6bits.SEG1COM2 = 0; break;
+        case 8: LCDDATA9bits.SEG3COM3 = 1; LCDDATA9bits.SEG1COM3 = 1; LCDDATA3bits.SEG1COM1 = 1; LCDDATA0bits.SEG1COM0 = 1; LCDDATA3bits.SEG3COM1 = 1; LCDDATA6bits.SEG3COM2 = 1; LCDDATA6bits.SEG1COM2 = 1; break;
+        case 9: LCDDATA9bits.SEG3COM3 = 1; LCDDATA9bits.SEG1COM3 = 1; LCDDATA3bits.SEG1COM1 = 1; LCDDATA0bits.SEG1COM0 = 1; LCDDATA3bits.SEG3COM1 = 0; LCDDATA6bits.SEG3COM2 = 1; LCDDATA6bits.SEG1COM2 = 1; break;
+        case 0x0A: LCDDATA9bits.SEG3COM3 = 1; LCDDATA9bits.SEG1COM3 = 1; LCDDATA3bits.SEG1COM1 = 1; LCDDATA0bits.SEG1COM0 = 0; LCDDATA3bits.SEG3COM1 = 1; LCDDATA6bits.SEG3COM2 = 1; LCDDATA6bits.SEG1COM2 = 1; break;
+        case 0x0B: LCDDATA9bits.SEG3COM3 = 0; LCDDATA9bits.SEG1COM3 = 0; LCDDATA3bits.SEG1COM1 = 1; LCDDATA0bits.SEG1COM0 = 1; LCDDATA3bits.SEG3COM1 = 1; LCDDATA6bits.SEG3COM2 = 1; LCDDATA6bits.SEG1COM2 = 1; break;
+        case 0x0C: LCDDATA9bits.SEG3COM3 = 1; LCDDATA9bits.SEG1COM3 = 0; LCDDATA3bits.SEG1COM1 = 0; LCDDATA0bits.SEG1COM0 = 1; LCDDATA3bits.SEG3COM1 = 1; LCDDATA6bits.SEG3COM2 = 1; LCDDATA6bits.SEG1COM2 = 0; break;
+        case 0x0D: LCDDATA9bits.SEG3COM3 = 0; LCDDATA9bits.SEG1COM3 = 1; LCDDATA3bits.SEG1COM1 = 1; LCDDATA0bits.SEG1COM0 = 1; LCDDATA3bits.SEG3COM1 = 1; LCDDATA6bits.SEG3COM2 = 0; LCDDATA6bits.SEG1COM2 = 1; break;
+        case 0x0E: LCDDATA9bits.SEG3COM3 = 1; LCDDATA9bits.SEG1COM3 = 0; LCDDATA3bits.SEG1COM1 = 0; LCDDATA0bits.SEG1COM0 = 1; LCDDATA3bits.SEG3COM1 = 1; LCDDATA6bits.SEG3COM2 = 1; LCDDATA6bits.SEG1COM2 = 1; break;
+        case 0x0F: LCDDATA9bits.SEG3COM3 = 1; LCDDATA9bits.SEG1COM3 = 0; LCDDATA3bits.SEG1COM1 = 0; LCDDATA0bits.SEG1COM0 = 0; LCDDATA3bits.SEG3COM1 = 1; LCDDATA6bits.SEG3COM2 = 1; LCDDATA6bits.SEG1COM2 = 1; break;
 
-        default: LCDDATA10bits.SEG13COM3 = 0; LCDDATA9bits.SEG1COM3 = 0; LCDDATA3bits.SEG1COM1 = 0; LCDDATA0bits.SEG1COM0 = 0; LCDDATA4bits.SEG13COM1 = 0; LCDDATA7bits.SEG13COM2 = 0; LCDDATA6bits.SEG1COM2 = 0;
+        default: LCDDATA9bits.SEG3COM3 = 0; LCDDATA9bits.SEG1COM3 = 0; LCDDATA3bits.SEG1COM1 = 0; LCDDATA0bits.SEG1COM0 = 0; LCDDATA3bits.SEG3COM1 = 0; LCDDATA6bits.SEG3COM2 = 0; LCDDATA6bits.SEG1COM2 = 0;
     }
 }
 
@@ -5564,37 +5772,37 @@ void LCD_Digit4Num (unsigned char num)
 {
     switch (num)
     {
-        case 0: case '0': LCDDATA10bits.SEG14COM3 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG14COM1 = 1; LCDDATA7bits.SEG14COM2 = 1; LCDDATA6bits.SEG2COM2 = 0; break;
-        case 1: case '1': LCDDATA10bits.SEG14COM3 = 0; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 0; LCDDATA4bits.SEG14COM1 = 0; LCDDATA7bits.SEG14COM2 = 0; LCDDATA6bits.SEG2COM2 = 0; break;
-        case 2: case '2': LCDDATA10bits.SEG14COM3 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 0; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG14COM1 = 1; LCDDATA7bits.SEG14COM2 = 0; LCDDATA6bits.SEG2COM2 = 1; break;
-        case 3: case '3': LCDDATA10bits.SEG14COM3 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG14COM1 = 0; LCDDATA7bits.SEG14COM2 = 0; LCDDATA6bits.SEG2COM2 = 1; break;
-        case 4: case '4': LCDDATA10bits.SEG14COM3 = 0; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 0; LCDDATA4bits.SEG14COM1 = 0; LCDDATA7bits.SEG14COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
-        case 5: case '5': LCDDATA10bits.SEG14COM3 = 1; LCDDATA9bits.SEG2COM3 = 0; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG14COM1 = 0; LCDDATA7bits.SEG14COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
-        case 6: case '6': LCDDATA10bits.SEG14COM3 = 1; LCDDATA9bits.SEG2COM3 = 0; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG14COM1 = 1; LCDDATA7bits.SEG14COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
-        case 7: case '7': LCDDATA10bits.SEG14COM3 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 0; LCDDATA4bits.SEG14COM1 = 0; LCDDATA7bits.SEG14COM2 = 0; LCDDATA6bits.SEG2COM2 = 0; break;
-        case 8: case '8': LCDDATA10bits.SEG14COM3 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG14COM1 = 1; LCDDATA7bits.SEG14COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
-        case 9: case '9': LCDDATA10bits.SEG14COM3 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG14COM1 = 0; LCDDATA7bits.SEG14COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
-        case 0x0A: case 'A': case 'a': LCDDATA10bits.SEG14COM3 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 0; LCDDATA4bits.SEG14COM1 = 1; LCDDATA7bits.SEG14COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
-        case 0x0B: case 'B': case 'b': LCDDATA10bits.SEG14COM3 = 0; LCDDATA9bits.SEG2COM3 = 0; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG14COM1 = 1; LCDDATA7bits.SEG14COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
-        case 0x0C: case 'C': case 'c': LCDDATA10bits.SEG14COM3 = 1; LCDDATA9bits.SEG2COM3 = 0; LCDDATA3bits.SEG2COM1 = 0; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG14COM1 = 1; LCDDATA7bits.SEG14COM2 = 1; LCDDATA6bits.SEG2COM2 = 0; break;
-        case 0x0D: case 'D': case 'd': LCDDATA10bits.SEG14COM3 = 0; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG14COM1 = 1; LCDDATA7bits.SEG14COM2 = 0; LCDDATA6bits.SEG2COM2 = 1; break;
-        case 0x0E: case 'E': case 'e': LCDDATA10bits.SEG14COM3 = 1; LCDDATA9bits.SEG2COM3 = 0; LCDDATA3bits.SEG2COM1 = 0; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG14COM1 = 1; LCDDATA7bits.SEG14COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
-        case 0x0F: case 'F': case 'f': LCDDATA10bits.SEG14COM3 = 1; LCDDATA9bits.SEG2COM3 = 0; LCDDATA3bits.SEG2COM1 = 0; LCDDATA0bits.SEG2COM0 = 0; LCDDATA4bits.SEG14COM1 = 1; LCDDATA7bits.SEG14COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
-        case 'G': case 'g': LCDDATA10bits.SEG14COM3 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG14COM1 = 1; LCDDATA7bits.SEG14COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
-        case 'H': case 'h': LCDDATA10bits.SEG14COM3 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG14COM1 = 1; LCDDATA7bits.SEG14COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
-        case 'I': case 'i': LCDDATA10bits.SEG14COM3 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG14COM1 = 1; LCDDATA7bits.SEG14COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
-        case 'J': case 'j': LCDDATA10bits.SEG14COM3 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG14COM1 = 1; LCDDATA7bits.SEG14COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
-        case 'K': case 'k': LCDDATA10bits.SEG14COM3 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG14COM1 = 1; LCDDATA7bits.SEG14COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
-        case 'L': case 'l': LCDDATA10bits.SEG14COM3 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG14COM1 = 1; LCDDATA7bits.SEG14COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
-        case 'N': case 'n': LCDDATA10bits.SEG14COM3 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG14COM1 = 1; LCDDATA7bits.SEG14COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
-        case 'O': case 'o': LCDDATA10bits.SEG14COM3 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG14COM1 = 1; LCDDATA7bits.SEG14COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
-        case 'P': case 'p': LCDDATA10bits.SEG14COM3 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG14COM1 = 1; LCDDATA7bits.SEG14COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
-        case 'S': case 's': LCDDATA10bits.SEG14COM3 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG14COM1 = 1; LCDDATA7bits.SEG14COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
-        case 'T': case 't': LCDDATA10bits.SEG14COM3 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG14COM1 = 1; LCDDATA7bits.SEG14COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
-        case 'U': case 'u': LCDDATA10bits.SEG14COM3 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG14COM1 = 1; LCDDATA7bits.SEG14COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
-        case 'Y': case 'y': LCDDATA10bits.SEG14COM3 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG14COM1 = 1; LCDDATA7bits.SEG14COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
+        case 0: case '0': LCDDATA10bits.SEG10COM3 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 1; LCDDATA6bits.SEG2COM2 = 0; break;
+        case 1: case '1': LCDDATA10bits.SEG10COM3 = 0; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 0; LCDDATA4bits.SEG10COM1 = 0; LCDDATA7bits.SEG10COM2 = 0; LCDDATA6bits.SEG2COM2 = 0; break;
+        case 2: case '2': LCDDATA10bits.SEG10COM3 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 0; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 0; LCDDATA6bits.SEG2COM2 = 1; break;
+        case 3: case '3': LCDDATA10bits.SEG10COM3 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG10COM1 = 0; LCDDATA7bits.SEG10COM2 = 0; LCDDATA6bits.SEG2COM2 = 1; break;
+        case 4: case '4': LCDDATA10bits.SEG10COM3 = 0; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 0; LCDDATA4bits.SEG10COM1 = 0; LCDDATA7bits.SEG10COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
+        case 5: case '5': LCDDATA10bits.SEG10COM3 = 1; LCDDATA9bits.SEG2COM3 = 0; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG10COM1 = 0; LCDDATA7bits.SEG10COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
+        case 6: case '6': LCDDATA10bits.SEG10COM3 = 1; LCDDATA9bits.SEG2COM3 = 0; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
+        case 7: case '7': LCDDATA10bits.SEG10COM3 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 0; LCDDATA4bits.SEG10COM1 = 0; LCDDATA7bits.SEG10COM2 = 0; LCDDATA6bits.SEG2COM2 = 0; break;
+        case 8: case '8': LCDDATA10bits.SEG10COM3 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
+        case 9: case '9': LCDDATA10bits.SEG10COM3 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG10COM1 = 0; LCDDATA7bits.SEG10COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
+        case 0x0A: case 'A': case 'a': LCDDATA10bits.SEG10COM3 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 0; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
+        case 0x0B: case 'B': case 'b': LCDDATA10bits.SEG10COM3 = 0; LCDDATA9bits.SEG2COM3 = 0; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
+        case 0x0C: case 'C': case 'c': LCDDATA10bits.SEG10COM3 = 1; LCDDATA9bits.SEG2COM3 = 0; LCDDATA3bits.SEG2COM1 = 0; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 1; LCDDATA6bits.SEG2COM2 = 0; break;
+        case 0x0D: case 'D': case 'd': LCDDATA10bits.SEG10COM3 = 0; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 0; LCDDATA6bits.SEG2COM2 = 1; break;
+        case 0x0E: case 'E': case 'e': LCDDATA10bits.SEG10COM3 = 1; LCDDATA9bits.SEG2COM3 = 0; LCDDATA3bits.SEG2COM1 = 0; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
+        case 0x0F: case 'F': case 'f': LCDDATA10bits.SEG10COM3 = 1; LCDDATA9bits.SEG2COM3 = 0; LCDDATA3bits.SEG2COM1 = 0; LCDDATA0bits.SEG2COM0 = 0; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
+        case 'G': case 'g': LCDDATA10bits.SEG10COM3 = 1; LCDDATA9bits.SEG2COM3 = 0; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
+        case 'H': case 'h': LCDDATA10bits.SEG10COM3 = 0; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 0; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
+        case 'I': case 'i': LCDDATA10bits.SEG10COM3 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
+        case 'J': case 'j': LCDDATA10bits.SEG10COM3 = 0; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 0; LCDDATA6bits.SEG2COM2 = 0; break;
+        case 'K': case 'k': LCDDATA10bits.SEG10COM3 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
+        case 'L': case 'l': LCDDATA10bits.SEG10COM3 = 0; LCDDATA9bits.SEG2COM3 = 0; LCDDATA3bits.SEG2COM1 = 0; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 1; LCDDATA6bits.SEG2COM2 = 0; break;
+        case 'N': case 'n': LCDDATA10bits.SEG10COM3 = 0; LCDDATA9bits.SEG2COM3 = 0; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 0; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 0; LCDDATA6bits.SEG2COM2 = 0; break;
+        case 'O': case 'o': LCDDATA10bits.SEG10COM3 = 0; LCDDATA9bits.SEG2COM3 = 0; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 0; LCDDATA6bits.SEG2COM2 = 1; break;
+        case 'P': case 'p': LCDDATA10bits.SEG10COM3 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 0; LCDDATA0bits.SEG2COM0 = 0; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
+        case 'S': case 's': LCDDATA10bits.SEG10COM3 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
+        case 'T': case 't': LCDDATA10bits.SEG10COM3 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
+        case 'U': case 'u': LCDDATA10bits.SEG10COM3 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
+        case 'Y': case 'y': LCDDATA10bits.SEG10COM3 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
 
-        default: LCDDATA10bits.SEG14COM3 = 0; LCDDATA9bits.SEG2COM3 = 0; LCDDATA3bits.SEG2COM1 = 0; LCDDATA0bits.SEG2COM0 = 0; LCDDATA4bits.SEG14COM1 = 0; LCDDATA7bits.SEG14COM2 = 0; LCDDATA6bits.SEG2COM2 = 0;
+        default: LCDDATA10bits.SEG10COM3 = 0; LCDDATA9bits.SEG2COM3 = 0; LCDDATA3bits.SEG2COM1 = 0; LCDDATA0bits.SEG2COM0 = 0; LCDDATA4bits.SEG10COM1 = 0; LCDDATA7bits.SEG10COM2 = 0; LCDDATA6bits.SEG2COM2 = 0;
     }
 }
 

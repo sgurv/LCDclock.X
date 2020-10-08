@@ -84,8 +84,8 @@ void LCD_Initialize(void)
 	LCDDATA10 = 0x00;
     
 	//Enable used segments
-	LCDSE0 = 0xB6;
-	LCDSE1 = 0x70;
+	LCDSE0 = 0xBE;
+	LCDSE1 = 0x14;
 	
     // CS LFINTOSC (31 kHz); SLPEN disabled; WERR No LCD Write Error; LMUX 1/4 COM(3:0); LCDEN enabled; 
     LCDCON = 0xCB;
