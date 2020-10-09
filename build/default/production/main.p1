@@ -3,17 +3,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 "80 ./mcc_generated_files/mcc.h
 [; ;./mcc_generated_files/mcc.h: 80: void SYSTEM_Initialize(void);
 [v _SYSTEM_Initialize `(v ~T0 @X0 0 ef ]
-"77 main.c
-[; ;main.c: 77:     ir_flag = IR_NONE;
-[c E3367 0 1 2 3 .. ]
-[n E3367 e_ir_flag IR_NONE IR_BUSY IR_DONE IR_REPEAT  ]
-[v F3133 `(v ~T0 @X0 0 tf1`us ]
+"80 main.c
+[; ;main.c: 80:     ir_flag = IR_NONE;
+[c E3354 0 1 2 3 .. ]
+[n E3354 e_ir_flag IR_NONE IR_BUSY IR_DONE IR_REPEAT  ]
+[v F3141 `(v ~T0 @X0 0 tf1`us ]
 "180 ./mcc_generated_files/ccp4.h
 [; ;./mcc_generated_files/ccp4.h: 180:  void CCP4_SetCallBack(void (*customCallBack)(uint16_t));
-[v _CCP4_SetCallBack `(v ~T0 @X0 0 ef1`*F3133 ]
-"60 main.c
-[; ;main.c: 60: static void CCP4_CallBack(uint16_t capturedValue);
+[v _CCP4_SetCallBack `(v ~T0 @X0 0 ef1`*F3141 ]
+"62 main.c
+[; ;main.c: 62: static void CCP4_CallBack(uint16_t capturedValue);
 [v _CCP4_CallBack `(v ~T0 @X0 0 sf1`us ]
+[v F2672 `(v ~T0 @X0 0 tf ]
+"303 ./mcc_generated_files/pin_manager.h
+[; ;./mcc_generated_files/pin_manager.h: 303: void IOCBF1_SetInterruptHandler(void (* InterruptHandler)(void));
+[v _IOCBF1_SetInterruptHandler `(v ~T0 @X0 0 ef1`*F2672 ]
+"63 main.c
+[; ;main.c: 63: static void IOC_RB1_N_Handler(void);
+[v _IOC_RB1_N_Handler `(v ~T0 @X0 0 sf ]
 "357 D:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\proc\pic16f1938.h
 [; ;D:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\proc\pic16f1938.h: 357:     struct {
 [s S31 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -32,12 +39,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 "219 ./APDS9960.h
 [; ;./APDS9960.h: 219: _Bool APDS9960Init(void);
 [v _APDS9960Init `(a ~T0 @X0 0 ef ]
-"65 main.c
-[; ;main.c: 65: void LCD_Digit4Num (unsigned char num);
+"68 main.c
+[; ;main.c: 68: void LCD_Digit4Num (unsigned char num);
 [v _LCD_Digit4Num `(v ~T0 @X0 0 ef1`uc ]
-"231 ./APDS9960.h
-[; ;./APDS9960.h: 231: _Bool enableProximitySensor(_Bool interrupts);
-[v _enableProximitySensor `(a ~T0 @X0 0 ef1`a ]
+"249 ./APDS9960.h
+[; ;./APDS9960.h: 249: _Bool setProximityGain(uint8_t gain);
+[v _setProximityGain `(a ~T0 @X0 0 ef1`uc ]
+"236
+[; ;./APDS9960.h: 236: _Bool enableGestureSensor(_Bool interrupts);
+[v _enableGestureSensor `(a ~T0 @X0 0 ef1`a ]
 "6401 D:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\proc\pic16f1938.h
 [; ;D:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\proc\pic16f1938.h: 6401:     struct {
 [s S317 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -60,37 +70,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 "6474
 [; ;D:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\proc\pic16f1938.h: 6474: extern volatile LCDDATA1bits_t LCDDATA1bits __attribute__((address(0x7A1)));
 [v _LCDDATA1bits `VS318 ~T0 @X0 0 e@1953 ]
-"281 ./APDS9960.h
-[; ;./APDS9960.h: 281: uint8_t readProximity();
-[v _readProximity `(uc ~T0 @X0 0 e? ]
-"284
-[; ;./APDS9960.h: 284: _Bool isGestureAvailable();
-[v _isGestureAvailable `(a ~T0 @X0 0 e? ]
-"285
-[; ;./APDS9960.h: 285: int readGesture();
-[v _readGesture `(i ~T0 @X0 0 e? ]
-"152 main.c
-[; ;main.c: 152:             }
-[c E3266 0 1 2 3 4 5 6 7 .. ]
-[n E3266 . DIR_NONE DIR_LEFT DIR_RIGHT DIR_UP DIR_DOWN DIR_NEAR DIR_FAR DIR_ALL  ]
-"67
-[; ;main.c: 67: uint16_t intToBCD(uint16_t binaryInput);
-[v _intToBCD `(us ~T0 @X0 0 ef1`us ]
-"62
-[; ;main.c: 62: void LCD_Digit1Num (unsigned char num);
+"65 main.c
+[; ;main.c: 65: void LCD_Digit1Num (unsigned char num);
 [v _LCD_Digit1Num `(v ~T0 @X0 0 ef1`uc ]
-"63
-[; ;main.c: 63: void LCD_Digit2Num (unsigned char num);
+"66
+[; ;main.c: 66: void LCD_Digit2Num (unsigned char num);
 [v _LCD_Digit2Num `(v ~T0 @X0 0 ef1`uc ]
-"64
-[; ;main.c: 64: void LCD_Digit3Num (unsigned char num);
+"67
+[; ;main.c: 67: void LCD_Digit3Num (unsigned char num);
 [v _LCD_Digit3Num `(v ~T0 @X0 0 ef1`uc ]
-[v F2657 `(v ~T0 @X0 1 tf1`ul ]
-"92 D:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\pic\include\pic.h
-[v __delay `JF2657 ~T0 @X0 0 e ]
-[p i __delay ]
-"68 main.c
-[; ;main.c: 68: uint8_t reverseBits(uint8_t b);
+"292 ./APDS9960.h
+[; ;./APDS9960.h: 292: int readGesture(void);
+[v _readGesture `(i ~T0 @X0 0 ef ]
+"182 main.c
+[; ;main.c: 182:             }
+[c E3274 0 1 2 3 4 5 6 7 .. ]
+[n E3274 . DIR_NONE DIR_LEFT DIR_RIGHT DIR_UP DIR_DOWN DIR_NEAR DIR_FAR DIR_ALL  ]
+"71
+[; ;main.c: 71: uint8_t reverseBits(uint8_t b);
 [v _reverseBits `(uc ~T0 @X0 0 ef1`uc ]
 "235 ./mcc_generated_files/tmr1.h
 [; ;./mcc_generated_files/tmr1.h: 235: void TMR1_WriteTimer(uint16_t timerVal);
@@ -665,475 +662,545 @@ Version 4.0 HI-TECH Software Intermediate Code
 "58
 [; ;main.c: 58: volatile uint8_t ir_flag;
 [v _ir_flag `Vuc ~T0 @X0 1 e ]
+"60
+[; ;main.c: 60: volatile uint8_t flag_gesture;
+[v _flag_gesture `Vuc ~T0 @X0 1 e ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"70
-[; ;main.c: 70: void main(void)
+"73
+[; ;main.c: 73: void main(void)
 [v _main `(v ~T0 @X0 1 ef ]
-"71
-[; ;main.c: 71: {
+"74
+[; ;main.c: 74: {
 {
 [e :U _main ]
 [f ]
-"72
-[; ;main.c: 72:     uint16_t temp_num = 0,bcd_num;
+"75
+[; ;main.c: 75:     uint16_t temp_num = 0,bcd_num;
 [v _temp_num `us ~T0 @X0 1 a ]
 [e = _temp_num -> -> 0 `i `us ]
 [v _bcd_num `us ~T0 @X0 1 a ]
-"73
-[; ;main.c: 73:     uint8_t temp8;
+"76
+[; ;main.c: 76:     uint8_t temp8;
 [v _temp8 `uc ~T0 @X0 1 a ]
-"75
-[; ;main.c: 75:     SYSTEM_Initialize();
-[e ( _SYSTEM_Initialize ..  ]
-"77
-[; ;main.c: 77:     ir_flag = IR_NONE;
-[e = _ir_flag -> . `E3367 0 `uc ]
 "78
-[; ;main.c: 78:     ir_address = ir_address_complement = ir_command = ir_command_complement = 0;
-[e = _ir_address = _ir_address_complement = _ir_command = _ir_command_complement -> -> 0 `i `uc ]
+[; ;main.c: 78:     SYSTEM_Initialize();
+[e ( _SYSTEM_Initialize ..  ]
 "80
-[; ;main.c: 80:     CCP4_SetCallBack(CCP4_CallBack);
+[; ;main.c: 80:     ir_flag = IR_NONE;
+[e = _ir_flag -> . `E3354 0 `uc ]
+"81
+[; ;main.c: 81:     ir_address = ir_address_complement = ir_command = ir_command_complement = 0;
+[e = _ir_address = _ir_address_complement = _ir_command = _ir_command_complement -> -> 0 `i `uc ]
+"83
+[; ;main.c: 83:     flag_gesture = 0;
+[e = _flag_gesture -> -> 0 `i `uc ]
+"85
+[; ;main.c: 85:     CCP4_SetCallBack(CCP4_CallBack);
 [e ( _CCP4_SetCallBack (1 &U _CCP4_CallBack ]
 "86
-[; ;main.c: 86:     (INTCONbits.GIE = 1);
+[; ;main.c: 86:     IOCBF1_SetInterruptHandler(IOC_RB1_N_Handler);
+[e ( _IOCBF1_SetInterruptHandler (1 &U _IOC_RB1_N_Handler ]
+"92
+[; ;main.c: 92:     (INTCONbits.GIE = 1);
 [e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
-"89
-[; ;main.c: 89:     (INTCONbits.PEIE = 1);
+"95
+[; ;main.c: 95:     (INTCONbits.PEIE = 1);
 [e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
-"97
-[; ;main.c: 97:     if(APDS9960Init()){
+"103
+[; ;main.c: 103:     if(APDS9960Init()){
 [e $ ! != -> ( _APDS9960Init ..  `i -> 0 `i 363  ]
 {
-"98
-[; ;main.c: 98:         bcd_num = 1;
+"104
+[; ;main.c: 104:         bcd_num = 1;
 [e = _bcd_num -> -> 1 `i `us ]
-"99
-[; ;main.c: 99:     } else {
+"105
+[; ;main.c: 105:     } else {
 }
 [e $U 364  ]
 [e :U 363 ]
 {
-"100
-[; ;main.c: 100:         bcd_num = 0;
+"106
+[; ;main.c: 106:         bcd_num = 0;
 [e = _bcd_num -> -> 0 `i `us ]
-"101
-[; ;main.c: 101:     }
+"107
+[; ;main.c: 107:     }
 }
 [e :U 364 ]
-"103
-[; ;main.c: 103:     LCD_Digit4Num(bcd_num & 0x000F);
+"109
+[; ;main.c: 109:     LCD_Digit4Num(bcd_num & 0x000F);
 [e ( _LCD_Digit4Num (1 -> & -> _bcd_num `ui -> -> 15 `i `ui `uc ]
-"108
-[; ;main.c: 108:     enableProximitySensor(0);
-[e ( _enableProximitySensor (1 -> -> 0 `i `a ]
 "112
-[; ;main.c: 112:     while (1)
+[; ;main.c: 112:     setProximityGain(1);
+[e ( _setProximityGain (1 -> -> 1 `i `uc ]
+"116
+[; ;main.c: 116:     enableGestureSensor(1);
+[e ( _enableGestureSensor (1 -> -> 1 `i `a ]
+"118
+[; ;main.c: 118:     while (1)
 [e :U 366 ]
-"113
-[; ;main.c: 113:     {
+"119
+[; ;main.c: 119:     {
 {
-"115
-[; ;main.c: 115:         __asm("clrwdt");
+"121
+[; ;main.c: 121:         __asm("clrwdt");
 [; <" clrwdt ;# ">
-"122
-[; ;main.c: 122:         LCDDATA0bits.SEG5COM0 = 0;
-[e = . . _LCDDATA0bits 0 5 -> -> 0 `i `uc ]
-"123
-[; ;main.c: 123:         LCDDATA0bits.SEG3COM0 = 0;
-[e = . . _LCDDATA0bits 0 3 -> -> 0 `i `uc ]
-"124
-[; ;main.c: 124:         LCDDATA1bits.SEG10COM0 = 0;
-[e = . . _LCDDATA1bits 0 2 -> -> 0 `i `uc ]
-"125
-[; ;main.c: 125:         LCDDATA0bits.SEG4COM0 = 0;
-[e = . . _LCDDATA0bits 0 4 -> -> 0 `i `uc ]
-"128
-[; ;main.c: 128:         temp_num = readProximity();
-[e = _temp_num -> ( _readProximity ..  `us ]
-"130
-[; ;main.c: 130:         if(isGestureAvailable()){
-[e $ ! != -> ( _isGestureAvailable ..  `i -> 0 `i 368  ]
+"133
+[; ;main.c: 133:         if(flag_gesture != 0){
+[e $ ! != -> _flag_gesture `i -> 0 `i 368  ]
 {
-"131
-[; ;main.c: 131:             switch ( readGesture() ) {
+"135
+[; ;main.c: 135:             LCDDATA0bits.SEG5COM0 = 0;
+[e = . . _LCDDATA0bits 0 5 -> -> 0 `i `uc ]
+"136
+[; ;main.c: 136:             LCDDATA0bits.SEG3COM0 = 0;
+[e = . . _LCDDATA0bits 0 3 -> -> 0 `i `uc ]
+"137
+[; ;main.c: 137:             LCDDATA1bits.SEG10COM0 = 0;
+[e = . . _LCDDATA1bits 0 2 -> -> 0 `i `uc ]
+"138
+[; ;main.c: 138:             LCDDATA0bits.SEG4COM0 = 0;
+[e = . . _LCDDATA0bits 0 4 -> -> 0 `i `uc ]
+"140
+[; ;main.c: 140:             switch ( readGesture() ) {
 [e $U 370  ]
 {
-"132
-[; ;main.c: 132:                 case DIR_UP:
-[e :U 371 ]
-"133
-[; ;main.c: 133:                     LCD_Digit4Num('U');
-[e ( _LCD_Digit4Num (1 -> -> 85 `ui `uc ]
-"134
-[; ;main.c: 134:                     break;
-[e $U 369  ]
-"135
-[; ;main.c: 135:                 case DIR_DOWN:
-[e :U 372 ]
-"136
-[; ;main.c: 136:                     LCD_Digit4Num('D');
-[e ( _LCD_Digit4Num (1 -> -> 68 `ui `uc ]
-"137
-[; ;main.c: 137:                     break;
-[e $U 369  ]
-"138
-[; ;main.c: 138:                 case DIR_LEFT:
-[e :U 373 ]
-"139
-[; ;main.c: 139:                     LCD_Digit4Num('L');
-[e ( _LCD_Digit4Num (1 -> -> 76 `ui `uc ]
-"140
-[; ;main.c: 140:                     break;
-[e $U 369  ]
 "141
-[; ;main.c: 141:                 case DIR_RIGHT:
-[e :U 374 ]
+[; ;main.c: 141:                 case DIR_UP:
+[e :U 371 ]
 "142
-[; ;main.c: 142:                     LCD_Digit4Num('R');
-[e ( _LCD_Digit4Num (1 -> -> 82 `ui `uc ]
+[; ;main.c: 142:                     LCD_Digit1Num('U');
+[e ( _LCD_Digit1Num (1 -> -> 85 `ui `uc ]
 "143
-[; ;main.c: 143:                     break;
-[e $U 369  ]
+[; ;main.c: 143:                     LCD_Digit2Num('P');
+[e ( _LCD_Digit2Num (1 -> -> 80 `ui `uc ]
 "144
-[; ;main.c: 144:                 case DIR_NEAR:
-[e :U 375 ]
+[; ;main.c: 144:                     LCD_Digit3Num(' ');
+[e ( _LCD_Digit3Num (1 -> -> 32 `ui `uc ]
 "145
-[; ;main.c: 145:                     LCD_Digit4Num('N');
-[e ( _LCD_Digit4Num (1 -> -> 78 `ui `uc ]
+[; ;main.c: 145:                     LCD_Digit4Num(' ');
+[e ( _LCD_Digit4Num (1 -> -> 32 `ui `uc ]
 "146
 [; ;main.c: 146:                     break;
 [e $U 369  ]
 "147
-[; ;main.c: 147:                 case DIR_FAR:
-[e :U 376 ]
+[; ;main.c: 147:                 case DIR_DOWN:
+[e :U 372 ]
 "148
-[; ;main.c: 148:                     LCD_Digit4Num('F');
-[e ( _LCD_Digit4Num (1 -> -> 70 `ui `uc ]
+[; ;main.c: 148:                     LCD_Digit1Num('D');
+[e ( _LCD_Digit1Num (1 -> -> 68 `ui `uc ]
 "149
-[; ;main.c: 149:                     break;
-[e $U 369  ]
+[; ;main.c: 149:                     LCD_Digit2Num('N');
+[e ( _LCD_Digit2Num (1 -> -> 78 `ui `uc ]
 "150
-[; ;main.c: 150:                 default:
-[e :U 377 ]
+[; ;main.c: 150:                     LCD_Digit3Num(' ');
+[e ( _LCD_Digit3Num (1 -> -> 32 `ui `uc ]
 "151
-[; ;main.c: 151:                     LCD_Digit4Num(0);
-[e ( _LCD_Digit4Num (1 -> -> 0 `i `uc ]
+[; ;main.c: 151:                     LCD_Digit4Num(' ');
+[e ( _LCD_Digit4Num (1 -> -> 32 `ui `uc ]
 "152
-[; ;main.c: 152:             }
+[; ;main.c: 152:                     break;
+[e $U 369  ]
+"153
+[; ;main.c: 153:                 case DIR_LEFT:
+[e :U 373 ]
+"154
+[; ;main.c: 154:                     LCD_Digit1Num('L');
+[e ( _LCD_Digit1Num (1 -> -> 76 `ui `uc ]
+"155
+[; ;main.c: 155:                     LCD_Digit2Num('E');
+[e ( _LCD_Digit2Num (1 -> -> 69 `ui `uc ]
+"156
+[; ;main.c: 156:                     LCD_Digit3Num('F');
+[e ( _LCD_Digit3Num (1 -> -> 70 `ui `uc ]
+"157
+[; ;main.c: 157:                     LCD_Digit4Num('T');
+[e ( _LCD_Digit4Num (1 -> -> 84 `ui `uc ]
+"158
+[; ;main.c: 158:                     break;
+[e $U 369  ]
+"159
+[; ;main.c: 159:                 case DIR_RIGHT:
+[e :U 374 ]
+"160
+[; ;main.c: 160:                     LCD_Digit1Num('R');
+[e ( _LCD_Digit1Num (1 -> -> 82 `ui `uc ]
+"161
+[; ;main.c: 161:                     LCD_Digit2Num('I');
+[e ( _LCD_Digit2Num (1 -> -> 73 `ui `uc ]
+"162
+[; ;main.c: 162:                     LCD_Digit3Num('T');
+[e ( _LCD_Digit3Num (1 -> -> 84 `ui `uc ]
+"163
+[; ;main.c: 163:                     LCD_Digit4Num(' ');
+[e ( _LCD_Digit4Num (1 -> -> 32 `ui `uc ]
+"164
+[; ;main.c: 164:                     break;
+[e $U 369  ]
+"165
+[; ;main.c: 165:                 case DIR_NEAR:
+[e :U 375 ]
+"166
+[; ;main.c: 166:                     LCD_Digit1Num('N');
+[e ( _LCD_Digit1Num (1 -> -> 78 `ui `uc ]
+"167
+[; ;main.c: 167:                     LCD_Digit2Num('E');
+[e ( _LCD_Digit2Num (1 -> -> 69 `ui `uc ]
+"168
+[; ;main.c: 168:                     LCD_Digit3Num('A');
+[e ( _LCD_Digit3Num (1 -> -> 65 `ui `uc ]
+"169
+[; ;main.c: 169:                     LCD_Digit4Num('R');
+[e ( _LCD_Digit4Num (1 -> -> 82 `ui `uc ]
+"170
+[; ;main.c: 170:                     break;
+[e $U 369  ]
+"171
+[; ;main.c: 171:                 case DIR_FAR:
+[e :U 376 ]
+"172
+[; ;main.c: 172:                     LCD_Digit1Num('F');
+[e ( _LCD_Digit1Num (1 -> -> 70 `ui `uc ]
+"173
+[; ;main.c: 173:                     LCD_Digit2Num('A');
+[e ( _LCD_Digit2Num (1 -> -> 65 `ui `uc ]
+"174
+[; ;main.c: 174:                     LCD_Digit3Num('R');
+[e ( _LCD_Digit3Num (1 -> -> 82 `ui `uc ]
+"175
+[; ;main.c: 175:                     LCD_Digit4Num(' ');
+[e ( _LCD_Digit4Num (1 -> -> 32 `ui `uc ]
+"176
+[; ;main.c: 176:                     break;
+[e $U 369  ]
+"177
+[; ;main.c: 177:                 default:
+[e :U 377 ]
+"178
+[; ;main.c: 178:                     LCD_Digit1Num('N');
+[e ( _LCD_Digit1Num (1 -> -> 78 `ui `uc ]
+"179
+[; ;main.c: 179:                     LCD_Digit2Num('O');
+[e ( _LCD_Digit2Num (1 -> -> 79 `ui `uc ]
+"180
+[; ;main.c: 180:                     LCD_Digit3Num('N');
+[e ( _LCD_Digit3Num (1 -> -> 78 `ui `uc ]
+"181
+[; ;main.c: 181:                     LCD_Digit4Num('E');
+[e ( _LCD_Digit4Num (1 -> -> 69 `ui `uc ]
+"182
+[; ;main.c: 182:             }
 }
 [e $U 369  ]
 [e :U 370 ]
-[e [\ ( _readGesture ..  , $ . `E3266 3 371
- , $ . `E3266 4 372
- , $ . `E3266 1 373
- , $ . `E3266 2 374
- , $ . `E3266 5 375
- , $ . `E3266 6 376
+[e [\ ( _readGesture ..  , $ . `E3274 3 371
+ , $ . `E3274 4 372
+ , $ . `E3274 1 373
+ , $ . `E3274 2 374
+ , $ . `E3274 5 375
+ , $ . `E3274 6 376
  377 ]
 [e :U 369 ]
-"153
-[; ;main.c: 153:         } else {
+"184
+[; ;main.c: 184:             flag_gesture = 0;
+[e = _flag_gesture -> -> 0 `i `uc ]
+"186
+[; ;main.c: 186:         } else {
 }
 [e $U 378  ]
 [e :U 368 ]
 {
-"156
-[; ;main.c: 156:             bcd_num = intToBCD(temp_num);
-[e = _bcd_num ( _intToBCD (1 _temp_num ]
-"158
-[; ;main.c: 158:             LCD_Digit1Num((bcd_num >> 12) & 0x000F);
-[e ( _LCD_Digit1Num (1 -> & >> -> _bcd_num `ui -> 12 `i -> -> 15 `i `ui `uc ]
-"159
-[; ;main.c: 159:             LCD_Digit2Num((bcd_num >> 8) & 0x000F);
-[e ( _LCD_Digit2Num (1 -> & >> -> _bcd_num `ui -> 8 `i -> -> 15 `i `ui `uc ]
-"160
-[; ;main.c: 160:             LCD_Digit3Num((bcd_num >> 4) & 0x000F);
-[e ( _LCD_Digit3Num (1 -> & >> -> _bcd_num `ui -> 4 `i -> -> 15 `i `ui `uc ]
-"162
-[; ;main.c: 162:             LCD_Digit4Num('P');
-[e ( _LCD_Digit4Num (1 -> -> 80 `ui `uc ]
-"163
-[; ;main.c: 163:         }
+"196
+[; ;main.c: 196:         }
 }
 [e :U 378 ]
-"167
-[; ;main.c: 167:         _delay((unsigned long)((400)*(32000000/4000.0)));
-[e ( __delay (1 -> * -> -> 400 `i `d / -> -> 32000000 `l `d .4000.0 `ul ]
-"169
-[; ;main.c: 169:         if(ir_flag == IR_DONE || ir_flag == IR_REPEAT){
-[e $ ! || == -> _ir_flag `i -> . `E3367 2 `i == -> _ir_flag `i -> . `E3367 3 `i 379  ]
+"202
+[; ;main.c: 202:         if(ir_flag == IR_DONE || ir_flag == IR_REPEAT){
+[e $ ! || == -> _ir_flag `i -> . `E3354 2 `i == -> _ir_flag `i -> . `E3354 3 `i 379  ]
 {
-"171
-[; ;main.c: 171:             temp8 = reverseBits(ir_address);
+"204
+[; ;main.c: 204:             temp8 = reverseBits(ir_address);
 [e = _temp8 ( _reverseBits (1 _ir_address ]
-"173
-[; ;main.c: 173:             LCD_Digit1Num((temp8 >> 4) & 0x000F);
+"206
+[; ;main.c: 206:             LCD_Digit1Num((temp8 >> 4) & 0x000F);
 [e ( _LCD_Digit1Num (1 -> & >> -> _temp8 `i -> 4 `i -> 15 `i `uc ]
-"174
-[; ;main.c: 174:             LCD_Digit2Num(temp8 & 0x000F);
+"207
+[; ;main.c: 207:             LCD_Digit2Num(temp8 & 0x000F);
 [e ( _LCD_Digit2Num (1 -> & -> _temp8 `i -> 15 `i `uc ]
-"176
-[; ;main.c: 176:             LCDDATA0bits.SEG4COM0 = 1;
+"209
+[; ;main.c: 209:             LCDDATA0bits.SEG4COM0 = 1;
 [e = . . _LCDDATA0bits 0 4 -> -> 1 `i `uc ]
-"178
-[; ;main.c: 178:             temp8 = reverseBits(ir_command);
+"211
+[; ;main.c: 211:             temp8 = reverseBits(ir_command);
 [e = _temp8 ( _reverseBits (1 _ir_command ]
-"180
-[; ;main.c: 180:             LCD_Digit3Num((temp8 >> 4) & 0x000F);
+"213
+[; ;main.c: 213:             LCD_Digit3Num((temp8 >> 4) & 0x000F);
 [e ( _LCD_Digit3Num (1 -> & >> -> _temp8 `i -> 4 `i -> 15 `i `uc ]
-"181
-[; ;main.c: 181:             LCD_Digit4Num(temp8 & 0x000F);
+"214
+[; ;main.c: 214:             LCD_Digit4Num(temp8 & 0x000F);
 [e ( _LCD_Digit4Num (1 -> & -> _temp8 `i -> 15 `i `uc ]
-"183
-[; ;main.c: 183:             ir_flag = IR_NONE;
-[e = _ir_flag -> . `E3367 0 `uc ]
-"184
-[; ;main.c: 184:         }
+"216
+[; ;main.c: 216:             ir_flag = IR_NONE;
+[e = _ir_flag -> . `E3354 0 `uc ]
+"217
+[; ;main.c: 217:         }
 }
 [e :U 379 ]
-"186
-[; ;main.c: 186:     }
+"219
+[; ;main.c: 219:     }
 }
 [e :U 365 ]
 [e $U 366  ]
 [e :U 367 ]
-"187
-[; ;main.c: 187: }
+"220
+[; ;main.c: 220: }
 [e :UE 362 ]
 }
-"189
-[; ;main.c: 189: static void CCP4_CallBack(uint16_t capturedValue)
+"222
+[; ;main.c: 222: static void CCP4_CallBack(uint16_t capturedValue)
 [v _CCP4_CallBack `(v ~T0 @X0 1 sf1`us ]
-"190
-[; ;main.c: 190: {
+"223
+[; ;main.c: 223: {
 {
 [e :U _CCP4_CallBack ]
-"189
-[; ;main.c: 189: static void CCP4_CallBack(uint16_t capturedValue)
+"222
+[; ;main.c: 222: static void CCP4_CallBack(uint16_t capturedValue)
 [v _capturedValue `us ~T0 @X0 1 r1 ]
-"190
-[; ;main.c: 190: {
+"223
+[; ;main.c: 223: {
 [f ]
-"191
-[; ;main.c: 191:     static uint8_t bit_count;
-[v F3399 `uc ~T0 @X0 1 s bit_count ]
-"193
-[; ;main.c: 193:     TMR1_WriteTimer(0x0000);
+"224
+[; ;main.c: 224:     static uint8_t bit_count;
+[v F3389 `uc ~T0 @X0 1 s bit_count ]
+"226
+[; ;main.c: 226:     TMR1_WriteTimer(0x0000);
 [e ( _TMR1_WriteTimer (1 -> -> 0 `i `us ]
-"196
-[; ;main.c: 196:     if((capturedValue > 13400) && (capturedValue < 13600)){
-[e $ ! && > -> _capturedValue `ui -> -> 13400 `i `ui < -> _capturedValue `ui -> -> 13600 `i `ui 381  ]
+"229
+[; ;main.c: 229:     if((capturedValue > 13350) && (capturedValue < 13650)){
+[e $ ! && > -> _capturedValue `ui -> -> 13350 `i `ui < -> _capturedValue `ui -> -> 13650 `i `ui 381  ]
 {
-"197
-[; ;main.c: 197:         bit_count = 0;
-[e = F3399 -> -> 0 `i `uc ]
-"198
-[; ;main.c: 198:         ir_address = ir_address_complement = ir_command = ir_command_complement = 0;
+"230
+[; ;main.c: 230:         bit_count = 0;
+[e = F3389 -> -> 0 `i `uc ]
+"231
+[; ;main.c: 231:         ir_address = ir_address_complement = ir_command = ir_command_complement = 0;
 [e = _ir_address = _ir_address_complement = _ir_command = _ir_command_complement -> -> 0 `i `uc ]
-"199
-[; ;main.c: 199:         ir_flag = IR_BUSY;
-[e = _ir_flag -> . `E3367 1 `uc ]
-"200
-[; ;main.c: 200:     } else if((capturedValue > 11150) && (capturedValue < 11350)){
+"232
+[; ;main.c: 232:         ir_flag = IR_BUSY;
+[e = _ir_flag -> . `E3354 1 `uc ]
+"233
+[; ;main.c: 233:     } else if((capturedValue > 11200) && (capturedValue < 11400)){
 }
 [e $U 382  ]
 [e :U 381 ]
-[e $ ! && > -> _capturedValue `ui -> -> 11150 `i `ui < -> _capturedValue `ui -> -> 11350 `i `ui 383  ]
+[e $ ! && > -> _capturedValue `ui -> -> 11200 `i `ui < -> _capturedValue `ui -> -> 11400 `i `ui 383  ]
 {
-"201
-[; ;main.c: 201:         ir_flag = IR_REPEAT;
-[e = _ir_flag -> . `E3367 3 `uc ]
-"202
-[; ;main.c: 202:     } else if((capturedValue > 2150) && (capturedValue < 2350)){
+"234
+[; ;main.c: 234:         ir_flag = IR_REPEAT;
+[e = _ir_flag -> . `E3354 3 `uc ]
+"235
+[; ;main.c: 235:     } else if((capturedValue > 2100) && (capturedValue < 2400)){
 }
 [e $U 384  ]
 [e :U 383 ]
-[e $ ! && > -> _capturedValue `ui -> -> 2150 `i `ui < -> _capturedValue `ui -> -> 2350 `i `ui 385  ]
+[e $ ! && > -> _capturedValue `ui -> -> 2100 `i `ui < -> _capturedValue `ui -> -> 2400 `i `ui 385  ]
 {
-"203
-[; ;main.c: 203:         if(bit_count < 8){
-[e $ ! < -> F3399 `i -> 8 `i 386  ]
+"236
+[; ;main.c: 236:         if(bit_count < 8){
+[e $ ! < -> F3389 `i -> 8 `i 386  ]
 {
-"205
-[; ;main.c: 205:             ir_address <<= 1;
+"238
+[; ;main.c: 238:             ir_address <<= 1;
 [e =<< _ir_address -> -> 1 `i `Vuc ]
-"206
-[; ;main.c: 206:             ir_address++;
+"239
+[; ;main.c: 239:             ir_address++;
 [e ++ _ir_address -> -> 1 `i `Vuc ]
-"207
-[; ;main.c: 207:         } else if(bit_count < 16){
+"240
+[; ;main.c: 240:         } else if(bit_count < 16){
 }
 [e $U 387  ]
 [e :U 386 ]
-[e $ ! < -> F3399 `i -> 16 `i 388  ]
+[e $ ! < -> F3389 `i -> 16 `i 388  ]
 {
-"209
-[; ;main.c: 209:             ir_address_complement <<= 1;
+"242
+[; ;main.c: 242:             ir_address_complement <<= 1;
 [e =<< _ir_address_complement -> -> 1 `i `Vuc ]
-"210
-[; ;main.c: 210:             ir_address_complement++;
+"243
+[; ;main.c: 243:             ir_address_complement++;
 [e ++ _ir_address_complement -> -> 1 `i `Vuc ]
-"211
-[; ;main.c: 211:         } else if(bit_count < 24){
+"244
+[; ;main.c: 244:         } else if(bit_count < 24){
 }
 [e $U 389  ]
 [e :U 388 ]
-[e $ ! < -> F3399 `i -> 24 `i 390  ]
+[e $ ! < -> F3389 `i -> 24 `i 390  ]
 {
-"213
-[; ;main.c: 213:             ir_command <<= 1;
+"246
+[; ;main.c: 246:             ir_command <<= 1;
 [e =<< _ir_command -> -> 1 `i `Vuc ]
-"214
-[; ;main.c: 214:             ir_command++;
+"247
+[; ;main.c: 247:             ir_command++;
 [e ++ _ir_command -> -> 1 `i `Vuc ]
-"215
-[; ;main.c: 215:         } else if(bit_count < 32){
+"248
+[; ;main.c: 248:         } else if(bit_count < 32){
 }
 [e $U 391  ]
 [e :U 390 ]
-[e $ ! < -> F3399 `i -> 32 `i 392  ]
+[e $ ! < -> F3389 `i -> 32 `i 392  ]
 {
-"217
-[; ;main.c: 217:             ir_command_complement <<= 1;
+"250
+[; ;main.c: 250:             ir_command_complement <<= 1;
 [e =<< _ir_command_complement -> -> 1 `i `Vuc ]
-"218
-[; ;main.c: 218:             ir_command_complement++;
+"251
+[; ;main.c: 251:             ir_command_complement++;
 [e ++ _ir_command_complement -> -> 1 `i `Vuc ]
-"219
-[; ;main.c: 219:         }
+"252
+[; ;main.c: 252:         }
 }
 [e :U 392 ]
 [e :U 391 ]
 [e :U 389 ]
 [e :U 387 ]
-"221
-[; ;main.c: 221:         bit_count++;
-[e ++ F3399 -> -> 1 `i `uc ]
-"223
-[; ;main.c: 223:         if(bit_count == 32){
-[e $ ! == -> F3399 `i -> 32 `i 393  ]
+"254
+[; ;main.c: 254:         bit_count++;
+[e ++ F3389 -> -> 1 `i `uc ]
+"256
+[; ;main.c: 256:         if(bit_count == 32){
+[e $ ! == -> F3389 `i -> 32 `i 393  ]
 {
-"225
-[; ;main.c: 225:             if(ir_command == (~ir_command_complement)){
+"258
+[; ;main.c: 258:             if(ir_command == (~ir_command_complement)){
 [e $ ! == -> _ir_command `i ~ -> _ir_command_complement `i 394  ]
 {
-"226
-[; ;main.c: 226:                 ir_flag = IR_DONE;
-[e = _ir_flag -> . `E3367 2 `uc ]
-"227
-[; ;main.c: 227:             }
+"259
+[; ;main.c: 259:                 ir_flag = IR_DONE;
+[e = _ir_flag -> . `E3354 2 `uc ]
+"260
+[; ;main.c: 260:             }
 }
 [e :U 394 ]
-"228
-[; ;main.c: 228:         }
+"261
+[; ;main.c: 261:         }
 }
 [e :U 393 ]
-"230
-[; ;main.c: 230:     } else if((capturedValue > 1020) && (capturedValue < 1220)){
+"263
+[; ;main.c: 263:     } else if((capturedValue > 970) && (capturedValue < 1270)){
 }
 [e $U 395  ]
 [e :U 385 ]
-[e $ ! && > -> _capturedValue `ui -> -> 1020 `i `ui < -> _capturedValue `ui -> -> 1220 `i `ui 396  ]
+[e $ ! && > -> _capturedValue `ui -> -> 970 `i `ui < -> _capturedValue `ui -> -> 1270 `i `ui 396  ]
 {
-"231
-[; ;main.c: 231:         if(bit_count < 8){
-[e $ ! < -> F3399 `i -> 8 `i 397  ]
+"264
+[; ;main.c: 264:         if(bit_count < 8){
+[e $ ! < -> F3389 `i -> 8 `i 397  ]
 {
-"233
-[; ;main.c: 233:             ir_address <<= 1;
+"266
+[; ;main.c: 266:             ir_address <<= 1;
 [e =<< _ir_address -> -> 1 `i `Vuc ]
-"234
-[; ;main.c: 234:         } else if(bit_count < 16){
+"267
+[; ;main.c: 267:         } else if(bit_count < 16){
 }
 [e $U 398  ]
 [e :U 397 ]
-[e $ ! < -> F3399 `i -> 16 `i 399  ]
+[e $ ! < -> F3389 `i -> 16 `i 399  ]
 {
-"236
-[; ;main.c: 236:             ir_address_complement <<= 1;
+"269
+[; ;main.c: 269:             ir_address_complement <<= 1;
 [e =<< _ir_address_complement -> -> 1 `i `Vuc ]
-"237
-[; ;main.c: 237:         } else if(bit_count < 24){
+"270
+[; ;main.c: 270:         } else if(bit_count < 24){
 }
 [e $U 400  ]
 [e :U 399 ]
-[e $ ! < -> F3399 `i -> 24 `i 401  ]
+[e $ ! < -> F3389 `i -> 24 `i 401  ]
 {
-"239
-[; ;main.c: 239:             ir_command <<= 1;
+"272
+[; ;main.c: 272:             ir_command <<= 1;
 [e =<< _ir_command -> -> 1 `i `Vuc ]
-"240
-[; ;main.c: 240:         } else if(bit_count < 32){
+"273
+[; ;main.c: 273:         } else if(bit_count < 32){
 }
 [e $U 402  ]
 [e :U 401 ]
-[e $ ! < -> F3399 `i -> 32 `i 403  ]
+[e $ ! < -> F3389 `i -> 32 `i 403  ]
 {
-"242
-[; ;main.c: 242:             ir_command_complement <<= 1;
+"275
+[; ;main.c: 275:             ir_command_complement <<= 1;
 [e =<< _ir_command_complement -> -> 1 `i `Vuc ]
-"243
-[; ;main.c: 243:         }
+"276
+[; ;main.c: 276:         }
 }
 [e :U 403 ]
 [e :U 402 ]
 [e :U 400 ]
 [e :U 398 ]
-"245
-[; ;main.c: 245:         bit_count++;
-[e ++ F3399 -> -> 1 `i `uc ]
-"247
-[; ;main.c: 247:         if(bit_count == 32){
-[e $ ! == -> F3399 `i -> 32 `i 404  ]
+"278
+[; ;main.c: 278:         bit_count++;
+[e ++ F3389 -> -> 1 `i `uc ]
+"280
+[; ;main.c: 280:         if(bit_count == 32){
+[e $ ! == -> F3389 `i -> 32 `i 404  ]
 {
-"249
-[; ;main.c: 249:             if(ir_command == (~ir_command_complement)){
+"282
+[; ;main.c: 282:             if(ir_command == (~ir_command_complement)){
 [e $ ! == -> _ir_command `i ~ -> _ir_command_complement `i 405  ]
 {
-"250
-[; ;main.c: 250:                 ir_flag = IR_DONE;
-[e = _ir_flag -> . `E3367 2 `uc ]
-"251
-[; ;main.c: 251:             }
+"283
+[; ;main.c: 283:                 ir_flag = IR_DONE;
+[e = _ir_flag -> . `E3354 2 `uc ]
+"284
+[; ;main.c: 284:             }
 }
 [e :U 405 ]
-"252
-[; ;main.c: 252:         }
+"285
+[; ;main.c: 285:         }
 }
 [e :U 404 ]
-"253
-[; ;main.c: 253:     }
+"286
+[; ;main.c: 286:     }
 }
 [e :U 396 ]
 [e :U 395 ]
 [e :U 384 ]
 [e :U 382 ]
-"254
-[; ;main.c: 254: }
+"287
+[; ;main.c: 287: }
 [e :UE 380 ]
 }
-"256
-[; ;main.c: 256: void LCD_Digit1Num (unsigned char num)
+"289
+[; ;main.c: 289: static void IOC_RB1_N_Handler(void){
+[v _IOC_RB1_N_Handler `(v ~T0 @X0 1 sf ]
+{
+[e :U _IOC_RB1_N_Handler ]
+[f ]
+"290
+[; ;main.c: 290:     flag_gesture = 1;
+[e = _flag_gesture -> -> 1 `i `uc ]
+"291
+[; ;main.c: 291: }
+[e :UE 406 ]
+}
+"293
+[; ;main.c: 293: void LCD_Digit1Num (unsigned char num)
 [v _LCD_Digit1Num `(v ~T0 @X0 1 ef1`uc ]
-"257
-[; ;main.c: 257: {
+"294
+[; ;main.c: 294: {
 {
 [e :U _LCD_Digit1Num ]
-"256
-[; ;main.c: 256: void LCD_Digit1Num (unsigned char num)
+"293
+[; ;main.c: 293: void LCD_Digit1Num (unsigned char num)
 [v _num `uc ~T0 @X0 1 r1 ]
-"257
-[; ;main.c: 257: {
+"294
+[; ;main.c: 294: {
 [f ]
-"258
-[; ;main.c: 258:     switch (num)
-[e $U 408  ]
-"259
-[; ;main.c: 259:     {
+"295
+[; ;main.c: 295:     switch (num)
+[e $U 409  ]
+"296
+[; ;main.c: 296:     {
 {
-"260
-[; ;main.c: 260:         case 0: LCDDATA9bits.SEG4COM3 = 1; LCDDATA9bits.SEG7COM3 = 1; LCDDATA3bits.SEG7COM1 = 1; LCDDATA0bits.SEG7COM0 = 1; LCDDATA3bits.SEG4COM1 = 1; LCDDATA6bits.SEG4COM2 = 1; LCDDATA6bits.SEG7COM2 = 0; break;
-[e :U 409 ]
+"297
+[; ;main.c: 297:         case 0: LCDDATA9bits.SEG4COM3 = 1; LCDDATA9bits.SEG7COM3 = 1; LCDDATA3bits.SEG7COM1 = 1; LCDDATA0bits.SEG7COM0 = 1; LCDDATA3bits.SEG4COM1 = 1; LCDDATA6bits.SEG4COM2 = 1; LCDDATA6bits.SEG7COM2 = 0; break;
+[e :U 410 ]
 [e = . . _LCDDATA9bits 0 4 -> -> 1 `i `uc ]
 [e = . . _LCDDATA9bits 0 7 -> -> 1 `i `uc ]
 [e = . . _LCDDATA3bits 0 7 -> -> 1 `i `uc ]
@@ -1141,10 +1208,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _LCDDATA3bits 0 4 -> -> 1 `i `uc ]
 [e = . . _LCDDATA6bits 0 4 -> -> 1 `i `uc ]
 [e = . . _LCDDATA6bits 0 7 -> -> 0 `i `uc ]
-[e $U 407  ]
-"261
-[; ;main.c: 261:         case 1: LCDDATA9bits.SEG4COM3 = 0; LCDDATA9bits.SEG7COM3 = 1; LCDDATA3bits.SEG7COM1 = 1; LCDDATA0bits.SEG7COM0 = 0; LCDDATA3bits.SEG4COM1 = 0; LCDDATA6bits.SEG4COM2 = 0; LCDDATA6bits.SEG7COM2 = 0; break;
-[e :U 410 ]
+[e $U 408  ]
+"298
+[; ;main.c: 298:         case 1: LCDDATA9bits.SEG4COM3 = 0; LCDDATA9bits.SEG7COM3 = 1; LCDDATA3bits.SEG7COM1 = 1; LCDDATA0bits.SEG7COM0 = 0; LCDDATA3bits.SEG4COM1 = 0; LCDDATA6bits.SEG4COM2 = 0; LCDDATA6bits.SEG7COM2 = 0; break;
+[e :U 411 ]
 [e = . . _LCDDATA9bits 0 4 -> -> 0 `i `uc ]
 [e = . . _LCDDATA9bits 0 7 -> -> 1 `i `uc ]
 [e = . . _LCDDATA3bits 0 7 -> -> 1 `i `uc ]
@@ -1152,10 +1219,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _LCDDATA3bits 0 4 -> -> 0 `i `uc ]
 [e = . . _LCDDATA6bits 0 4 -> -> 0 `i `uc ]
 [e = . . _LCDDATA6bits 0 7 -> -> 0 `i `uc ]
-[e $U 407  ]
-"262
-[; ;main.c: 262:         case 2: LCDDATA9bits.SEG4COM3 = 1; LCDDATA9bits.SEG7COM3 = 1; LCDDATA3bits.SEG7COM1 = 0; LCDDATA0bits.SEG7COM0 = 1; LCDDATA3bits.SEG4COM1 = 1; LCDDATA6bits.SEG4COM2 = 0; LCDDATA6bits.SEG7COM2 = 1; break;
-[e :U 411 ]
+[e $U 408  ]
+"299
+[; ;main.c: 299:         case 2: LCDDATA9bits.SEG4COM3 = 1; LCDDATA9bits.SEG7COM3 = 1; LCDDATA3bits.SEG7COM1 = 0; LCDDATA0bits.SEG7COM0 = 1; LCDDATA3bits.SEG4COM1 = 1; LCDDATA6bits.SEG4COM2 = 0; LCDDATA6bits.SEG7COM2 = 1; break;
+[e :U 412 ]
 [e = . . _LCDDATA9bits 0 4 -> -> 1 `i `uc ]
 [e = . . _LCDDATA9bits 0 7 -> -> 1 `i `uc ]
 [e = . . _LCDDATA3bits 0 7 -> -> 0 `i `uc ]
@@ -1163,10 +1230,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _LCDDATA3bits 0 4 -> -> 1 `i `uc ]
 [e = . . _LCDDATA6bits 0 4 -> -> 0 `i `uc ]
 [e = . . _LCDDATA6bits 0 7 -> -> 1 `i `uc ]
-[e $U 407  ]
-"263
-[; ;main.c: 263:         case 3: LCDDATA9bits.SEG4COM3 = 1; LCDDATA9bits.SEG7COM3 = 1; LCDDATA3bits.SEG7COM1 = 1; LCDDATA0bits.SEG7COM0 = 1; LCDDATA3bits.SEG4COM1 = 0; LCDDATA6bits.SEG4COM2 = 0; LCDDATA6bits.SEG7COM2 = 1; break;
-[e :U 412 ]
+[e $U 408  ]
+"300
+[; ;main.c: 300:         case 3: LCDDATA9bits.SEG4COM3 = 1; LCDDATA9bits.SEG7COM3 = 1; LCDDATA3bits.SEG7COM1 = 1; LCDDATA0bits.SEG7COM0 = 1; LCDDATA3bits.SEG4COM1 = 0; LCDDATA6bits.SEG4COM2 = 0; LCDDATA6bits.SEG7COM2 = 1; break;
+[e :U 413 ]
 [e = . . _LCDDATA9bits 0 4 -> -> 1 `i `uc ]
 [e = . . _LCDDATA9bits 0 7 -> -> 1 `i `uc ]
 [e = . . _LCDDATA3bits 0 7 -> -> 1 `i `uc ]
@@ -1174,10 +1241,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _LCDDATA3bits 0 4 -> -> 0 `i `uc ]
 [e = . . _LCDDATA6bits 0 4 -> -> 0 `i `uc ]
 [e = . . _LCDDATA6bits 0 7 -> -> 1 `i `uc ]
-[e $U 407  ]
-"264
-[; ;main.c: 264:         case 4: LCDDATA9bits.SEG4COM3 = 0; LCDDATA9bits.SEG7COM3 = 1; LCDDATA3bits.SEG7COM1 = 1; LCDDATA0bits.SEG7COM0 = 0; LCDDATA3bits.SEG4COM1 = 0; LCDDATA6bits.SEG4COM2 = 1; LCDDATA6bits.SEG7COM2 = 1; break;
-[e :U 413 ]
+[e $U 408  ]
+"301
+[; ;main.c: 301:         case 4: LCDDATA9bits.SEG4COM3 = 0; LCDDATA9bits.SEG7COM3 = 1; LCDDATA3bits.SEG7COM1 = 1; LCDDATA0bits.SEG7COM0 = 0; LCDDATA3bits.SEG4COM1 = 0; LCDDATA6bits.SEG4COM2 = 1; LCDDATA6bits.SEG7COM2 = 1; break;
+[e :U 414 ]
 [e = . . _LCDDATA9bits 0 4 -> -> 0 `i `uc ]
 [e = . . _LCDDATA9bits 0 7 -> -> 1 `i `uc ]
 [e = . . _LCDDATA3bits 0 7 -> -> 1 `i `uc ]
@@ -1185,32 +1252,32 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _LCDDATA3bits 0 4 -> -> 0 `i `uc ]
 [e = . . _LCDDATA6bits 0 4 -> -> 1 `i `uc ]
 [e = . . _LCDDATA6bits 0 7 -> -> 1 `i `uc ]
-[e $U 407  ]
-"265
-[; ;main.c: 265:         case 5: LCDDATA9bits.SEG4COM3 = 1; LCDDATA9bits.SEG7COM3 = 0; LCDDATA3bits.SEG7COM1 = 1; LCDDATA0bits.SEG7COM0 = 1; LCDDATA3bits.SEG4COM1 = 0; LCDDATA6bits.SEG4COM2 = 1; LCDDATA6bits.SEG7COM2 = 1; break;
-[e :U 414 ]
-[e = . . _LCDDATA9bits 0 4 -> -> 1 `i `uc ]
-[e = . . _LCDDATA9bits 0 7 -> -> 0 `i `uc ]
-[e = . . _LCDDATA3bits 0 7 -> -> 1 `i `uc ]
-[e = . . _LCDDATA0bits 0 7 -> -> 1 `i `uc ]
-[e = . . _LCDDATA3bits 0 4 -> -> 0 `i `uc ]
-[e = . . _LCDDATA6bits 0 4 -> -> 1 `i `uc ]
-[e = . . _LCDDATA6bits 0 7 -> -> 1 `i `uc ]
-[e $U 407  ]
-"266
-[; ;main.c: 266:         case 6: LCDDATA9bits.SEG4COM3 = 1; LCDDATA9bits.SEG7COM3 = 0; LCDDATA3bits.SEG7COM1 = 1; LCDDATA0bits.SEG7COM0 = 1; LCDDATA3bits.SEG4COM1 = 1; LCDDATA6bits.SEG4COM2 = 1; LCDDATA6bits.SEG7COM2 = 1; break;
+[e $U 408  ]
+"302
+[; ;main.c: 302:         case 5: LCDDATA9bits.SEG4COM3 = 1; LCDDATA9bits.SEG7COM3 = 0; LCDDATA3bits.SEG7COM1 = 1; LCDDATA0bits.SEG7COM0 = 1; LCDDATA3bits.SEG4COM1 = 0; LCDDATA6bits.SEG4COM2 = 1; LCDDATA6bits.SEG7COM2 = 1; break;
 [e :U 415 ]
 [e = . . _LCDDATA9bits 0 4 -> -> 1 `i `uc ]
 [e = . . _LCDDATA9bits 0 7 -> -> 0 `i `uc ]
 [e = . . _LCDDATA3bits 0 7 -> -> 1 `i `uc ]
 [e = . . _LCDDATA0bits 0 7 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA6bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 7 -> -> 1 `i `uc ]
+[e $U 408  ]
+"303
+[; ;main.c: 303:         case 6: LCDDATA9bits.SEG4COM3 = 1; LCDDATA9bits.SEG7COM3 = 0; LCDDATA3bits.SEG7COM1 = 1; LCDDATA0bits.SEG7COM0 = 1; LCDDATA3bits.SEG4COM1 = 1; LCDDATA6bits.SEG4COM2 = 1; LCDDATA6bits.SEG7COM2 = 1; break;
+[e :U 416 ]
+[e = . . _LCDDATA9bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 7 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 7 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 7 -> -> 1 `i `uc ]
 [e = . . _LCDDATA3bits 0 4 -> -> 1 `i `uc ]
 [e = . . _LCDDATA6bits 0 4 -> -> 1 `i `uc ]
 [e = . . _LCDDATA6bits 0 7 -> -> 1 `i `uc ]
-[e $U 407  ]
-"267
-[; ;main.c: 267:         case 7: LCDDATA9bits.SEG4COM3 = 1; LCDDATA9bits.SEG7COM3 = 1; LCDDATA3bits.SEG7COM1 = 1; LCDDATA0bits.SEG7COM0 = 0; LCDDATA3bits.SEG4COM1 = 0; LCDDATA6bits.SEG4COM2 = 0; LCDDATA6bits.SEG7COM2 = 0; break;
-[e :U 416 ]
+[e $U 408  ]
+"304
+[; ;main.c: 304:         case 7: LCDDATA9bits.SEG4COM3 = 1; LCDDATA9bits.SEG7COM3 = 1; LCDDATA3bits.SEG7COM1 = 1; LCDDATA0bits.SEG7COM0 = 0; LCDDATA3bits.SEG4COM1 = 0; LCDDATA6bits.SEG4COM2 = 0; LCDDATA6bits.SEG7COM2 = 0; break;
+[e :U 417 ]
 [e = . . _LCDDATA9bits 0 4 -> -> 1 `i `uc ]
 [e = . . _LCDDATA9bits 0 7 -> -> 1 `i `uc ]
 [e = . . _LCDDATA3bits 0 7 -> -> 1 `i `uc ]
@@ -1218,43 +1285,47 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _LCDDATA3bits 0 4 -> -> 0 `i `uc ]
 [e = . . _LCDDATA6bits 0 4 -> -> 0 `i `uc ]
 [e = . . _LCDDATA6bits 0 7 -> -> 0 `i `uc ]
-[e $U 407  ]
-"268
-[; ;main.c: 268:         case 8: LCDDATA9bits.SEG4COM3 = 1; LCDDATA9bits.SEG7COM3 = 1; LCDDATA3bits.SEG7COM1 = 1; LCDDATA0bits.SEG7COM0 = 1; LCDDATA3bits.SEG4COM1 = 1; LCDDATA6bits.SEG4COM2 = 1; LCDDATA6bits.SEG7COM2 = 1; break;
-[e :U 417 ]
-[e = . . _LCDDATA9bits 0 4 -> -> 1 `i `uc ]
-[e = . . _LCDDATA9bits 0 7 -> -> 1 `i `uc ]
-[e = . . _LCDDATA3bits 0 7 -> -> 1 `i `uc ]
-[e = . . _LCDDATA0bits 0 7 -> -> 1 `i `uc ]
-[e = . . _LCDDATA3bits 0 4 -> -> 1 `i `uc ]
-[e = . . _LCDDATA6bits 0 4 -> -> 1 `i `uc ]
-[e = . . _LCDDATA6bits 0 7 -> -> 1 `i `uc ]
-[e $U 407  ]
-"269
-[; ;main.c: 269:         case 9: LCDDATA9bits.SEG4COM3 = 1; LCDDATA9bits.SEG7COM3 = 1; LCDDATA3bits.SEG7COM1 = 1; LCDDATA0bits.SEG7COM0 = 1; LCDDATA3bits.SEG4COM1 = 0; LCDDATA6bits.SEG4COM2 = 1; LCDDATA6bits.SEG7COM2 = 1; break;
+[e $U 408  ]
+"305
+[; ;main.c: 305:         case 8: LCDDATA9bits.SEG4COM3 = 1; LCDDATA9bits.SEG7COM3 = 1; LCDDATA3bits.SEG7COM1 = 1; LCDDATA0bits.SEG7COM0 = 1; LCDDATA3bits.SEG4COM1 = 1; LCDDATA6bits.SEG4COM2 = 1; LCDDATA6bits.SEG7COM2 = 1; break;
 [e :U 418 ]
 [e = . . _LCDDATA9bits 0 4 -> -> 1 `i `uc ]
 [e = . . _LCDDATA9bits 0 7 -> -> 1 `i `uc ]
 [e = . . _LCDDATA3bits 0 7 -> -> 1 `i `uc ]
 [e = . . _LCDDATA0bits 0 7 -> -> 1 `i `uc ]
-[e = . . _LCDDATA3bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 4 -> -> 1 `i `uc ]
 [e = . . _LCDDATA6bits 0 4 -> -> 1 `i `uc ]
 [e = . . _LCDDATA6bits 0 7 -> -> 1 `i `uc ]
-[e $U 407  ]
-"270
-[; ;main.c: 270:         case 0x0A: LCDDATA9bits.SEG4COM3 = 1; LCDDATA9bits.SEG7COM3 = 1; LCDDATA3bits.SEG7COM1 = 1; LCDDATA0bits.SEG7COM0 = 0; LCDDATA3bits.SEG4COM1 = 1; LCDDATA6bits.SEG4COM2 = 1; LCDDATA6bits.SEG7COM2 = 1; break;
+[e $U 408  ]
+"306
+[; ;main.c: 306:         case 9: LCDDATA9bits.SEG4COM3 = 1; LCDDATA9bits.SEG7COM3 = 1; LCDDATA3bits.SEG7COM1 = 1; LCDDATA0bits.SEG7COM0 = 1; LCDDATA3bits.SEG4COM1 = 0; LCDDATA6bits.SEG4COM2 = 1; LCDDATA6bits.SEG7COM2 = 1; break;
 [e :U 419 ]
 [e = . . _LCDDATA9bits 0 4 -> -> 1 `i `uc ]
 [e = . . _LCDDATA9bits 0 7 -> -> 1 `i `uc ]
 [e = . . _LCDDATA3bits 0 7 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 7 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA6bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 7 -> -> 1 `i `uc ]
+[e $U 408  ]
+"307
+[; ;main.c: 307:         case 0x0A: case 'A': case 'a': LCDDATA9bits.SEG4COM3 = 1; LCDDATA9bits.SEG7COM3 = 1; LCDDATA3bits.SEG7COM1 = 1; LCDDATA0bits.SEG7COM0 = 0; LCDDATA3bits.SEG4COM1 = 1; LCDDATA6bits.SEG4COM2 = 1; LCDDATA6bits.SEG7COM2 = 1; break;
+[e :U 420 ]
+[e :U 421 ]
+[e :U 422 ]
+[e = . . _LCDDATA9bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 7 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 7 -> -> 1 `i `uc ]
 [e = . . _LCDDATA0bits 0 7 -> -> 0 `i `uc ]
 [e = . . _LCDDATA3bits 0 4 -> -> 1 `i `uc ]
 [e = . . _LCDDATA6bits 0 4 -> -> 1 `i `uc ]
 [e = . . _LCDDATA6bits 0 7 -> -> 1 `i `uc ]
-[e $U 407  ]
-"271
-[; ;main.c: 271:         case 0x0B: LCDDATA9bits.SEG4COM3 = 0; LCDDATA9bits.SEG7COM3 = 0; LCDDATA3bits.SEG7COM1 = 1; LCDDATA0bits.SEG7COM0 = 1; LCDDATA3bits.SEG4COM1 = 1; LCDDATA6bits.SEG4COM2 = 1; LCDDATA6bits.SEG7COM2 = 1; break;
-[e :U 420 ]
+[e $U 408  ]
+"308
+[; ;main.c: 308:         case 0x0B: case 'B': case 'b': LCDDATA9bits.SEG4COM3 = 0; LCDDATA9bits.SEG7COM3 = 0; LCDDATA3bits.SEG7COM1 = 1; LCDDATA0bits.SEG7COM0 = 1; LCDDATA3bits.SEG4COM1 = 1; LCDDATA6bits.SEG4COM2 = 1; LCDDATA6bits.SEG7COM2 = 1; break;
+[e :U 423 ]
+[e :U 424 ]
+[e :U 425 ]
 [e = . . _LCDDATA9bits 0 4 -> -> 0 `i `uc ]
 [e = . . _LCDDATA9bits 0 7 -> -> 0 `i `uc ]
 [e = . . _LCDDATA3bits 0 7 -> -> 1 `i `uc ]
@@ -1262,10 +1333,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _LCDDATA3bits 0 4 -> -> 1 `i `uc ]
 [e = . . _LCDDATA6bits 0 4 -> -> 1 `i `uc ]
 [e = . . _LCDDATA6bits 0 7 -> -> 1 `i `uc ]
-[e $U 407  ]
-"272
-[; ;main.c: 272:         case 0x0C: LCDDATA9bits.SEG4COM3 = 1; LCDDATA9bits.SEG7COM3 = 0; LCDDATA3bits.SEG7COM1 = 0; LCDDATA0bits.SEG7COM0 = 1; LCDDATA3bits.SEG4COM1 = 1; LCDDATA6bits.SEG4COM2 = 1; LCDDATA6bits.SEG7COM2 = 0; break;
-[e :U 421 ]
+[e $U 408  ]
+"309
+[; ;main.c: 309:         case 0x0C: case 'C': case 'c': LCDDATA9bits.SEG4COM3 = 1; LCDDATA9bits.SEG7COM3 = 0; LCDDATA3bits.SEG7COM1 = 0; LCDDATA0bits.SEG7COM0 = 1; LCDDATA3bits.SEG4COM1 = 1; LCDDATA6bits.SEG4COM2 = 1; LCDDATA6bits.SEG7COM2 = 0; break;
+[e :U 426 ]
+[e :U 427 ]
+[e :U 428 ]
 [e = . . _LCDDATA9bits 0 4 -> -> 1 `i `uc ]
 [e = . . _LCDDATA9bits 0 7 -> -> 0 `i `uc ]
 [e = . . _LCDDATA3bits 0 7 -> -> 0 `i `uc ]
@@ -1273,10 +1346,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _LCDDATA3bits 0 4 -> -> 1 `i `uc ]
 [e = . . _LCDDATA6bits 0 4 -> -> 1 `i `uc ]
 [e = . . _LCDDATA6bits 0 7 -> -> 0 `i `uc ]
-[e $U 407  ]
-"273
-[; ;main.c: 273:         case 0x0D: LCDDATA9bits.SEG4COM3 = 0; LCDDATA9bits.SEG7COM3 = 1; LCDDATA3bits.SEG7COM1 = 1; LCDDATA0bits.SEG7COM0 = 1; LCDDATA3bits.SEG4COM1 = 1; LCDDATA6bits.SEG4COM2 = 0; LCDDATA6bits.SEG7COM2 = 1; break;
-[e :U 422 ]
+[e $U 408  ]
+"310
+[; ;main.c: 310:         case 0x0D: case 'D': case 'd': LCDDATA9bits.SEG4COM3 = 0; LCDDATA9bits.SEG7COM3 = 1; LCDDATA3bits.SEG7COM1 = 1; LCDDATA0bits.SEG7COM0 = 1; LCDDATA3bits.SEG4COM1 = 1; LCDDATA6bits.SEG4COM2 = 0; LCDDATA6bits.SEG7COM2 = 1; break;
+[e :U 429 ]
+[e :U 430 ]
+[e :U 431 ]
 [e = . . _LCDDATA9bits 0 4 -> -> 0 `i `uc ]
 [e = . . _LCDDATA9bits 0 7 -> -> 1 `i `uc ]
 [e = . . _LCDDATA3bits 0 7 -> -> 1 `i `uc ]
@@ -1284,10 +1359,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _LCDDATA3bits 0 4 -> -> 1 `i `uc ]
 [e = . . _LCDDATA6bits 0 4 -> -> 0 `i `uc ]
 [e = . . _LCDDATA6bits 0 7 -> -> 1 `i `uc ]
-[e $U 407  ]
-"274
-[; ;main.c: 274:         case 0x0E: LCDDATA9bits.SEG4COM3 = 1; LCDDATA9bits.SEG7COM3 = 1; LCDDATA3bits.SEG7COM1 = 0; LCDDATA0bits.SEG7COM0 = 0; LCDDATA3bits.SEG4COM1 = 1; LCDDATA6bits.SEG4COM2 = 1; LCDDATA6bits.SEG7COM2 = 1; break;
-[e :U 423 ]
+[e $U 408  ]
+"311
+[; ;main.c: 311:         case 0x0E: case 'E': case 'e': LCDDATA9bits.SEG4COM3 = 1; LCDDATA9bits.SEG7COM3 = 1; LCDDATA3bits.SEG7COM1 = 0; LCDDATA0bits.SEG7COM0 = 0; LCDDATA3bits.SEG4COM1 = 1; LCDDATA6bits.SEG4COM2 = 1; LCDDATA6bits.SEG7COM2 = 1; break;
+[e :U 432 ]
+[e :U 433 ]
+[e :U 434 ]
 [e = . . _LCDDATA9bits 0 4 -> -> 1 `i `uc ]
 [e = . . _LCDDATA9bits 0 7 -> -> 1 `i `uc ]
 [e = . . _LCDDATA3bits 0 7 -> -> 0 `i `uc ]
@@ -1295,10 +1372,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _LCDDATA3bits 0 4 -> -> 1 `i `uc ]
 [e = . . _LCDDATA6bits 0 4 -> -> 1 `i `uc ]
 [e = . . _LCDDATA6bits 0 7 -> -> 1 `i `uc ]
-[e $U 407  ]
-"275
-[; ;main.c: 275:         case 0x0F: LCDDATA9bits.SEG4COM3 = 1; LCDDATA9bits.SEG7COM3 = 0; LCDDATA3bits.SEG7COM1 = 0; LCDDATA0bits.SEG7COM0 = 0; LCDDATA3bits.SEG4COM1 = 1; LCDDATA6bits.SEG4COM2 = 1; LCDDATA6bits.SEG7COM2 = 1; break;
-[e :U 424 ]
+[e $U 408  ]
+"312
+[; ;main.c: 312:         case 0x0F: case 'F': case 'f': LCDDATA9bits.SEG4COM3 = 1; LCDDATA9bits.SEG7COM3 = 0; LCDDATA3bits.SEG7COM1 = 0; LCDDATA0bits.SEG7COM0 = 0; LCDDATA3bits.SEG4COM1 = 1; LCDDATA6bits.SEG4COM2 = 1; LCDDATA6bits.SEG7COM2 = 1; break;
+[e :U 435 ]
+[e :U 436 ]
+[e :U 437 ]
 [e = . . _LCDDATA9bits 0 4 -> -> 1 `i `uc ]
 [e = . . _LCDDATA9bits 0 7 -> -> 0 `i `uc ]
 [e = . . _LCDDATA3bits 0 7 -> -> 0 `i `uc ]
@@ -1306,10 +1385,166 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _LCDDATA3bits 0 4 -> -> 1 `i `uc ]
 [e = . . _LCDDATA6bits 0 4 -> -> 1 `i `uc ]
 [e = . . _LCDDATA6bits 0 7 -> -> 1 `i `uc ]
-[e $U 407  ]
-"277
-[; ;main.c: 277:         default: LCDDATA9bits.SEG4COM3 = 0; LCDDATA9bits.SEG7COM3 = 0; LCDDATA3bits.SEG7COM1 = 0; LCDDATA0bits.SEG7COM0 = 0; LCDDATA3bits.SEG4COM1 = 0; LCDDATA6bits.SEG4COM2 = 0; LCDDATA6bits.SEG7COM2 = 0;
-[e :U 425 ]
+[e $U 408  ]
+"313
+[; ;main.c: 313:         case 'G': case 'g': LCDDATA9bits.SEG4COM3 = 1; LCDDATA9bits.SEG7COM3 = 0; LCDDATA3bits.SEG7COM1 = 1; LCDDATA0bits.SEG7COM0 = 1; LCDDATA3bits.SEG4COM1 = 1; LCDDATA6bits.SEG4COM2 = 1; LCDDATA6bits.SEG7COM2 = 0; break;
+[e :U 438 ]
+[e :U 439 ]
+[e = . . _LCDDATA9bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 7 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 7 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 7 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 7 -> -> 0 `i `uc ]
+[e $U 408  ]
+"314
+[; ;main.c: 314:         case 'H': case 'h': LCDDATA9bits.SEG4COM3 = 0; LCDDATA9bits.SEG7COM3 = 1; LCDDATA3bits.SEG7COM1 = 1; LCDDATA0bits.SEG7COM0 = 0; LCDDATA3bits.SEG4COM1 = 1; LCDDATA6bits.SEG4COM2 = 1; LCDDATA6bits.SEG7COM2 = 1; break;
+[e :U 440 ]
+[e :U 441 ]
+[e = . . _LCDDATA9bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 7 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 7 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 7 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 7 -> -> 1 `i `uc ]
+[e $U 408  ]
+"315
+[; ;main.c: 315:         case 'I': case 'i': LCDDATA9bits.SEG4COM3 = 0; LCDDATA9bits.SEG7COM3 = 0; LCDDATA3bits.SEG7COM1 = 0; LCDDATA0bits.SEG7COM0 = 0; LCDDATA3bits.SEG4COM1 = 1; LCDDATA6bits.SEG4COM2 = 1; LCDDATA6bits.SEG7COM2 = 0; break;
+[e :U 442 ]
+[e :U 443 ]
+[e = . . _LCDDATA9bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 7 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 7 -> -> 0 `i `uc ]
+[e = . . _LCDDATA0bits 0 7 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 7 -> -> 0 `i `uc ]
+[e $U 408  ]
+"316
+[; ;main.c: 316:         case 'J': case 'j': LCDDATA9bits.SEG4COM3 = 0; LCDDATA9bits.SEG7COM3 = 1; LCDDATA3bits.SEG7COM1 = 1; LCDDATA0bits.SEG7COM0 = 1; LCDDATA3bits.SEG4COM1 = 1; LCDDATA6bits.SEG4COM2 = 0; LCDDATA6bits.SEG7COM2 = 0; break;
+[e :U 444 ]
+[e :U 445 ]
+[e = . . _LCDDATA9bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 7 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 7 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 7 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA6bits 0 7 -> -> 0 `i `uc ]
+[e $U 408  ]
+"317
+[; ;main.c: 317:         case 'L': case 'l': LCDDATA9bits.SEG4COM3 = 0; LCDDATA9bits.SEG7COM3 = 0; LCDDATA3bits.SEG7COM1 = 0; LCDDATA0bits.SEG7COM0 = 1; LCDDATA3bits.SEG4COM1 = 1; LCDDATA6bits.SEG4COM2 = 1; LCDDATA6bits.SEG7COM2 = 0; break;
+[e :U 446 ]
+[e :U 447 ]
+[e = . . _LCDDATA9bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 7 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 7 -> -> 0 `i `uc ]
+[e = . . _LCDDATA0bits 0 7 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 7 -> -> 0 `i `uc ]
+[e $U 408  ]
+"318
+[; ;main.c: 318:         case 'N': case 'n': LCDDATA9bits.SEG4COM3 = 0; LCDDATA9bits.SEG7COM3 = 0; LCDDATA3bits.SEG7COM1 = 1; LCDDATA0bits.SEG7COM0 = 0; LCDDATA3bits.SEG4COM1 = 1; LCDDATA6bits.SEG4COM2 = 0; LCDDATA6bits.SEG7COM2 = 1; break;
+[e :U 448 ]
+[e :U 449 ]
+[e = . . _LCDDATA9bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 7 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 7 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 7 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA6bits 0 7 -> -> 1 `i `uc ]
+[e $U 408  ]
+"319
+[; ;main.c: 319:         case 'O': case 'o': LCDDATA9bits.SEG4COM3 = 0; LCDDATA9bits.SEG7COM3 = 0; LCDDATA3bits.SEG7COM1 = 1; LCDDATA0bits.SEG7COM0 = 1; LCDDATA3bits.SEG4COM1 = 1; LCDDATA6bits.SEG4COM2 = 0; LCDDATA6bits.SEG7COM2 = 1; break;
+[e :U 450 ]
+[e :U 451 ]
+[e = . . _LCDDATA9bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 7 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 7 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 7 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA6bits 0 7 -> -> 1 `i `uc ]
+[e $U 408  ]
+"320
+[; ;main.c: 320:         case 'P': case 'p': LCDDATA9bits.SEG4COM3 = 1; LCDDATA9bits.SEG7COM3 = 1; LCDDATA3bits.SEG7COM1 = 0; LCDDATA0bits.SEG7COM0 = 0; LCDDATA3bits.SEG4COM1 = 1; LCDDATA6bits.SEG4COM2 = 1; LCDDATA6bits.SEG7COM2 = 1; break;
+[e :U 452 ]
+[e :U 453 ]
+[e = . . _LCDDATA9bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 7 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 7 -> -> 0 `i `uc ]
+[e = . . _LCDDATA0bits 0 7 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 7 -> -> 1 `i `uc ]
+[e $U 408  ]
+"321
+[; ;main.c: 321:         case 'R': case 'r': LCDDATA9bits.SEG4COM3 = 0; LCDDATA9bits.SEG7COM3 = 0; LCDDATA3bits.SEG7COM1 = 0; LCDDATA0bits.SEG7COM0 = 0; LCDDATA3bits.SEG4COM1 = 1; LCDDATA6bits.SEG4COM2 = 0; LCDDATA6bits.SEG7COM2 = 1; break;
+[e :U 454 ]
+[e :U 455 ]
+[e = . . _LCDDATA9bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 7 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 7 -> -> 0 `i `uc ]
+[e = . . _LCDDATA0bits 0 7 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA6bits 0 7 -> -> 1 `i `uc ]
+[e $U 408  ]
+"322
+[; ;main.c: 322:         case 'S': case 's': LCDDATA9bits.SEG4COM3 = 0; LCDDATA9bits.SEG7COM3 = 0; LCDDATA3bits.SEG7COM1 = 1; LCDDATA0bits.SEG7COM0 = 1; LCDDATA3bits.SEG4COM1 = 0; LCDDATA6bits.SEG4COM2 = 1; LCDDATA6bits.SEG7COM2 = 1; break;
+[e :U 456 ]
+[e :U 457 ]
+[e = . . _LCDDATA9bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 7 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 7 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 7 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA6bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 7 -> -> 1 `i `uc ]
+[e $U 408  ]
+"323
+[; ;main.c: 323:         case 'T': case 't': LCDDATA9bits.SEG4COM3 = 0; LCDDATA9bits.SEG7COM3 = 0; LCDDATA3bits.SEG7COM1 = 0; LCDDATA0bits.SEG7COM0 = 1; LCDDATA3bits.SEG4COM1 = 1; LCDDATA6bits.SEG4COM2 = 1; LCDDATA6bits.SEG7COM2 = 1; break;
+[e :U 458 ]
+[e :U 459 ]
+[e = . . _LCDDATA9bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 7 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 7 -> -> 0 `i `uc ]
+[e = . . _LCDDATA0bits 0 7 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 7 -> -> 1 `i `uc ]
+[e $U 408  ]
+"324
+[; ;main.c: 324:         case 'U': case 'u': LCDDATA9bits.SEG4COM3 = 0; LCDDATA9bits.SEG7COM3 = 1; LCDDATA3bits.SEG7COM1 = 1; LCDDATA0bits.SEG7COM0 = 1; LCDDATA3bits.SEG4COM1 = 1; LCDDATA6bits.SEG4COM2 = 1; LCDDATA6bits.SEG7COM2 = 0; break;
+[e :U 460 ]
+[e :U 461 ]
+[e = . . _LCDDATA9bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 7 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 7 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 7 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 7 -> -> 0 `i `uc ]
+[e $U 408  ]
+"325
+[; ;main.c: 325:         case 'Y': case 'y': LCDDATA9bits.SEG4COM3 = 0; LCDDATA9bits.SEG7COM3 = 1; LCDDATA3bits.SEG7COM1 = 1; LCDDATA0bits.SEG7COM0 = 1; LCDDATA3bits.SEG4COM1 = 0; LCDDATA6bits.SEG4COM2 = 1; LCDDATA6bits.SEG7COM2 = 1; break;
+[e :U 462 ]
+[e :U 463 ]
+[e = . . _LCDDATA9bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 7 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 7 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 7 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA6bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 7 -> -> 1 `i `uc ]
+[e $U 408  ]
+"327
+[; ;main.c: 327:         default: LCDDATA9bits.SEG4COM3 = 0; LCDDATA9bits.SEG7COM3 = 0; LCDDATA3bits.SEG7COM1 = 0; LCDDATA0bits.SEG7COM0 = 0; LCDDATA3bits.SEG4COM1 = 0; LCDDATA6bits.SEG4COM2 = 0; LCDDATA6bits.SEG7COM2 = 0;
+[e :U 464 ]
 [e = . . _LCDDATA9bits 0 4 -> -> 0 `i `uc ]
 [e = . . _LCDDATA9bits 0 7 -> -> 0 `i `uc ]
 [e = . . _LCDDATA3bits 0 7 -> -> 0 `i `uc ]
@@ -1317,1018 +1552,1468 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _LCDDATA3bits 0 4 -> -> 0 `i `uc ]
 [e = . . _LCDDATA6bits 0 4 -> -> 0 `i `uc ]
 [e = . . _LCDDATA6bits 0 7 -> -> 0 `i `uc ]
-"278
-[; ;main.c: 278:     }
-}
-[e $U 407  ]
-[e :U 408 ]
-[e [\ -> _num `i , $ -> 0 `i 409
- , $ -> 1 `i 410
- , $ -> 2 `i 411
- , $ -> 3 `i 412
- , $ -> 4 `i 413
- , $ -> 5 `i 414
- , $ -> 6 `i 415
- , $ -> 7 `i 416
- , $ -> 8 `i 417
- , $ -> 9 `i 418
- , $ -> 10 `i 419
- , $ -> 11 `i 420
- , $ -> 12 `i 421
- , $ -> 13 `i 422
- , $ -> 14 `i 423
- , $ -> 15 `i 424
- 425 ]
-[e :U 407 ]
-"279
-[; ;main.c: 279: }
-[e :UE 406 ]
-}
-"281
-[; ;main.c: 281: void LCD_Digit2Num (unsigned char num)
-[v _LCD_Digit2Num `(v ~T0 @X0 1 ef1`uc ]
-"282
-[; ;main.c: 282: {
-{
-[e :U _LCD_Digit2Num ]
-"281
-[; ;main.c: 281: void LCD_Digit2Num (unsigned char num)
-[v _num `uc ~T0 @X0 1 r1 ]
-"282
-[; ;main.c: 282: {
-[f ]
-"283
-[; ;main.c: 283:     switch (num)
-[e $U 428  ]
-"284
-[; ;main.c: 284:     {
-{
-"285
-[; ;main.c: 285:         case 0: LCDDATA9bits.SEG5COM3 = 1; LCDDATA10bits.SEG12COM3 = 1; LCDDATA4bits.SEG12COM1 = 1; LCDDATA1bits.SEG12COM0 = 1; LCDDATA3bits.SEG5COM1 = 1; LCDDATA6bits.SEG5COM2 = 1; LCDDATA7bits.SEG12COM2 = 0; break;
-[e :U 429 ]
-[e = . . _LCDDATA9bits 0 5 -> -> 1 `i `uc ]
-[e = . . _LCDDATA10bits 0 4 -> -> 1 `i `uc ]
-[e = . . _LCDDATA4bits 0 4 -> -> 1 `i `uc ]
-[e = . . _LCDDATA1bits 0 4 -> -> 1 `i `uc ]
-[e = . . _LCDDATA3bits 0 5 -> -> 1 `i `uc ]
-[e = . . _LCDDATA6bits 0 5 -> -> 1 `i `uc ]
-[e = . . _LCDDATA7bits 0 4 -> -> 0 `i `uc ]
-[e $U 427  ]
-"286
-[; ;main.c: 286:         case 1: LCDDATA9bits.SEG5COM3 = 0; LCDDATA10bits.SEG12COM3 = 1; LCDDATA4bits.SEG12COM1 = 1; LCDDATA1bits.SEG12COM0 = 0; LCDDATA3bits.SEG5COM1 = 0; LCDDATA6bits.SEG5COM2 = 0; LCDDATA7bits.SEG12COM2 = 0; break;
-[e :U 430 ]
-[e = . . _LCDDATA9bits 0 5 -> -> 0 `i `uc ]
-[e = . . _LCDDATA10bits 0 4 -> -> 1 `i `uc ]
-[e = . . _LCDDATA4bits 0 4 -> -> 1 `i `uc ]
-[e = . . _LCDDATA1bits 0 4 -> -> 0 `i `uc ]
-[e = . . _LCDDATA3bits 0 5 -> -> 0 `i `uc ]
-[e = . . _LCDDATA6bits 0 5 -> -> 0 `i `uc ]
-[e = . . _LCDDATA7bits 0 4 -> -> 0 `i `uc ]
-[e $U 427  ]
-"287
-[; ;main.c: 287:         case 2: LCDDATA9bits.SEG5COM3 = 1; LCDDATA10bits.SEG12COM3 = 1; LCDDATA4bits.SEG12COM1 = 0; LCDDATA1bits.SEG12COM0 = 1; LCDDATA3bits.SEG5COM1 = 1; LCDDATA6bits.SEG5COM2 = 0; LCDDATA7bits.SEG12COM2 = 1; break;
-[e :U 431 ]
-[e = . . _LCDDATA9bits 0 5 -> -> 1 `i `uc ]
-[e = . . _LCDDATA10bits 0 4 -> -> 1 `i `uc ]
-[e = . . _LCDDATA4bits 0 4 -> -> 0 `i `uc ]
-[e = . . _LCDDATA1bits 0 4 -> -> 1 `i `uc ]
-[e = . . _LCDDATA3bits 0 5 -> -> 1 `i `uc ]
-[e = . . _LCDDATA6bits 0 5 -> -> 0 `i `uc ]
-[e = . . _LCDDATA7bits 0 4 -> -> 1 `i `uc ]
-[e $U 427  ]
-"288
-[; ;main.c: 288:         case 3: LCDDATA9bits.SEG5COM3 = 1; LCDDATA10bits.SEG12COM3 = 1; LCDDATA4bits.SEG12COM1 = 1; LCDDATA1bits.SEG12COM0 = 1; LCDDATA3bits.SEG5COM1 = 0; LCDDATA6bits.SEG5COM2 = 0; LCDDATA7bits.SEG12COM2 = 1; break;
-[e :U 432 ]
-[e = . . _LCDDATA9bits 0 5 -> -> 1 `i `uc ]
-[e = . . _LCDDATA10bits 0 4 -> -> 1 `i `uc ]
-[e = . . _LCDDATA4bits 0 4 -> -> 1 `i `uc ]
-[e = . . _LCDDATA1bits 0 4 -> -> 1 `i `uc ]
-[e = . . _LCDDATA3bits 0 5 -> -> 0 `i `uc ]
-[e = . . _LCDDATA6bits 0 5 -> -> 0 `i `uc ]
-[e = . . _LCDDATA7bits 0 4 -> -> 1 `i `uc ]
-[e $U 427  ]
-"289
-[; ;main.c: 289:         case 4: LCDDATA9bits.SEG5COM3 = 0; LCDDATA10bits.SEG12COM3 = 1; LCDDATA4bits.SEG12COM1 = 1; LCDDATA1bits.SEG12COM0 = 0; LCDDATA3bits.SEG5COM1 = 0; LCDDATA6bits.SEG5COM2 = 1; LCDDATA7bits.SEG12COM2 = 1; break;
-[e :U 433 ]
-[e = . . _LCDDATA9bits 0 5 -> -> 0 `i `uc ]
-[e = . . _LCDDATA10bits 0 4 -> -> 1 `i `uc ]
-[e = . . _LCDDATA4bits 0 4 -> -> 1 `i `uc ]
-[e = . . _LCDDATA1bits 0 4 -> -> 0 `i `uc ]
-[e = . . _LCDDATA3bits 0 5 -> -> 0 `i `uc ]
-[e = . . _LCDDATA6bits 0 5 -> -> 1 `i `uc ]
-[e = . . _LCDDATA7bits 0 4 -> -> 1 `i `uc ]
-[e $U 427  ]
-"290
-[; ;main.c: 290:         case 5: LCDDATA9bits.SEG5COM3 = 1; LCDDATA10bits.SEG12COM3 = 0; LCDDATA4bits.SEG12COM1 = 1; LCDDATA1bits.SEG12COM0 = 1; LCDDATA3bits.SEG5COM1 = 0; LCDDATA6bits.SEG5COM2 = 1; LCDDATA7bits.SEG12COM2 = 1; break;
-[e :U 434 ]
-[e = . . _LCDDATA9bits 0 5 -> -> 1 `i `uc ]
-[e = . . _LCDDATA10bits 0 4 -> -> 0 `i `uc ]
-[e = . . _LCDDATA4bits 0 4 -> -> 1 `i `uc ]
-[e = . . _LCDDATA1bits 0 4 -> -> 1 `i `uc ]
-[e = . . _LCDDATA3bits 0 5 -> -> 0 `i `uc ]
-[e = . . _LCDDATA6bits 0 5 -> -> 1 `i `uc ]
-[e = . . _LCDDATA7bits 0 4 -> -> 1 `i `uc ]
-[e $U 427  ]
-"291
-[; ;main.c: 291:         case 6: LCDDATA9bits.SEG5COM3 = 1; LCDDATA10bits.SEG12COM3 = 0; LCDDATA4bits.SEG12COM1 = 1; LCDDATA1bits.SEG12COM0 = 1; LCDDATA3bits.SEG5COM1 = 1; LCDDATA6bits.SEG5COM2 = 1; LCDDATA7bits.SEG12COM2 = 1; break;
-[e :U 435 ]
-[e = . . _LCDDATA9bits 0 5 -> -> 1 `i `uc ]
-[e = . . _LCDDATA10bits 0 4 -> -> 0 `i `uc ]
-[e = . . _LCDDATA4bits 0 4 -> -> 1 `i `uc ]
-[e = . . _LCDDATA1bits 0 4 -> -> 1 `i `uc ]
-[e = . . _LCDDATA3bits 0 5 -> -> 1 `i `uc ]
-[e = . . _LCDDATA6bits 0 5 -> -> 1 `i `uc ]
-[e = . . _LCDDATA7bits 0 4 -> -> 1 `i `uc ]
-[e $U 427  ]
-"292
-[; ;main.c: 292:         case 7: LCDDATA9bits.SEG5COM3 = 1; LCDDATA10bits.SEG12COM3 = 1; LCDDATA4bits.SEG12COM1 = 1; LCDDATA1bits.SEG12COM0 = 0; LCDDATA3bits.SEG5COM1 = 0; LCDDATA6bits.SEG5COM2 = 0; LCDDATA7bits.SEG12COM2 = 0; break;
-[e :U 436 ]
-[e = . . _LCDDATA9bits 0 5 -> -> 1 `i `uc ]
-[e = . . _LCDDATA10bits 0 4 -> -> 1 `i `uc ]
-[e = . . _LCDDATA4bits 0 4 -> -> 1 `i `uc ]
-[e = . . _LCDDATA1bits 0 4 -> -> 0 `i `uc ]
-[e = . . _LCDDATA3bits 0 5 -> -> 0 `i `uc ]
-[e = . . _LCDDATA6bits 0 5 -> -> 0 `i `uc ]
-[e = . . _LCDDATA7bits 0 4 -> -> 0 `i `uc ]
-[e $U 427  ]
-"293
-[; ;main.c: 293:         case 8: LCDDATA9bits.SEG5COM3 = 1; LCDDATA10bits.SEG12COM3 = 1; LCDDATA4bits.SEG12COM1 = 1; LCDDATA1bits.SEG12COM0 = 1; LCDDATA3bits.SEG5COM1 = 1; LCDDATA6bits.SEG5COM2 = 1; LCDDATA7bits.SEG12COM2 = 1; break;
-[e :U 437 ]
-[e = . . _LCDDATA9bits 0 5 -> -> 1 `i `uc ]
-[e = . . _LCDDATA10bits 0 4 -> -> 1 `i `uc ]
-[e = . . _LCDDATA4bits 0 4 -> -> 1 `i `uc ]
-[e = . . _LCDDATA1bits 0 4 -> -> 1 `i `uc ]
-[e = . . _LCDDATA3bits 0 5 -> -> 1 `i `uc ]
-[e = . . _LCDDATA6bits 0 5 -> -> 1 `i `uc ]
-[e = . . _LCDDATA7bits 0 4 -> -> 1 `i `uc ]
-[e $U 427  ]
-"294
-[; ;main.c: 294:         case 9: LCDDATA9bits.SEG5COM3 = 1; LCDDATA10bits.SEG12COM3 = 1; LCDDATA4bits.SEG12COM1 = 1; LCDDATA1bits.SEG12COM0 = 1; LCDDATA3bits.SEG5COM1 = 0; LCDDATA6bits.SEG5COM2 = 1; LCDDATA7bits.SEG12COM2 = 1; break;
-[e :U 438 ]
-[e = . . _LCDDATA9bits 0 5 -> -> 1 `i `uc ]
-[e = . . _LCDDATA10bits 0 4 -> -> 1 `i `uc ]
-[e = . . _LCDDATA4bits 0 4 -> -> 1 `i `uc ]
-[e = . . _LCDDATA1bits 0 4 -> -> 1 `i `uc ]
-[e = . . _LCDDATA3bits 0 5 -> -> 0 `i `uc ]
-[e = . . _LCDDATA6bits 0 5 -> -> 1 `i `uc ]
-[e = . . _LCDDATA7bits 0 4 -> -> 1 `i `uc ]
-[e $U 427  ]
-"295
-[; ;main.c: 295:         case 0x0A: LCDDATA9bits.SEG5COM3 = 1; LCDDATA10bits.SEG12COM3 = 1; LCDDATA4bits.SEG12COM1 = 1; LCDDATA1bits.SEG12COM0 = 0; LCDDATA3bits.SEG5COM1 = 1; LCDDATA6bits.SEG5COM2 = 1; LCDDATA7bits.SEG12COM2 = 1; break;
-[e :U 439 ]
-[e = . . _LCDDATA9bits 0 5 -> -> 1 `i `uc ]
-[e = . . _LCDDATA10bits 0 4 -> -> 1 `i `uc ]
-[e = . . _LCDDATA4bits 0 4 -> -> 1 `i `uc ]
-[e = . . _LCDDATA1bits 0 4 -> -> 0 `i `uc ]
-[e = . . _LCDDATA3bits 0 5 -> -> 1 `i `uc ]
-[e = . . _LCDDATA6bits 0 5 -> -> 1 `i `uc ]
-[e = . . _LCDDATA7bits 0 4 -> -> 1 `i `uc ]
-[e $U 427  ]
-"296
-[; ;main.c: 296:         case 0x0B: LCDDATA9bits.SEG5COM3 = 0; LCDDATA10bits.SEG12COM3 = 0; LCDDATA4bits.SEG12COM1 = 1; LCDDATA1bits.SEG12COM0 = 1; LCDDATA3bits.SEG5COM1 = 1; LCDDATA6bits.SEG5COM2 = 1; LCDDATA7bits.SEG12COM2 = 1; break;
-[e :U 440 ]
-[e = . . _LCDDATA9bits 0 5 -> -> 0 `i `uc ]
-[e = . . _LCDDATA10bits 0 4 -> -> 0 `i `uc ]
-[e = . . _LCDDATA4bits 0 4 -> -> 1 `i `uc ]
-[e = . . _LCDDATA1bits 0 4 -> -> 1 `i `uc ]
-[e = . . _LCDDATA3bits 0 5 -> -> 1 `i `uc ]
-[e = . . _LCDDATA6bits 0 5 -> -> 1 `i `uc ]
-[e = . . _LCDDATA7bits 0 4 -> -> 1 `i `uc ]
-[e $U 427  ]
-"297
-[; ;main.c: 297:         case 0x0C: LCDDATA9bits.SEG5COM3 = 1; LCDDATA10bits.SEG12COM3 = 0; LCDDATA4bits.SEG12COM1 = 0; LCDDATA1bits.SEG12COM0 = 1; LCDDATA3bits.SEG5COM1 = 1; LCDDATA6bits.SEG5COM2 = 1; LCDDATA7bits.SEG12COM2 = 0; break;
-[e :U 441 ]
-[e = . . _LCDDATA9bits 0 5 -> -> 1 `i `uc ]
-[e = . . _LCDDATA10bits 0 4 -> -> 0 `i `uc ]
-[e = . . _LCDDATA4bits 0 4 -> -> 0 `i `uc ]
-[e = . . _LCDDATA1bits 0 4 -> -> 1 `i `uc ]
-[e = . . _LCDDATA3bits 0 5 -> -> 1 `i `uc ]
-[e = . . _LCDDATA6bits 0 5 -> -> 1 `i `uc ]
-[e = . . _LCDDATA7bits 0 4 -> -> 0 `i `uc ]
-[e $U 427  ]
-"298
-[; ;main.c: 298:         case 0x0D: LCDDATA9bits.SEG5COM3 = 0; LCDDATA10bits.SEG12COM3 = 1; LCDDATA4bits.SEG12COM1 = 1; LCDDATA1bits.SEG12COM0 = 1; LCDDATA3bits.SEG5COM1 = 1; LCDDATA6bits.SEG5COM2 = 0; LCDDATA7bits.SEG12COM2 = 1; break;
-[e :U 442 ]
-[e = . . _LCDDATA9bits 0 5 -> -> 0 `i `uc ]
-[e = . . _LCDDATA10bits 0 4 -> -> 1 `i `uc ]
-[e = . . _LCDDATA4bits 0 4 -> -> 1 `i `uc ]
-[e = . . _LCDDATA1bits 0 4 -> -> 1 `i `uc ]
-[e = . . _LCDDATA3bits 0 5 -> -> 1 `i `uc ]
-[e = . . _LCDDATA6bits 0 5 -> -> 0 `i `uc ]
-[e = . . _LCDDATA7bits 0 4 -> -> 1 `i `uc ]
-[e $U 427  ]
-"299
-[; ;main.c: 299:         case 0x0E: LCDDATA9bits.SEG5COM3 = 1; LCDDATA10bits.SEG12COM3 = 0; LCDDATA4bits.SEG12COM1 = 0; LCDDATA1bits.SEG12COM0 = 1; LCDDATA3bits.SEG5COM1 = 1; LCDDATA6bits.SEG5COM2 = 1; LCDDATA7bits.SEG12COM2 = 1; break;
-[e :U 443 ]
-[e = . . _LCDDATA9bits 0 5 -> -> 1 `i `uc ]
-[e = . . _LCDDATA10bits 0 4 -> -> 0 `i `uc ]
-[e = . . _LCDDATA4bits 0 4 -> -> 0 `i `uc ]
-[e = . . _LCDDATA1bits 0 4 -> -> 1 `i `uc ]
-[e = . . _LCDDATA3bits 0 5 -> -> 1 `i `uc ]
-[e = . . _LCDDATA6bits 0 5 -> -> 1 `i `uc ]
-[e = . . _LCDDATA7bits 0 4 -> -> 1 `i `uc ]
-[e $U 427  ]
-"300
-[; ;main.c: 300:         case 0x0F: LCDDATA9bits.SEG5COM3 = 1; LCDDATA10bits.SEG12COM3 = 0; LCDDATA4bits.SEG12COM1 = 0; LCDDATA1bits.SEG12COM0 = 0; LCDDATA3bits.SEG5COM1 = 1; LCDDATA6bits.SEG5COM2 = 1; LCDDATA7bits.SEG12COM2 = 1; break;
-[e :U 444 ]
-[e = . . _LCDDATA9bits 0 5 -> -> 1 `i `uc ]
-[e = . . _LCDDATA10bits 0 4 -> -> 0 `i `uc ]
-[e = . . _LCDDATA4bits 0 4 -> -> 0 `i `uc ]
-[e = . . _LCDDATA1bits 0 4 -> -> 0 `i `uc ]
-[e = . . _LCDDATA3bits 0 5 -> -> 1 `i `uc ]
-[e = . . _LCDDATA6bits 0 5 -> -> 1 `i `uc ]
-[e = . . _LCDDATA7bits 0 4 -> -> 1 `i `uc ]
-[e $U 427  ]
-"302
-[; ;main.c: 302:         default: LCDDATA9bits.SEG5COM3 = 0; LCDDATA10bits.SEG12COM3 = 0; LCDDATA4bits.SEG12COM1 = 0; LCDDATA1bits.SEG12COM0 = 0; LCDDATA3bits.SEG5COM1 = 0; LCDDATA6bits.SEG5COM2 = 0; LCDDATA7bits.SEG12COM2 = 0;
-[e :U 445 ]
-[e = . . _LCDDATA9bits 0 5 -> -> 0 `i `uc ]
-[e = . . _LCDDATA10bits 0 4 -> -> 0 `i `uc ]
-[e = . . _LCDDATA4bits 0 4 -> -> 0 `i `uc ]
-[e = . . _LCDDATA1bits 0 4 -> -> 0 `i `uc ]
-[e = . . _LCDDATA3bits 0 5 -> -> 0 `i `uc ]
-[e = . . _LCDDATA6bits 0 5 -> -> 0 `i `uc ]
-[e = . . _LCDDATA7bits 0 4 -> -> 0 `i `uc ]
-"303
-[; ;main.c: 303:     }
-}
-[e $U 427  ]
-[e :U 428 ]
-[e [\ -> _num `i , $ -> 0 `i 429
- , $ -> 1 `i 430
- , $ -> 2 `i 431
- , $ -> 3 `i 432
- , $ -> 4 `i 433
- , $ -> 5 `i 434
- , $ -> 6 `i 435
- , $ -> 7 `i 436
- , $ -> 8 `i 437
- , $ -> 9 `i 438
- , $ -> 10 `i 439
- , $ -> 11 `i 440
- , $ -> 12 `i 441
- , $ -> 13 `i 442
- , $ -> 14 `i 443
- , $ -> 15 `i 444
- 445 ]
-[e :U 427 ]
-"304
-[; ;main.c: 304: }
-[e :UE 426 ]
-}
-"306
-[; ;main.c: 306: void LCD_Digit3Num (unsigned char num)
-[v _LCD_Digit3Num `(v ~T0 @X0 1 ef1`uc ]
-"307
-[; ;main.c: 307: {
-{
-[e :U _LCD_Digit3Num ]
-"306
-[; ;main.c: 306: void LCD_Digit3Num (unsigned char num)
-[v _num `uc ~T0 @X0 1 r1 ]
-"307
-[; ;main.c: 307: {
-[f ]
-"308
-[; ;main.c: 308:     switch (num)
-[e $U 448  ]
-"309
-[; ;main.c: 309:     {
-{
-"310
-[; ;main.c: 310:         case 0: LCDDATA9bits.SEG3COM3 = 1; LCDDATA9bits.SEG1COM3 = 1; LCDDATA3bits.SEG1COM1 = 1; LCDDATA0bits.SEG1COM0 = 1; LCDDATA3bits.SEG3COM1 = 1; LCDDATA6bits.SEG3COM2 = 1; LCDDATA6bits.SEG1COM2 = 0; break;
-[e :U 449 ]
-[e = . . _LCDDATA9bits 0 3 -> -> 1 `i `uc ]
-[e = . . _LCDDATA9bits 0 1 -> -> 1 `i `uc ]
-[e = . . _LCDDATA3bits 0 1 -> -> 1 `i `uc ]
-[e = . . _LCDDATA0bits 0 1 -> -> 1 `i `uc ]
-[e = . . _LCDDATA3bits 0 3 -> -> 1 `i `uc ]
-[e = . . _LCDDATA6bits 0 3 -> -> 1 `i `uc ]
-[e = . . _LCDDATA6bits 0 1 -> -> 0 `i `uc ]
-[e $U 447  ]
-"311
-[; ;main.c: 311:         case 1: LCDDATA9bits.SEG3COM3 = 0; LCDDATA9bits.SEG1COM3 = 1; LCDDATA3bits.SEG1COM1 = 1; LCDDATA0bits.SEG1COM0 = 0; LCDDATA3bits.SEG3COM1 = 0; LCDDATA6bits.SEG3COM2 = 0; LCDDATA6bits.SEG1COM2 = 0; break;
-[e :U 450 ]
-[e = . . _LCDDATA9bits 0 3 -> -> 0 `i `uc ]
-[e = . . _LCDDATA9bits 0 1 -> -> 1 `i `uc ]
-[e = . . _LCDDATA3bits 0 1 -> -> 1 `i `uc ]
-[e = . . _LCDDATA0bits 0 1 -> -> 0 `i `uc ]
-[e = . . _LCDDATA3bits 0 3 -> -> 0 `i `uc ]
-[e = . . _LCDDATA6bits 0 3 -> -> 0 `i `uc ]
-[e = . . _LCDDATA6bits 0 1 -> -> 0 `i `uc ]
-[e $U 447  ]
-"312
-[; ;main.c: 312:         case 2: LCDDATA9bits.SEG3COM3 = 1; LCDDATA9bits.SEG1COM3 = 1; LCDDATA3bits.SEG1COM1 = 0; LCDDATA0bits.SEG1COM0 = 1; LCDDATA3bits.SEG3COM1 = 1; LCDDATA6bits.SEG3COM2 = 0; LCDDATA6bits.SEG1COM2 = 1; break;
-[e :U 451 ]
-[e = . . _LCDDATA9bits 0 3 -> -> 1 `i `uc ]
-[e = . . _LCDDATA9bits 0 1 -> -> 1 `i `uc ]
-[e = . . _LCDDATA3bits 0 1 -> -> 0 `i `uc ]
-[e = . . _LCDDATA0bits 0 1 -> -> 1 `i `uc ]
-[e = . . _LCDDATA3bits 0 3 -> -> 1 `i `uc ]
-[e = . . _LCDDATA6bits 0 3 -> -> 0 `i `uc ]
-[e = . . _LCDDATA6bits 0 1 -> -> 1 `i `uc ]
-[e $U 447  ]
-"313
-[; ;main.c: 313:         case 3: LCDDATA9bits.SEG3COM3 = 1; LCDDATA9bits.SEG1COM3 = 1; LCDDATA3bits.SEG1COM1 = 1; LCDDATA0bits.SEG1COM0 = 1; LCDDATA3bits.SEG3COM1 = 0; LCDDATA6bits.SEG3COM2 = 0; LCDDATA6bits.SEG1COM2 = 1; break;
-[e :U 452 ]
-[e = . . _LCDDATA9bits 0 3 -> -> 1 `i `uc ]
-[e = . . _LCDDATA9bits 0 1 -> -> 1 `i `uc ]
-[e = . . _LCDDATA3bits 0 1 -> -> 1 `i `uc ]
-[e = . . _LCDDATA0bits 0 1 -> -> 1 `i `uc ]
-[e = . . _LCDDATA3bits 0 3 -> -> 0 `i `uc ]
-[e = . . _LCDDATA6bits 0 3 -> -> 0 `i `uc ]
-[e = . . _LCDDATA6bits 0 1 -> -> 1 `i `uc ]
-[e $U 447  ]
-"314
-[; ;main.c: 314:         case 4: LCDDATA9bits.SEG3COM3 = 0; LCDDATA9bits.SEG1COM3 = 1; LCDDATA3bits.SEG1COM1 = 1; LCDDATA0bits.SEG1COM0 = 0; LCDDATA3bits.SEG3COM1 = 0; LCDDATA6bits.SEG3COM2 = 1; LCDDATA6bits.SEG1COM2 = 1; break;
-[e :U 453 ]
-[e = . . _LCDDATA9bits 0 3 -> -> 0 `i `uc ]
-[e = . . _LCDDATA9bits 0 1 -> -> 1 `i `uc ]
-[e = . . _LCDDATA3bits 0 1 -> -> 1 `i `uc ]
-[e = . . _LCDDATA0bits 0 1 -> -> 0 `i `uc ]
-[e = . . _LCDDATA3bits 0 3 -> -> 0 `i `uc ]
-[e = . . _LCDDATA6bits 0 3 -> -> 1 `i `uc ]
-[e = . . _LCDDATA6bits 0 1 -> -> 1 `i `uc ]
-[e $U 447  ]
-"315
-[; ;main.c: 315:         case 5: LCDDATA9bits.SEG3COM3 = 1; LCDDATA9bits.SEG1COM3 = 0; LCDDATA3bits.SEG1COM1 = 1; LCDDATA0bits.SEG1COM0 = 1; LCDDATA3bits.SEG3COM1 = 0; LCDDATA6bits.SEG3COM2 = 1; LCDDATA6bits.SEG1COM2 = 1; break;
-[e :U 454 ]
-[e = . . _LCDDATA9bits 0 3 -> -> 1 `i `uc ]
-[e = . . _LCDDATA9bits 0 1 -> -> 0 `i `uc ]
-[e = . . _LCDDATA3bits 0 1 -> -> 1 `i `uc ]
-[e = . . _LCDDATA0bits 0 1 -> -> 1 `i `uc ]
-[e = . . _LCDDATA3bits 0 3 -> -> 0 `i `uc ]
-[e = . . _LCDDATA6bits 0 3 -> -> 1 `i `uc ]
-[e = . . _LCDDATA6bits 0 1 -> -> 1 `i `uc ]
-[e $U 447  ]
-"316
-[; ;main.c: 316:         case 6: LCDDATA9bits.SEG3COM3 = 1; LCDDATA9bits.SEG1COM3 = 0; LCDDATA3bits.SEG1COM1 = 1; LCDDATA0bits.SEG1COM0 = 1; LCDDATA3bits.SEG3COM1 = 1; LCDDATA6bits.SEG3COM2 = 1; LCDDATA6bits.SEG1COM2 = 1; break;
-[e :U 455 ]
-[e = . . _LCDDATA9bits 0 3 -> -> 1 `i `uc ]
-[e = . . _LCDDATA9bits 0 1 -> -> 0 `i `uc ]
-[e = . . _LCDDATA3bits 0 1 -> -> 1 `i `uc ]
-[e = . . _LCDDATA0bits 0 1 -> -> 1 `i `uc ]
-[e = . . _LCDDATA3bits 0 3 -> -> 1 `i `uc ]
-[e = . . _LCDDATA6bits 0 3 -> -> 1 `i `uc ]
-[e = . . _LCDDATA6bits 0 1 -> -> 1 `i `uc ]
-[e $U 447  ]
-"317
-[; ;main.c: 317:         case 7: LCDDATA9bits.SEG3COM3 = 1; LCDDATA9bits.SEG1COM3 = 1; LCDDATA3bits.SEG1COM1 = 1; LCDDATA0bits.SEG1COM0 = 0; LCDDATA3bits.SEG3COM1 = 0; LCDDATA6bits.SEG3COM2 = 0; LCDDATA6bits.SEG1COM2 = 0; break;
-[e :U 456 ]
-[e = . . _LCDDATA9bits 0 3 -> -> 1 `i `uc ]
-[e = . . _LCDDATA9bits 0 1 -> -> 1 `i `uc ]
-[e = . . _LCDDATA3bits 0 1 -> -> 1 `i `uc ]
-[e = . . _LCDDATA0bits 0 1 -> -> 0 `i `uc ]
-[e = . . _LCDDATA3bits 0 3 -> -> 0 `i `uc ]
-[e = . . _LCDDATA6bits 0 3 -> -> 0 `i `uc ]
-[e = . . _LCDDATA6bits 0 1 -> -> 0 `i `uc ]
-[e $U 447  ]
-"318
-[; ;main.c: 318:         case 8: LCDDATA9bits.SEG3COM3 = 1; LCDDATA9bits.SEG1COM3 = 1; LCDDATA3bits.SEG1COM1 = 1; LCDDATA0bits.SEG1COM0 = 1; LCDDATA3bits.SEG3COM1 = 1; LCDDATA6bits.SEG3COM2 = 1; LCDDATA6bits.SEG1COM2 = 1; break;
-[e :U 457 ]
-[e = . . _LCDDATA9bits 0 3 -> -> 1 `i `uc ]
-[e = . . _LCDDATA9bits 0 1 -> -> 1 `i `uc ]
-[e = . . _LCDDATA3bits 0 1 -> -> 1 `i `uc ]
-[e = . . _LCDDATA0bits 0 1 -> -> 1 `i `uc ]
-[e = . . _LCDDATA3bits 0 3 -> -> 1 `i `uc ]
-[e = . . _LCDDATA6bits 0 3 -> -> 1 `i `uc ]
-[e = . . _LCDDATA6bits 0 1 -> -> 1 `i `uc ]
-[e $U 447  ]
-"319
-[; ;main.c: 319:         case 9: LCDDATA9bits.SEG3COM3 = 1; LCDDATA9bits.SEG1COM3 = 1; LCDDATA3bits.SEG1COM1 = 1; LCDDATA0bits.SEG1COM0 = 1; LCDDATA3bits.SEG3COM1 = 0; LCDDATA6bits.SEG3COM2 = 1; LCDDATA6bits.SEG1COM2 = 1; break;
-[e :U 458 ]
-[e = . . _LCDDATA9bits 0 3 -> -> 1 `i `uc ]
-[e = . . _LCDDATA9bits 0 1 -> -> 1 `i `uc ]
-[e = . . _LCDDATA3bits 0 1 -> -> 1 `i `uc ]
-[e = . . _LCDDATA0bits 0 1 -> -> 1 `i `uc ]
-[e = . . _LCDDATA3bits 0 3 -> -> 0 `i `uc ]
-[e = . . _LCDDATA6bits 0 3 -> -> 1 `i `uc ]
-[e = . . _LCDDATA6bits 0 1 -> -> 1 `i `uc ]
-[e $U 447  ]
-"320
-[; ;main.c: 320:         case 0x0A: LCDDATA9bits.SEG3COM3 = 1; LCDDATA9bits.SEG1COM3 = 1; LCDDATA3bits.SEG1COM1 = 1; LCDDATA0bits.SEG1COM0 = 0; LCDDATA3bits.SEG3COM1 = 1; LCDDATA6bits.SEG3COM2 = 1; LCDDATA6bits.SEG1COM2 = 1; break;
-[e :U 459 ]
-[e = . . _LCDDATA9bits 0 3 -> -> 1 `i `uc ]
-[e = . . _LCDDATA9bits 0 1 -> -> 1 `i `uc ]
-[e = . . _LCDDATA3bits 0 1 -> -> 1 `i `uc ]
-[e = . . _LCDDATA0bits 0 1 -> -> 0 `i `uc ]
-[e = . . _LCDDATA3bits 0 3 -> -> 1 `i `uc ]
-[e = . . _LCDDATA6bits 0 3 -> -> 1 `i `uc ]
-[e = . . _LCDDATA6bits 0 1 -> -> 1 `i `uc ]
-[e $U 447  ]
-"321
-[; ;main.c: 321:         case 0x0B: LCDDATA9bits.SEG3COM3 = 0; LCDDATA9bits.SEG1COM3 = 0; LCDDATA3bits.SEG1COM1 = 1; LCDDATA0bits.SEG1COM0 = 1; LCDDATA3bits.SEG3COM1 = 1; LCDDATA6bits.SEG3COM2 = 1; LCDDATA6bits.SEG1COM2 = 1; break;
-[e :U 460 ]
-[e = . . _LCDDATA9bits 0 3 -> -> 0 `i `uc ]
-[e = . . _LCDDATA9bits 0 1 -> -> 0 `i `uc ]
-[e = . . _LCDDATA3bits 0 1 -> -> 1 `i `uc ]
-[e = . . _LCDDATA0bits 0 1 -> -> 1 `i `uc ]
-[e = . . _LCDDATA3bits 0 3 -> -> 1 `i `uc ]
-[e = . . _LCDDATA6bits 0 3 -> -> 1 `i `uc ]
-[e = . . _LCDDATA6bits 0 1 -> -> 1 `i `uc ]
-[e $U 447  ]
-"322
-[; ;main.c: 322:         case 0x0C: LCDDATA9bits.SEG3COM3 = 1; LCDDATA9bits.SEG1COM3 = 0; LCDDATA3bits.SEG1COM1 = 0; LCDDATA0bits.SEG1COM0 = 1; LCDDATA3bits.SEG3COM1 = 1; LCDDATA6bits.SEG3COM2 = 1; LCDDATA6bits.SEG1COM2 = 0; break;
-[e :U 461 ]
-[e = . . _LCDDATA9bits 0 3 -> -> 1 `i `uc ]
-[e = . . _LCDDATA9bits 0 1 -> -> 0 `i `uc ]
-[e = . . _LCDDATA3bits 0 1 -> -> 0 `i `uc ]
-[e = . . _LCDDATA0bits 0 1 -> -> 1 `i `uc ]
-[e = . . _LCDDATA3bits 0 3 -> -> 1 `i `uc ]
-[e = . . _LCDDATA6bits 0 3 -> -> 1 `i `uc ]
-[e = . . _LCDDATA6bits 0 1 -> -> 0 `i `uc ]
-[e $U 447  ]
-"323
-[; ;main.c: 323:         case 0x0D: LCDDATA9bits.SEG3COM3 = 0; LCDDATA9bits.SEG1COM3 = 1; LCDDATA3bits.SEG1COM1 = 1; LCDDATA0bits.SEG1COM0 = 1; LCDDATA3bits.SEG3COM1 = 1; LCDDATA6bits.SEG3COM2 = 0; LCDDATA6bits.SEG1COM2 = 1; break;
-[e :U 462 ]
-[e = . . _LCDDATA9bits 0 3 -> -> 0 `i `uc ]
-[e = . . _LCDDATA9bits 0 1 -> -> 1 `i `uc ]
-[e = . . _LCDDATA3bits 0 1 -> -> 1 `i `uc ]
-[e = . . _LCDDATA0bits 0 1 -> -> 1 `i `uc ]
-[e = . . _LCDDATA3bits 0 3 -> -> 1 `i `uc ]
-[e = . . _LCDDATA6bits 0 3 -> -> 0 `i `uc ]
-[e = . . _LCDDATA6bits 0 1 -> -> 1 `i `uc ]
-[e $U 447  ]
-"324
-[; ;main.c: 324:         case 0x0E: LCDDATA9bits.SEG3COM3 = 1; LCDDATA9bits.SEG1COM3 = 0; LCDDATA3bits.SEG1COM1 = 0; LCDDATA0bits.SEG1COM0 = 1; LCDDATA3bits.SEG3COM1 = 1; LCDDATA6bits.SEG3COM2 = 1; LCDDATA6bits.SEG1COM2 = 1; break;
-[e :U 463 ]
-[e = . . _LCDDATA9bits 0 3 -> -> 1 `i `uc ]
-[e = . . _LCDDATA9bits 0 1 -> -> 0 `i `uc ]
-[e = . . _LCDDATA3bits 0 1 -> -> 0 `i `uc ]
-[e = . . _LCDDATA0bits 0 1 -> -> 1 `i `uc ]
-[e = . . _LCDDATA3bits 0 3 -> -> 1 `i `uc ]
-[e = . . _LCDDATA6bits 0 3 -> -> 1 `i `uc ]
-[e = . . _LCDDATA6bits 0 1 -> -> 1 `i `uc ]
-[e $U 447  ]
-"325
-[; ;main.c: 325:         case 0x0F: LCDDATA9bits.SEG3COM3 = 1; LCDDATA9bits.SEG1COM3 = 0; LCDDATA3bits.SEG1COM1 = 0; LCDDATA0bits.SEG1COM0 = 0; LCDDATA3bits.SEG3COM1 = 1; LCDDATA6bits.SEG3COM2 = 1; LCDDATA6bits.SEG1COM2 = 1; break;
-[e :U 464 ]
-[e = . . _LCDDATA9bits 0 3 -> -> 1 `i `uc ]
-[e = . . _LCDDATA9bits 0 1 -> -> 0 `i `uc ]
-[e = . . _LCDDATA3bits 0 1 -> -> 0 `i `uc ]
-[e = . . _LCDDATA0bits 0 1 -> -> 0 `i `uc ]
-[e = . . _LCDDATA3bits 0 3 -> -> 1 `i `uc ]
-[e = . . _LCDDATA6bits 0 3 -> -> 1 `i `uc ]
-[e = . . _LCDDATA6bits 0 1 -> -> 1 `i `uc ]
-[e $U 447  ]
-"327
-[; ;main.c: 327:         default: LCDDATA9bits.SEG3COM3 = 0; LCDDATA9bits.SEG1COM3 = 0; LCDDATA3bits.SEG1COM1 = 0; LCDDATA0bits.SEG1COM0 = 0; LCDDATA3bits.SEG3COM1 = 0; LCDDATA6bits.SEG3COM2 = 0; LCDDATA6bits.SEG1COM2 = 0;
-[e :U 465 ]
-[e = . . _LCDDATA9bits 0 3 -> -> 0 `i `uc ]
-[e = . . _LCDDATA9bits 0 1 -> -> 0 `i `uc ]
-[e = . . _LCDDATA3bits 0 1 -> -> 0 `i `uc ]
-[e = . . _LCDDATA0bits 0 1 -> -> 0 `i `uc ]
-[e = . . _LCDDATA3bits 0 3 -> -> 0 `i `uc ]
-[e = . . _LCDDATA6bits 0 3 -> -> 0 `i `uc ]
-[e = . . _LCDDATA6bits 0 1 -> -> 0 `i `uc ]
 "328
 [; ;main.c: 328:     }
 }
-[e $U 447  ]
-[e :U 448 ]
-[e [\ -> _num `i , $ -> 0 `i 449
- , $ -> 1 `i 450
- , $ -> 2 `i 451
- , $ -> 3 `i 452
- , $ -> 4 `i 453
- , $ -> 5 `i 454
- , $ -> 6 `i 455
- , $ -> 7 `i 456
- , $ -> 8 `i 457
- , $ -> 9 `i 458
- , $ -> 10 `i 459
- , $ -> 11 `i 460
- , $ -> 12 `i 461
- , $ -> 13 `i 462
- , $ -> 14 `i 463
- , $ -> 15 `i 464
- 465 ]
-[e :U 447 ]
+[e $U 408  ]
+[e :U 409 ]
+[e [\ -> _num `i , $ -> 0 `i 410
+ , $ -> 1 `i 411
+ , $ -> 2 `i 412
+ , $ -> 3 `i 413
+ , $ -> 4 `i 414
+ , $ -> 5 `i 415
+ , $ -> 6 `i 416
+ , $ -> 7 `i 417
+ , $ -> 8 `i 418
+ , $ -> 9 `i 419
+ , $ -> 10 `i 420
+ , $ -> -> 65 `ui `i 421
+ , $ -> -> 97 `ui `i 422
+ , $ -> 11 `i 423
+ , $ -> -> 66 `ui `i 424
+ , $ -> -> 98 `ui `i 425
+ , $ -> 12 `i 426
+ , $ -> -> 67 `ui `i 427
+ , $ -> -> 99 `ui `i 428
+ , $ -> 13 `i 429
+ , $ -> -> 68 `ui `i 430
+ , $ -> -> 100 `ui `i 431
+ , $ -> 14 `i 432
+ , $ -> -> 69 `ui `i 433
+ , $ -> -> 101 `ui `i 434
+ , $ -> 15 `i 435
+ , $ -> -> 70 `ui `i 436
+ , $ -> -> 102 `ui `i 437
+ , $ -> -> 71 `ui `i 438
+ , $ -> -> 103 `ui `i 439
+ , $ -> -> 72 `ui `i 440
+ , $ -> -> 104 `ui `i 441
+ , $ -> -> 73 `ui `i 442
+ , $ -> -> 105 `ui `i 443
+ , $ -> -> 74 `ui `i 444
+ , $ -> -> 106 `ui `i 445
+ , $ -> -> 76 `ui `i 446
+ , $ -> -> 108 `ui `i 447
+ , $ -> -> 78 `ui `i 448
+ , $ -> -> 110 `ui `i 449
+ , $ -> -> 79 `ui `i 450
+ , $ -> -> 111 `ui `i 451
+ , $ -> -> 80 `ui `i 452
+ , $ -> -> 112 `ui `i 453
+ , $ -> -> 82 `ui `i 454
+ , $ -> -> 114 `ui `i 455
+ , $ -> -> 83 `ui `i 456
+ , $ -> -> 115 `ui `i 457
+ , $ -> -> 84 `ui `i 458
+ , $ -> -> 116 `ui `i 459
+ , $ -> -> 85 `ui `i 460
+ , $ -> -> 117 `ui `i 461
+ , $ -> -> 89 `ui `i 462
+ , $ -> -> 121 `ui `i 463
+ 464 ]
+[e :U 408 ]
 "329
 [; ;main.c: 329: }
-[e :UE 446 ]
+[e :UE 407 ]
 }
 "331
-[; ;main.c: 331: void LCD_Digit4Num (unsigned char num)
-[v _LCD_Digit4Num `(v ~T0 @X0 1 ef1`uc ]
+[; ;main.c: 331: void LCD_Digit2Num (unsigned char num)
+[v _LCD_Digit2Num `(v ~T0 @X0 1 ef1`uc ]
 "332
 [; ;main.c: 332: {
 {
-[e :U _LCD_Digit4Num ]
+[e :U _LCD_Digit2Num ]
 "331
-[; ;main.c: 331: void LCD_Digit4Num (unsigned char num)
+[; ;main.c: 331: void LCD_Digit2Num (unsigned char num)
 [v _num `uc ~T0 @X0 1 r1 ]
 "332
 [; ;main.c: 332: {
 [f ]
 "333
 [; ;main.c: 333:     switch (num)
-[e $U 468  ]
+[e $U 467  ]
 "334
 [; ;main.c: 334:     {
 {
 "335
-[; ;main.c: 335:         case 0: case '0': LCDDATA10bits.SEG10COM3 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 1; LCDDATA6bits.SEG2COM2 = 0; break;
-[e :U 469 ]
-[e :U 470 ]
-[e = . . _LCDDATA10bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA9bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA3bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA0bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA4bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA7bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA6bits 0 2 -> -> 0 `i `uc ]
-[e $U 467  ]
+[; ;main.c: 335:         case 0: LCDDATA9bits.SEG5COM3 = 1; LCDDATA10bits.SEG12COM3 = 1; LCDDATA4bits.SEG12COM1 = 1; LCDDATA1bits.SEG12COM0 = 1; LCDDATA3bits.SEG5COM1 = 1; LCDDATA6bits.SEG5COM2 = 1; LCDDATA7bits.SEG12COM2 = 0; break;
+[e :U 468 ]
+[e = . . _LCDDATA9bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA10bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA4bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA1bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA7bits 0 4 -> -> 0 `i `uc ]
+[e $U 466  ]
 "336
-[; ;main.c: 336:         case 1: case '1': LCDDATA10bits.SEG10COM3 = 0; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 0; LCDDATA4bits.SEG10COM1 = 0; LCDDATA7bits.SEG10COM2 = 0; LCDDATA6bits.SEG2COM2 = 0; break;
-[e :U 471 ]
-[e :U 472 ]
-[e = . . _LCDDATA10bits 0 2 -> -> 0 `i `uc ]
-[e = . . _LCDDATA9bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA3bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA0bits 0 2 -> -> 0 `i `uc ]
-[e = . . _LCDDATA4bits 0 2 -> -> 0 `i `uc ]
-[e = . . _LCDDATA7bits 0 2 -> -> 0 `i `uc ]
-[e = . . _LCDDATA6bits 0 2 -> -> 0 `i `uc ]
-[e $U 467  ]
+[; ;main.c: 336:         case 1: LCDDATA9bits.SEG5COM3 = 0; LCDDATA10bits.SEG12COM3 = 1; LCDDATA4bits.SEG12COM1 = 1; LCDDATA1bits.SEG12COM0 = 0; LCDDATA3bits.SEG5COM1 = 0; LCDDATA6bits.SEG5COM2 = 0; LCDDATA7bits.SEG12COM2 = 0; break;
+[e :U 469 ]
+[e = . . _LCDDATA9bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA10bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA4bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA1bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA6bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA7bits 0 4 -> -> 0 `i `uc ]
+[e $U 466  ]
 "337
-[; ;main.c: 337:         case 2: case '2': LCDDATA10bits.SEG10COM3 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 0; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 0; LCDDATA6bits.SEG2COM2 = 1; break;
-[e :U 473 ]
-[e :U 474 ]
-[e = . . _LCDDATA10bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA9bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA3bits 0 2 -> -> 0 `i `uc ]
-[e = . . _LCDDATA0bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA4bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA7bits 0 2 -> -> 0 `i `uc ]
-[e = . . _LCDDATA6bits 0 2 -> -> 1 `i `uc ]
-[e $U 467  ]
+[; ;main.c: 337:         case 2: LCDDATA9bits.SEG5COM3 = 1; LCDDATA10bits.SEG12COM3 = 1; LCDDATA4bits.SEG12COM1 = 0; LCDDATA1bits.SEG12COM0 = 1; LCDDATA3bits.SEG5COM1 = 1; LCDDATA6bits.SEG5COM2 = 0; LCDDATA7bits.SEG12COM2 = 1; break;
+[e :U 470 ]
+[e = . . _LCDDATA9bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA10bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA4bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA1bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA7bits 0 4 -> -> 1 `i `uc ]
+[e $U 466  ]
 "338
-[; ;main.c: 338:         case 3: case '3': LCDDATA10bits.SEG10COM3 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG10COM1 = 0; LCDDATA7bits.SEG10COM2 = 0; LCDDATA6bits.SEG2COM2 = 1; break;
-[e :U 475 ]
-[e :U 476 ]
-[e = . . _LCDDATA10bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA9bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA3bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA0bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA4bits 0 2 -> -> 0 `i `uc ]
-[e = . . _LCDDATA7bits 0 2 -> -> 0 `i `uc ]
-[e = . . _LCDDATA6bits 0 2 -> -> 1 `i `uc ]
-[e $U 467  ]
+[; ;main.c: 338:         case 3: LCDDATA9bits.SEG5COM3 = 1; LCDDATA10bits.SEG12COM3 = 1; LCDDATA4bits.SEG12COM1 = 1; LCDDATA1bits.SEG12COM0 = 1; LCDDATA3bits.SEG5COM1 = 0; LCDDATA6bits.SEG5COM2 = 0; LCDDATA7bits.SEG12COM2 = 1; break;
+[e :U 471 ]
+[e = . . _LCDDATA9bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA10bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA4bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA1bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA6bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA7bits 0 4 -> -> 1 `i `uc ]
+[e $U 466  ]
 "339
-[; ;main.c: 339:         case 4: case '4': LCDDATA10bits.SEG10COM3 = 0; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 0; LCDDATA4bits.SEG10COM1 = 0; LCDDATA7bits.SEG10COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
-[e :U 477 ]
-[e :U 478 ]
-[e = . . _LCDDATA10bits 0 2 -> -> 0 `i `uc ]
-[e = . . _LCDDATA9bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA3bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA0bits 0 2 -> -> 0 `i `uc ]
-[e = . . _LCDDATA4bits 0 2 -> -> 0 `i `uc ]
-[e = . . _LCDDATA7bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA6bits 0 2 -> -> 1 `i `uc ]
-[e $U 467  ]
+[; ;main.c: 339:         case 4: LCDDATA9bits.SEG5COM3 = 0; LCDDATA10bits.SEG12COM3 = 1; LCDDATA4bits.SEG12COM1 = 1; LCDDATA1bits.SEG12COM0 = 0; LCDDATA3bits.SEG5COM1 = 0; LCDDATA6bits.SEG5COM2 = 1; LCDDATA7bits.SEG12COM2 = 1; break;
+[e :U 472 ]
+[e = . . _LCDDATA9bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA10bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA4bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA1bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA6bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA7bits 0 4 -> -> 1 `i `uc ]
+[e $U 466  ]
 "340
-[; ;main.c: 340:         case 5: case '5': LCDDATA10bits.SEG10COM3 = 1; LCDDATA9bits.SEG2COM3 = 0; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG10COM1 = 0; LCDDATA7bits.SEG10COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
+[; ;main.c: 340:         case 5: LCDDATA9bits.SEG5COM3 = 1; LCDDATA10bits.SEG12COM3 = 0; LCDDATA4bits.SEG12COM1 = 1; LCDDATA1bits.SEG12COM0 = 1; LCDDATA3bits.SEG5COM1 = 0; LCDDATA6bits.SEG5COM2 = 1; LCDDATA7bits.SEG12COM2 = 1; break;
+[e :U 473 ]
+[e = . . _LCDDATA9bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA10bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA4bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA1bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA6bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA7bits 0 4 -> -> 1 `i `uc ]
+[e $U 466  ]
+"341
+[; ;main.c: 341:         case 6: LCDDATA9bits.SEG5COM3 = 1; LCDDATA10bits.SEG12COM3 = 0; LCDDATA4bits.SEG12COM1 = 1; LCDDATA1bits.SEG12COM0 = 1; LCDDATA3bits.SEG5COM1 = 1; LCDDATA6bits.SEG5COM2 = 1; LCDDATA7bits.SEG12COM2 = 1; break;
+[e :U 474 ]
+[e = . . _LCDDATA9bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA10bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA4bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA1bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA7bits 0 4 -> -> 1 `i `uc ]
+[e $U 466  ]
+"342
+[; ;main.c: 342:         case 7: LCDDATA9bits.SEG5COM3 = 1; LCDDATA10bits.SEG12COM3 = 1; LCDDATA4bits.SEG12COM1 = 1; LCDDATA1bits.SEG12COM0 = 0; LCDDATA3bits.SEG5COM1 = 0; LCDDATA6bits.SEG5COM2 = 0; LCDDATA7bits.SEG12COM2 = 0; break;
+[e :U 475 ]
+[e = . . _LCDDATA9bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA10bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA4bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA1bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA6bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA7bits 0 4 -> -> 0 `i `uc ]
+[e $U 466  ]
+"343
+[; ;main.c: 343:         case 8: LCDDATA9bits.SEG5COM3 = 1; LCDDATA10bits.SEG12COM3 = 1; LCDDATA4bits.SEG12COM1 = 1; LCDDATA1bits.SEG12COM0 = 1; LCDDATA3bits.SEG5COM1 = 1; LCDDATA6bits.SEG5COM2 = 1; LCDDATA7bits.SEG12COM2 = 1; break;
+[e :U 476 ]
+[e = . . _LCDDATA9bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA10bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA4bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA1bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA7bits 0 4 -> -> 1 `i `uc ]
+[e $U 466  ]
+"344
+[; ;main.c: 344:         case 9: LCDDATA9bits.SEG5COM3 = 1; LCDDATA10bits.SEG12COM3 = 1; LCDDATA4bits.SEG12COM1 = 1; LCDDATA1bits.SEG12COM0 = 1; LCDDATA3bits.SEG5COM1 = 0; LCDDATA6bits.SEG5COM2 = 1; LCDDATA7bits.SEG12COM2 = 1; break;
+[e :U 477 ]
+[e = . . _LCDDATA9bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA10bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA4bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA1bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA6bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA7bits 0 4 -> -> 1 `i `uc ]
+[e $U 466  ]
+"345
+[; ;main.c: 345:         case 0x0A: case 'A': case 'a': LCDDATA9bits.SEG5COM3 = 1; LCDDATA10bits.SEG12COM3 = 1; LCDDATA4bits.SEG12COM1 = 1; LCDDATA1bits.SEG12COM0 = 0; LCDDATA3bits.SEG5COM1 = 1; LCDDATA6bits.SEG5COM2 = 1; LCDDATA7bits.SEG12COM2 = 1; break;
+[e :U 478 ]
 [e :U 479 ]
 [e :U 480 ]
-[e = . . _LCDDATA10bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA9bits 0 2 -> -> 0 `i `uc ]
-[e = . . _LCDDATA3bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA0bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA4bits 0 2 -> -> 0 `i `uc ]
-[e = . . _LCDDATA7bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA6bits 0 2 -> -> 1 `i `uc ]
-[e $U 467  ]
-"341
-[; ;main.c: 341:         case 6: case '6': LCDDATA10bits.SEG10COM3 = 1; LCDDATA9bits.SEG2COM3 = 0; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
+[e = . . _LCDDATA9bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA10bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA4bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA1bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA7bits 0 4 -> -> 1 `i `uc ]
+[e $U 466  ]
+"346
+[; ;main.c: 346:         case 0x0B: case 'B': case 'b': LCDDATA9bits.SEG5COM3 = 0; LCDDATA10bits.SEG12COM3 = 0; LCDDATA4bits.SEG12COM1 = 1; LCDDATA1bits.SEG12COM0 = 1; LCDDATA3bits.SEG5COM1 = 1; LCDDATA6bits.SEG5COM2 = 1; LCDDATA7bits.SEG12COM2 = 1; break;
 [e :U 481 ]
 [e :U 482 ]
-[e = . . _LCDDATA10bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA9bits 0 2 -> -> 0 `i `uc ]
-[e = . . _LCDDATA3bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA0bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA4bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA7bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA6bits 0 2 -> -> 1 `i `uc ]
-[e $U 467  ]
-"342
-[; ;main.c: 342:         case 7: case '7': LCDDATA10bits.SEG10COM3 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 0; LCDDATA4bits.SEG10COM1 = 0; LCDDATA7bits.SEG10COM2 = 0; LCDDATA6bits.SEG2COM2 = 0; break;
 [e :U 483 ]
+[e = . . _LCDDATA9bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA10bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA4bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA1bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA7bits 0 4 -> -> 1 `i `uc ]
+[e $U 466  ]
+"347
+[; ;main.c: 347:         case 0x0C: case 'C': case 'c': LCDDATA9bits.SEG5COM3 = 1; LCDDATA10bits.SEG12COM3 = 0; LCDDATA4bits.SEG12COM1 = 0; LCDDATA1bits.SEG12COM0 = 1; LCDDATA3bits.SEG5COM1 = 1; LCDDATA6bits.SEG5COM2 = 1; LCDDATA7bits.SEG12COM2 = 0; break;
 [e :U 484 ]
-[e = . . _LCDDATA10bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA9bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA3bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA0bits 0 2 -> -> 0 `i `uc ]
-[e = . . _LCDDATA4bits 0 2 -> -> 0 `i `uc ]
-[e = . . _LCDDATA7bits 0 2 -> -> 0 `i `uc ]
-[e = . . _LCDDATA6bits 0 2 -> -> 0 `i `uc ]
-[e $U 467  ]
-"343
-[; ;main.c: 343:         case 8: case '8': LCDDATA10bits.SEG10COM3 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
 [e :U 485 ]
 [e :U 486 ]
-[e = . . _LCDDATA10bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA9bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA3bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA0bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA4bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA7bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA6bits 0 2 -> -> 1 `i `uc ]
-[e $U 467  ]
-"344
-[; ;main.c: 344:         case 9: case '9': LCDDATA10bits.SEG10COM3 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG10COM1 = 0; LCDDATA7bits.SEG10COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
+[e = . . _LCDDATA9bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA10bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA4bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA1bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA7bits 0 4 -> -> 0 `i `uc ]
+[e $U 466  ]
+"348
+[; ;main.c: 348:         case 0x0D: case 'D': case 'd': LCDDATA9bits.SEG5COM3 = 0; LCDDATA10bits.SEG12COM3 = 1; LCDDATA4bits.SEG12COM1 = 1; LCDDATA1bits.SEG12COM0 = 1; LCDDATA3bits.SEG5COM1 = 1; LCDDATA6bits.SEG5COM2 = 0; LCDDATA7bits.SEG12COM2 = 1; break;
 [e :U 487 ]
 [e :U 488 ]
-[e = . . _LCDDATA10bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA9bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA3bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA0bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA4bits 0 2 -> -> 0 `i `uc ]
-[e = . . _LCDDATA7bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA6bits 0 2 -> -> 1 `i `uc ]
-[e $U 467  ]
-"345
-[; ;main.c: 345:         case 0x0A: case 'A': case 'a': LCDDATA10bits.SEG10COM3 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 0; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
 [e :U 489 ]
+[e = . . _LCDDATA9bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA10bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA4bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA1bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA7bits 0 4 -> -> 1 `i `uc ]
+[e $U 466  ]
+"349
+[; ;main.c: 349:         case 0x0E: case 'E': case 'e': LCDDATA9bits.SEG5COM3 = 1; LCDDATA10bits.SEG12COM3 = 0; LCDDATA4bits.SEG12COM1 = 0; LCDDATA1bits.SEG12COM0 = 1; LCDDATA3bits.SEG5COM1 = 1; LCDDATA6bits.SEG5COM2 = 1; LCDDATA7bits.SEG12COM2 = 1; break;
 [e :U 490 ]
 [e :U 491 ]
-[e = . . _LCDDATA10bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA9bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA3bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA0bits 0 2 -> -> 0 `i `uc ]
-[e = . . _LCDDATA4bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA7bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA6bits 0 2 -> -> 1 `i `uc ]
-[e $U 467  ]
-"346
-[; ;main.c: 346:         case 0x0B: case 'B': case 'b': LCDDATA10bits.SEG10COM3 = 0; LCDDATA9bits.SEG2COM3 = 0; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
 [e :U 492 ]
+[e = . . _LCDDATA9bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA10bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA4bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA1bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA7bits 0 4 -> -> 1 `i `uc ]
+[e $U 466  ]
+"350
+[; ;main.c: 350:         case 0x0F: case 'F': case 'f': LCDDATA9bits.SEG5COM3 = 1; LCDDATA10bits.SEG12COM3 = 0; LCDDATA4bits.SEG12COM1 = 0; LCDDATA1bits.SEG12COM0 = 0; LCDDATA3bits.SEG5COM1 = 1; LCDDATA6bits.SEG5COM2 = 1; LCDDATA7bits.SEG12COM2 = 1; break;
 [e :U 493 ]
 [e :U 494 ]
-[e = . . _LCDDATA10bits 0 2 -> -> 0 `i `uc ]
-[e = . . _LCDDATA9bits 0 2 -> -> 0 `i `uc ]
-[e = . . _LCDDATA3bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA0bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA4bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA7bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA6bits 0 2 -> -> 1 `i `uc ]
-[e $U 467  ]
-"347
-[; ;main.c: 347:         case 0x0C: case 'C': case 'c': LCDDATA10bits.SEG10COM3 = 1; LCDDATA9bits.SEG2COM3 = 0; LCDDATA3bits.SEG2COM1 = 0; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 1; LCDDATA6bits.SEG2COM2 = 0; break;
 [e :U 495 ]
+[e = . . _LCDDATA9bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA10bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA4bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA1bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA7bits 0 4 -> -> 1 `i `uc ]
+[e $U 466  ]
+"351
+[; ;main.c: 351:         case 'G': case 'g': LCDDATA9bits.SEG5COM3 = 1; LCDDATA10bits.SEG12COM3 = 0; LCDDATA4bits.SEG12COM1 = 1; LCDDATA1bits.SEG12COM0 = 1; LCDDATA3bits.SEG5COM1 = 1; LCDDATA6bits.SEG5COM2 = 1; LCDDATA7bits.SEG12COM2 = 0; break;
 [e :U 496 ]
 [e :U 497 ]
-[e = . . _LCDDATA10bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA9bits 0 2 -> -> 0 `i `uc ]
-[e = . . _LCDDATA3bits 0 2 -> -> 0 `i `uc ]
-[e = . . _LCDDATA0bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA4bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA7bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA6bits 0 2 -> -> 0 `i `uc ]
-[e $U 467  ]
-"348
-[; ;main.c: 348:         case 0x0D: case 'D': case 'd': LCDDATA10bits.SEG10COM3 = 0; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 0; LCDDATA6bits.SEG2COM2 = 1; break;
+[e = . . _LCDDATA9bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA10bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA4bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA1bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA7bits 0 4 -> -> 0 `i `uc ]
+[e $U 466  ]
+"352
+[; ;main.c: 352:         case 'H': case 'h': LCDDATA9bits.SEG5COM3 = 0; LCDDATA10bits.SEG12COM3 = 1; LCDDATA4bits.SEG12COM1 = 1; LCDDATA1bits.SEG12COM0 = 0; LCDDATA3bits.SEG5COM1 = 1; LCDDATA6bits.SEG5COM2 = 1; LCDDATA7bits.SEG12COM2 = 1; break;
 [e :U 498 ]
 [e :U 499 ]
+[e = . . _LCDDATA9bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA10bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA4bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA1bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA7bits 0 4 -> -> 1 `i `uc ]
+[e $U 466  ]
+"353
+[; ;main.c: 353:         case 'I': case 'i': LCDDATA9bits.SEG5COM3 = 0; LCDDATA10bits.SEG12COM3 = 0; LCDDATA4bits.SEG12COM1 = 0; LCDDATA1bits.SEG12COM0 = 0; LCDDATA3bits.SEG5COM1 = 1; LCDDATA6bits.SEG5COM2 = 1; LCDDATA7bits.SEG12COM2 = 0; break;
 [e :U 500 ]
-[e = . . _LCDDATA10bits 0 2 -> -> 0 `i `uc ]
-[e = . . _LCDDATA9bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA3bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA0bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA4bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA7bits 0 2 -> -> 0 `i `uc ]
-[e = . . _LCDDATA6bits 0 2 -> -> 1 `i `uc ]
-[e $U 467  ]
-"349
-[; ;main.c: 349:         case 0x0E: case 'E': case 'e': LCDDATA10bits.SEG10COM3 = 1; LCDDATA9bits.SEG2COM3 = 0; LCDDATA3bits.SEG2COM1 = 0; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
 [e :U 501 ]
+[e = . . _LCDDATA9bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA10bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA4bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA1bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA7bits 0 4 -> -> 0 `i `uc ]
+[e $U 466  ]
+"354
+[; ;main.c: 354:         case 'J': case 'j': LCDDATA9bits.SEG5COM3 = 0; LCDDATA10bits.SEG12COM3 = 1; LCDDATA4bits.SEG12COM1 = 1; LCDDATA1bits.SEG12COM0 = 1; LCDDATA3bits.SEG5COM1 = 1; LCDDATA6bits.SEG5COM2 = 0; LCDDATA7bits.SEG12COM2 = 0; break;
 [e :U 502 ]
 [e :U 503 ]
-[e = . . _LCDDATA10bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA9bits 0 2 -> -> 0 `i `uc ]
-[e = . . _LCDDATA3bits 0 2 -> -> 0 `i `uc ]
-[e = . . _LCDDATA0bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA4bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA7bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA6bits 0 2 -> -> 1 `i `uc ]
-[e $U 467  ]
-"350
-[; ;main.c: 350:         case 0x0F: case 'F': case 'f': LCDDATA10bits.SEG10COM3 = 1; LCDDATA9bits.SEG2COM3 = 0; LCDDATA3bits.SEG2COM1 = 0; LCDDATA0bits.SEG2COM0 = 0; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
+[e = . . _LCDDATA9bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA10bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA4bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA1bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA7bits 0 4 -> -> 0 `i `uc ]
+[e $U 466  ]
+"355
+[; ;main.c: 355:         case 'L': case 'l': LCDDATA9bits.SEG5COM3 = 0; LCDDATA10bits.SEG12COM3 = 0; LCDDATA4bits.SEG12COM1 = 0; LCDDATA1bits.SEG12COM0 = 1; LCDDATA3bits.SEG5COM1 = 1; LCDDATA6bits.SEG5COM2 = 1; LCDDATA7bits.SEG12COM2 = 0; break;
 [e :U 504 ]
 [e :U 505 ]
-[e :U 506 ]
-[e = . . _LCDDATA10bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA9bits 0 2 -> -> 0 `i `uc ]
-[e = . . _LCDDATA3bits 0 2 -> -> 0 `i `uc ]
-[e = . . _LCDDATA0bits 0 2 -> -> 0 `i `uc ]
-[e = . . _LCDDATA4bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA7bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA6bits 0 2 -> -> 1 `i `uc ]
-[e $U 467  ]
-"351
-[; ;main.c: 351:         case 'G': case 'g': LCDDATA10bits.SEG10COM3 = 1; LCDDATA9bits.SEG2COM3 = 0; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
-[e :U 507 ]
-[e :U 508 ]
-[e = . . _LCDDATA10bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA9bits 0 2 -> -> 0 `i `uc ]
-[e = . . _LCDDATA3bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA0bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA4bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA7bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA6bits 0 2 -> -> 1 `i `uc ]
-[e $U 467  ]
-"352
-[; ;main.c: 352:         case 'H': case 'h': LCDDATA10bits.SEG10COM3 = 0; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 0; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
-[e :U 509 ]
-[e :U 510 ]
-[e = . . _LCDDATA10bits 0 2 -> -> 0 `i `uc ]
-[e = . . _LCDDATA9bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA3bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA0bits 0 2 -> -> 0 `i `uc ]
-[e = . . _LCDDATA4bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA7bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA6bits 0 2 -> -> 1 `i `uc ]
-[e $U 467  ]
-"353
-[; ;main.c: 353:         case 'I': case 'i': LCDDATA10bits.SEG10COM3 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
-[e :U 511 ]
-[e :U 512 ]
-[e = . . _LCDDATA10bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA9bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA3bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA0bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA4bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA7bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA6bits 0 2 -> -> 1 `i `uc ]
-[e $U 467  ]
-"354
-[; ;main.c: 354:         case 'J': case 'j': LCDDATA10bits.SEG10COM3 = 0; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 0; LCDDATA6bits.SEG2COM2 = 0; break;
-[e :U 513 ]
-[e :U 514 ]
-[e = . . _LCDDATA10bits 0 2 -> -> 0 `i `uc ]
-[e = . . _LCDDATA9bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA3bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA0bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA4bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA7bits 0 2 -> -> 0 `i `uc ]
-[e = . . _LCDDATA6bits 0 2 -> -> 0 `i `uc ]
-[e $U 467  ]
-"355
-[; ;main.c: 355:         case 'K': case 'k': LCDDATA10bits.SEG10COM3 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
-[e :U 515 ]
-[e :U 516 ]
-[e = . . _LCDDATA10bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA9bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA3bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA0bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA4bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA7bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA6bits 0 2 -> -> 1 `i `uc ]
-[e $U 467  ]
+[e = . . _LCDDATA9bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA10bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA4bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA1bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA7bits 0 4 -> -> 0 `i `uc ]
+[e $U 466  ]
 "356
-[; ;main.c: 356:         case 'L': case 'l': LCDDATA10bits.SEG10COM3 = 0; LCDDATA9bits.SEG2COM3 = 0; LCDDATA3bits.SEG2COM1 = 0; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 1; LCDDATA6bits.SEG2COM2 = 0; break;
-[e :U 517 ]
-[e :U 518 ]
-[e = . . _LCDDATA10bits 0 2 -> -> 0 `i `uc ]
-[e = . . _LCDDATA9bits 0 2 -> -> 0 `i `uc ]
-[e = . . _LCDDATA3bits 0 2 -> -> 0 `i `uc ]
-[e = . . _LCDDATA0bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA4bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA7bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA6bits 0 2 -> -> 0 `i `uc ]
-[e $U 467  ]
+[; ;main.c: 356:         case 'N': case 'n': LCDDATA9bits.SEG5COM3 = 0; LCDDATA10bits.SEG12COM3 = 0; LCDDATA4bits.SEG12COM1 = 1; LCDDATA1bits.SEG12COM0 = 0; LCDDATA3bits.SEG5COM1 = 1; LCDDATA6bits.SEG5COM2 = 0; LCDDATA7bits.SEG12COM2 = 1; break;
+[e :U 506 ]
+[e :U 507 ]
+[e = . . _LCDDATA9bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA10bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA4bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA1bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA7bits 0 4 -> -> 1 `i `uc ]
+[e $U 466  ]
 "357
-[; ;main.c: 357:         case 'N': case 'n': LCDDATA10bits.SEG10COM3 = 0; LCDDATA9bits.SEG2COM3 = 0; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 0; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 0; LCDDATA6bits.SEG2COM2 = 0; break;
-[e :U 519 ]
-[e :U 520 ]
-[e = . . _LCDDATA10bits 0 2 -> -> 0 `i `uc ]
-[e = . . _LCDDATA9bits 0 2 -> -> 0 `i `uc ]
-[e = . . _LCDDATA3bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA0bits 0 2 -> -> 0 `i `uc ]
-[e = . . _LCDDATA4bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA7bits 0 2 -> -> 0 `i `uc ]
-[e = . . _LCDDATA6bits 0 2 -> -> 0 `i `uc ]
-[e $U 467  ]
+[; ;main.c: 357:         case 'O': case 'o': LCDDATA9bits.SEG5COM3 = 0; LCDDATA10bits.SEG12COM3 = 0; LCDDATA4bits.SEG12COM1 = 1; LCDDATA1bits.SEG12COM0 = 1; LCDDATA3bits.SEG5COM1 = 1; LCDDATA6bits.SEG5COM2 = 0; LCDDATA7bits.SEG12COM2 = 1; break;
+[e :U 508 ]
+[e :U 509 ]
+[e = . . _LCDDATA9bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA10bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA4bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA1bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA7bits 0 4 -> -> 1 `i `uc ]
+[e $U 466  ]
 "358
-[; ;main.c: 358:         case 'O': case 'o': LCDDATA10bits.SEG10COM3 = 0; LCDDATA9bits.SEG2COM3 = 0; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 0; LCDDATA6bits.SEG2COM2 = 1; break;
-[e :U 521 ]
-[e :U 522 ]
-[e = . . _LCDDATA10bits 0 2 -> -> 0 `i `uc ]
-[e = . . _LCDDATA9bits 0 2 -> -> 0 `i `uc ]
-[e = . . _LCDDATA3bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA0bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA4bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA7bits 0 2 -> -> 0 `i `uc ]
-[e = . . _LCDDATA6bits 0 2 -> -> 1 `i `uc ]
-[e $U 467  ]
+[; ;main.c: 358:         case 'P': case 'p': LCDDATA9bits.SEG5COM3 = 1; LCDDATA10bits.SEG12COM3 = 1; LCDDATA4bits.SEG12COM1 = 0; LCDDATA1bits.SEG12COM0 = 0; LCDDATA3bits.SEG5COM1 = 1; LCDDATA6bits.SEG5COM2 = 1; LCDDATA7bits.SEG12COM2 = 1; break;
+[e :U 510 ]
+[e :U 511 ]
+[e = . . _LCDDATA9bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA10bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA4bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA1bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA7bits 0 4 -> -> 1 `i `uc ]
+[e $U 466  ]
 "359
-[; ;main.c: 359:         case 'P': case 'p': LCDDATA10bits.SEG10COM3 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 0; LCDDATA0bits.SEG2COM0 = 0; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
-[e :U 523 ]
-[e :U 524 ]
-[e = . . _LCDDATA10bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA9bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA3bits 0 2 -> -> 0 `i `uc ]
-[e = . . _LCDDATA0bits 0 2 -> -> 0 `i `uc ]
-[e = . . _LCDDATA4bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA7bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA6bits 0 2 -> -> 1 `i `uc ]
-[e $U 467  ]
+[; ;main.c: 359:         case 'R': case 'r': LCDDATA9bits.SEG5COM3 = 0; LCDDATA10bits.SEG12COM3 = 0; LCDDATA4bits.SEG12COM1 = 0; LCDDATA1bits.SEG12COM0 = 0; LCDDATA3bits.SEG5COM1 = 1; LCDDATA6bits.SEG5COM2 = 0; LCDDATA7bits.SEG12COM2 = 1; break;
+[e :U 512 ]
+[e :U 513 ]
+[e = . . _LCDDATA9bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA10bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA4bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA1bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA7bits 0 4 -> -> 1 `i `uc ]
+[e $U 466  ]
 "360
-[; ;main.c: 360:         case 'S': case 's': LCDDATA10bits.SEG10COM3 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
-[e :U 525 ]
-[e :U 526 ]
-[e = . . _LCDDATA10bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA9bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA3bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA0bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA4bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA7bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA6bits 0 2 -> -> 1 `i `uc ]
-[e $U 467  ]
+[; ;main.c: 360:         case 'S': case 's': LCDDATA9bits.SEG5COM3 = 0; LCDDATA10bits.SEG12COM3 = 0; LCDDATA4bits.SEG12COM1 = 1; LCDDATA1bits.SEG12COM0 = 1; LCDDATA3bits.SEG5COM1 = 0; LCDDATA6bits.SEG5COM2 = 1; LCDDATA7bits.SEG12COM2 = 1; break;
+[e :U 514 ]
+[e :U 515 ]
+[e = . . _LCDDATA9bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA10bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA4bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA1bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA6bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA7bits 0 4 -> -> 1 `i `uc ]
+[e $U 466  ]
 "361
-[; ;main.c: 361:         case 'T': case 't': LCDDATA10bits.SEG10COM3 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
-[e :U 527 ]
-[e :U 528 ]
-[e = . . _LCDDATA10bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA9bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA3bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA0bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA4bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA7bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA6bits 0 2 -> -> 1 `i `uc ]
-[e $U 467  ]
+[; ;main.c: 361:         case 'T': case 't': LCDDATA9bits.SEG5COM3 = 0; LCDDATA10bits.SEG12COM3 = 0; LCDDATA4bits.SEG12COM1 = 0; LCDDATA1bits.SEG12COM0 = 1; LCDDATA3bits.SEG5COM1 = 1; LCDDATA6bits.SEG5COM2 = 1; LCDDATA7bits.SEG12COM2 = 1; break;
+[e :U 516 ]
+[e :U 517 ]
+[e = . . _LCDDATA9bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA10bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA4bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA1bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA7bits 0 4 -> -> 1 `i `uc ]
+[e $U 466  ]
 "362
-[; ;main.c: 362:         case 'U': case 'u': LCDDATA10bits.SEG10COM3 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
-[e :U 529 ]
-[e :U 530 ]
-[e = . . _LCDDATA10bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA9bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA3bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA0bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA4bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA7bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA6bits 0 2 -> -> 1 `i `uc ]
-[e $U 467  ]
+[; ;main.c: 362:         case 'U': case 'u': LCDDATA9bits.SEG5COM3 = 0; LCDDATA10bits.SEG12COM3 = 1; LCDDATA4bits.SEG12COM1 = 1; LCDDATA1bits.SEG12COM0 = 1; LCDDATA3bits.SEG5COM1 = 1; LCDDATA6bits.SEG5COM2 = 1; LCDDATA7bits.SEG12COM2 = 0; break;
+[e :U 518 ]
+[e :U 519 ]
+[e = . . _LCDDATA9bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA10bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA4bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA1bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA7bits 0 4 -> -> 0 `i `uc ]
+[e $U 466  ]
 "363
-[; ;main.c: 363:         case 'Y': case 'y': LCDDATA10bits.SEG10COM3 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
-[e :U 531 ]
-[e :U 532 ]
-[e = . . _LCDDATA10bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA9bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA3bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA0bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA4bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA7bits 0 2 -> -> 1 `i `uc ]
-[e = . . _LCDDATA6bits 0 2 -> -> 1 `i `uc ]
-[e $U 467  ]
+[; ;main.c: 363:         case 'Y': case 'y': LCDDATA9bits.SEG5COM3 = 0; LCDDATA10bits.SEG12COM3 = 1; LCDDATA4bits.SEG12COM1 = 1; LCDDATA1bits.SEG12COM0 = 1; LCDDATA3bits.SEG5COM1 = 0; LCDDATA6bits.SEG5COM2 = 1; LCDDATA7bits.SEG12COM2 = 1; break;
+[e :U 520 ]
+[e :U 521 ]
+[e = . . _LCDDATA9bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA10bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA4bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA1bits 0 4 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA6bits 0 5 -> -> 1 `i `uc ]
+[e = . . _LCDDATA7bits 0 4 -> -> 1 `i `uc ]
+[e $U 466  ]
 "365
-[; ;main.c: 365:         default: LCDDATA10bits.SEG10COM3 = 0; LCDDATA9bits.SEG2COM3 = 0; LCDDATA3bits.SEG2COM1 = 0; LCDDATA0bits.SEG2COM0 = 0; LCDDATA4bits.SEG10COM1 = 0; LCDDATA7bits.SEG10COM2 = 0; LCDDATA6bits.SEG2COM2 = 0;
-[e :U 533 ]
-[e = . . _LCDDATA10bits 0 2 -> -> 0 `i `uc ]
-[e = . . _LCDDATA9bits 0 2 -> -> 0 `i `uc ]
-[e = . . _LCDDATA3bits 0 2 -> -> 0 `i `uc ]
-[e = . . _LCDDATA0bits 0 2 -> -> 0 `i `uc ]
-[e = . . _LCDDATA4bits 0 2 -> -> 0 `i `uc ]
-[e = . . _LCDDATA7bits 0 2 -> -> 0 `i `uc ]
-[e = . . _LCDDATA6bits 0 2 -> -> 0 `i `uc ]
+[; ;main.c: 365:         default: LCDDATA9bits.SEG5COM3 = 0; LCDDATA10bits.SEG12COM3 = 0; LCDDATA4bits.SEG12COM1 = 0; LCDDATA1bits.SEG12COM0 = 0; LCDDATA3bits.SEG5COM1 = 0; LCDDATA6bits.SEG5COM2 = 0; LCDDATA7bits.SEG12COM2 = 0;
+[e :U 522 ]
+[e = . . _LCDDATA9bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA10bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA4bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA1bits 0 4 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA6bits 0 5 -> -> 0 `i `uc ]
+[e = . . _LCDDATA7bits 0 4 -> -> 0 `i `uc ]
 "366
 [; ;main.c: 366:     }
 }
-[e $U 467  ]
-[e :U 468 ]
-[e [\ -> _num `i , $ -> 0 `i 469
- , $ -> -> 48 `ui `i 470
- , $ -> 1 `i 471
- , $ -> -> 49 `ui `i 472
- , $ -> 2 `i 473
- , $ -> -> 50 `ui `i 474
- , $ -> 3 `i 475
- , $ -> -> 51 `ui `i 476
- , $ -> 4 `i 477
- , $ -> -> 52 `ui `i 478
- , $ -> 5 `i 479
- , $ -> -> 53 `ui `i 480
- , $ -> 6 `i 481
- , $ -> -> 54 `ui `i 482
- , $ -> 7 `i 483
- , $ -> -> 55 `ui `i 484
- , $ -> 8 `i 485
- , $ -> -> 56 `ui `i 486
- , $ -> 9 `i 487
- , $ -> -> 57 `ui `i 488
- , $ -> 10 `i 489
- , $ -> -> 65 `ui `i 490
- , $ -> -> 97 `ui `i 491
- , $ -> 11 `i 492
- , $ -> -> 66 `ui `i 493
- , $ -> -> 98 `ui `i 494
- , $ -> 12 `i 495
- , $ -> -> 67 `ui `i 496
- , $ -> -> 99 `ui `i 497
- , $ -> 13 `i 498
- , $ -> -> 68 `ui `i 499
- , $ -> -> 100 `ui `i 500
- , $ -> 14 `i 501
- , $ -> -> 69 `ui `i 502
- , $ -> -> 101 `ui `i 503
- , $ -> 15 `i 504
- , $ -> -> 70 `ui `i 505
- , $ -> -> 102 `ui `i 506
- , $ -> -> 71 `ui `i 507
- , $ -> -> 103 `ui `i 508
- , $ -> -> 72 `ui `i 509
- , $ -> -> 104 `ui `i 510
- , $ -> -> 73 `ui `i 511
- , $ -> -> 105 `ui `i 512
- , $ -> -> 74 `ui `i 513
- , $ -> -> 106 `ui `i 514
- , $ -> -> 75 `ui `i 515
- , $ -> -> 107 `ui `i 516
- , $ -> -> 76 `ui `i 517
- , $ -> -> 108 `ui `i 518
- , $ -> -> 78 `ui `i 519
- , $ -> -> 110 `ui `i 520
- , $ -> -> 79 `ui `i 521
- , $ -> -> 111 `ui `i 522
- , $ -> -> 80 `ui `i 523
- , $ -> -> 112 `ui `i 524
- , $ -> -> 83 `ui `i 525
- , $ -> -> 115 `ui `i 526
- , $ -> -> 84 `ui `i 527
- , $ -> -> 116 `ui `i 528
- , $ -> -> 85 `ui `i 529
- , $ -> -> 117 `ui `i 530
- , $ -> -> 89 `ui `i 531
- , $ -> -> 121 `ui `i 532
- 533 ]
+[e $U 466  ]
 [e :U 467 ]
+[e [\ -> _num `i , $ -> 0 `i 468
+ , $ -> 1 `i 469
+ , $ -> 2 `i 470
+ , $ -> 3 `i 471
+ , $ -> 4 `i 472
+ , $ -> 5 `i 473
+ , $ -> 6 `i 474
+ , $ -> 7 `i 475
+ , $ -> 8 `i 476
+ , $ -> 9 `i 477
+ , $ -> 10 `i 478
+ , $ -> -> 65 `ui `i 479
+ , $ -> -> 97 `ui `i 480
+ , $ -> 11 `i 481
+ , $ -> -> 66 `ui `i 482
+ , $ -> -> 98 `ui `i 483
+ , $ -> 12 `i 484
+ , $ -> -> 67 `ui `i 485
+ , $ -> -> 99 `ui `i 486
+ , $ -> 13 `i 487
+ , $ -> -> 68 `ui `i 488
+ , $ -> -> 100 `ui `i 489
+ , $ -> 14 `i 490
+ , $ -> -> 69 `ui `i 491
+ , $ -> -> 101 `ui `i 492
+ , $ -> 15 `i 493
+ , $ -> -> 70 `ui `i 494
+ , $ -> -> 102 `ui `i 495
+ , $ -> -> 71 `ui `i 496
+ , $ -> -> 103 `ui `i 497
+ , $ -> -> 72 `ui `i 498
+ , $ -> -> 104 `ui `i 499
+ , $ -> -> 73 `ui `i 500
+ , $ -> -> 105 `ui `i 501
+ , $ -> -> 74 `ui `i 502
+ , $ -> -> 106 `ui `i 503
+ , $ -> -> 76 `ui `i 504
+ , $ -> -> 108 `ui `i 505
+ , $ -> -> 78 `ui `i 506
+ , $ -> -> 110 `ui `i 507
+ , $ -> -> 79 `ui `i 508
+ , $ -> -> 111 `ui `i 509
+ , $ -> -> 80 `ui `i 510
+ , $ -> -> 112 `ui `i 511
+ , $ -> -> 82 `ui `i 512
+ , $ -> -> 114 `ui `i 513
+ , $ -> -> 83 `ui `i 514
+ , $ -> -> 115 `ui `i 515
+ , $ -> -> 84 `ui `i 516
+ , $ -> -> 116 `ui `i 517
+ , $ -> -> 85 `ui `i 518
+ , $ -> -> 117 `ui `i 519
+ , $ -> -> 89 `ui `i 520
+ , $ -> -> 121 `ui `i 521
+ 522 ]
+[e :U 466 ]
 "367
 [; ;main.c: 367: }
-[e :UE 466 ]
+[e :UE 465 ]
 }
 "369
-[; ;main.c: 369: uint16_t intToBCD(uint16_t binaryInput){
+[; ;main.c: 369: void LCD_Digit3Num (unsigned char num)
+[v _LCD_Digit3Num `(v ~T0 @X0 1 ef1`uc ]
+"370
+[; ;main.c: 370: {
+{
+[e :U _LCD_Digit3Num ]
+"369
+[; ;main.c: 369: void LCD_Digit3Num (unsigned char num)
+[v _num `uc ~T0 @X0 1 r1 ]
+"370
+[; ;main.c: 370: {
+[f ]
+"371
+[; ;main.c: 371:     switch (num)
+[e $U 525  ]
+"372
+[; ;main.c: 372:     {
+{
+"373
+[; ;main.c: 373:         case 0: LCDDATA9bits.SEG3COM3 = 1; LCDDATA9bits.SEG1COM3 = 1; LCDDATA3bits.SEG1COM1 = 1; LCDDATA0bits.SEG1COM0 = 1; LCDDATA3bits.SEG3COM1 = 1; LCDDATA6bits.SEG3COM2 = 1; LCDDATA6bits.SEG1COM2 = 0; break;
+[e :U 526 ]
+[e = . . _LCDDATA9bits 0 3 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 3 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 3 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 1 -> -> 0 `i `uc ]
+[e $U 524  ]
+"374
+[; ;main.c: 374:         case 1: LCDDATA9bits.SEG3COM3 = 0; LCDDATA9bits.SEG1COM3 = 1; LCDDATA3bits.SEG1COM1 = 1; LCDDATA0bits.SEG1COM0 = 0; LCDDATA3bits.SEG3COM1 = 0; LCDDATA6bits.SEG3COM2 = 0; LCDDATA6bits.SEG1COM2 = 0; break;
+[e :U 527 ]
+[e = . . _LCDDATA9bits 0 3 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 1 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 3 -> -> 0 `i `uc ]
+[e = . . _LCDDATA6bits 0 3 -> -> 0 `i `uc ]
+[e = . . _LCDDATA6bits 0 1 -> -> 0 `i `uc ]
+[e $U 524  ]
+"375
+[; ;main.c: 375:         case 2: LCDDATA9bits.SEG3COM3 = 1; LCDDATA9bits.SEG1COM3 = 1; LCDDATA3bits.SEG1COM1 = 0; LCDDATA0bits.SEG1COM0 = 1; LCDDATA3bits.SEG3COM1 = 1; LCDDATA6bits.SEG3COM2 = 0; LCDDATA6bits.SEG1COM2 = 1; break;
+[e :U 528 ]
+[e = . . _LCDDATA9bits 0 3 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 1 -> -> 0 `i `uc ]
+[e = . . _LCDDATA0bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 3 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 3 -> -> 0 `i `uc ]
+[e = . . _LCDDATA6bits 0 1 -> -> 1 `i `uc ]
+[e $U 524  ]
+"376
+[; ;main.c: 376:         case 3: LCDDATA9bits.SEG3COM3 = 1; LCDDATA9bits.SEG1COM3 = 1; LCDDATA3bits.SEG1COM1 = 1; LCDDATA0bits.SEG1COM0 = 1; LCDDATA3bits.SEG3COM1 = 0; LCDDATA6bits.SEG3COM2 = 0; LCDDATA6bits.SEG1COM2 = 1; break;
+[e :U 529 ]
+[e = . . _LCDDATA9bits 0 3 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 3 -> -> 0 `i `uc ]
+[e = . . _LCDDATA6bits 0 3 -> -> 0 `i `uc ]
+[e = . . _LCDDATA6bits 0 1 -> -> 1 `i `uc ]
+[e $U 524  ]
+"377
+[; ;main.c: 377:         case 4: LCDDATA9bits.SEG3COM3 = 0; LCDDATA9bits.SEG1COM3 = 1; LCDDATA3bits.SEG1COM1 = 1; LCDDATA0bits.SEG1COM0 = 0; LCDDATA3bits.SEG3COM1 = 0; LCDDATA6bits.SEG3COM2 = 1; LCDDATA6bits.SEG1COM2 = 1; break;
+[e :U 530 ]
+[e = . . _LCDDATA9bits 0 3 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 1 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 3 -> -> 0 `i `uc ]
+[e = . . _LCDDATA6bits 0 3 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 1 -> -> 1 `i `uc ]
+[e $U 524  ]
+"378
+[; ;main.c: 378:         case 5: LCDDATA9bits.SEG3COM3 = 1; LCDDATA9bits.SEG1COM3 = 0; LCDDATA3bits.SEG1COM1 = 1; LCDDATA0bits.SEG1COM0 = 1; LCDDATA3bits.SEG3COM1 = 0; LCDDATA6bits.SEG3COM2 = 1; LCDDATA6bits.SEG1COM2 = 1; break;
+[e :U 531 ]
+[e = . . _LCDDATA9bits 0 3 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 1 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 3 -> -> 0 `i `uc ]
+[e = . . _LCDDATA6bits 0 3 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 1 -> -> 1 `i `uc ]
+[e $U 524  ]
+"379
+[; ;main.c: 379:         case 6: LCDDATA9bits.SEG3COM3 = 1; LCDDATA9bits.SEG1COM3 = 0; LCDDATA3bits.SEG1COM1 = 1; LCDDATA0bits.SEG1COM0 = 1; LCDDATA3bits.SEG3COM1 = 1; LCDDATA6bits.SEG3COM2 = 1; LCDDATA6bits.SEG1COM2 = 1; break;
+[e :U 532 ]
+[e = . . _LCDDATA9bits 0 3 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 1 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 3 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 3 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 1 -> -> 1 `i `uc ]
+[e $U 524  ]
+"380
+[; ;main.c: 380:         case 7: LCDDATA9bits.SEG3COM3 = 1; LCDDATA9bits.SEG1COM3 = 1; LCDDATA3bits.SEG1COM1 = 1; LCDDATA0bits.SEG1COM0 = 0; LCDDATA3bits.SEG3COM1 = 0; LCDDATA6bits.SEG3COM2 = 0; LCDDATA6bits.SEG1COM2 = 0; break;
+[e :U 533 ]
+[e = . . _LCDDATA9bits 0 3 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 1 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 3 -> -> 0 `i `uc ]
+[e = . . _LCDDATA6bits 0 3 -> -> 0 `i `uc ]
+[e = . . _LCDDATA6bits 0 1 -> -> 0 `i `uc ]
+[e $U 524  ]
+"381
+[; ;main.c: 381:         case 8: LCDDATA9bits.SEG3COM3 = 1; LCDDATA9bits.SEG1COM3 = 1; LCDDATA3bits.SEG1COM1 = 1; LCDDATA0bits.SEG1COM0 = 1; LCDDATA3bits.SEG3COM1 = 1; LCDDATA6bits.SEG3COM2 = 1; LCDDATA6bits.SEG1COM2 = 1; break;
+[e :U 534 ]
+[e = . . _LCDDATA9bits 0 3 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 3 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 3 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 1 -> -> 1 `i `uc ]
+[e $U 524  ]
+"382
+[; ;main.c: 382:         case 9: LCDDATA9bits.SEG3COM3 = 1; LCDDATA9bits.SEG1COM3 = 1; LCDDATA3bits.SEG1COM1 = 1; LCDDATA0bits.SEG1COM0 = 1; LCDDATA3bits.SEG3COM1 = 0; LCDDATA6bits.SEG3COM2 = 1; LCDDATA6bits.SEG1COM2 = 1; break;
+[e :U 535 ]
+[e = . . _LCDDATA9bits 0 3 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 3 -> -> 0 `i `uc ]
+[e = . . _LCDDATA6bits 0 3 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 1 -> -> 1 `i `uc ]
+[e $U 524  ]
+"383
+[; ;main.c: 383:         case 0x0A: case 'A': case 'a': LCDDATA9bits.SEG3COM3 = 1; LCDDATA9bits.SEG1COM3 = 1; LCDDATA3bits.SEG1COM1 = 1; LCDDATA0bits.SEG1COM0 = 0; LCDDATA3bits.SEG3COM1 = 1; LCDDATA6bits.SEG3COM2 = 1; LCDDATA6bits.SEG1COM2 = 1; break;
+[e :U 536 ]
+[e :U 537 ]
+[e :U 538 ]
+[e = . . _LCDDATA9bits 0 3 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 1 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 3 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 3 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 1 -> -> 1 `i `uc ]
+[e $U 524  ]
+"384
+[; ;main.c: 384:         case 0x0B: case 'B': case 'b': LCDDATA9bits.SEG3COM3 = 0; LCDDATA9bits.SEG1COM3 = 0; LCDDATA3bits.SEG1COM1 = 1; LCDDATA0bits.SEG1COM0 = 1; LCDDATA3bits.SEG3COM1 = 1; LCDDATA6bits.SEG3COM2 = 1; LCDDATA6bits.SEG1COM2 = 1; break;
+[e :U 539 ]
+[e :U 540 ]
+[e :U 541 ]
+[e = . . _LCDDATA9bits 0 3 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 1 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 3 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 3 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 1 -> -> 1 `i `uc ]
+[e $U 524  ]
+"385
+[; ;main.c: 385:         case 0x0C: case 'C': case 'c': LCDDATA9bits.SEG3COM3 = 1; LCDDATA9bits.SEG1COM3 = 0; LCDDATA3bits.SEG1COM1 = 0; LCDDATA0bits.SEG1COM0 = 1; LCDDATA3bits.SEG3COM1 = 1; LCDDATA6bits.SEG3COM2 = 1; LCDDATA6bits.SEG1COM2 = 0; break;
+[e :U 542 ]
+[e :U 543 ]
+[e :U 544 ]
+[e = . . _LCDDATA9bits 0 3 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 1 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 1 -> -> 0 `i `uc ]
+[e = . . _LCDDATA0bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 3 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 3 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 1 -> -> 0 `i `uc ]
+[e $U 524  ]
+"386
+[; ;main.c: 386:         case 0x0D: case 'D': case 'd': LCDDATA9bits.SEG3COM3 = 0; LCDDATA9bits.SEG1COM3 = 1; LCDDATA3bits.SEG1COM1 = 1; LCDDATA0bits.SEG1COM0 = 1; LCDDATA3bits.SEG3COM1 = 1; LCDDATA6bits.SEG3COM2 = 0; LCDDATA6bits.SEG1COM2 = 1; break;
+[e :U 545 ]
+[e :U 546 ]
+[e :U 547 ]
+[e = . . _LCDDATA9bits 0 3 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 3 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 3 -> -> 0 `i `uc ]
+[e = . . _LCDDATA6bits 0 1 -> -> 1 `i `uc ]
+[e $U 524  ]
+"387
+[; ;main.c: 387:         case 0x0E: case 'E': case 'e': LCDDATA9bits.SEG3COM3 = 1; LCDDATA9bits.SEG1COM3 = 0; LCDDATA3bits.SEG1COM1 = 0; LCDDATA0bits.SEG1COM0 = 1; LCDDATA3bits.SEG3COM1 = 1; LCDDATA6bits.SEG3COM2 = 1; LCDDATA6bits.SEG1COM2 = 1; break;
+[e :U 548 ]
+[e :U 549 ]
+[e :U 550 ]
+[e = . . _LCDDATA9bits 0 3 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 1 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 1 -> -> 0 `i `uc ]
+[e = . . _LCDDATA0bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 3 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 3 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 1 -> -> 1 `i `uc ]
+[e $U 524  ]
+"388
+[; ;main.c: 388:         case 0x0F: case 'F': case 'f': LCDDATA9bits.SEG3COM3 = 1; LCDDATA9bits.SEG1COM3 = 0; LCDDATA3bits.SEG1COM1 = 0; LCDDATA0bits.SEG1COM0 = 0; LCDDATA3bits.SEG3COM1 = 1; LCDDATA6bits.SEG3COM2 = 1; LCDDATA6bits.SEG1COM2 = 1; break;
+[e :U 551 ]
+[e :U 552 ]
+[e :U 553 ]
+[e = . . _LCDDATA9bits 0 3 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 1 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 1 -> -> 0 `i `uc ]
+[e = . . _LCDDATA0bits 0 1 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 3 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 3 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 1 -> -> 1 `i `uc ]
+[e $U 524  ]
+"389
+[; ;main.c: 389:         case 'G': case 'g': LCDDATA9bits.SEG3COM3 = 1; LCDDATA9bits.SEG1COM3 = 0; LCDDATA3bits.SEG1COM1 = 1; LCDDATA0bits.SEG1COM0 = 1; LCDDATA3bits.SEG3COM1 = 1; LCDDATA6bits.SEG3COM2 = 1; LCDDATA6bits.SEG1COM2 = 0; break;
+[e :U 554 ]
+[e :U 555 ]
+[e = . . _LCDDATA9bits 0 3 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 1 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 3 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 3 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 1 -> -> 0 `i `uc ]
+[e $U 524  ]
+"390
+[; ;main.c: 390:         case 'H': case 'h': LCDDATA9bits.SEG3COM3 = 0; LCDDATA9bits.SEG1COM3 = 1; LCDDATA3bits.SEG1COM1 = 1; LCDDATA0bits.SEG1COM0 = 0; LCDDATA3bits.SEG3COM1 = 1; LCDDATA6bits.SEG3COM2 = 1; LCDDATA6bits.SEG1COM2 = 1; break;
+[e :U 556 ]
+[e :U 557 ]
+[e = . . _LCDDATA9bits 0 3 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 1 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 3 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 3 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 1 -> -> 1 `i `uc ]
+[e $U 524  ]
+"391
+[; ;main.c: 391:         case 'I': case 'i': LCDDATA9bits.SEG3COM3 = 0; LCDDATA9bits.SEG1COM3 = 0; LCDDATA3bits.SEG1COM1 = 0; LCDDATA0bits.SEG1COM0 = 0; LCDDATA3bits.SEG3COM1 = 1; LCDDATA6bits.SEG3COM2 = 1; LCDDATA6bits.SEG1COM2 = 0; break;
+[e :U 558 ]
+[e :U 559 ]
+[e = . . _LCDDATA9bits 0 3 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 1 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 1 -> -> 0 `i `uc ]
+[e = . . _LCDDATA0bits 0 1 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 3 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 3 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 1 -> -> 0 `i `uc ]
+[e $U 524  ]
+"392
+[; ;main.c: 392:         case 'J': case 'j': LCDDATA9bits.SEG3COM3 = 0; LCDDATA9bits.SEG1COM3 = 1; LCDDATA3bits.SEG1COM1 = 1; LCDDATA0bits.SEG1COM0 = 1; LCDDATA3bits.SEG3COM1 = 1; LCDDATA6bits.SEG3COM2 = 0; LCDDATA6bits.SEG1COM2 = 0; break;
+[e :U 560 ]
+[e :U 561 ]
+[e = . . _LCDDATA9bits 0 3 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 3 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 3 -> -> 0 `i `uc ]
+[e = . . _LCDDATA6bits 0 1 -> -> 0 `i `uc ]
+[e $U 524  ]
+"393
+[; ;main.c: 393:         case 'L': case 'l': LCDDATA9bits.SEG3COM3 = 0; LCDDATA9bits.SEG1COM3 = 0; LCDDATA3bits.SEG1COM1 = 0; LCDDATA0bits.SEG1COM0 = 1; LCDDATA3bits.SEG3COM1 = 1; LCDDATA6bits.SEG3COM2 = 1; LCDDATA6bits.SEG1COM2 = 0; break;
+[e :U 562 ]
+[e :U 563 ]
+[e = . . _LCDDATA9bits 0 3 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 1 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 1 -> -> 0 `i `uc ]
+[e = . . _LCDDATA0bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 3 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 3 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 1 -> -> 0 `i `uc ]
+[e $U 524  ]
+"394
+[; ;main.c: 394:         case 'N': case 'n': LCDDATA9bits.SEG3COM3 = 0; LCDDATA9bits.SEG1COM3 = 0; LCDDATA3bits.SEG1COM1 = 1; LCDDATA0bits.SEG1COM0 = 0; LCDDATA3bits.SEG3COM1 = 1; LCDDATA6bits.SEG3COM2 = 0; LCDDATA6bits.SEG1COM2 = 1; break;
+[e :U 564 ]
+[e :U 565 ]
+[e = . . _LCDDATA9bits 0 3 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 1 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 1 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 3 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 3 -> -> 0 `i `uc ]
+[e = . . _LCDDATA6bits 0 1 -> -> 1 `i `uc ]
+[e $U 524  ]
+"395
+[; ;main.c: 395:         case 'O': case 'o': LCDDATA9bits.SEG3COM3 = 0; LCDDATA9bits.SEG1COM3 = 0; LCDDATA3bits.SEG1COM1 = 1; LCDDATA0bits.SEG1COM0 = 1; LCDDATA3bits.SEG3COM1 = 1; LCDDATA6bits.SEG3COM2 = 0; LCDDATA6bits.SEG1COM2 = 1; break;
+[e :U 566 ]
+[e :U 567 ]
+[e = . . _LCDDATA9bits 0 3 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 1 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 3 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 3 -> -> 0 `i `uc ]
+[e = . . _LCDDATA6bits 0 1 -> -> 1 `i `uc ]
+[e $U 524  ]
+"396
+[; ;main.c: 396:         case 'P': case 'p': LCDDATA9bits.SEG3COM3 = 1; LCDDATA9bits.SEG1COM3 = 1; LCDDATA3bits.SEG1COM1 = 0; LCDDATA0bits.SEG1COM0 = 0; LCDDATA3bits.SEG3COM1 = 1; LCDDATA6bits.SEG3COM2 = 1; LCDDATA6bits.SEG1COM2 = 1; break;
+[e :U 568 ]
+[e :U 569 ]
+[e = . . _LCDDATA9bits 0 3 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 1 -> -> 0 `i `uc ]
+[e = . . _LCDDATA0bits 0 1 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 3 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 3 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 1 -> -> 1 `i `uc ]
+[e $U 524  ]
+"397
+[; ;main.c: 397:         case 'R': case 'r': LCDDATA9bits.SEG3COM3 = 0; LCDDATA9bits.SEG1COM3 = 0; LCDDATA3bits.SEG1COM1 = 0; LCDDATA0bits.SEG1COM0 = 0; LCDDATA3bits.SEG3COM1 = 1; LCDDATA6bits.SEG3COM2 = 0; LCDDATA6bits.SEG1COM2 = 1; break;
+[e :U 570 ]
+[e :U 571 ]
+[e = . . _LCDDATA9bits 0 3 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 1 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 1 -> -> 0 `i `uc ]
+[e = . . _LCDDATA0bits 0 1 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 3 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 3 -> -> 0 `i `uc ]
+[e = . . _LCDDATA6bits 0 1 -> -> 1 `i `uc ]
+[e $U 524  ]
+"398
+[; ;main.c: 398:         case 'S': case 's': LCDDATA9bits.SEG3COM3 = 0; LCDDATA9bits.SEG1COM3 = 0; LCDDATA3bits.SEG1COM1 = 1; LCDDATA0bits.SEG1COM0 = 1; LCDDATA3bits.SEG3COM1 = 0; LCDDATA6bits.SEG3COM2 = 1; LCDDATA6bits.SEG1COM2 = 1; break;
+[e :U 572 ]
+[e :U 573 ]
+[e = . . _LCDDATA9bits 0 3 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 1 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 3 -> -> 0 `i `uc ]
+[e = . . _LCDDATA6bits 0 3 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 1 -> -> 1 `i `uc ]
+[e $U 524  ]
+"399
+[; ;main.c: 399:         case 'T': case 't': LCDDATA9bits.SEG3COM3 = 0; LCDDATA9bits.SEG1COM3 = 0; LCDDATA3bits.SEG1COM1 = 0; LCDDATA0bits.SEG1COM0 = 1; LCDDATA3bits.SEG3COM1 = 1; LCDDATA6bits.SEG3COM2 = 1; LCDDATA6bits.SEG1COM2 = 1; break;
+[e :U 574 ]
+[e :U 575 ]
+[e = . . _LCDDATA9bits 0 3 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 1 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 1 -> -> 0 `i `uc ]
+[e = . . _LCDDATA0bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 3 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 3 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 1 -> -> 1 `i `uc ]
+[e $U 524  ]
+"400
+[; ;main.c: 400:         case 'U': case 'u': LCDDATA9bits.SEG3COM3 = 0; LCDDATA9bits.SEG1COM3 = 1; LCDDATA3bits.SEG1COM1 = 1; LCDDATA0bits.SEG1COM0 = 1; LCDDATA3bits.SEG3COM1 = 1; LCDDATA6bits.SEG3COM2 = 1; LCDDATA6bits.SEG1COM2 = 0; break;
+[e :U 576 ]
+[e :U 577 ]
+[e = . . _LCDDATA9bits 0 3 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 3 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 3 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 1 -> -> 0 `i `uc ]
+[e $U 524  ]
+"401
+[; ;main.c: 401:         case 'Y': case 'y': LCDDATA9bits.SEG3COM3 = 0; LCDDATA9bits.SEG1COM3 = 1; LCDDATA3bits.SEG1COM1 = 1; LCDDATA0bits.SEG1COM0 = 1; LCDDATA3bits.SEG3COM1 = 0; LCDDATA6bits.SEG3COM2 = 1; LCDDATA6bits.SEG1COM2 = 1; break;
+[e :U 578 ]
+[e :U 579 ]
+[e = . . _LCDDATA9bits 0 3 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 1 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 3 -> -> 0 `i `uc ]
+[e = . . _LCDDATA6bits 0 3 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 1 -> -> 1 `i `uc ]
+[e $U 524  ]
+"403
+[; ;main.c: 403:         default: LCDDATA9bits.SEG3COM3 = 0; LCDDATA9bits.SEG1COM3 = 0; LCDDATA3bits.SEG1COM1 = 0; LCDDATA0bits.SEG1COM0 = 0; LCDDATA3bits.SEG3COM1 = 0; LCDDATA6bits.SEG3COM2 = 0; LCDDATA6bits.SEG1COM2 = 0;
+[e :U 580 ]
+[e = . . _LCDDATA9bits 0 3 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 1 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 1 -> -> 0 `i `uc ]
+[e = . . _LCDDATA0bits 0 1 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 3 -> -> 0 `i `uc ]
+[e = . . _LCDDATA6bits 0 3 -> -> 0 `i `uc ]
+[e = . . _LCDDATA6bits 0 1 -> -> 0 `i `uc ]
+"404
+[; ;main.c: 404:     }
+}
+[e $U 524  ]
+[e :U 525 ]
+[e [\ -> _num `i , $ -> 0 `i 526
+ , $ -> 1 `i 527
+ , $ -> 2 `i 528
+ , $ -> 3 `i 529
+ , $ -> 4 `i 530
+ , $ -> 5 `i 531
+ , $ -> 6 `i 532
+ , $ -> 7 `i 533
+ , $ -> 8 `i 534
+ , $ -> 9 `i 535
+ , $ -> 10 `i 536
+ , $ -> -> 65 `ui `i 537
+ , $ -> -> 97 `ui `i 538
+ , $ -> 11 `i 539
+ , $ -> -> 66 `ui `i 540
+ , $ -> -> 98 `ui `i 541
+ , $ -> 12 `i 542
+ , $ -> -> 67 `ui `i 543
+ , $ -> -> 99 `ui `i 544
+ , $ -> 13 `i 545
+ , $ -> -> 68 `ui `i 546
+ , $ -> -> 100 `ui `i 547
+ , $ -> 14 `i 548
+ , $ -> -> 69 `ui `i 549
+ , $ -> -> 101 `ui `i 550
+ , $ -> 15 `i 551
+ , $ -> -> 70 `ui `i 552
+ , $ -> -> 102 `ui `i 553
+ , $ -> -> 71 `ui `i 554
+ , $ -> -> 103 `ui `i 555
+ , $ -> -> 72 `ui `i 556
+ , $ -> -> 104 `ui `i 557
+ , $ -> -> 73 `ui `i 558
+ , $ -> -> 105 `ui `i 559
+ , $ -> -> 74 `ui `i 560
+ , $ -> -> 106 `ui `i 561
+ , $ -> -> 76 `ui `i 562
+ , $ -> -> 108 `ui `i 563
+ , $ -> -> 78 `ui `i 564
+ , $ -> -> 110 `ui `i 565
+ , $ -> -> 79 `ui `i 566
+ , $ -> -> 111 `ui `i 567
+ , $ -> -> 80 `ui `i 568
+ , $ -> -> 112 `ui `i 569
+ , $ -> -> 82 `ui `i 570
+ , $ -> -> 114 `ui `i 571
+ , $ -> -> 83 `ui `i 572
+ , $ -> -> 115 `ui `i 573
+ , $ -> -> 84 `ui `i 574
+ , $ -> -> 116 `ui `i 575
+ , $ -> -> 85 `ui `i 576
+ , $ -> -> 117 `ui `i 577
+ , $ -> -> 89 `ui `i 578
+ , $ -> -> 121 `ui `i 579
+ 580 ]
+[e :U 524 ]
+"405
+[; ;main.c: 405: }
+[e :UE 523 ]
+}
+"407
+[; ;main.c: 407: void LCD_Digit4Num (unsigned char num)
+[v _LCD_Digit4Num `(v ~T0 @X0 1 ef1`uc ]
+"408
+[; ;main.c: 408: {
+{
+[e :U _LCD_Digit4Num ]
+"407
+[; ;main.c: 407: void LCD_Digit4Num (unsigned char num)
+[v _num `uc ~T0 @X0 1 r1 ]
+"408
+[; ;main.c: 408: {
+[f ]
+"409
+[; ;main.c: 409:     switch (num)
+[e $U 583  ]
+"410
+[; ;main.c: 410:     {
+{
+"411
+[; ;main.c: 411:         case 0: case '0': LCDDATA10bits.SEG10COM3 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 1; LCDDATA6bits.SEG2COM2 = 0; break;
+[e :U 584 ]
+[e :U 585 ]
+[e = . . _LCDDATA10bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA4bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA7bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 2 -> -> 0 `i `uc ]
+[e $U 582  ]
+"412
+[; ;main.c: 412:         case 1: case '1': LCDDATA10bits.SEG10COM3 = 0; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 0; LCDDATA4bits.SEG10COM1 = 0; LCDDATA7bits.SEG10COM2 = 0; LCDDATA6bits.SEG2COM2 = 0; break;
+[e :U 586 ]
+[e :U 587 ]
+[e = . . _LCDDATA10bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA4bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA7bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA6bits 0 2 -> -> 0 `i `uc ]
+[e $U 582  ]
+"413
+[; ;main.c: 413:         case 2: case '2': LCDDATA10bits.SEG10COM3 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 0; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 0; LCDDATA6bits.SEG2COM2 = 1; break;
+[e :U 588 ]
+[e :U 589 ]
+[e = . . _LCDDATA10bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA0bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA4bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA7bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA6bits 0 2 -> -> 1 `i `uc ]
+[e $U 582  ]
+"414
+[; ;main.c: 414:         case 3: case '3': LCDDATA10bits.SEG10COM3 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG10COM1 = 0; LCDDATA7bits.SEG10COM2 = 0; LCDDATA6bits.SEG2COM2 = 1; break;
+[e :U 590 ]
+[e :U 591 ]
+[e = . . _LCDDATA10bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA4bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA7bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA6bits 0 2 -> -> 1 `i `uc ]
+[e $U 582  ]
+"415
+[; ;main.c: 415:         case 4: case '4': LCDDATA10bits.SEG10COM3 = 0; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 0; LCDDATA4bits.SEG10COM1 = 0; LCDDATA7bits.SEG10COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
+[e :U 592 ]
+[e :U 593 ]
+[e = . . _LCDDATA10bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA4bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA7bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 2 -> -> 1 `i `uc ]
+[e $U 582  ]
+"416
+[; ;main.c: 416:         case 5: case '5': LCDDATA10bits.SEG10COM3 = 1; LCDDATA9bits.SEG2COM3 = 0; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG10COM1 = 0; LCDDATA7bits.SEG10COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
+[e :U 594 ]
+[e :U 595 ]
+[e = . . _LCDDATA10bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA4bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA7bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 2 -> -> 1 `i `uc ]
+[e $U 582  ]
+"417
+[; ;main.c: 417:         case 6: case '6': LCDDATA10bits.SEG10COM3 = 1; LCDDATA9bits.SEG2COM3 = 0; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
+[e :U 596 ]
+[e :U 597 ]
+[e = . . _LCDDATA10bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA4bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA7bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 2 -> -> 1 `i `uc ]
+[e $U 582  ]
+"418
+[; ;main.c: 418:         case 7: case '7': LCDDATA10bits.SEG10COM3 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 0; LCDDATA4bits.SEG10COM1 = 0; LCDDATA7bits.SEG10COM2 = 0; LCDDATA6bits.SEG2COM2 = 0; break;
+[e :U 598 ]
+[e :U 599 ]
+[e = . . _LCDDATA10bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA4bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA7bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA6bits 0 2 -> -> 0 `i `uc ]
+[e $U 582  ]
+"419
+[; ;main.c: 419:         case 8: case '8': LCDDATA10bits.SEG10COM3 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
+[e :U 600 ]
+[e :U 601 ]
+[e = . . _LCDDATA10bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA4bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA7bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 2 -> -> 1 `i `uc ]
+[e $U 582  ]
+"420
+[; ;main.c: 420:         case 9: case '9': LCDDATA10bits.SEG10COM3 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG10COM1 = 0; LCDDATA7bits.SEG10COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
+[e :U 602 ]
+[e :U 603 ]
+[e = . . _LCDDATA10bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA4bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA7bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 2 -> -> 1 `i `uc ]
+[e $U 582  ]
+"421
+[; ;main.c: 421:         case 0x0A: case 'A': case 'a': LCDDATA10bits.SEG10COM3 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 0; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
+[e :U 604 ]
+[e :U 605 ]
+[e :U 606 ]
+[e = . . _LCDDATA10bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA4bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA7bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 2 -> -> 1 `i `uc ]
+[e $U 582  ]
+"422
+[; ;main.c: 422:         case 0x0B: case 'B': case 'b': LCDDATA10bits.SEG10COM3 = 0; LCDDATA9bits.SEG2COM3 = 0; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
+[e :U 607 ]
+[e :U 608 ]
+[e :U 609 ]
+[e = . . _LCDDATA10bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA4bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA7bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 2 -> -> 1 `i `uc ]
+[e $U 582  ]
+"423
+[; ;main.c: 423:         case 0x0C: case 'C': case 'c': LCDDATA10bits.SEG10COM3 = 1; LCDDATA9bits.SEG2COM3 = 0; LCDDATA3bits.SEG2COM1 = 0; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 1; LCDDATA6bits.SEG2COM2 = 0; break;
+[e :U 610 ]
+[e :U 611 ]
+[e :U 612 ]
+[e = . . _LCDDATA10bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA0bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA4bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA7bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 2 -> -> 0 `i `uc ]
+[e $U 582  ]
+"424
+[; ;main.c: 424:         case 0x0D: case 'D': case 'd': LCDDATA10bits.SEG10COM3 = 0; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 0; LCDDATA6bits.SEG2COM2 = 1; break;
+[e :U 613 ]
+[e :U 614 ]
+[e :U 615 ]
+[e = . . _LCDDATA10bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA4bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA7bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA6bits 0 2 -> -> 1 `i `uc ]
+[e $U 582  ]
+"425
+[; ;main.c: 425:         case 0x0E: case 'E': case 'e': LCDDATA10bits.SEG10COM3 = 1; LCDDATA9bits.SEG2COM3 = 0; LCDDATA3bits.SEG2COM1 = 0; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
+[e :U 616 ]
+[e :U 617 ]
+[e :U 618 ]
+[e = . . _LCDDATA10bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA0bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA4bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA7bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 2 -> -> 1 `i `uc ]
+[e $U 582  ]
+"426
+[; ;main.c: 426:         case 0x0F: case 'F': case 'f': LCDDATA10bits.SEG10COM3 = 1; LCDDATA9bits.SEG2COM3 = 0; LCDDATA3bits.SEG2COM1 = 0; LCDDATA0bits.SEG2COM0 = 0; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
+[e :U 619 ]
+[e :U 620 ]
+[e :U 621 ]
+[e = . . _LCDDATA10bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA0bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA4bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA7bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 2 -> -> 1 `i `uc ]
+[e $U 582  ]
+"427
+[; ;main.c: 427:         case 'G': case 'g': LCDDATA10bits.SEG10COM3 = 1; LCDDATA9bits.SEG2COM3 = 0; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
+[e :U 622 ]
+[e :U 623 ]
+[e = . . _LCDDATA10bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA4bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA7bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 2 -> -> 1 `i `uc ]
+[e $U 582  ]
+"428
+[; ;main.c: 428:         case 'H': case 'h': LCDDATA10bits.SEG10COM3 = 0; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 0; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
+[e :U 624 ]
+[e :U 625 ]
+[e = . . _LCDDATA10bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA4bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA7bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 2 -> -> 1 `i `uc ]
+[e $U 582  ]
+"429
+[; ;main.c: 429:         case 'I': case 'i': LCDDATA10bits.SEG10COM3 = 0; LCDDATA9bits.SEG2COM3 = 0; LCDDATA3bits.SEG2COM1 = 0; LCDDATA0bits.SEG2COM0 = 0; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 1; LCDDATA6bits.SEG2COM2 = 0; break;
+[e :U 626 ]
+[e :U 627 ]
+[e = . . _LCDDATA10bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA0bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA4bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA7bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 2 -> -> 0 `i `uc ]
+[e $U 582  ]
+"430
+[; ;main.c: 430:         case 'J': case 'j': LCDDATA10bits.SEG10COM3 = 0; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 0; LCDDATA6bits.SEG2COM2 = 0; break;
+[e :U 628 ]
+[e :U 629 ]
+[e = . . _LCDDATA10bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA4bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA7bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA6bits 0 2 -> -> 0 `i `uc ]
+[e $U 582  ]
+"431
+[; ;main.c: 431:         case 'L': case 'l': LCDDATA10bits.SEG10COM3 = 0; LCDDATA9bits.SEG2COM3 = 0; LCDDATA3bits.SEG2COM1 = 0; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 1; LCDDATA6bits.SEG2COM2 = 0; break;
+[e :U 630 ]
+[e :U 631 ]
+[e = . . _LCDDATA10bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA0bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA4bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA7bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 2 -> -> 0 `i `uc ]
+[e $U 582  ]
+"432
+[; ;main.c: 432:         case 'N': case 'n': LCDDATA10bits.SEG10COM3 = 0; LCDDATA9bits.SEG2COM3 = 0; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 0; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 0; LCDDATA6bits.SEG2COM2 = 1; break;
+[e :U 632 ]
+[e :U 633 ]
+[e = . . _LCDDATA10bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA4bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA7bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA6bits 0 2 -> -> 1 `i `uc ]
+[e $U 582  ]
+"433
+[; ;main.c: 433:         case 'O': case 'o': LCDDATA10bits.SEG10COM3 = 0; LCDDATA9bits.SEG2COM3 = 0; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 0; LCDDATA6bits.SEG2COM2 = 1; break;
+[e :U 634 ]
+[e :U 635 ]
+[e = . . _LCDDATA10bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA4bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA7bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA6bits 0 2 -> -> 1 `i `uc ]
+[e $U 582  ]
+"434
+[; ;main.c: 434:         case 'P': case 'p': LCDDATA10bits.SEG10COM3 = 1; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 0; LCDDATA0bits.SEG2COM0 = 0; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
+[e :U 636 ]
+[e :U 637 ]
+[e = . . _LCDDATA10bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA9bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA0bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA4bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA7bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 2 -> -> 1 `i `uc ]
+[e $U 582  ]
+"435
+[; ;main.c: 435:         case 'R': case 'r': LCDDATA10bits.SEG10COM3 = 0; LCDDATA9bits.SEG2COM3 = 0; LCDDATA3bits.SEG2COM1 = 0; LCDDATA0bits.SEG2COM0 = 0; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 0; LCDDATA6bits.SEG2COM2 = 1; break;
+[e :U 638 ]
+[e :U 639 ]
+[e = . . _LCDDATA10bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA0bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA4bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA7bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA6bits 0 2 -> -> 1 `i `uc ]
+[e $U 582  ]
+"436
+[; ;main.c: 436:         case 'S': case 's': LCDDATA10bits.SEG10COM3 = 0; LCDDATA9bits.SEG2COM3 = 0; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG10COM1 = 0; LCDDATA7bits.SEG10COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
+[e :U 640 ]
+[e :U 641 ]
+[e = . . _LCDDATA10bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA4bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA7bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 2 -> -> 1 `i `uc ]
+[e $U 582  ]
+"437
+[; ;main.c: 437:         case 'T': case 't': LCDDATA10bits.SEG10COM3 = 0; LCDDATA9bits.SEG2COM3 = 0; LCDDATA3bits.SEG2COM1 = 0; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
+[e :U 642 ]
+[e :U 643 ]
+[e = . . _LCDDATA10bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA0bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA4bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA7bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 2 -> -> 1 `i `uc ]
+[e $U 582  ]
+"438
+[; ;main.c: 438:         case 'U': case 'u': LCDDATA10bits.SEG10COM3 = 0; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG10COM1 = 1; LCDDATA7bits.SEG10COM2 = 1; LCDDATA6bits.SEG2COM2 = 0; break;
+[e :U 644 ]
+[e :U 645 ]
+[e = . . _LCDDATA10bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA4bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA7bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 2 -> -> 0 `i `uc ]
+[e $U 582  ]
+"439
+[; ;main.c: 439:         case 'Y': case 'y': LCDDATA10bits.SEG10COM3 = 0; LCDDATA9bits.SEG2COM3 = 1; LCDDATA3bits.SEG2COM1 = 1; LCDDATA0bits.SEG2COM0 = 1; LCDDATA4bits.SEG10COM1 = 0; LCDDATA7bits.SEG10COM2 = 1; LCDDATA6bits.SEG2COM2 = 1; break;
+[e :U 646 ]
+[e :U 647 ]
+[e = . . _LCDDATA10bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA3bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA0bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA4bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA7bits 0 2 -> -> 1 `i `uc ]
+[e = . . _LCDDATA6bits 0 2 -> -> 1 `i `uc ]
+[e $U 582  ]
+"441
+[; ;main.c: 441:         default: LCDDATA10bits.SEG10COM3 = 0; LCDDATA9bits.SEG2COM3 = 0; LCDDATA3bits.SEG2COM1 = 0; LCDDATA0bits.SEG2COM0 = 0; LCDDATA4bits.SEG10COM1 = 0; LCDDATA7bits.SEG10COM2 = 0; LCDDATA6bits.SEG2COM2 = 0;
+[e :U 648 ]
+[e = . . _LCDDATA10bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA9bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA3bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA0bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA4bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA7bits 0 2 -> -> 0 `i `uc ]
+[e = . . _LCDDATA6bits 0 2 -> -> 0 `i `uc ]
+"442
+[; ;main.c: 442:     }
+}
+[e $U 582  ]
+[e :U 583 ]
+[e [\ -> _num `i , $ -> 0 `i 584
+ , $ -> -> 48 `ui `i 585
+ , $ -> 1 `i 586
+ , $ -> -> 49 `ui `i 587
+ , $ -> 2 `i 588
+ , $ -> -> 50 `ui `i 589
+ , $ -> 3 `i 590
+ , $ -> -> 51 `ui `i 591
+ , $ -> 4 `i 592
+ , $ -> -> 52 `ui `i 593
+ , $ -> 5 `i 594
+ , $ -> -> 53 `ui `i 595
+ , $ -> 6 `i 596
+ , $ -> -> 54 `ui `i 597
+ , $ -> 7 `i 598
+ , $ -> -> 55 `ui `i 599
+ , $ -> 8 `i 600
+ , $ -> -> 56 `ui `i 601
+ , $ -> 9 `i 602
+ , $ -> -> 57 `ui `i 603
+ , $ -> 10 `i 604
+ , $ -> -> 65 `ui `i 605
+ , $ -> -> 97 `ui `i 606
+ , $ -> 11 `i 607
+ , $ -> -> 66 `ui `i 608
+ , $ -> -> 98 `ui `i 609
+ , $ -> 12 `i 610
+ , $ -> -> 67 `ui `i 611
+ , $ -> -> 99 `ui `i 612
+ , $ -> 13 `i 613
+ , $ -> -> 68 `ui `i 614
+ , $ -> -> 100 `ui `i 615
+ , $ -> 14 `i 616
+ , $ -> -> 69 `ui `i 617
+ , $ -> -> 101 `ui `i 618
+ , $ -> 15 `i 619
+ , $ -> -> 70 `ui `i 620
+ , $ -> -> 102 `ui `i 621
+ , $ -> -> 71 `ui `i 622
+ , $ -> -> 103 `ui `i 623
+ , $ -> -> 72 `ui `i 624
+ , $ -> -> 104 `ui `i 625
+ , $ -> -> 73 `ui `i 626
+ , $ -> -> 105 `ui `i 627
+ , $ -> -> 74 `ui `i 628
+ , $ -> -> 106 `ui `i 629
+ , $ -> -> 76 `ui `i 630
+ , $ -> -> 108 `ui `i 631
+ , $ -> -> 78 `ui `i 632
+ , $ -> -> 110 `ui `i 633
+ , $ -> -> 79 `ui `i 634
+ , $ -> -> 111 `ui `i 635
+ , $ -> -> 80 `ui `i 636
+ , $ -> -> 112 `ui `i 637
+ , $ -> -> 82 `ui `i 638
+ , $ -> -> 114 `ui `i 639
+ , $ -> -> 83 `ui `i 640
+ , $ -> -> 115 `ui `i 641
+ , $ -> -> 84 `ui `i 642
+ , $ -> -> 116 `ui `i 643
+ , $ -> -> 85 `ui `i 644
+ , $ -> -> 117 `ui `i 645
+ , $ -> -> 89 `ui `i 646
+ , $ -> -> 121 `ui `i 647
+ 648 ]
+[e :U 582 ]
+"443
+[; ;main.c: 443: }
+[e :UE 581 ]
+}
+"445
+[; ;main.c: 445: uint16_t intToBCD(uint16_t binaryInput){
 [v _intToBCD `(us ~T0 @X0 1 ef1`us ]
 {
 [e :U _intToBCD ]
 [v _binaryInput `us ~T0 @X0 1 r1 ]
 [f ]
-"370
-[; ;main.c: 370:     uint16_t bcdResult = 0;
+"446
+[; ;main.c: 446:     uint16_t bcdResult = 0;
 [v _bcdResult `us ~T0 @X0 1 a ]
 [e = _bcdResult -> -> 0 `i `us ]
-"371
-[; ;main.c: 371:     uint16_t shift = 0;
+"447
+[; ;main.c: 447:     uint16_t shift = 0;
 [v _shift `us ~T0 @X0 1 a ]
 [e = _shift -> -> 0 `i `us ]
-"373
-[; ;main.c: 373:     while (binaryInput > 0) {
-[e $U 535  ]
-[e :U 536 ]
+"449
+[; ;main.c: 449:     while (binaryInput > 0) {
+[e $U 650  ]
+[e :U 651 ]
 {
-"374
-[; ;main.c: 374:       bcdResult |= (binaryInput % 10) << (shift++ << 2);
+"450
+[; ;main.c: 450:       bcdResult |= (binaryInput % 10) << (shift++ << 2);
 [e =| _bcdResult -> << % -> _binaryInput `ui -> -> 10 `i `ui << -> ++ _shift -> -> 1 `i `us `ui -> 2 `i `us ]
-"375
-[; ;main.c: 375:       binaryInput /= 10;
+"451
+[; ;main.c: 451:       binaryInput /= 10;
 [e =/ _binaryInput -> -> 10 `i `ui ]
-"376
-[; ;main.c: 376:     }
+"452
+[; ;main.c: 452:     }
 }
-[e :U 535 ]
-"373
-[; ;main.c: 373:     while (binaryInput > 0) {
-[e $ > -> _binaryInput `ui -> -> 0 `i `ui 536  ]
-[e :U 537 ]
-"378
-[; ;main.c: 378:     return bcdResult;
+[e :U 650 ]
+"449
+[; ;main.c: 449:     while (binaryInput > 0) {
+[e $ > -> _binaryInput `ui -> -> 0 `i `ui 651  ]
+[e :U 652 ]
+"454
+[; ;main.c: 454:     return bcdResult;
 [e ) _bcdResult ]
-[e $UE 534  ]
-"379
-[; ;main.c: 379: }
-[e :UE 534 ]
+[e $UE 649  ]
+"455
+[; ;main.c: 455: }
+[e :UE 649 ]
 }
-"381
-[; ;main.c: 381: uint8_t reverseBits(uint8_t b) {
+"457
+[; ;main.c: 457: uint8_t reverseBits(uint8_t b) {
 [v _reverseBits `(uc ~T0 @X0 1 ef1`uc ]
 {
 [e :U _reverseBits ]
 [v _b `uc ~T0 @X0 1 r1 ]
 [f ]
-"382
-[; ;main.c: 382:    b = (b & 0b11110000) >> 4 | (b & 0b00001111) << 4;
+"458
+[; ;main.c: 458:    b = (b & 0b11110000) >> 4 | (b & 0b00001111) << 4;
 [e = _b -> | >> & -> _b `i -> 240 `i -> 4 `i << & -> _b `i -> 15 `i -> 4 `i `uc ]
-"383
-[; ;main.c: 383:    b = (b & 0b11001100) >> 2 | (b & 0b00110011) << 2;
+"459
+[; ;main.c: 459:    b = (b & 0b11001100) >> 2 | (b & 0b00110011) << 2;
 [e = _b -> | >> & -> _b `i -> 204 `i -> 2 `i << & -> _b `i -> 51 `i -> 2 `i `uc ]
-"384
-[; ;main.c: 384:    b = (b & 0b10101010) >> 1 | (b & 0b01010101) << 1;
+"460
+[; ;main.c: 460:    b = (b & 0b10101010) >> 1 | (b & 0b01010101) << 1;
 [e = _b -> | >> & -> _b `i -> 170 `i -> 1 `i << & -> _b `i -> 85 `i -> 1 `i `uc ]
-"385
-[; ;main.c: 385:    return b;
+"461
+[; ;main.c: 461:    return b;
 [e ) _b ]
-[e $UE 538  ]
-"386
-[; ;main.c: 386: }
-[e :UE 538 ]
+[e $UE 653  ]
+"462
+[; ;main.c: 462: }
+[e :UE 653 ]
 }

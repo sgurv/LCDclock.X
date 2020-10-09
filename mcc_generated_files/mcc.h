@@ -61,8 +61,8 @@
 #include "memory.h"
 #include "dac.h"
 #include "eusart.h"
-#include "lcd.h"
 #include "drivers/i2c_simple_master.h"
+#include "lcd.h"
 
 
 

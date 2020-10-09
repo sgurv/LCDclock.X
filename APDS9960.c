@@ -13,42 +13,46 @@ int gesture_far_count_;
 int gesture_state_;
 int gesture_motion_;
 
-uint8_t fifo_data[128];
+volatile uint8_t fifo_data[128];
 
 //Static
 /* Gesture processing */
-void resetGestureParameters();
-bool processGestureData();
-bool decodeGesture();
+void resetGestureParameters(void);
+bool processGestureData(void);
+bool decodeGesture(void);
 
 /* Proximity Interrupt Threshold */
-uint8_t getProxIntLowThresh();
+//uint8_t getProxIntLowThresh(void);
+#define getProxIntLowThresh() (i2c_read1ByteRegister(APDS9960_I2C_ADDR,APDS9960_PILT))
 bool setProxIntLowThresh(uint8_t threshold);
-uint8_t getProxIntHighThresh();
+//uint8_t getProxIntHighThresh();
+#define getProxIntHighThresh() (i2c_read1ByteRegister(APDS9960_I2C_ADDR,APDS9960_PIHT))
 bool setProxIntHighThresh(uint8_t threshold);
 
 /* LED Boost Control */
-uint8_t getLEDBoost();
+uint8_t getLEDBoost(void);
 bool setLEDBoost(uint8_t boost);
 
 /* Proximity photodiode select */
-uint8_t getProxGainCompEnable();
+uint8_t getProxGainCompEnable(void);
 bool setProxGainCompEnable(uint8_t enable);
-uint8_t getProxPhotoMask();
+uint8_t getProxPhotoMask(void);
 bool setProxPhotoMask(uint8_t mask);
 
 /* Gesture threshold control */
-uint8_t getGestureEnterThresh();
+uint8_t getGestureEnterThresh(void);
 bool setGestureEnterThresh(uint8_t threshold);
-uint8_t getGestureExitThresh();
+//uint8_t getGestureExitThresh(void);
+#define getGestureExitThresh() (i2c_read1ByteRegister(APDS9960_I2C_ADDR,APDS9960_GEXTH))
 bool setGestureExitThresh(uint8_t threshold);
 
 /* Gesture LED, gain, and time control */
-uint8_t getGestureWaitTime();
+uint8_t getGestureWaitTime(void);
 bool setGestureWaitTime(uint8_t time);
 
 /* Gesture mode */
-uint8_t getGestureMode();
+//uint8_t getGestureMode(void);
+#define getGestureMode() (i2c_read1ByteRegister(APDS9960_I2C_ADDR,APDS9960_GCONF4) & 0b00000001)
 bool setGestureMode(uint8_t mode);
 
 bool APDS9960Init(void)
@@ -58,7 +62,7 @@ bool APDS9960Init(void)
     /* Initialize I2C */
      
     /* Read ID register and check against known values for APDS-9960 */
-    id = wireReadDataByte(APDS9960_ID);
+    id = i2c_read1ByteRegister(APDS9960_I2C_ADDR, APDS9960_ID);
     
     if( !(id == APDS9960_ID_1 || id == APDS9960_ID_2) ) {
         return false;
@@ -70,24 +74,18 @@ bool APDS9960Init(void)
     }
     
     /* Set default values for ambient light and proximity registers */
-    if( !wireWriteDataByte(APDS9960_ATIME, DEFAULT_ATIME) ) {
-        return false;
-    }
-    if( !wireWriteDataByte(APDS9960_WTIME, DEFAULT_WTIME) ) {
-        return false;
-    }
-    if( !wireWriteDataByte(APDS9960_PPULSE, DEFAULT_PROX_PPULSE) ) {
-        return false;
-    }
-    if( !wireWriteDataByte(APDS9960_POFFSET_UR, DEFAULT_POFFSET_UR) ) {
-        return false;
-    }
-    if( !wireWriteDataByte(APDS9960_POFFSET_DL, DEFAULT_POFFSET_DL) ) {
-        return false;
-    }
-    if( !wireWriteDataByte(APDS9960_CONFIG1, DEFAULT_CONFIG1) ) {
-        return false;
-    }
+    i2c_write1ByteRegister(APDS9960_I2C_ADDR,APDS9960_ATIME,DEFAULT_ATIME);
+    
+    i2c_write1ByteRegister(APDS9960_I2C_ADDR,APDS9960_WTIME, DEFAULT_WTIME);
+
+    i2c_write1ByteRegister(APDS9960_I2C_ADDR,APDS9960_PPULSE, DEFAULT_PROX_PPULSE);
+    
+    i2c_write1ByteRegister(APDS9960_I2C_ADDR,APDS9960_POFFSET_UR, DEFAULT_POFFSET_UR);
+    
+    i2c_write1ByteRegister(APDS9960_I2C_ADDR,APDS9960_POFFSET_DL, DEFAULT_POFFSET_DL);
+    
+    i2c_write1ByteRegister(APDS9960_I2C_ADDR,APDS9960_CONFIG1, DEFAULT_CONFIG1);
+    
     if( !setLEDDrive(DEFAULT_LDRIVE) ) {
         return false;
     }
@@ -109,15 +107,12 @@ bool APDS9960Init(void)
     if( !setLightIntHighThreshold(DEFAULT_AIHT) ) {
         return false;
     }
-    if( !wireWriteDataByte(APDS9960_PERS, DEFAULT_PERS) ) {
-        return false;
-    }
-    if( !wireWriteDataByte(APDS9960_CONFIG2, DEFAULT_CONFIG2) ) {
-        return false;
-    }
-    if( !wireWriteDataByte(APDS9960_CONFIG3, DEFAULT_CONFIG3) ) {
-        return false;
-    }
+    
+    i2c_write1ByteRegister(APDS9960_I2C_ADDR,APDS9960_PERS, DEFAULT_PERS);
+    
+    i2c_write1ByteRegister(APDS9960_I2C_ADDR,APDS9960_CONFIG2, DEFAULT_CONFIG2);
+    
+    i2c_write1ByteRegister(APDS9960_I2C_ADDR,APDS9960_CONFIG3, DEFAULT_CONFIG3);
     
     /* Set default values for gesture sense registers */
     if( !setGestureEnterThresh(DEFAULT_GPENTH) ) {
@@ -126,9 +121,9 @@ bool APDS9960Init(void)
     if( !setGestureExitThresh(DEFAULT_GEXTH) ) {
         return false;
     }
-    if( !wireWriteDataByte(APDS9960_GCONF1, DEFAULT_GCONF1) ) {
-        return false;
-    }
+    
+    i2c_write1ByteRegister(APDS9960_I2C_ADDR,APDS9960_GCONF1, DEFAULT_GCONF1);
+    
     if( !setGestureGain(DEFAULT_GGAIN) ) {
         return false;
     }
@@ -138,24 +133,19 @@ bool APDS9960Init(void)
     if( !setGestureWaitTime(DEFAULT_GWTIME) ) {
         return false;
     }
-    if( !wireWriteDataByte(APDS9960_GOFFSET_U, DEFAULT_GOFFSET) ) {
-        return false;
-    }
-    if( !wireWriteDataByte(APDS9960_GOFFSET_D, DEFAULT_GOFFSET) ) {
-        return false;
-    }
-    if( !wireWriteDataByte(APDS9960_GOFFSET_L, DEFAULT_GOFFSET) ) {
-        return false;
-    }
-    if( !wireWriteDataByte(APDS9960_GOFFSET_R, DEFAULT_GOFFSET) ) {
-        return false;
-    }
-    if( !wireWriteDataByte(APDS9960_GPULSE, DEFAULT_GPULSE) ) {
-        return false;
-    }
-    if( !wireWriteDataByte(APDS9960_GCONF3, DEFAULT_GCONF3) ) {
-        return false;
-    }
+    
+    i2c_write1ByteRegister(APDS9960_I2C_ADDR,APDS9960_GOFFSET_U, DEFAULT_GOFFSET);
+    
+    i2c_write1ByteRegister(APDS9960_I2C_ADDR,APDS9960_GOFFSET_D, DEFAULT_GOFFSET);
+    
+    i2c_write1ByteRegister(APDS9960_I2C_ADDR,APDS9960_GOFFSET_L, DEFAULT_GOFFSET);
+    
+    i2c_write1ByteRegister(APDS9960_I2C_ADDR,APDS9960_GOFFSET_R, DEFAULT_GOFFSET);
+    
+    i2c_write1ByteRegister(APDS9960_I2C_ADDR,APDS9960_GPULSE, DEFAULT_GPULSE);
+    
+    i2c_write1ByteRegister(APDS9960_I2C_ADDR,APDS9960_GCONF3, DEFAULT_GCONF3);
+    
     if( !setGestureIntEnable(DEFAULT_GIEN) ) {
         return false;
     }
@@ -168,12 +158,12 @@ bool APDS9960Init(void)
  *
  * @return Contents of the STATUS register. 0xFF if error.
  */
-uint8_t getStatusRegister()
+uint8_t getStatusRegister(void)
 {
     uint8_t status_value;
 
-    /* Read current ENABLE register */
-    status_value = wireReadDataByte(APDS9960_STATUS);
+    /* Read current STATUS register */
+    status_value = i2c_read1ByteRegister(APDS9960_I2C_ADDR,APDS9960_STATUS);
 
     return status_value;
 }
@@ -183,15 +173,15 @@ uint8_t getStatusRegister()
  *
  * @return Contents of the ENABLE register. 0xFF if error.
  */
-uint8_t getMode()
-{
-    uint8_t enable_value;
-    
-    /* Read current ENABLE register */
-    enable_value = wireReadDataByte(APDS9960_ENABLE);
-    
-    return enable_value;
-}
+//uint8_t getMode()
+//{
+//    uint8_t enable_value;
+//    
+//    /* Read current ENABLE register */
+//    enable_value = i2c_read1ByteRegister(APDS9960_I2C_ADDR,APDS9960_ENABLE);
+//    
+//    return enable_value;
+//}
 
 /**
  * @brief Enables or disables a feature in the APDS-9960
@@ -227,10 +217,8 @@ bool setMode(uint8_t mode, uint8_t enable)
     }
         
     /* Write value back to ENABLE register */
-    if( !wireWriteDataByte(APDS9960_ENABLE, reg_val) ) {
-        return false;
-    }
-        
+    i2c_write1ByteRegister(APDS9960_I2C_ADDR,APDS9960_ENABLE, reg_val);
+
     return true;
 }
 
@@ -272,7 +260,7 @@ bool enableLightSensor(bool interrupts)
  *
  * @return True if sensor disabled correctly. False on error.
  */
-bool disableLightSensor()
+bool disableLightSensor(void)
 {
     if( !setAmbientLightIntEnable(0) ) {
         return false;
@@ -323,7 +311,7 @@ bool enableProximitySensor(bool interrupts)
  *
  * @return True if sensor disabled correctly. False on error.
  */
-bool disableProximitySensor()
+bool disableProximitySensor(void)
 {
 	if( !setProximityIntEnable(0) ) {
 		return false;
@@ -351,13 +339,12 @@ bool enableGestureSensor(bool interrupts)
        Enable PON, WEN, PEN, GEN in ENABLE 
     */
     resetGestureParameters();
-    if( !wireWriteDataByte(APDS9960_WTIME, 0xFF) ) {
-        return false;
-    }
-    if( !wireWriteDataByte(APDS9960_PPULSE, DEFAULT_GESTURE_PPULSE) ) {
-        return false;
-    }
-    if( !setLEDBoost(LED_BOOST_300) ) {
+    
+    i2c_write1ByteRegister(APDS9960_I2C_ADDR,APDS9960_WTIME, 0xFF);
+    
+    i2c_write1ByteRegister(APDS9960_I2C_ADDR,APDS9960_PPULSE, DEFAULT_GESTURE_PPULSE);
+    
+    if( !setLEDBoost(LED_BOOST_100) ) { //LED_BOOST_300
         return false;
     }
     if( interrupts ) {
@@ -393,7 +380,7 @@ bool enableGestureSensor(bool interrupts)
  *
  * @return True if engine disabled correctly. False on error.
  */
-bool disableGestureSensor()
+bool disableGestureSensor(void)
 {
     resetGestureParameters();
     if( !setGestureIntEnable(0) ) {
@@ -414,23 +401,23 @@ bool disableGestureSensor()
  *
  * @return True if gesture available. False otherwise.
  */
-bool isGestureAvailable()
-{
-    uint8_t val;
-    
-    /* Read value from GSTATUS register */
-    val = wireReadDataByte(APDS9960_GSTATUS);
-    
-    /* Shift and mask out GVALID bit */
-    val &= APDS9960_GVALID;
-    
-    /* Return true/false based on GVALID bit */
-    if( val == 1) {
-        return true;
-    } else {
-        return false;
-    }
-}
+//bool isGestureAvailable(void)
+//{
+//    uint8_t val;
+//    
+//    /* Read value from GSTATUS register */
+//    val = i2c_read1ByteRegister(APDS9960_I2C_ADDR,APDS9960_GSTATUS);
+//    
+//    /* Shift and mask out GVALID bit */
+//    val &= APDS9960_GVALID;
+//    
+//    /* Return true/false based on GVALID bit */
+//    if( val == 1) {
+//        return true;
+//    } else {
+//        return false;
+//    }
+//}
 
 /**
  * @brief Processes a gesture event and returns best guessed gesture
@@ -438,7 +425,7 @@ bool isGestureAvailable()
  * @return Number corresponding to gesture. -1 on error.
  */
 
-int readGesture()
+int readGesture(void)
 {
     uint8_t fifo_level = 0;
     uint8_t bytes_read = 0;
@@ -459,13 +446,13 @@ int readGesture()
         __delay_ms(FIFO_PAUSE_TIME);
         
         /* Get the contents of the STATUS register. Is data still valid? */
-        gstatus = wireReadDataByte(APDS9960_GSTATUS);
+        gstatus = i2c_read1ByteRegister(APDS9960_I2C_ADDR,APDS9960_GSTATUS);
         
         /* If we have valid data, read in FIFO */
         if( (gstatus & APDS9960_GVALID) == APDS9960_GVALID ) {
         
             /* Read the current FIFO level */
-            fifo_level = wireReadDataByte(APDS9960_GFLVL);
+            fifo_level = i2c_read1ByteRegister(APDS9960_I2C_ADDR,APDS9960_GFLVL);
 
 #if DEBUG
             Serial.print("FIFO Level: ");
@@ -474,12 +461,19 @@ int readGesture()
 
             /* If there's stuff in the FIFO, read it into our data block */
             if( fifo_level > 0) {
-                bytes_read = wireReadDataBlock(  APDS9960_GFIFO_U, 
+                
+                i2c_readDataBlock(APDS9960_I2C_ADDR,APDS9960_GFIFO_U, 
                                                 (uint8_t*)fifo_data, 
-                                                (fifo_level * 4) );
-                if( bytes_read == -1 ) {
-                    return ERROR;
-                }
+                                                (fifo_level * 4));
+                
+                bytes_read = (fifo_level * 4);// NOTE: must be >= 4; we assume all bytes are read successfully
+                
+//                bytes_read = wireReadDataBlock(  APDS9960_GFIFO_U, 
+//                                                (uint8_t*)fifo_data, 
+//                                                (fifo_level * 4) );
+//                if( bytes_read == -1 ) {
+//                    return ERROR;
+//                }
 #if DEBUG
                 Serial.print("FIFO Dump: ");
                 for ( i = 0; i < bytes_read; i++ ) {
@@ -549,28 +543,28 @@ int readGesture()
  *
  * @return True if operation successful. False otherwise.
  */
-bool enablePower()
-{
-    if( !setMode(POWER, 1) ) {
-        return false;
-    }
-    
-    return true;
-}
+//bool enablePower(void)
+//{
+//    if( !setMode(POWER, 1) ) {
+//        return false;
+//    }
+//    
+//    return true;
+//}
 
 /**
  * Turn the APDS-9960 off
  *
  * @return True if operation successful. False otherwise.
  */
-bool disablePower()
-{
-    if( !setMode(POWER, 0) ) {
-        return false;
-    }
-    
-    return true;
-}
+//bool disablePower(void)
+//{
+//    if( !setMode(POWER, 0) ) {
+//        return false;
+//    }
+//    
+//    return true;
+//}
 
 /*******************************************************************************
  * Ambient light and color sensor controls
@@ -588,11 +582,11 @@ uint16_t readAmbientLight(void)
     uint16_t val = 0;
     
     /* Read value from clear channel, low byte register */
-    val_byte = wireReadDataByte(APDS9960_CDATAL);
+    val_byte = i2c_read1ByteRegister(APDS9960_I2C_ADDR,APDS9960_CDATAL);
     val = val_byte;
     
     /* Read value from clear channel, high byte register */
-    val_byte = wireReadDataByte(APDS9960_CDATAH);
+    val_byte = i2c_read1ByteRegister(APDS9960_I2C_ADDR,APDS9960_CDATAH);
     val = val + ((uint16_t)val_byte << 8);
     
     return val;
@@ -610,11 +604,11 @@ uint16_t readRedLight(void)
     uint16_t val = 0;
     
     /* Read value from clear channel, low byte register */
-    val_byte = wireReadDataByte(APDS9960_RDATAL);
+    val_byte = i2c_read1ByteRegister(APDS9960_I2C_ADDR,APDS9960_RDATAL);
     val = val_byte;
     
     /* Read value from clear channel, high byte register */
-    val_byte = wireReadDataByte(APDS9960_RDATAH);
+    val_byte = i2c_read1ByteRegister(APDS9960_I2C_ADDR,APDS9960_RDATAH);
     val = val + ((uint16_t)val_byte << 8);
     
     return val;
@@ -632,11 +626,11 @@ uint16_t readGreenLight(void)
     uint16_t val = 0;
     
     /* Read value from clear channel, low byte register */
-    val_byte = wireReadDataByte(APDS9960_GDATAL);
+    val_byte = i2c_read1ByteRegister(APDS9960_I2C_ADDR,APDS9960_GDATAL);
     val = val_byte;
     
     /* Read value from clear channel, high byte register */
-    val_byte = wireReadDataByte(APDS9960_GDATAH);
+    val_byte = i2c_read1ByteRegister(APDS9960_I2C_ADDR,APDS9960_GDATAH);
     val = val + ((uint16_t)val_byte << 8);
     
     return val;
@@ -654,11 +648,11 @@ uint16_t readBlueLight(void)
     uint16_t val = 0;
     
     /* Read value from clear channel, low byte register */
-    val_byte = wireReadDataByte(APDS9960_BDATAL);
+    val_byte = i2c_read1ByteRegister(APDS9960_I2C_ADDR,APDS9960_BDATAL);
     val = val_byte;
     
     /* Read value from clear channel, high byte register */
-    val_byte = wireReadDataByte(APDS9960_BDATAH);
+    val_byte = i2c_read1ByteRegister(APDS9960_I2C_ADDR,APDS9960_BDATAH);
     val = val + ((uint16_t)val_byte << 8);
     
     return val;
@@ -674,15 +668,15 @@ uint16_t readBlueLight(void)
  * @param[out] val value of the proximity sensor.
  * @return True if operation successful. False otherwise.
  */
-uint8_t  readProximity(void)
-{
-    uint8_t val = 0;
-    
-    /* Read value from proximity data register */
-    val = wireReadDataByte(APDS9960_PDATA);
-    
-    return val;
-}
+//uint8_t  readProximity(void)
+//{
+//    uint8_t val = 0;
+//    
+//    /* Read value from proximity data register */
+//    val = i2c_read1ByteRegister(APDS9960_I2C_ADDR,APDS9960_PDATA);
+//    
+//    return val;
+//}
 
 /*******************************************************************************
  * High-level gesture controls
@@ -691,7 +685,7 @@ uint8_t  readProximity(void)
 /**
  * @brief Resets all the parameters in the gesture data member
  */
-void resetGestureParameters()
+void resetGestureParameters(void)
 {
     gesture_data_.index = 0;
     gesture_data_.total_gestures = 0;
@@ -714,7 +708,7 @@ void resetGestureParameters()
  *
  * @return True if near or far state seen. False otherwise.
  */
-bool processGestureData()
+bool processGestureData(void)
 {
     uint8_t u_first = 0;
     uint8_t d_first = 0;
@@ -916,7 +910,7 @@ bool processGestureData()
  *
  * @return True if near/far event. False otherwise.
  */
-bool decodeGesture()
+bool decodeGesture(void)
 {
     /* Return if near or far event is detected */
     if( gesture_state_ == NEAR_STATE ) {
@@ -976,15 +970,15 @@ bool decodeGesture()
  *
  * @return lower threshold
  */
-uint8_t getProxIntLowThresh()
-{
-    uint8_t val = 0;
-    
-    /* Read value from PILT register */
-    val = wireReadDataByte(APDS9960_PILT);
-    
-    return val;
-}
+//uint8_t getProxIntLowThresh(void)
+//{
+//    uint8_t val = 0;
+//    
+//    /* Read value from PILT register */
+//    val = i2c_read1ByteRegister(APDS9960_I2C_ADDR,APDS9960_PILT);
+//    
+//    return val;
+//}
 
 /**
  * @brief Sets the lower threshold for proximity detection
@@ -994,9 +988,7 @@ uint8_t getProxIntLowThresh()
  */
 bool setProxIntLowThresh(uint8_t threshold)
 {
-    if( !wireWriteDataByte(APDS9960_PILT, threshold) ) {
-        return false;
-    }
+    i2c_write1ByteRegister(APDS9960_I2C_ADDR,APDS9960_PILT, threshold);
     
     return true;
 }
@@ -1006,15 +998,15 @@ bool setProxIntLowThresh(uint8_t threshold)
  *
  * @return high threshold
  */
-uint8_t getProxIntHighThresh()
-{
-    uint8_t val = 0;
-    
-    /* Read value from PIHT register */
-    val = wireReadDataByte(APDS9960_PIHT);
-    
-    return val;
-}
+//uint8_t getProxIntHighThresh(void)
+//{
+//    uint8_t val = 0;
+//    
+//    /* Read value from PIHT register */
+//    val = i2c_read1ByteRegister(APDS9960_I2C_ADDR,APDS9960_PIHT);
+//    
+//    return val;
+//}
 
 /**
  * @brief Sets the high threshold for proximity detection
@@ -1024,9 +1016,7 @@ uint8_t getProxIntHighThresh()
  */
 bool setProxIntHighThresh(uint8_t threshold)
 {
-    if( !wireWriteDataByte(APDS9960_PIHT, threshold) ) {
-        return false;
-    }
+    i2c_write1ByteRegister(APDS9960_I2C_ADDR,APDS9960_PIHT, threshold);
     
     return true;
 }
@@ -1042,12 +1032,12 @@ bool setProxIntHighThresh(uint8_t threshold)
  *
  * @return the value of the LED drive strength. 0xFF on failure.
  */
-uint8_t getLEDDrive()
+uint8_t getLEDDrive(void)
 {
     uint8_t val;
     
     /* Read value from CONTROL register */
-    val = wireReadDataByte(APDS9960_CONTROL);
+    val = i2c_read1ByteRegister(APDS9960_I2C_ADDR,APDS9960_CONTROL);
     
     /* Shift and mask out LED drive bits */
     val = (val >> 6) & 0b00000011;
@@ -1072,7 +1062,7 @@ bool setLEDDrive(uint8_t drive)
     uint8_t val;
     
     /* Read value from CONTROL register */
-    val = wireReadDataByte(APDS9960_CONTROL);
+    val = i2c_read1ByteRegister(APDS9960_I2C_ADDR,APDS9960_CONTROL);
     
     /* Set bits in register to given value */
     drive &= 0b00000011;
@@ -1081,9 +1071,7 @@ bool setLEDDrive(uint8_t drive)
     val |= drive;
     
     /* Write register value back into CONTROL register */
-    if( !wireWriteDataByte(APDS9960_CONTROL, val) ) {
-        return false;
-    }
+    i2c_write1ByteRegister(APDS9960_I2C_ADDR,APDS9960_CONTROL, val);
     
     return true;
 }
@@ -1099,12 +1087,12 @@ bool setLEDDrive(uint8_t drive)
  *
  * @return the value of the proximity gain. 0xFF on failure.
  */
-uint8_t getProximityGain()
+uint8_t getProximityGain(void)
 {
     uint8_t val;
     
     /* Read value from CONTROL register */
-    val = wireReadDataByte(APDS9960_CONTROL);
+    val = i2c_read1ByteRegister(APDS9960_I2C_ADDR,APDS9960_CONTROL);
     
     /* Shift and mask out PDRIVE bits */
     val = (val >> 2) & 0b00000011;
@@ -1129,7 +1117,7 @@ bool setProximityGain(uint8_t drive)
     uint8_t val;
     
     /* Read value from CONTROL register */
-    val = wireReadDataByte(APDS9960_CONTROL);
+    val = i2c_read1ByteRegister(APDS9960_I2C_ADDR,APDS9960_CONTROL);
     
     /* Set bits in register to given value */
     drive &= 0b00000011;
@@ -1138,9 +1126,7 @@ bool setProximityGain(uint8_t drive)
     val |= drive;
     
     /* Write register value back into CONTROL register */
-    if( !wireWriteDataByte(APDS9960_CONTROL, val) ) {
-        return false;
-    }
+    i2c_write1ByteRegister(APDS9960_I2C_ADDR,APDS9960_CONTROL, val);
     
     return true;
 }
@@ -1156,12 +1142,12 @@ bool setProximityGain(uint8_t drive)
  *
  * @return the value of the ALS gain. 0xFF on failure.
  */
-uint8_t getAmbientLightGain()
+uint8_t getAmbientLightGain(void)
 {
     uint8_t val;
     
     /* Read value from CONTROL register */
-    val = wireReadDataByte(APDS9960_CONTROL);
+    val = i2c_read1ByteRegister(APDS9960_I2C_ADDR,APDS9960_CONTROL);
     
     /* Shift and mask out ADRIVE bits */
     val &= 0b00000011;
@@ -1186,7 +1172,7 @@ bool setAmbientLightGain(uint8_t drive)
     uint8_t val;
     
     /* Read value from CONTROL register */
-    val = wireReadDataByte(APDS9960_CONTROL);
+    val = i2c_read1ByteRegister(APDS9960_I2C_ADDR,APDS9960_CONTROL);
     
     /* Set bits in register to given value */
     drive &= 0b00000011;
@@ -1194,9 +1180,7 @@ bool setAmbientLightGain(uint8_t drive)
     val |= drive;
     
     /* Write register value back into CONTROL register */
-    if( !wireWriteDataByte(APDS9960_CONTROL, val) ) {
-        return false;
-    }
+    i2c_write1ByteRegister(APDS9960_I2C_ADDR,APDS9960_CONTROL, val);
     
     return true;
 }
@@ -1212,12 +1196,12 @@ bool setAmbientLightGain(uint8_t drive)
  *
  * @return The LED boost value. 0xFF on failure.
  */
-uint8_t getLEDBoost()
+uint8_t getLEDBoost(void)
 {
     uint8_t val;
     
     /* Read value from CONFIG2 register */
-    val = wireReadDataByte(APDS9960_CONFIG2);
+    val = i2c_read1ByteRegister(APDS9960_I2C_ADDR,APDS9960_CONFIG2);
     
     /* Shift and mask out LED_BOOST bits */
     val = (val >> 4) & 0b00000011;
@@ -1242,7 +1226,7 @@ bool setLEDBoost(uint8_t boost)
     uint8_t val;
     
     /* Read value from CONFIG2 register */
-    val = wireReadDataByte(APDS9960_CONFIG2);
+    val = i2c_read1ByteRegister(APDS9960_I2C_ADDR,APDS9960_CONFIG2);
     
     /* Set bits in register to given value */
     boost &= 0b00000011;
@@ -1251,9 +1235,7 @@ bool setLEDBoost(uint8_t boost)
     val |= boost;
     
     /* Write register value back into CONFIG2 register */
-    if( !wireWriteDataByte(APDS9960_CONFIG2, val) ) {
-        return false;
-    }
+    i2c_write1ByteRegister(APDS9960_I2C_ADDR,APDS9960_CONFIG2, val);
     
     return true;
 }    
@@ -1263,12 +1245,12 @@ bool setLEDBoost(uint8_t boost)
  *
  * @return 1 if compensation is enabled. 0 if not. 0xFF on error.
  */
-uint8_t getProxGainCompEnable()
+uint8_t getProxGainCompEnable(void)
 {
     uint8_t val;
     
     /* Read value from CONFIG3 register */
-    val = wireReadDataByte(APDS9960_CONFIG3);
+    val = i2c_read1ByteRegister(APDS9960_I2C_ADDR,APDS9960_CONFIG3);
     
     /* Shift and mask out PCMP bits */
     val = (val >> 5) & 0b00000001;
@@ -1287,7 +1269,7 @@ uint8_t getProxGainCompEnable()
     uint8_t val;
     
     /* Read value from CONFIG3 register */
-    val = wireReadDataByte(APDS9960_CONFIG3);
+    val = i2c_read1ByteRegister(APDS9960_I2C_ADDR,APDS9960_CONFIG3);
     
     /* Set bits in register to given value */
     enable &= 0b00000001;
@@ -1296,9 +1278,7 @@ uint8_t getProxGainCompEnable()
     val |= enable;
     
     /* Write register value back into CONFIG3 register */
-    if( !wireWriteDataByte(APDS9960_CONFIG3, val) ) {
-        return false;
-    }
+    i2c_write1ByteRegister(APDS9960_I2C_ADDR,APDS9960_CONFIG3, val);
     
     return true;
 }
@@ -1315,12 +1295,12 @@ uint8_t getProxGainCompEnable()
  *
  * @return Current proximity mask for photodiodes. 0xFF on error.
  */
-uint8_t getProxPhotoMask()
+uint8_t getProxPhotoMask(void)
 {
     uint8_t val;
     
     /* Read value from CONFIG3 register */
-    val = wireReadDataByte(APDS9960_CONFIG3);
+    val = i2c_read1ByteRegister(APDS9960_I2C_ADDR,APDS9960_CONFIG3);
     
     /* Mask out photodiode enable mask bits */
     val &= 0b00001111;
@@ -1347,7 +1327,7 @@ bool setProxPhotoMask(uint8_t mask)
     uint8_t val;
     
     /* Read value from CONFIG3 register */
-    val = wireReadDataByte(APDS9960_CONFIG3);
+    val = i2c_read1ByteRegister(APDS9960_I2C_ADDR,APDS9960_CONFIG3);
     
     /* Set bits in register to given value */
     mask &= 0b00001111;
@@ -1355,9 +1335,7 @@ bool setProxPhotoMask(uint8_t mask)
     val |= mask;
     
     /* Write register value back into CONFIG3 register */
-    if( !wireWriteDataByte(APDS9960_CONFIG3, val) ) {
-        return false;
-    }
+    i2c_write1ByteRegister(APDS9960_I2C_ADDR,APDS9960_CONFIG3, val);
     
     return true;
 }
@@ -1367,12 +1345,12 @@ bool setProxPhotoMask(uint8_t mask)
  *
  * @return Current entry proximity threshold.
  */
-uint8_t getGestureEnterThresh()
+uint8_t getGestureEnterThresh(void)
 {
     uint8_t val = 0;
     
     /* Read value from GPENTH register */
-    val = wireReadDataByte(APDS9960_GPENTH);
+    val = i2c_read1ByteRegister(APDS9960_I2C_ADDR,APDS9960_GPENTH);
     
     return val;
 }
@@ -1385,9 +1363,7 @@ uint8_t getGestureEnterThresh()
  */
 bool setGestureEnterThresh(uint8_t threshold)
 {
-    if( !wireWriteDataByte(APDS9960_GPENTH, threshold) ) {
-        return false;
-    }
+    i2c_write1ByteRegister(APDS9960_I2C_ADDR,APDS9960_GPENTH, threshold);
     
     return true;
 }
@@ -1397,15 +1373,15 @@ bool setGestureEnterThresh(uint8_t threshold)
  *
  * @return Current exit proximity threshold.
  */
-uint8_t getGestureExitThresh()
-{
-    uint8_t val = 0;
-    
-    /* Read value from GEXTH register */
-    val = wireReadDataByte(APDS9960_GEXTH);
-    
-    return val;
-}
+//uint8_t getGestureExitThresh(void)
+//{
+//    uint8_t val = 0;
+//    
+//    /* Read value from GEXTH register */
+//    val = i2c_read1ByteRegister(APDS9960_I2C_ADDR,APDS9960_GEXTH);
+//    
+//    return val;
+//}
 
 /**
  * @brief Sets the exit proximity threshold for gesture sensing
@@ -1415,9 +1391,7 @@ uint8_t getGestureExitThresh()
  */
 bool setGestureExitThresh(uint8_t threshold)
 {
-    if( !wireWriteDataByte(APDS9960_GEXTH, threshold) ) {
-        return false;
-    }
+    i2c_write1ByteRegister(APDS9960_I2C_ADDR,APDS9960_GEXTH, threshold);
     
     return true;
 }
@@ -1433,12 +1407,12 @@ bool setGestureExitThresh(uint8_t threshold)
  *
  * @return the current photodiode gain. 0xFF on error.
  */
-uint8_t getGestureGain()
+uint8_t getGestureGain(void)
 {
     uint8_t val;
     
     /* Read value from GCONF2 register */
-    val = wireReadDataByte(APDS9960_GCONF2);
+    val = i2c_read1ByteRegister(APDS9960_I2C_ADDR,APDS9960_GCONF2);
     
     /* Shift and mask out GGAIN bits */
     val = (val >> 5) & 0b00000011;
@@ -1463,7 +1437,7 @@ bool setGestureGain(uint8_t gain)
     uint8_t val;
     
     /* Read value from GCONF2 register */
-    val = wireReadDataByte(APDS9960_GCONF2);
+    val = i2c_read1ByteRegister(APDS9960_I2C_ADDR,APDS9960_GCONF2);
     
     /* Set bits in register to given value */
     gain &= 0b00000011;
@@ -1472,9 +1446,7 @@ bool setGestureGain(uint8_t gain)
     val |= gain;
     
     /* Write register value back into GCONF2 register */
-    if( !wireWriteDataByte(APDS9960_GCONF2, val) ) {
-        return false;
-    }
+    i2c_write1ByteRegister(APDS9960_I2C_ADDR,APDS9960_GCONF2, val);
     
     return true;
 }
@@ -1490,12 +1462,12 @@ bool setGestureGain(uint8_t gain)
  *
  * @return the LED drive current value. 0xFF on error.
  */
-uint8_t getGestureLEDDrive()
+uint8_t getGestureLEDDrive(void)
 {
     uint8_t val;
     
     /* Read value from GCONF2 register */
-    val = wireReadDataByte(APDS9960_GCONF2);
+    val = i2c_read1ByteRegister(APDS9960_I2C_ADDR,APDS9960_GCONF2);
     
     /* Shift and mask out GLDRIVE bits */
     val = (val >> 3) & 0b00000011;
@@ -1520,7 +1492,7 @@ bool setGestureLEDDrive(uint8_t drive)
     uint8_t val;
     
     /* Read value from GCONF2 register */
-    val = wireReadDataByte(APDS9960_GCONF2);
+    val = i2c_read1ByteRegister(APDS9960_I2C_ADDR,APDS9960_GCONF2);
     
     /* Set bits in register to given value */
     drive &= 0b00000011;
@@ -1529,9 +1501,7 @@ bool setGestureLEDDrive(uint8_t drive)
     val |= drive;
     
     /* Write register value back into GCONF2 register */
-    if( !wireWriteDataByte(APDS9960_GCONF2, val) ) {
-        return false;
-    }
+    i2c_write1ByteRegister(APDS9960_I2C_ADDR,APDS9960_GCONF2, val);
     
     return true;
 }
@@ -1551,12 +1521,12 @@ bool setGestureLEDDrive(uint8_t drive)
  *
  * @return the current wait time between gestures. 0xFF on error.
  */
-uint8_t getGestureWaitTime()
+uint8_t getGestureWaitTime(void)
 {
     uint8_t val;
     
     /* Read value from GCONF2 register */
-    val = wireReadDataByte(APDS9960_GCONF2);
+    val = i2c_read1ByteRegister(APDS9960_I2C_ADDR,APDS9960_GCONF2);
     
     /* Mask out GWTIME bits */
     val &= 0b00000111;
@@ -1585,7 +1555,7 @@ bool setGestureWaitTime(uint8_t time)
     uint8_t val;
     
     /* Read value from GCONF2 register */
-    val = wireReadDataByte(APDS9960_GCONF2);
+    val = i2c_read1ByteRegister(APDS9960_I2C_ADDR,APDS9960_GCONF2);
     
     /* Set bits in register to given value */
     time &= 0b00000111;
@@ -1593,9 +1563,7 @@ bool setGestureWaitTime(uint8_t time)
     val |= time;
     
     /* Write register value back into GCONF2 register */
-    if( !wireWriteDataByte(APDS9960_GCONF2, val) ) {
-        return false;
-    }
+    i2c_write1ByteRegister(APDS9960_I2C_ADDR,APDS9960_GCONF2, val);
     
     return true;
 }
@@ -1612,11 +1580,11 @@ uint16_t getLightIntLowThreshold(void)
     uint16_t threshold = 0;
     
     /* Read value from ambient light low threshold, low byte register */
-    val_byte = wireReadDataByte(APDS9960_AILTL);
+    val_byte = i2c_read1ByteRegister(APDS9960_I2C_ADDR,APDS9960_AILTL);
     threshold = val_byte;
     
     /* Read value from ambient light low threshold, high byte register */
-    val_byte = wireReadDataByte(APDS9960_AILTH);
+    val_byte = i2c_read1ByteRegister(APDS9960_I2C_ADDR,APDS9960_AILTH);
     threshold = threshold + ((uint16_t)val_byte << 8);
     
     return true;
@@ -1638,14 +1606,10 @@ bool setLightIntLowThreshold(uint16_t threshold)
     val_high = (threshold & 0xFF00) >> 8;
     
     /* Write low byte */
-    if( !wireWriteDataByte(APDS9960_AILTL, val_low) ) {
-        return false;
-    }
+    i2c_write1ByteRegister(APDS9960_I2C_ADDR,APDS9960_AILTL, val_low);
     
     /* Write high byte */
-    if( !wireWriteDataByte(APDS9960_AILTH, val_high) ) {
-        return false;
-    }
+    i2c_write1ByteRegister(APDS9960_I2C_ADDR,APDS9960_AILTH, val_high);
     
     return true;
 }
@@ -1662,11 +1626,11 @@ uint16_t getLightIntHighThreshold(void)
     uint16_t threshold = 0;
     
     /* Read value from ambient light high threshold, low byte register */
-    val_byte = wireReadDataByte(APDS9960_AIHTL);
+    val_byte = i2c_read1ByteRegister(APDS9960_I2C_ADDR,APDS9960_AIHTL);
     threshold = val_byte;
     
     /* Read value from ambient light high threshold, high byte register */
-    val_byte = wireReadDataByte(APDS9960_AIHTH);
+    val_byte = i2c_read1ByteRegister(APDS9960_I2C_ADDR,APDS9960_AIHTH);
     threshold = threshold + ((uint16_t)val_byte << 8);
     
     return true;
@@ -1688,14 +1652,10 @@ bool setLightIntHighThreshold(uint16_t threshold)
     val_high = (threshold & 0xFF00) >> 8;
     
     /* Write low byte */
-    if( !wireWriteDataByte(APDS9960_AIHTL, val_low) ) {
-        return false;
-    }
+    i2c_write1ByteRegister(APDS9960_I2C_ADDR,APDS9960_AIHTL, val_low);
     
     /* Write high byte */
-    if( !wireWriteDataByte(APDS9960_AIHTH, val_high) ) {
-        return false;
-    }
+    i2c_write1ByteRegister(APDS9960_I2C_ADDR,APDS9960_AIHTH, val_high);
     
     return true;
 }
@@ -1706,15 +1666,15 @@ bool setLightIntHighThreshold(uint16_t threshold)
  * @param[out] threshold current low threshold stored on the APDS-9960
  * @return True if operation successful. False otherwise.
  */
-uint8_t getProximityIntLowThreshold(void)
-{
-    uint8_t threshold = 0;
-    
-    /* Read value from proximity low threshold register */
-    threshold = wireReadDataByte(APDS9960_PILT);
-    
-    return true;
-}
+//uint8_t getProximityIntLowThreshold(void)
+//{
+//    uint8_t threshold = 0;
+//    
+//    /* Read value from proximity low threshold register */
+//    threshold = i2c_read1ByteRegister(APDS9960_I2C_ADDR,APDS9960_PILT);
+//    
+//    return threshold;
+//}
 
 /**
  * @brief Sets the low threshold for proximity interrupts
@@ -1726,9 +1686,7 @@ bool setProximityIntLowThreshold(uint8_t threshold)
 {
     
     /* Write threshold value to register */
-    if( !wireWriteDataByte(APDS9960_PILT, threshold) ) {
-        return false;
-    }
+    i2c_write1ByteRegister(APDS9960_I2C_ADDR,APDS9960_PILT, threshold);
     
     return true;
 }
@@ -1744,9 +1702,9 @@ uint8_t getProximityIntHighThreshold(void)
     uint8_t threshold = 0;
     
     /* Read value from proximity low threshold register */
-    threshold = wireReadDataByte(APDS9960_PIHT);
+    threshold = i2c_read1ByteRegister(APDS9960_I2C_ADDR,APDS9960_PIHT);
     
-    return true;
+    return threshold;
 }
 
 /**
@@ -1759,9 +1717,7 @@ bool setProximityIntHighThreshold(uint8_t threshold)
 {
     
     /* Write threshold value to register */
-    if( !wireWriteDataByte(APDS9960_PIHT, threshold) ) {
-        return false;
-    }
+    i2c_write1ByteRegister(APDS9960_I2C_ADDR,APDS9960_PIHT, threshold);
     
     return true;
 }
@@ -1771,12 +1727,12 @@ bool setProximityIntHighThreshold(uint8_t threshold)
  *
  * @return 1 if interrupts are enabled, 0 if not. 0xFF on error.
  */
-uint8_t getAmbientLightIntEnable()
+uint8_t getAmbientLightIntEnable(void)
 {
     uint8_t val;
     
     /* Read value from ENABLE register */
-    val = wireReadDataByte(APDS9960_ENABLE);
+    val = i2c_read1ByteRegister(APDS9960_I2C_ADDR,APDS9960_ENABLE);
     
     /* Shift and mask out AIEN bit */
     val = (val >> 4) & 0b00000001;
@@ -1795,7 +1751,7 @@ bool setAmbientLightIntEnable(uint8_t enable)
     uint8_t val;
     
     /* Read value from ENABLE register */
-    val = wireReadDataByte(APDS9960_ENABLE);
+    val = i2c_read1ByteRegister(APDS9960_I2C_ADDR,APDS9960_ENABLE);
     
     /* Set bits in register to given value */
     enable &= 0b00000001;
@@ -1804,9 +1760,7 @@ bool setAmbientLightIntEnable(uint8_t enable)
     val |= enable;
     
     /* Write register value back into ENABLE register */
-    if( !wireWriteDataByte(APDS9960_ENABLE, val) ) {
-        return false;
-    }
+    i2c_write1ByteRegister(APDS9960_I2C_ADDR,APDS9960_ENABLE, val);
     
     return true;
 }
@@ -1816,12 +1770,12 @@ bool setAmbientLightIntEnable(uint8_t enable)
  *
  * @return 1 if interrupts are enabled, 0 if not. 0xFF on error.
  */
-uint8_t getProximityIntEnable()
+uint8_t getProximityIntEnable(void)
 {
     uint8_t val;
     
     /* Read value from ENABLE register */
-    val = wireReadDataByte(APDS9960_ENABLE);
+    val = i2c_read1ByteRegister(APDS9960_I2C_ADDR,APDS9960_ENABLE);
     
     /* Shift and mask out PIEN bit */
     val = (val >> 5) & 0b00000001;
@@ -1840,7 +1794,7 @@ bool setProximityIntEnable(uint8_t enable)
     uint8_t val;
     
     /* Read value from ENABLE register */
-    val = wireReadDataByte(APDS9960_ENABLE);
+    val = i2c_read1ByteRegister(APDS9960_I2C_ADDR,APDS9960_ENABLE);
     
     /* Set bits in register to given value */
     enable &= 0b00000001;
@@ -1849,9 +1803,7 @@ bool setProximityIntEnable(uint8_t enable)
     val |= enable;
     
     /* Write register value back into ENABLE register */
-    if( !wireWriteDataByte(APDS9960_ENABLE, val) ) {
-        return false;
-    }
+    i2c_write1ByteRegister(APDS9960_I2C_ADDR,APDS9960_ENABLE, val);
     
     return true;
 }
@@ -1861,12 +1813,12 @@ bool setProximityIntEnable(uint8_t enable)
  *
  * @return 1 if interrupts are enabled, 0 if not. 0xFF on error.
  */
-uint8_t getGestureIntEnable()
+uint8_t getGestureIntEnable(void)
 {
     uint8_t val;
     
     /* Read value from GCONF4 register */
-    val = wireReadDataByte(APDS9960_GCONF4);
+    val = i2c_read1ByteRegister(APDS9960_I2C_ADDR,APDS9960_GCONF4);
     
     /* Shift and mask out GIEN bit */
     val = (val >> 1) & 0b00000001;
@@ -1885,7 +1837,7 @@ bool setGestureIntEnable(uint8_t enable)
     uint8_t val;
     
     /* Read value from GCONF4 register */
-    val = wireReadDataByte(APDS9960_GCONF4);
+    val = i2c_read1ByteRegister(APDS9960_I2C_ADDR,APDS9960_GCONF4);
     
     /* Set bits in register to given value */
     enable &= 0b00000001;
@@ -1894,9 +1846,7 @@ bool setGestureIntEnable(uint8_t enable)
     val |= enable;
     
     /* Write register value back into GCONF4 register */
-    if( !wireWriteDataByte(APDS9960_GCONF4, val) ) {
-        return false;
-    }
+    i2c_write1ByteRegister(APDS9960_I2C_ADDR,APDS9960_GCONF4, val);
     
     return true;
 }
@@ -1906,10 +1856,10 @@ bool setGestureIntEnable(uint8_t enable)
  *
  * @return True if operation completed successfully. False otherwise.
  */
-bool clearAmbientLightInt()
+bool clearAmbientLightInt(void)
 {
     uint8_t throwaway;
-    throwaway = wireReadDataByte(APDS9960_AICLEAR);
+    throwaway = i2c_read1ByteRegister(APDS9960_I2C_ADDR,APDS9960_AICLEAR);
     
     return true;
 }
@@ -1919,10 +1869,10 @@ bool clearAmbientLightInt()
  *
  * @return True if operation completed successfully. False otherwise.
  */
-bool clearProximityInt()
+bool clearProximityInt(void)
 {
     uint8_t throwaway;
-    throwaway = wireReadDataByte(APDS9960_PICLEAR);
+    throwaway = i2c_read1ByteRegister(APDS9960_I2C_ADDR,APDS9960_PICLEAR);
     
     return true;
 }
@@ -1932,18 +1882,18 @@ bool clearProximityInt()
  *
  * @return 1 if gesture state machine is running, 0 if not. 0xFF on error.
  */
-uint8_t getGestureMode()
-{
-    uint8_t val;
-    
-    /* Read value from GCONF4 register */
-    val = wireReadDataByte(APDS9960_GCONF4);
-    
-    /* Mask out GMODE bit */
-    val &= 0b00000001;
-    
-    return val;
-}
+//uint8_t getGestureMode(void)
+//{
+//    uint8_t val;
+//    
+//    /* Read value from GCONF4 register */
+//    val = i2c_read1ByteRegister(APDS9960_I2C_ADDR,APDS9960_GCONF4);
+//    
+//    /* Mask out GMODE bit */
+//    val &= 0b00000001;
+//    
+//    return val;
+//}
 
 /**
  * @brief Tells the state machine to either enter or exit gesture state machine
@@ -1956,7 +1906,7 @@ bool setGestureMode(uint8_t mode)
     uint8_t val;
     
     /* Read value from GCONF4 register */
-    val = wireReadDataByte(APDS9960_GCONF4);
+    val = i2c_read1ByteRegister(APDS9960_I2C_ADDR,APDS9960_GCONF4);
     
     /* Set bits in register to given value */
     mode &= 0b00000001;
@@ -1964,91 +1914,7 @@ bool setGestureMode(uint8_t mode)
     val |= mode;
     
     /* Write register value back into GCONF4 register */
-    val = wireWriteDataByte(APDS9960_GCONF4,val);
+    i2c_write1ByteRegister(APDS9960_I2C_ADDR,APDS9960_GCONF4,val);
     
     return true;
-}
-
-
-/*******************************************************************************
- * Raw I2C Reads and Writes
- ******************************************************************************/
-
-/**
- * @brief Writes a single byte to the I2C device (no register)
- *
- * @param[in] val the 1-byte value to write to the I2C device
- * @return True if successful write operation. False otherwise.
- */
-bool wireWriteByte(uint8_t val)
-{
-    i2c_writeNBytes(APDS9960_I2C_ADDR,&val,1);
-    
-    return true;
-}
-
-/**
- * @brief Writes a single byte to the I2C device and specified register
- *
- * @param[in] reg the register in the I2C device to write to
- * @param[in] val the 1-byte value to write to the I2C device
- * @return True if successful write operation. False otherwise.
- */
-bool wireWriteDataByte(uint8_t reg, uint8_t val)
-{
-    i2c_write1ByteRegister(APDS9960_I2C_ADDR,reg,val);
-
-    return true;
-}
-
-/**
- * @brief Writes a block (array) of bytes to the I2C device and register
- *
- * @param[in] reg the register in the I2C device to write to
- * @param[in] val pointer to the beginning of the data byte array
- * @param[in] len the length (in bytes) of the data to write
- * @return True if successful write operation. False otherwise.
- */
-bool wireWriteDataBlock(  uint8_t reg, 
-                                        uint8_t *val, 
-                                        unsigned int len)
-{
-    //TODO: verify
-    i2c_writeNBytes(APDS9960_I2C_ADDR,&reg,1);
-    i2c_writeNBytes(APDS9960_I2C_ADDR,&val,len);
-    return true;
-}
-
-/**
- * @brief Reads a single byte from the I2C device and specified register
- *
- * @param[in] reg the register to read from
- * @param[out] the value returned from the register
- * @return True if successful read operation. False otherwise.
- */
-uint8_t wireReadDataByte(uint8_t reg)
-{
-    
-    return i2c_read1ByteRegister(APDS9960_I2C_ADDR, reg);
-
-}
-
-/**
- * @brief Reads a block (array) of bytes from the I2C device and register
- *
- * @param[in] reg the register to read from
- * @param[out] val pointer to the beginning of the data
- * @param[in] len number of bytes to read
- * @return Number of bytes read. -1 on read error.
- */
-int wireReadDataBlock(   uint8_t reg, 
-                                        uint8_t *val, 
-                                        unsigned int len)
-{
-    unsigned char i = len;
-    
-    /* Indicate which register we want to read from */
-   i2c_readDataBlock(APDS9960_I2C_ADDR,reg,val,len);
-
-    return i;
 }

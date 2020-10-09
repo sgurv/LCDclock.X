@@ -4824,10 +4824,18 @@ extern __bank0 __bit __timeout;
 # 50 "./mcc_generated_files/mcc.h" 2
 
 # 1 "./mcc_generated_files/pin_manager.h" 1
-# 238 "./mcc_generated_files/pin_manager.h"
+# 255 "./mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize (void);
-# 250 "./mcc_generated_files/pin_manager.h"
+# 267 "./mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_IOC(void);
+# 280 "./mcc_generated_files/pin_manager.h"
+void IOCBF1_ISR(void);
+# 303 "./mcc_generated_files/pin_manager.h"
+void IOCBF1_SetInterruptHandler(void (* InterruptHandler)(void));
+# 327 "./mcc_generated_files/pin_manager.h"
+extern void (*IOCBF1_InterruptHandler)(void);
+# 351 "./mcc_generated_files/pin_manager.h"
+void IOCBF1_DefaultInterruptHandler(void);
 # 51 "./mcc_generated_files/mcc.h" 2
 
 # 1 "D:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdint.h" 1 3
@@ -5307,6 +5315,18 @@ void EUSART_SetTxInterruptHandler(void (* interruptHandler)(void));
 void EUSART_SetRxInterruptHandler(void (* interruptHandler)(void));
 # 63 "./mcc_generated_files/mcc.h" 2
 
+# 1 "./mcc_generated_files/drivers/i2c_simple_master.h" 1
+# 37 "./mcc_generated_files/drivers/i2c_simple_master.h"
+uint8_t i2c_read1ByteRegister(i2c_address_t address, uint8_t reg);
+uint16_t i2c_read2ByteRegister(i2c_address_t address, uint8_t reg);
+void i2c_write1ByteRegister(i2c_address_t address, uint8_t reg, uint8_t data);
+void i2c_write2ByteRegister(i2c_address_t address, uint8_t reg, uint16_t data);
+
+void i2c_writeNBytes(i2c_address_t address, void* data, size_t len);
+void i2c_readDataBlock(i2c_address_t address, uint8_t reg, void *data, size_t len);
+void i2c_readNBytes(i2c_address_t address, void *data, size_t len);
+# 64 "./mcc_generated_files/mcc.h" 2
+
 # 1 "./mcc_generated_files/lcd.h" 1
 # 211 "./mcc_generated_files/lcd.h"
 void LCD_Initialize(void);
@@ -5352,18 +5372,6 @@ void LCD_DisplayOn_DIG4_SYM03Num();
 void LCD_DisplayOff_DIG4_SYM03Num();
 # 659 "./mcc_generated_files/lcd.h"
 void LCD_DIG4_SYM03Num (unsigned char num);
-# 64 "./mcc_generated_files/mcc.h" 2
-
-# 1 "./mcc_generated_files/drivers/i2c_simple_master.h" 1
-# 37 "./mcc_generated_files/drivers/i2c_simple_master.h"
-uint8_t i2c_read1ByteRegister(i2c_address_t address, uint8_t reg);
-uint16_t i2c_read2ByteRegister(i2c_address_t address, uint8_t reg);
-void i2c_write1ByteRegister(i2c_address_t address, uint8_t reg, uint8_t data);
-void i2c_write2ByteRegister(i2c_address_t address, uint8_t reg, uint16_t data);
-
-void i2c_writeNBytes(i2c_address_t address, void* data, size_t len);
-void i2c_readDataBlock(i2c_address_t address, uint8_t reg, void *data, size_t len);
-void i2c_readNBytes(i2c_address_t address, void *data, size_t len);
 # 65 "./mcc_generated_files/mcc.h" 2
 # 80 "./mcc_generated_files/mcc.h"
 void SYSTEM_Initialize(void);
@@ -5407,34 +5415,30 @@ typedef struct gesture_data_type {
 } gesture_data_type;
 
 _Bool APDS9960Init(void);
-uint8_t getStatusRegister();
-uint8_t getMode();
+uint8_t getStatusRegister(void);
+
+
 _Bool setMode(uint8_t mode, uint8_t enable);
-
-
-_Bool enablePower();
-_Bool disablePower();
-
-
+# 232 "./APDS9960.h"
 _Bool enableLightSensor(_Bool interrupts);
-_Bool disableLightSensor();
+_Bool disableLightSensor(void);
 _Bool enableProximitySensor(_Bool interrupts);
-_Bool disableProximitySensor();
+_Bool disableProximitySensor(void);
 _Bool enableGestureSensor(_Bool interrupts);
-_Bool disableGestureSensor();
+_Bool disableGestureSensor(void);
 
 
-uint8_t getLEDDrive();
+uint8_t getLEDDrive(void);
 _Bool setLEDDrive(uint8_t drive);
-uint8_t getGestureLEDDrive();
+uint8_t getGestureLEDDrive(void);
 _Bool setGestureLEDDrive(uint8_t drive);
 
 
-uint8_t getAmbientLightGain();
+uint8_t getAmbientLightGain(void);
 _Bool setAmbientLightGain(uint8_t gain);
-uint8_t getProximityGain();
+uint8_t getProximityGain(void);
 _Bool setProximityGain(uint8_t gain);
-uint8_t getGestureGain();
+uint8_t getGestureGain(void);
 _Bool setGestureGain(uint8_t gain);
 
 
@@ -5444,42 +5448,31 @@ uint16_t getLightIntHighThreshold(void);
 _Bool setLightIntHighThreshold(uint16_t threshold);
 
 
-uint8_t getProximityIntLowThreshold(void);
+
+
 _Bool setProximityIntLowThreshold(uint8_t threshold);
-uint8_t getProximityIntHighThreshold();
+uint8_t getProximityIntHighThreshold(void);
 _Bool setProximityIntHighThreshold(uint8_t threshold);
 
 
-uint8_t getAmbientLightIntEnable();
+uint8_t getAmbientLightIntEnable(void);
 _Bool setAmbientLightIntEnable(uint8_t enable);
-uint8_t getProximityIntEnable();
+uint8_t getProximityIntEnable(void);
 _Bool setProximityIntEnable(uint8_t enable);
-uint8_t getGestureIntEnable();
+uint8_t getGestureIntEnable(void);
 _Bool setGestureIntEnable(uint8_t enable);
 
 
-_Bool clearAmbientLightInt();
-_Bool clearProximityInt();
+_Bool clearAmbientLightInt(void);
+_Bool clearProximityInt(void);
 
 
 uint16_t readAmbientLight(void);
 uint16_t readRedLight(void);
 uint16_t readGreenLight(void);
 uint16_t readBlueLight(void);
-
-
-uint8_t readProximity();
-
-
-_Bool isGestureAvailable();
-int readGesture();
-
-
-_Bool wireWriteByte(uint8_t val);
-_Bool wireWriteDataByte(uint8_t reg, uint8_t val);
-_Bool wireWriteDataBlock(uint8_t reg, uint8_t *val, unsigned int len);
-uint8_t wireReadDataByte(uint8_t reg);
-int wireReadDataBlock(uint8_t reg, uint8_t *val, unsigned int len);
+# 292 "./APDS9960.h"
+int readGesture(void);
 # 2 "APDS9960.c" 2
 
 
@@ -5495,42 +5488,46 @@ int gesture_far_count_;
 int gesture_state_;
 int gesture_motion_;
 
-uint8_t fifo_data[128];
+volatile uint8_t fifo_data[128];
 
 
 
-void resetGestureParameters();
-_Bool processGestureData();
-_Bool decodeGesture();
+void resetGestureParameters(void);
+_Bool processGestureData(void);
+_Bool decodeGesture(void);
 
 
-uint8_t getProxIntLowThresh();
+
+
 _Bool setProxIntLowThresh(uint8_t threshold);
-uint8_t getProxIntHighThresh();
+
+
 _Bool setProxIntHighThresh(uint8_t threshold);
 
 
-uint8_t getLEDBoost();
+uint8_t getLEDBoost(void);
 _Bool setLEDBoost(uint8_t boost);
 
 
-uint8_t getProxGainCompEnable();
+uint8_t getProxGainCompEnable(void);
 _Bool setProxGainCompEnable(uint8_t enable);
-uint8_t getProxPhotoMask();
+uint8_t getProxPhotoMask(void);
 _Bool setProxPhotoMask(uint8_t mask);
 
 
-uint8_t getGestureEnterThresh();
+uint8_t getGestureEnterThresh(void);
 _Bool setGestureEnterThresh(uint8_t threshold);
-uint8_t getGestureExitThresh();
+
+
 _Bool setGestureExitThresh(uint8_t threshold);
 
 
-uint8_t getGestureWaitTime();
+uint8_t getGestureWaitTime(void);
 _Bool setGestureWaitTime(uint8_t time);
 
 
-uint8_t getGestureMode();
+
+
 _Bool setGestureMode(uint8_t mode);
 
 _Bool APDS9960Init(void)
@@ -5540,7 +5537,7 @@ _Bool APDS9960Init(void)
 
 
 
-    id = wireReadDataByte(0x92);
+    id = i2c_read1ByteRegister(0x39, 0x92);
 
     if( !(id == 0xAB || id == 0x9C) ) {
         return 0;
@@ -5552,24 +5549,18 @@ _Bool APDS9960Init(void)
     }
 
 
-    if( !wireWriteDataByte(0x81, 219) ) {
-        return 0;
-    }
-    if( !wireWriteDataByte(0x83, 246) ) {
-        return 0;
-    }
-    if( !wireWriteDataByte(0x8E, 0x87) ) {
-        return 0;
-    }
-    if( !wireWriteDataByte(0x9D, 0) ) {
-        return 0;
-    }
-    if( !wireWriteDataByte(0x9E, 0) ) {
-        return 0;
-    }
-    if( !wireWriteDataByte(0x8D, 0x60) ) {
-        return 0;
-    }
+    i2c_write1ByteRegister(0x39,0x81,219);
+
+    i2c_write1ByteRegister(0x39,0x83, 246);
+
+    i2c_write1ByteRegister(0x39,0x8E, 0x87);
+
+    i2c_write1ByteRegister(0x39,0x9D, 0);
+
+    i2c_write1ByteRegister(0x39,0x9E, 0);
+
+    i2c_write1ByteRegister(0x39,0x8D, 0x60);
+
     if( !setLEDDrive(0) ) {
         return 0;
     }
@@ -5591,15 +5582,12 @@ _Bool APDS9960Init(void)
     if( !setLightIntHighThreshold(0) ) {
         return 0;
     }
-    if( !wireWriteDataByte(0x8C, 0x11) ) {
-        return 0;
-    }
-    if( !wireWriteDataByte(0x90, 0x01) ) {
-        return 0;
-    }
-    if( !wireWriteDataByte(0x9F, 0) ) {
-        return 0;
-    }
+
+    i2c_write1ByteRegister(0x39,0x8C, 0x11);
+
+    i2c_write1ByteRegister(0x39,0x90, 0x01);
+
+    i2c_write1ByteRegister(0x39,0x9F, 0);
 
 
     if( !setGestureEnterThresh(40) ) {
@@ -5608,9 +5596,9 @@ _Bool APDS9960Init(void)
     if( !setGestureExitThresh(30) ) {
         return 0;
     }
-    if( !wireWriteDataByte(0xA2, 0x40) ) {
-        return 0;
-    }
+
+    i2c_write1ByteRegister(0x39,0xA2, 0x40);
+
     if( !setGestureGain(2) ) {
         return 0;
     }
@@ -5620,24 +5608,19 @@ _Bool APDS9960Init(void)
     if( !setGestureWaitTime(1) ) {
         return 0;
     }
-    if( !wireWriteDataByte(0xA4, 0) ) {
-        return 0;
-    }
-    if( !wireWriteDataByte(0xA5, 0) ) {
-        return 0;
-    }
-    if( !wireWriteDataByte(0xA7, 0) ) {
-        return 0;
-    }
-    if( !wireWriteDataByte(0xA9, 0) ) {
-        return 0;
-    }
-    if( !wireWriteDataByte(0xA6, 0xC9) ) {
-        return 0;
-    }
-    if( !wireWriteDataByte(0xAA, 0) ) {
-        return 0;
-    }
+
+    i2c_write1ByteRegister(0x39,0xA4, 0);
+
+    i2c_write1ByteRegister(0x39,0xA5, 0);
+
+    i2c_write1ByteRegister(0x39,0xA7, 0);
+
+    i2c_write1ByteRegister(0x39,0xA9, 0);
+
+    i2c_write1ByteRegister(0x39,0xA6, 0xC9);
+
+    i2c_write1ByteRegister(0x39,0xAA, 0);
+
     if( !setGestureIntEnable(0) ) {
         return 0;
     }
@@ -5650,37 +5633,22 @@ _Bool APDS9960Init(void)
 
 
 
-uint8_t getStatusRegister()
+uint8_t getStatusRegister(void)
 {
     uint8_t status_value;
 
 
-    status_value = wireReadDataByte(0x93);
+    status_value = i2c_read1ByteRegister(0x39,0x93);
 
     return status_value;
 }
-
-
-
-
-
-
-uint8_t getMode()
-{
-    uint8_t enable_value;
-
-
-    enable_value = wireReadDataByte(0x80);
-
-    return enable_value;
-}
-# 203 "APDS9960.c"
+# 193 "APDS9960.c"
 _Bool setMode(uint8_t mode, uint8_t enable)
 {
     uint8_t reg_val;
 
 
-    reg_val = getMode();
+    reg_val = (i2c_read1ByteRegister(0x39,0x80));
     if( reg_val == 0xFF ) {
         return 0;
     }
@@ -5702,9 +5670,7 @@ _Bool setMode(uint8_t mode, uint8_t enable)
     }
 
 
-    if( !wireWriteDataByte(0x80, reg_val) ) {
-        return 0;
-    }
+    i2c_write1ByteRegister(0x39,0x80, reg_val);
 
     return 1;
 }
@@ -5731,7 +5697,7 @@ _Bool enableLightSensor(_Bool interrupts)
             return 0;
         }
     }
-    if( !enablePower() ){
+    if( !setMode(0, 1) ){
         return 0;
     }
     if( !setMode(1, 1) ) {
@@ -5747,7 +5713,7 @@ _Bool enableLightSensor(_Bool interrupts)
 
 
 
-_Bool disableLightSensor()
+_Bool disableLightSensor(void)
 {
     if( !setAmbientLightIntEnable(0) ) {
         return 0;
@@ -5783,7 +5749,7 @@ _Bool enableProximitySensor(_Bool interrupts)
             return 0;
         }
     }
-    if( !enablePower() ){
+    if( !setMode(0, 1) ){
         return 0;
     }
     if( !setMode(2, 1) ) {
@@ -5798,7 +5764,7 @@ _Bool enableProximitySensor(_Bool interrupts)
 
 
 
-_Bool disableProximitySensor()
+_Bool disableProximitySensor(void)
 {
  if( !setProximityIntEnable(0) ) {
   return 0;
@@ -5826,13 +5792,12 @@ _Bool enableGestureSensor(_Bool interrupts)
 
 
     resetGestureParameters();
-    if( !wireWriteDataByte(0x83, 0xFF) ) {
-        return 0;
-    }
-    if( !wireWriteDataByte(0x8E, 0x89) ) {
-        return 0;
-    }
-    if( !setLEDBoost(3) ) {
+
+    i2c_write1ByteRegister(0x39,0x83, 0xFF);
+
+    i2c_write1ByteRegister(0x39,0x8E, 0x89);
+
+    if( !setLEDBoost(0) ) {
         return 0;
     }
     if( interrupts ) {
@@ -5847,7 +5812,7 @@ _Bool enableGestureSensor(_Bool interrupts)
     if( !setGestureMode(1) ) {
         return 0;
     }
-    if( !enablePower() ){
+    if( !setMode(0, 1) ){
         return 0;
     }
     if( !setMode(3, 1) ) {
@@ -5868,7 +5833,7 @@ _Bool enableGestureSensor(_Bool interrupts)
 
 
 
-_Bool disableGestureSensor()
+_Bool disableGestureSensor(void)
 {
     resetGestureParameters();
     if( !setGestureIntEnable(0) ) {
@@ -5883,37 +5848,8 @@ _Bool disableGestureSensor()
 
     return 1;
 }
-
-
-
-
-
-
-_Bool isGestureAvailable()
-{
-    uint8_t val;
-
-
-    val = wireReadDataByte(0xAF);
-
-
-    val &= 0b00000001;
-
-
-    if( val == 1) {
-        return 1;
-    } else {
-        return 0;
-    }
-}
-
-
-
-
-
-
-
-int readGesture()
+# 428 "APDS9960.c"
+int readGesture(void)
 {
     uint8_t fifo_level = 0;
     uint8_t bytes_read = 0;
@@ -5923,7 +5859,7 @@ int readGesture()
     int i;
 
 
-    if( !isGestureAvailable() || !(getMode() & 0b01000001) ) {
+    if( !(i2c_read1ByteRegister(0x39,0xAF) & 0b00000001) || !((i2c_read1ByteRegister(0x39,0x80)) & 0b01000001) ) {
         return DIR_NONE;
     }
 
@@ -5934,13 +5870,13 @@ int readGesture()
         _delay((unsigned long)((30)*(32000000/4000.0)));
 
 
-        gstatus = wireReadDataByte(0xAF);
+        gstatus = i2c_read1ByteRegister(0x39,0xAF);
 
 
         if( (gstatus & 0b00000001) == 0b00000001 ) {
 
 
-            fifo_level = wireReadDataByte(0xAE);
+            fifo_level = i2c_read1ByteRegister(0x39,0xAE);
 
 
 
@@ -5949,13 +5885,13 @@ int readGesture()
 
 
             if( fifo_level > 0) {
-                bytes_read = wireReadDataBlock( 0xFC,
+
+                i2c_readDataBlock(0x39,0xFC,
                                                 (uint8_t*)fifo_data,
-                                                (fifo_level * 4) );
-                if( bytes_read == -1 ) {
-                    return 0xFF;
-                }
-# 493 "APDS9960.c"
+                                                (fifo_level * 4));
+
+                bytes_read = (fifo_level * 4);
+# 487 "APDS9960.c"
                 if( bytes_read >= 4 ) {
                     for( i = 0; i < bytes_read; i += 4 ) {
                         gesture_data_.u_data[gesture_data_.index] = fifo_data[i + 0];
@@ -5969,7 +5905,7 @@ int readGesture()
                         gesture_data_.index++;
                         gesture_data_.total_gestures++;
                     }
-# 517 "APDS9960.c"
+# 511 "APDS9960.c"
                     if( processGestureData() ) {
                         if( decodeGesture() ) {
 
@@ -5999,46 +5935,18 @@ int readGesture()
         }
     }
 }
-
-
-
-
-
-
-_Bool enablePower()
-{
-    if( !setMode(0, 1) ) {
-        return 0;
-    }
-
-    return 1;
-}
-
-
-
-
-
-
-_Bool disablePower()
-{
-    if( !setMode(0, 0) ) {
-        return 0;
-    }
-
-    return 1;
-}
-# 585 "APDS9960.c"
+# 579 "APDS9960.c"
 uint16_t readAmbientLight(void)
 {
     uint8_t val_byte;
     uint16_t val = 0;
 
 
-    val_byte = wireReadDataByte(0x94);
+    val_byte = i2c_read1ByteRegister(0x39,0x94);
     val = val_byte;
 
 
-    val_byte = wireReadDataByte(0x95);
+    val_byte = i2c_read1ByteRegister(0x39,0x95);
     val = val + ((uint16_t)val_byte << 8);
 
     return val;
@@ -6056,11 +5964,11 @@ uint16_t readRedLight(void)
     uint16_t val = 0;
 
 
-    val_byte = wireReadDataByte(0x96);
+    val_byte = i2c_read1ByteRegister(0x39,0x96);
     val = val_byte;
 
 
-    val_byte = wireReadDataByte(0x97);
+    val_byte = i2c_read1ByteRegister(0x39,0x97);
     val = val + ((uint16_t)val_byte << 8);
 
     return val;
@@ -6078,11 +5986,11 @@ uint16_t readGreenLight(void)
     uint16_t val = 0;
 
 
-    val_byte = wireReadDataByte(0x98);
+    val_byte = i2c_read1ByteRegister(0x39,0x98);
     val = val_byte;
 
 
-    val_byte = wireReadDataByte(0x99);
+    val_byte = i2c_read1ByteRegister(0x39,0x99);
     val = val + ((uint16_t)val_byte << 8);
 
     return val;
@@ -6100,27 +6008,17 @@ uint16_t readBlueLight(void)
     uint16_t val = 0;
 
 
-    val_byte = wireReadDataByte(0x9A);
+    val_byte = i2c_read1ByteRegister(0x39,0x9A);
     val = val_byte;
 
 
-    val_byte = wireReadDataByte(0x9B);
+    val_byte = i2c_read1ByteRegister(0x39,0x9B);
     val = val + ((uint16_t)val_byte << 8);
 
     return val;
 }
-# 677 "APDS9960.c"
-uint8_t readProximity(void)
-{
-    uint8_t val = 0;
-
-
-    val = wireReadDataByte(0x9C);
-
-    return val;
-}
-# 694 "APDS9960.c"
-void resetGestureParameters()
+# 688 "APDS9960.c"
+void resetGestureParameters(void)
 {
     gesture_data_.index = 0;
     gesture_data_.total_gestures = 0;
@@ -6143,7 +6041,7 @@ void resetGestureParameters()
 
 
 
-_Bool processGestureData()
+_Bool processGestureData(void)
 {
     uint8_t u_first = 0;
     uint8_t d_first = 0;
@@ -6193,7 +6091,7 @@ _Bool processGestureData()
         }
 
         for( i = gesture_data_.total_gestures - 1; i >= 0; i-- ) {
-# 778 "APDS9960.c"
+# 772 "APDS9960.c"
             if( (gesture_data_.u_data[i] > 10) &&
                 (gesture_data_.d_data[i] > 10) &&
                 (gesture_data_.l_data[i] > 10) &&
@@ -6213,13 +6111,13 @@ _Bool processGestureData()
     lr_ratio_first = ((l_first - r_first) * 100) / (l_first + r_first);
     ud_ratio_last = ((u_last - d_last) * 100) / (u_last + d_last);
     lr_ratio_last = ((l_last - r_last) * 100) / (l_last + r_last);
-# 821 "APDS9960.c"
+# 815 "APDS9960.c"
     ud_delta = ud_ratio_last - ud_ratio_first;
     lr_delta = lr_ratio_last - lr_ratio_first;
-# 833 "APDS9960.c"
+# 827 "APDS9960.c"
     gesture_ud_delta_ += ud_delta;
     gesture_lr_delta_ += lr_delta;
-# 845 "APDS9960.c"
+# 839 "APDS9960.c"
     if( gesture_ud_delta_ >= 50 ) {
         gesture_ud_count_ = 1;
     } else if( gesture_ud_delta_ <= -50 ) {
@@ -6273,7 +6171,7 @@ _Bool processGestureData()
             }
         }
     }
-# 911 "APDS9960.c"
+# 905 "APDS9960.c"
     return 0;
 }
 
@@ -6282,7 +6180,7 @@ _Bool processGestureData()
 
 
 
-_Bool decodeGesture()
+_Bool decodeGesture(void)
 {
 
     if( gesture_state_ == NEAR_STATE ) {
@@ -6332,81 +6230,40 @@ _Bool decodeGesture()
 
     return 1;
 }
-# 979 "APDS9960.c"
-uint8_t getProxIntLowThresh()
-{
-    uint8_t val = 0;
-
-
-    val = wireReadDataByte(0x89);
-
-    return val;
-}
-
-
-
-
-
-
-
+# 989 "APDS9960.c"
 _Bool setProxIntLowThresh(uint8_t threshold)
 {
-    if( !wireWriteDataByte(0x89, threshold) ) {
-        return 0;
-    }
+    i2c_write1ByteRegister(0x39,0x89, threshold);
 
     return 1;
 }
-
-
-
-
-
-
-uint8_t getProxIntHighThresh()
-{
-    uint8_t val = 0;
-
-
-    val = wireReadDataByte(0x8B);
-
-    return val;
-}
-
-
-
-
-
-
-
+# 1017 "APDS9960.c"
 _Bool setProxIntHighThresh(uint8_t threshold)
 {
-    if( !wireWriteDataByte(0x8B, threshold) ) {
-        return 0;
-    }
+    i2c_write1ByteRegister(0x39,0x8B, threshold);
 
     return 1;
 }
-# 1045 "APDS9960.c"
-uint8_t getLEDDrive()
+# 1035 "APDS9960.c"
+uint8_t getLEDDrive(void)
 {
     uint8_t val;
 
 
-    val = wireReadDataByte(0x8F);
+    val = i2c_read1ByteRegister(0x39,0x8F);
 
 
     val = (val >> 6) & 0b00000011;
 
     return val;
 }
-# 1070 "APDS9960.c"
+# 1060 "APDS9960.c"
 _Bool setLEDDrive(uint8_t drive)
 {
     uint8_t val;
 
 
-    val = wireReadDataByte(0x8F);
+    val = i2c_read1ByteRegister(0x39,0x8F);
 
 
     drive &= 0b00000011;
@@ -6415,32 +6272,30 @@ _Bool setLEDDrive(uint8_t drive)
     val |= drive;
 
 
-    if( !wireWriteDataByte(0x8F, val) ) {
-        return 0;
-    }
+    i2c_write1ByteRegister(0x39,0x8F, val);
 
     return 1;
 }
-# 1102 "APDS9960.c"
-uint8_t getProximityGain()
+# 1090 "APDS9960.c"
+uint8_t getProximityGain(void)
 {
     uint8_t val;
 
 
-    val = wireReadDataByte(0x8F);
+    val = i2c_read1ByteRegister(0x39,0x8F);
 
 
     val = (val >> 2) & 0b00000011;
 
     return val;
 }
-# 1127 "APDS9960.c"
+# 1115 "APDS9960.c"
 _Bool setProximityGain(uint8_t drive)
 {
     uint8_t val;
 
 
-    val = wireReadDataByte(0x8F);
+    val = i2c_read1ByteRegister(0x39,0x8F);
 
 
     drive &= 0b00000011;
@@ -6449,32 +6304,30 @@ _Bool setProximityGain(uint8_t drive)
     val |= drive;
 
 
-    if( !wireWriteDataByte(0x8F, val) ) {
-        return 0;
-    }
+    i2c_write1ByteRegister(0x39,0x8F, val);
 
     return 1;
 }
-# 1159 "APDS9960.c"
-uint8_t getAmbientLightGain()
+# 1145 "APDS9960.c"
+uint8_t getAmbientLightGain(void)
 {
     uint8_t val;
 
 
-    val = wireReadDataByte(0x8F);
+    val = i2c_read1ByteRegister(0x39,0x8F);
 
 
     val &= 0b00000011;
 
     return val;
 }
-# 1184 "APDS9960.c"
+# 1170 "APDS9960.c"
 _Bool setAmbientLightGain(uint8_t drive)
 {
     uint8_t val;
 
 
-    val = wireReadDataByte(0x8F);
+    val = i2c_read1ByteRegister(0x39,0x8F);
 
 
     drive &= 0b00000011;
@@ -6482,32 +6335,30 @@ _Bool setAmbientLightGain(uint8_t drive)
     val |= drive;
 
 
-    if( !wireWriteDataByte(0x8F, val) ) {
-        return 0;
-    }
+    i2c_write1ByteRegister(0x39,0x8F, val);
 
     return 1;
 }
-# 1215 "APDS9960.c"
-uint8_t getLEDBoost()
+# 1199 "APDS9960.c"
+uint8_t getLEDBoost(void)
 {
     uint8_t val;
 
 
-    val = wireReadDataByte(0x90);
+    val = i2c_read1ByteRegister(0x39,0x90);
 
 
     val = (val >> 4) & 0b00000011;
 
     return val;
 }
-# 1240 "APDS9960.c"
+# 1224 "APDS9960.c"
 _Bool setLEDBoost(uint8_t boost)
 {
     uint8_t val;
 
 
-    val = wireReadDataByte(0x90);
+    val = i2c_read1ByteRegister(0x39,0x90);
 
 
     boost &= 0b00000011;
@@ -6516,9 +6367,7 @@ _Bool setLEDBoost(uint8_t boost)
     val |= boost;
 
 
-    if( !wireWriteDataByte(0x90, val) ) {
-        return 0;
-    }
+    i2c_write1ByteRegister(0x39,0x90, val);
 
     return 1;
 }
@@ -6528,12 +6377,12 @@ _Bool setLEDBoost(uint8_t boost)
 
 
 
-uint8_t getProxGainCompEnable()
+uint8_t getProxGainCompEnable(void)
 {
     uint8_t val;
 
 
-    val = wireReadDataByte(0x9F);
+    val = i2c_read1ByteRegister(0x39,0x9F);
 
 
     val = (val >> 5) & 0b00000001;
@@ -6552,7 +6401,7 @@ uint8_t getProxGainCompEnable()
     uint8_t val;
 
 
-    val = wireReadDataByte(0x9F);
+    val = i2c_read1ByteRegister(0x39,0x9F);
 
 
     enable &= 0b00000001;
@@ -6561,32 +6410,30 @@ uint8_t getProxGainCompEnable()
     val |= enable;
 
 
-    if( !wireWriteDataByte(0x9F, val) ) {
-        return 0;
-    }
+    i2c_write1ByteRegister(0x39,0x9F, val);
 
     return 1;
 }
-# 1318 "APDS9960.c"
-uint8_t getProxPhotoMask()
+# 1298 "APDS9960.c"
+uint8_t getProxPhotoMask(void)
 {
     uint8_t val;
 
 
-    val = wireReadDataByte(0x9F);
+    val = i2c_read1ByteRegister(0x39,0x9F);
 
 
     val &= 0b00001111;
 
     return val;
 }
-# 1345 "APDS9960.c"
+# 1325 "APDS9960.c"
 _Bool setProxPhotoMask(uint8_t mask)
 {
     uint8_t val;
 
 
-    val = wireReadDataByte(0x9F);
+    val = i2c_read1ByteRegister(0x39,0x9F);
 
 
     mask &= 0b00001111;
@@ -6594,9 +6441,7 @@ _Bool setProxPhotoMask(uint8_t mask)
     val |= mask;
 
 
-    if( !wireWriteDataByte(0x9F, val) ) {
-        return 0;
-    }
+    i2c_write1ByteRegister(0x39,0x9F, val);
 
     return 1;
 }
@@ -6606,12 +6451,12 @@ _Bool setProxPhotoMask(uint8_t mask)
 
 
 
-uint8_t getGestureEnterThresh()
+uint8_t getGestureEnterThresh(void)
 {
     uint8_t val = 0;
 
 
-    val = wireReadDataByte(0xA0);
+    val = i2c_read1ByteRegister(0x39,0xA0);
 
     return val;
 }
@@ -6624,62 +6469,37 @@ uint8_t getGestureEnterThresh()
 
 _Bool setGestureEnterThresh(uint8_t threshold)
 {
-    if( !wireWriteDataByte(0xA0, threshold) ) {
-        return 0;
-    }
+    i2c_write1ByteRegister(0x39,0xA0, threshold);
 
     return 1;
 }
-
-
-
-
-
-
-uint8_t getGestureExitThresh()
-{
-    uint8_t val = 0;
-
-
-    val = wireReadDataByte(0xA1);
-
-    return val;
-}
-
-
-
-
-
-
-
+# 1392 "APDS9960.c"
 _Bool setGestureExitThresh(uint8_t threshold)
 {
-    if( !wireWriteDataByte(0xA1, threshold) ) {
-        return 0;
-    }
+    i2c_write1ByteRegister(0x39,0xA1, threshold);
 
     return 1;
 }
-# 1436 "APDS9960.c"
-uint8_t getGestureGain()
+# 1410 "APDS9960.c"
+uint8_t getGestureGain(void)
 {
     uint8_t val;
 
 
-    val = wireReadDataByte(0xA3);
+    val = i2c_read1ByteRegister(0x39,0xA3);
 
 
     val = (val >> 5) & 0b00000011;
 
     return val;
 }
-# 1461 "APDS9960.c"
+# 1435 "APDS9960.c"
 _Bool setGestureGain(uint8_t gain)
 {
     uint8_t val;
 
 
-    val = wireReadDataByte(0xA3);
+    val = i2c_read1ByteRegister(0x39,0xA3);
 
 
     gain &= 0b00000011;
@@ -6688,32 +6508,30 @@ _Bool setGestureGain(uint8_t gain)
     val |= gain;
 
 
-    if( !wireWriteDataByte(0xA3, val) ) {
-        return 0;
-    }
+    i2c_write1ByteRegister(0x39,0xA3, val);
 
     return 1;
 }
-# 1493 "APDS9960.c"
-uint8_t getGestureLEDDrive()
+# 1465 "APDS9960.c"
+uint8_t getGestureLEDDrive(void)
 {
     uint8_t val;
 
 
-    val = wireReadDataByte(0xA3);
+    val = i2c_read1ByteRegister(0x39,0xA3);
 
 
     val = (val >> 3) & 0b00000011;
 
     return val;
 }
-# 1518 "APDS9960.c"
+# 1490 "APDS9960.c"
 _Bool setGestureLEDDrive(uint8_t drive)
 {
     uint8_t val;
 
 
-    val = wireReadDataByte(0xA3);
+    val = i2c_read1ByteRegister(0x39,0xA3);
 
 
     drive &= 0b00000011;
@@ -6722,32 +6540,30 @@ _Bool setGestureLEDDrive(uint8_t drive)
     val |= drive;
 
 
-    if( !wireWriteDataByte(0xA3, val) ) {
-        return 0;
-    }
+    i2c_write1ByteRegister(0x39,0xA3, val);
 
     return 1;
 }
-# 1554 "APDS9960.c"
-uint8_t getGestureWaitTime()
+# 1524 "APDS9960.c"
+uint8_t getGestureWaitTime(void)
 {
     uint8_t val;
 
 
-    val = wireReadDataByte(0xA3);
+    val = i2c_read1ByteRegister(0x39,0xA3);
 
 
     val &= 0b00000111;
 
     return val;
 }
-# 1583 "APDS9960.c"
+# 1553 "APDS9960.c"
 _Bool setGestureWaitTime(uint8_t time)
 {
     uint8_t val;
 
 
-    val = wireReadDataByte(0xA3);
+    val = i2c_read1ByteRegister(0x39,0xA3);
 
 
     time &= 0b00000111;
@@ -6755,9 +6571,7 @@ _Bool setGestureWaitTime(uint8_t time)
     val |= time;
 
 
-    if( !wireWriteDataByte(0xA3, val) ) {
-        return 0;
-    }
+    i2c_write1ByteRegister(0x39,0xA3, val);
 
     return 1;
 }
@@ -6774,11 +6588,11 @@ uint16_t getLightIntLowThreshold(void)
     uint16_t threshold = 0;
 
 
-    val_byte = wireReadDataByte(0x84);
+    val_byte = i2c_read1ByteRegister(0x39,0x84);
     threshold = val_byte;
 
 
-    val_byte = wireReadDataByte(0x85);
+    val_byte = i2c_read1ByteRegister(0x39,0x85);
     threshold = threshold + ((uint16_t)val_byte << 8);
 
     return 1;
@@ -6800,14 +6614,10 @@ _Bool setLightIntLowThreshold(uint16_t threshold)
     val_high = (threshold & 0xFF00) >> 8;
 
 
-    if( !wireWriteDataByte(0x84, val_low) ) {
-        return 0;
-    }
+    i2c_write1ByteRegister(0x39,0x84, val_low);
 
 
-    if( !wireWriteDataByte(0x85, val_high) ) {
-        return 0;
-    }
+    i2c_write1ByteRegister(0x39,0x85, val_high);
 
     return 1;
 }
@@ -6824,11 +6634,11 @@ uint16_t getLightIntHighThreshold(void)
     uint16_t threshold = 0;
 
 
-    val_byte = wireReadDataByte(0x86);
+    val_byte = i2c_read1ByteRegister(0x39,0x86);
     threshold = val_byte;
 
 
-    val_byte = wireReadDataByte(0x87);
+    val_byte = i2c_read1ByteRegister(0x39,0x87);
     threshold = threshold + ((uint16_t)val_byte << 8);
 
     return 1;
@@ -6850,47 +6660,19 @@ _Bool setLightIntHighThreshold(uint16_t threshold)
     val_high = (threshold & 0xFF00) >> 8;
 
 
-    if( !wireWriteDataByte(0x86, val_low) ) {
-        return 0;
-    }
+    i2c_write1ByteRegister(0x39,0x86, val_low);
 
 
-    if( !wireWriteDataByte(0x87, val_high) ) {
-        return 0;
-    }
+    i2c_write1ByteRegister(0x39,0x87, val_high);
 
     return 1;
 }
-
-
-
-
-
-
-
-uint8_t getProximityIntLowThreshold(void)
-{
-    uint8_t threshold = 0;
-
-
-    threshold = wireReadDataByte(0x89);
-
-    return 1;
-}
-
-
-
-
-
-
-
+# 1685 "APDS9960.c"
 _Bool setProximityIntLowThreshold(uint8_t threshold)
 {
 
 
-    if( !wireWriteDataByte(0x89, threshold) ) {
-        return 0;
-    }
+    i2c_write1ByteRegister(0x39,0x89, threshold);
 
     return 1;
 }
@@ -6906,9 +6688,9 @@ uint8_t getProximityIntHighThreshold(void)
     uint8_t threshold = 0;
 
 
-    threshold = wireReadDataByte(0x8B);
+    threshold = i2c_read1ByteRegister(0x39,0x8B);
 
-    return 1;
+    return threshold;
 }
 
 
@@ -6921,9 +6703,7 @@ _Bool setProximityIntHighThreshold(uint8_t threshold)
 {
 
 
-    if( !wireWriteDataByte(0x8B, threshold) ) {
-        return 0;
-    }
+    i2c_write1ByteRegister(0x39,0x8B, threshold);
 
     return 1;
 }
@@ -6933,12 +6713,12 @@ _Bool setProximityIntHighThreshold(uint8_t threshold)
 
 
 
-uint8_t getAmbientLightIntEnable()
+uint8_t getAmbientLightIntEnable(void)
 {
     uint8_t val;
 
 
-    val = wireReadDataByte(0x80);
+    val = i2c_read1ByteRegister(0x39,0x80);
 
 
     val = (val >> 4) & 0b00000001;
@@ -6957,7 +6737,7 @@ _Bool setAmbientLightIntEnable(uint8_t enable)
     uint8_t val;
 
 
-    val = wireReadDataByte(0x80);
+    val = i2c_read1ByteRegister(0x39,0x80);
 
 
     enable &= 0b00000001;
@@ -6966,9 +6746,7 @@ _Bool setAmbientLightIntEnable(uint8_t enable)
     val |= enable;
 
 
-    if( !wireWriteDataByte(0x80, val) ) {
-        return 0;
-    }
+    i2c_write1ByteRegister(0x39,0x80, val);
 
     return 1;
 }
@@ -6978,12 +6756,12 @@ _Bool setAmbientLightIntEnable(uint8_t enable)
 
 
 
-uint8_t getProximityIntEnable()
+uint8_t getProximityIntEnable(void)
 {
     uint8_t val;
 
 
-    val = wireReadDataByte(0x80);
+    val = i2c_read1ByteRegister(0x39,0x80);
 
 
     val = (val >> 5) & 0b00000001;
@@ -7002,7 +6780,7 @@ _Bool setProximityIntEnable(uint8_t enable)
     uint8_t val;
 
 
-    val = wireReadDataByte(0x80);
+    val = i2c_read1ByteRegister(0x39,0x80);
 
 
     enable &= 0b00000001;
@@ -7011,9 +6789,7 @@ _Bool setProximityIntEnable(uint8_t enable)
     val |= enable;
 
 
-    if( !wireWriteDataByte(0x80, val) ) {
-        return 0;
-    }
+    i2c_write1ByteRegister(0x39,0x80, val);
 
     return 1;
 }
@@ -7023,12 +6799,12 @@ _Bool setProximityIntEnable(uint8_t enable)
 
 
 
-uint8_t getGestureIntEnable()
+uint8_t getGestureIntEnable(void)
 {
     uint8_t val;
 
 
-    val = wireReadDataByte(0xAB);
+    val = i2c_read1ByteRegister(0x39,0xAB);
 
 
     val = (val >> 1) & 0b00000001;
@@ -7047,7 +6823,7 @@ _Bool setGestureIntEnable(uint8_t enable)
     uint8_t val;
 
 
-    val = wireReadDataByte(0xAB);
+    val = i2c_read1ByteRegister(0x39,0xAB);
 
 
     enable &= 0b00000001;
@@ -7056,9 +6832,7 @@ _Bool setGestureIntEnable(uint8_t enable)
     val |= enable;
 
 
-    if( !wireWriteDataByte(0xAB, val) ) {
-        return 0;
-    }
+    i2c_write1ByteRegister(0x39,0xAB, val);
 
     return 1;
 }
@@ -7068,10 +6842,10 @@ _Bool setGestureIntEnable(uint8_t enable)
 
 
 
-_Bool clearAmbientLightInt()
+_Bool clearAmbientLightInt(void)
 {
     uint8_t throwaway;
-    throwaway = wireReadDataByte(0xE7);
+    throwaway = i2c_read1ByteRegister(0x39,0xE7);
 
     return 1;
 }
@@ -7081,44 +6855,20 @@ _Bool clearAmbientLightInt()
 
 
 
-_Bool clearProximityInt()
+_Bool clearProximityInt(void)
 {
     uint8_t throwaway;
-    throwaway = wireReadDataByte(0xE5);
+    throwaway = i2c_read1ByteRegister(0x39,0xE5);
 
     return 1;
 }
-
-
-
-
-
-
-uint8_t getGestureMode()
-{
-    uint8_t val;
-
-
-    val = wireReadDataByte(0xAB);
-
-
-    val &= 0b00000001;
-
-    return val;
-}
-
-
-
-
-
-
-
+# 1904 "APDS9960.c"
 _Bool setGestureMode(uint8_t mode)
 {
     uint8_t val;
 
 
-    val = wireReadDataByte(0xAB);
+    val = i2c_read1ByteRegister(0x39,0xAB);
 
 
     mode &= 0b00000001;
@@ -7126,50 +6876,7 @@ _Bool setGestureMode(uint8_t mode)
     val |= mode;
 
 
-    val = wireWriteDataByte(0xAB,val);
+    i2c_write1ByteRegister(0x39,0xAB,val);
 
     return 1;
-}
-# 1983 "APDS9960.c"
-_Bool wireWriteByte(uint8_t val)
-{
-    i2c_writeNBytes(0x39,&val,1);
-
-    return 1;
-}
-# 1997 "APDS9960.c"
-_Bool wireWriteDataByte(uint8_t reg, uint8_t val)
-{
-    i2c_write1ByteRegister(0x39,reg,val);
-
-    return 1;
-}
-# 2012 "APDS9960.c"
-_Bool wireWriteDataBlock( uint8_t reg,
-                                        uint8_t *val,
-                                        unsigned int len)
-{
-
-    i2c_writeNBytes(0x39,&reg,1);
-    i2c_writeNBytes(0x39,&val,len);
-    return 1;
-}
-# 2029 "APDS9960.c"
-uint8_t wireReadDataByte(uint8_t reg)
-{
-
-    return i2c_read1ByteRegister(0x39, reg);
-
-}
-# 2044 "APDS9960.c"
-int wireReadDataBlock( uint8_t reg,
-                                        uint8_t *val,
-                                        unsigned int len)
-{
-    unsigned char i = len;
-
-
-   i2c_readDataBlock(0x39,reg,val,len);
-
-    return i;
 }

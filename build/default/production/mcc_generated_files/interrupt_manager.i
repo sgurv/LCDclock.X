@@ -4828,10 +4828,18 @@ extern __bank0 __bit __timeout;
 # 50 "mcc_generated_files/mcc.h" 2
 
 # 1 "mcc_generated_files/pin_manager.h" 1
-# 238 "mcc_generated_files/pin_manager.h"
+# 255 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize (void);
-# 250 "mcc_generated_files/pin_manager.h"
+# 267 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_IOC(void);
+# 280 "mcc_generated_files/pin_manager.h"
+void IOCBF1_ISR(void);
+# 303 "mcc_generated_files/pin_manager.h"
+void IOCBF1_SetInterruptHandler(void (* InterruptHandler)(void));
+# 327 "mcc_generated_files/pin_manager.h"
+extern void (*IOCBF1_InterruptHandler)(void);
+# 351 "mcc_generated_files/pin_manager.h"
+void IOCBF1_DefaultInterruptHandler(void);
 # 51 "mcc_generated_files/mcc.h" 2
 
 # 1 "D:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdint.h" 1 3
@@ -5309,6 +5317,18 @@ void EUSART_SetTxInterruptHandler(void (* interruptHandler)(void));
 void EUSART_SetRxInterruptHandler(void (* interruptHandler)(void));
 # 63 "mcc_generated_files/mcc.h" 2
 
+# 1 "mcc_generated_files/drivers/i2c_simple_master.h" 1
+# 37 "mcc_generated_files/drivers/i2c_simple_master.h"
+uint8_t i2c_read1ByteRegister(i2c_address_t address, uint8_t reg);
+uint16_t i2c_read2ByteRegister(i2c_address_t address, uint8_t reg);
+void i2c_write1ByteRegister(i2c_address_t address, uint8_t reg, uint8_t data);
+void i2c_write2ByteRegister(i2c_address_t address, uint8_t reg, uint16_t data);
+
+void i2c_writeNBytes(i2c_address_t address, void* data, size_t len);
+void i2c_readDataBlock(i2c_address_t address, uint8_t reg, void *data, size_t len);
+void i2c_readNBytes(i2c_address_t address, void *data, size_t len);
+# 64 "mcc_generated_files/mcc.h" 2
+
 # 1 "mcc_generated_files/lcd.h" 1
 # 211 "mcc_generated_files/lcd.h"
 void LCD_Initialize(void);
@@ -5354,18 +5374,6 @@ void LCD_DisplayOn_DIG4_SYM03Num();
 void LCD_DisplayOff_DIG4_SYM03Num();
 # 659 "mcc_generated_files/lcd.h"
 void LCD_DIG4_SYM03Num (unsigned char num);
-# 64 "mcc_generated_files/mcc.h" 2
-
-# 1 "mcc_generated_files/drivers/i2c_simple_master.h" 1
-# 37 "mcc_generated_files/drivers/i2c_simple_master.h"
-uint8_t i2c_read1ByteRegister(i2c_address_t address, uint8_t reg);
-uint16_t i2c_read2ByteRegister(i2c_address_t address, uint8_t reg);
-void i2c_write1ByteRegister(i2c_address_t address, uint8_t reg, uint8_t data);
-void i2c_write2ByteRegister(i2c_address_t address, uint8_t reg, uint16_t data);
-
-void i2c_writeNBytes(i2c_address_t address, void* data, size_t len);
-void i2c_readDataBlock(i2c_address_t address, uint8_t reg, void *data, size_t len);
-void i2c_readNBytes(i2c_address_t address, void *data, size_t len);
 # 65 "mcc_generated_files/mcc.h" 2
 # 80 "mcc_generated_files/mcc.h"
 void SYSTEM_Initialize(void);
@@ -5379,7 +5387,11 @@ void WDT_Initialize(void);
 void __attribute__((picinterrupt(("")))) INTERRUPT_InterruptManager (void)
 {
 
-    if(INTCONbits.PEIE == 1)
+    if(INTCONbits.IOCIE == 1 && INTCONbits.IOCIF == 1)
+    {
+        PIN_MANAGER_IOC();
+    }
+    else if(INTCONbits.PEIE == 1)
     {
         if(PIE1bits.TXIE == 1 && PIR1bits.TXIF == 1)
         {

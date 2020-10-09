@@ -12,6 +12,6 @@ mcc_generated_files/fvr.h  \
 mcc_generated_files/memory.h  \
 mcc_generated_files/dac.h  \
 mcc_generated_files/eusart.h  \
-mcc_generated_files/lcd.h  \
 mcc_generated_files/drivers/i2c_simple_master.h  \
+mcc_generated_files/lcd.h  \
 APDS9960.h 

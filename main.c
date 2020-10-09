@@ -57,7 +57,10 @@ enum e_ir_flag{
 volatile uint8_t ir_address, ir_address_complement, ir_command, ir_command_complement;
 volatile uint8_t ir_flag;
 
+volatile uint8_t flag_gesture;
+
 static void CCP4_CallBack(uint16_t capturedValue);
+static void IOC_RB1_N_Handler(void);
 
 void LCD_Digit1Num (unsigned char num); // this supports hex char
 void LCD_Digit2Num (unsigned char num);
@@ -77,7 +80,10 @@ void main(void)
     ir_flag = IR_NONE;
     ir_address = ir_address_complement = ir_command = ir_command_complement = 0;
     
+    flag_gesture = 0;
+    
     CCP4_SetCallBack(CCP4_CallBack);
+    IOCBF1_SetInterruptHandler(IOC_RB1_N_Handler);
     
     // When using interrupts, you need to set the Global and Peripheral Interrupt Enable bits
     // Use the following macros to:
@@ -103,11 +109,11 @@ void main(void)
     LCD_Digit4Num(bcd_num & 0x000F);
     //enableLightSensor(false); // without interrupt
     
-    //setProximityGain(PGAIN_2X); // Adjust the Proximity sensor gain
+    setProximityGain(PGAIN_2X); // Adjust the Proximity sensor gain
     
-    enableProximitySensor(false); // without interrupt
+    //enableProximitySensor(false); // without interrupt
     
-    //enableGestureSensor(false); // without interrupt
+    enableGestureSensor(true); // with interrupt
 
     while (1)
     {
@@ -119,52 +125,79 @@ void main(void)
 //        D3_SYM06ON;
 //        P_SYM07ON;
         
-        D1_SYM04OFF;
-        D2_SYM05OFF;
-        D3_SYM06OFF;
-        P_SYM07OFF;
+        
      
         //temp_num = readAmbientLight(); // works
-        temp_num = readProximity(); // works
+        //temp_num = readProximity(); // works
         
-        if(isGestureAvailable()){
+        if(flag_gesture != 0){ // works with LED_BOOST_100
+            
+            D1_SYM04OFF;
+            D2_SYM05OFF;
+            D3_SYM06OFF;
+            P_SYM07OFF;
+            
             switch ( readGesture() ) {
                 case DIR_UP:
-                    LCD_Digit4Num('U');
+                    LCD_Digit1Num('U');
+                    LCD_Digit2Num('P');
+                    LCD_Digit3Num(' ');
+                    LCD_Digit4Num(' ');
                     break;
                 case DIR_DOWN:
-                    LCD_Digit4Num('D');
+                    LCD_Digit1Num('D');
+                    LCD_Digit2Num('N');
+                    LCD_Digit3Num(' ');
+                    LCD_Digit4Num(' ');
                     break;
                 case DIR_LEFT:
-                    LCD_Digit4Num('L');
+                    LCD_Digit1Num('L');
+                    LCD_Digit2Num('E');
+                    LCD_Digit3Num('F');
+                    LCD_Digit4Num('T');
                     break;
                 case DIR_RIGHT:
-                    LCD_Digit4Num('R');
+                    LCD_Digit1Num('R');
+                    LCD_Digit2Num('I');
+                    LCD_Digit3Num('T');
+                    LCD_Digit4Num(' ');
                     break;
                 case DIR_NEAR:
-                    LCD_Digit4Num('N');
+                    LCD_Digit1Num('N');
+                    LCD_Digit2Num('E');
+                    LCD_Digit3Num('A');
+                    LCD_Digit4Num('R');
                     break;
                 case DIR_FAR:
-                    LCD_Digit4Num('F');
+                    LCD_Digit1Num('F');
+                    LCD_Digit2Num('A');
+                    LCD_Digit3Num('R');
+                    LCD_Digit4Num(' ');
                     break;
                 default:
-                    LCD_Digit4Num(0);
+                    LCD_Digit1Num('N');
+                    LCD_Digit2Num('O');
+                    LCD_Digit3Num('N');
+                    LCD_Digit4Num('E');
             }
+            
+            flag_gesture = 0;
+            
         } else {
             //temp_num = getStatusRegister();
             
-            bcd_num = intToBCD(temp_num);
-
-            LCD_Digit1Num((bcd_num >> 12) & 0x000F);
-            LCD_Digit2Num((bcd_num >> 8) & 0x000F);
-            LCD_Digit3Num((bcd_num >> 4) & 0x000F);
-            //LCD_Digit4Num(bcd_num & 0x000F);
-            LCD_Digit4Num('P');
+//            bcd_num = intToBCD(temp_num);
+//
+//            LCD_Digit1Num((bcd_num >> 12) & 0x000F);
+//            LCD_Digit2Num((bcd_num >> 8) & 0x000F);
+//            LCD_Digit3Num((bcd_num >> 4) & 0x000F);
+//            LCD_Digit4Num(bcd_num & 0x000F);
+            //LCD_Digit4Num('P');
         }
         
 
         
-        __delay_ms(400);
+        //__delay_ms(20);
         
         if(ir_flag == IR_DONE || ir_flag == IR_REPEAT){
             
@@ -193,13 +226,13 @@ static void CCP4_CallBack(uint16_t capturedValue)
     TMR1_WriteTimer(0x0000); // clear timer
     
     //NEC decoder
-    if((capturedValue > 13400) && (capturedValue < 13600)){ //13.5ms Start
+    if((capturedValue > 13350) && (capturedValue < 13650)){ //13.5ms Start
         bit_count = 0;
         ir_address = ir_address_complement = ir_command = ir_command_complement = 0;
         ir_flag = IR_BUSY;
-    } else if((capturedValue > 11150) && (capturedValue < 11350)){ //11.25ms Repeat
+    } else if((capturedValue > 11200) && (capturedValue < 11400)){ //11.25ms Repeat
         ir_flag = IR_REPEAT;
-    } else if((capturedValue > 2150) && (capturedValue < 2350)){ //2.25ms 1
+    } else if((capturedValue > 2100) && (capturedValue < 2400)){ //2.25ms 1
         if(bit_count < 8){
             //address
             ir_address <<= 1; // its actually LSB first, but who cares!
@@ -227,7 +260,7 @@ static void CCP4_CallBack(uint16_t capturedValue)
             }
         }
         
-    } else if((capturedValue > 1020) && (capturedValue < 1220)){ //1.12ms 0
+    } else if((capturedValue > 970) && (capturedValue < 1270)){ //1.12ms 0
         if(bit_count < 8){
             // address
             ir_address <<= 1; // its actually LSB first, but who cares!
@@ -253,6 +286,10 @@ static void CCP4_CallBack(uint16_t capturedValue)
     }
 }
 
+static void IOC_RB1_N_Handler(void){
+    flag_gesture = 1;
+}
+
 void LCD_Digit1Num (unsigned char num) 
 {
     switch (num)
@@ -267,12 +304,25 @@ void LCD_Digit1Num (unsigned char num)
         case 7: DIG1_SYM00AON;   DIG1_SYM00BON;   DIG1_SYM00CON;   DIG1_SYM00DOFF;  DIG1_SYM00EOFF;  DIG1_SYM00FOFF;  DIG1_SYM00GOFF;  break;
         case 8: DIG1_SYM00AON;   DIG1_SYM00BON;   DIG1_SYM00CON;   DIG1_SYM00DON;   DIG1_SYM00EON;   DIG1_SYM00FON;   DIG1_SYM00GON;   break;
         case 9: DIG1_SYM00AON;   DIG1_SYM00BON;   DIG1_SYM00CON;   DIG1_SYM00DON;   DIG1_SYM00EOFF;  DIG1_SYM00FON;   DIG1_SYM00GON;   break;
-        case 0x0A: DIG1_SYM00AON;   DIG1_SYM00BON;   DIG1_SYM00CON;   DIG1_SYM00DOFF;   DIG1_SYM00EON;  DIG1_SYM00FON;   DIG1_SYM00GON;   break;
-        case 0x0B: DIG1_SYM00AOFF;   DIG1_SYM00BOFF;   DIG1_SYM00CON;   DIG1_SYM00DON;   DIG1_SYM00EON;  DIG1_SYM00FON;   DIG1_SYM00GON;   break;
-        case 0x0C: DIG1_SYM00AON;   DIG1_SYM00BOFF;   DIG1_SYM00COFF;   DIG1_SYM00DON;   DIG1_SYM00EON;  DIG1_SYM00FON;   DIG1_SYM00GOFF;   break;
-        case 0x0D: DIG1_SYM00AOFF;   DIG1_SYM00BON;   DIG1_SYM00CON;   DIG1_SYM00DON;   DIG1_SYM00EON;  DIG1_SYM00FOFF;   DIG1_SYM00GON;   break;
-        case 0x0E: DIG1_SYM00AON;   DIG1_SYM00BON;   DIG1_SYM00COFF;   DIG1_SYM00DOFF;   DIG1_SYM00EON;  DIG1_SYM00FON;   DIG1_SYM00GON;   break;
-        case 0x0F: DIG1_SYM00AON;   DIG1_SYM00BOFF;   DIG1_SYM00COFF;   DIG1_SYM00DOFF;   DIG1_SYM00EON;  DIG1_SYM00FON;   DIG1_SYM00GON;   break;
+        case 0x0A: case 'A': case 'a': DIG1_SYM00AON;   DIG1_SYM00BON;   DIG1_SYM00CON;   DIG1_SYM00DOFF;   DIG1_SYM00EON;  DIG1_SYM00FON;   DIG1_SYM00GON;   break;
+        case 0x0B: case 'B': case 'b': DIG1_SYM00AOFF;   DIG1_SYM00BOFF;   DIG1_SYM00CON;   DIG1_SYM00DON;   DIG1_SYM00EON;  DIG1_SYM00FON;   DIG1_SYM00GON;   break;
+        case 0x0C: case 'C': case 'c': DIG1_SYM00AON;   DIG1_SYM00BOFF;   DIG1_SYM00COFF;   DIG1_SYM00DON;   DIG1_SYM00EON;  DIG1_SYM00FON;   DIG1_SYM00GOFF;   break;
+        case 0x0D: case 'D': case 'd': DIG1_SYM00AOFF;   DIG1_SYM00BON;   DIG1_SYM00CON;   DIG1_SYM00DON;   DIG1_SYM00EON;  DIG1_SYM00FOFF;   DIG1_SYM00GON;   break;
+        case 0x0E: case 'E': case 'e': DIG1_SYM00AON;   DIG1_SYM00BON;   DIG1_SYM00COFF;   DIG1_SYM00DOFF;   DIG1_SYM00EON;  DIG1_SYM00FON;   DIG1_SYM00GON;   break;
+        case 0x0F: case 'F': case 'f': DIG1_SYM00AON;   DIG1_SYM00BOFF;   DIG1_SYM00COFF;   DIG1_SYM00DOFF;   DIG1_SYM00EON;  DIG1_SYM00FON;   DIG1_SYM00GON;   break;
+        case 'G': case 'g': DIG1_SYM00AON;   DIG1_SYM00BOFF;   DIG1_SYM00CON;   DIG1_SYM00DON;   DIG1_SYM00EON;   DIG1_SYM00FON;   DIG1_SYM00GOFF;   break;
+        case 'H': case 'h': DIG1_SYM00AOFF;   DIG1_SYM00BON;   DIG1_SYM00CON;   DIG1_SYM00DOFF;   DIG1_SYM00EON;   DIG1_SYM00FON;   DIG1_SYM00GON;   break;
+        case 'I': case 'i': DIG1_SYM00AOFF;   DIG1_SYM00BOFF;   DIG1_SYM00COFF;   DIG1_SYM00DOFF;   DIG1_SYM00EON;   DIG1_SYM00FON;   DIG1_SYM00GOFF;   break;
+        case 'J': case 'j': DIG1_SYM00AOFF;   DIG1_SYM00BON;   DIG1_SYM00CON;   DIG1_SYM00DON;   DIG1_SYM00EON;   DIG1_SYM00FOFF;   DIG1_SYM00GOFF;   break;
+        case 'L': case 'l': DIG1_SYM00AOFF;   DIG1_SYM00BOFF;   DIG1_SYM00COFF;   DIG1_SYM00DON;   DIG1_SYM00EON;   DIG1_SYM00FON;   DIG1_SYM00GOFF;   break;
+        case 'N': case 'n': DIG1_SYM00AOFF;   DIG1_SYM00BOFF;   DIG1_SYM00CON;   DIG1_SYM00DOFF;   DIG1_SYM00EON;   DIG1_SYM00FOFF;   DIG1_SYM00GON;   break;
+        case 'O': case 'o': DIG1_SYM00AOFF;   DIG1_SYM00BOFF;   DIG1_SYM00CON;   DIG1_SYM00DON;   DIG1_SYM00EON;   DIG1_SYM00FOFF;   DIG1_SYM00GON;   break;
+        case 'P': case 'p': DIG1_SYM00AON;   DIG1_SYM00BON;   DIG1_SYM00COFF;   DIG1_SYM00DOFF;   DIG1_SYM00EON;   DIG1_SYM00FON;   DIG1_SYM00GON;   break;
+        case 'R': case 'r': DIG1_SYM00AOFF;   DIG1_SYM00BOFF;   DIG1_SYM00COFF;   DIG1_SYM00DOFF;   DIG1_SYM00EON;   DIG1_SYM00FOFF;   DIG1_SYM00GON;   break;
+        case 'S': case 's': DIG1_SYM00AOFF;   DIG1_SYM00BOFF;   DIG1_SYM00CON;   DIG1_SYM00DON;   DIG1_SYM00EOFF;   DIG1_SYM00FON;   DIG1_SYM00GON;   break;
+        case 'T': case 't': DIG1_SYM00AOFF;   DIG1_SYM00BOFF;   DIG1_SYM00COFF;   DIG1_SYM00DON;   DIG1_SYM00EON;   DIG1_SYM00FON;   DIG1_SYM00GON;   break;
+        case 'U': case 'u': DIG1_SYM00AOFF;   DIG1_SYM00BON;   DIG1_SYM00CON;   DIG1_SYM00DON;   DIG1_SYM00EON;   DIG1_SYM00FON;   DIG1_SYM00GOFF;   break;
+        case 'Y': case 'y': DIG1_SYM00AOFF;   DIG1_SYM00BON;   DIG1_SYM00CON;   DIG1_SYM00DON;   DIG1_SYM00EOFF;   DIG1_SYM00FON;   DIG1_SYM00GON;   break;
 
         default: DIG1_SYM00AOFF; DIG1_SYM00BOFF; DIG1_SYM00COFF; DIG1_SYM00DOFF; DIG1_SYM00EOFF; DIG1_SYM00FOFF; DIG1_SYM00GOFF;
     }    
@@ -292,12 +342,25 @@ void LCD_Digit2Num (unsigned char num)
         case 7: DIG2_SYM01AON;   DIG2_SYM01BON;   DIG2_SYM01CON;   DIG2_SYM01DOFF;  DIG2_SYM01EOFF;  DIG2_SYM01FOFF;  DIG2_SYM01GOFF;  break;
         case 8: DIG2_SYM01AON;   DIG2_SYM01BON;   DIG2_SYM01CON;   DIG2_SYM01DON;   DIG2_SYM01EON;   DIG2_SYM01FON;   DIG2_SYM01GON;   break;
         case 9: DIG2_SYM01AON;   DIG2_SYM01BON;   DIG2_SYM01CON;   DIG2_SYM01DON;   DIG2_SYM01EOFF;  DIG2_SYM01FON;   DIG2_SYM01GON;   break;
-        case 0x0A: DIG2_SYM01AON;   DIG2_SYM01BON;   DIG2_SYM01CON;   DIG2_SYM01DOFF;   DIG2_SYM01EON;   DIG2_SYM01FON;   DIG2_SYM01GON;   break;
-        case 0x0B: DIG2_SYM01AOFF;   DIG2_SYM01BOFF;   DIG2_SYM01CON;   DIG2_SYM01DON;   DIG2_SYM01EON;   DIG2_SYM01FON;   DIG2_SYM01GON;   break;
-        case 0x0C: DIG2_SYM01AON;   DIG2_SYM01BOFF;   DIG2_SYM01COFF;   DIG2_SYM01DON;   DIG2_SYM01EON;   DIG2_SYM01FON;   DIG2_SYM01GOFF;   break;
-        case 0x0D: DIG2_SYM01AOFF;   DIG2_SYM01BON;   DIG2_SYM01CON;   DIG2_SYM01DON;   DIG2_SYM01EON;   DIG2_SYM01FOFF;   DIG2_SYM01GON;   break;
-        case 0x0E: DIG2_SYM01AON;   DIG2_SYM01BOFF;   DIG2_SYM01COFF;   DIG2_SYM01DON;   DIG2_SYM01EON;   DIG2_SYM01FON;   DIG2_SYM01GON;   break;
-        case 0x0F: DIG2_SYM01AON;   DIG2_SYM01BOFF;   DIG2_SYM01COFF;   DIG2_SYM01DOFF;   DIG2_SYM01EON;   DIG2_SYM01FON;   DIG2_SYM01GON;   break;
+        case 0x0A: case 'A': case 'a': DIG2_SYM01AON;   DIG2_SYM01BON;   DIG2_SYM01CON;   DIG2_SYM01DOFF;   DIG2_SYM01EON;   DIG2_SYM01FON;   DIG2_SYM01GON;   break;
+        case 0x0B: case 'B': case 'b': DIG2_SYM01AOFF;   DIG2_SYM01BOFF;   DIG2_SYM01CON;   DIG2_SYM01DON;   DIG2_SYM01EON;   DIG2_SYM01FON;   DIG2_SYM01GON;   break;
+        case 0x0C: case 'C': case 'c': DIG2_SYM01AON;   DIG2_SYM01BOFF;   DIG2_SYM01COFF;   DIG2_SYM01DON;   DIG2_SYM01EON;   DIG2_SYM01FON;   DIG2_SYM01GOFF;   break;
+        case 0x0D: case 'D': case 'd': DIG2_SYM01AOFF;   DIG2_SYM01BON;   DIG2_SYM01CON;   DIG2_SYM01DON;   DIG2_SYM01EON;   DIG2_SYM01FOFF;   DIG2_SYM01GON;   break;
+        case 0x0E: case 'E': case 'e': DIG2_SYM01AON;   DIG2_SYM01BOFF;   DIG2_SYM01COFF;   DIG2_SYM01DON;   DIG2_SYM01EON;   DIG2_SYM01FON;   DIG2_SYM01GON;   break;
+        case 0x0F: case 'F': case 'f': DIG2_SYM01AON;   DIG2_SYM01BOFF;   DIG2_SYM01COFF;   DIG2_SYM01DOFF;   DIG2_SYM01EON;   DIG2_SYM01FON;   DIG2_SYM01GON;   break;
+        case 'G': case 'g': DIG2_SYM01AON;   DIG2_SYM01BOFF;   DIG2_SYM01CON;   DIG2_SYM01DON;   DIG2_SYM01EON;   DIG2_SYM01FON;   DIG2_SYM01GOFF;   break;
+        case 'H': case 'h': DIG2_SYM01AOFF;   DIG2_SYM01BON;   DIG2_SYM01CON;   DIG2_SYM01DOFF;   DIG2_SYM01EON;   DIG2_SYM01FON;   DIG2_SYM01GON;   break;
+        case 'I': case 'i': DIG2_SYM01AOFF;   DIG2_SYM01BOFF;   DIG2_SYM01COFF;   DIG2_SYM01DOFF;   DIG2_SYM01EON;   DIG2_SYM01FON;   DIG2_SYM01GOFF;   break;
+        case 'J': case 'j': DIG2_SYM01AOFF;   DIG2_SYM01BON;   DIG2_SYM01CON;   DIG2_SYM01DON;   DIG2_SYM01EON;   DIG2_SYM01FOFF;   DIG2_SYM01GOFF;   break;
+        case 'L': case 'l': DIG2_SYM01AOFF;   DIG2_SYM01BOFF;   DIG2_SYM01COFF;   DIG2_SYM01DON;   DIG2_SYM01EON;   DIG2_SYM01FON;   DIG2_SYM01GOFF;   break;
+        case 'N': case 'n': DIG2_SYM01AOFF;   DIG2_SYM01BOFF;   DIG2_SYM01CON;   DIG2_SYM01DOFF;   DIG2_SYM01EON;   DIG2_SYM01FOFF;   DIG2_SYM01GON;   break;
+        case 'O': case 'o': DIG2_SYM01AOFF;   DIG2_SYM01BOFF;   DIG2_SYM01CON;   DIG2_SYM01DON;   DIG2_SYM01EON;   DIG2_SYM01FOFF;   DIG2_SYM01GON;   break;
+        case 'P': case 'p': DIG2_SYM01AON;   DIG2_SYM01BON;   DIG2_SYM01COFF;   DIG2_SYM01DOFF;   DIG2_SYM01EON;   DIG2_SYM01FON;   DIG2_SYM01GON;   break;
+        case 'R': case 'r': DIG2_SYM01AOFF;   DIG2_SYM01BOFF;   DIG2_SYM01COFF;   DIG2_SYM01DOFF;   DIG2_SYM01EON;   DIG2_SYM01FOFF;   DIG2_SYM01GON;   break;
+        case 'S': case 's': DIG2_SYM01AOFF;   DIG2_SYM01BOFF;   DIG2_SYM01CON;   DIG2_SYM01DON;   DIG2_SYM01EOFF;   DIG2_SYM01FON;   DIG2_SYM01GON;   break;
+        case 'T': case 't': DIG2_SYM01AOFF;   DIG2_SYM01BOFF;   DIG2_SYM01COFF;   DIG2_SYM01DON;   DIG2_SYM01EON;   DIG2_SYM01FON;   DIG2_SYM01GON;   break;
+        case 'U': case 'u': DIG2_SYM01AOFF;   DIG2_SYM01BON;   DIG2_SYM01CON;   DIG2_SYM01DON;   DIG2_SYM01EON;   DIG2_SYM01FON;   DIG2_SYM01GOFF;   break;
+        case 'Y': case 'y': DIG2_SYM01AOFF;   DIG2_SYM01BON;   DIG2_SYM01CON;   DIG2_SYM01DON;   DIG2_SYM01EOFF;   DIG2_SYM01FON;   DIG2_SYM01GON;   break;
 
         default: DIG2_SYM01AOFF; DIG2_SYM01BOFF; DIG2_SYM01COFF; DIG2_SYM01DOFF; DIG2_SYM01EOFF; DIG2_SYM01FOFF; DIG2_SYM01GOFF;
     }    
@@ -317,15 +380,28 @@ void LCD_Digit3Num (unsigned char num)
         case 7: DIG3_SYM02AON;   DIG3_SYM02BON;   DIG3_SYM02CON;   DIG3_SYM02DOFF;  DIG3_SYM02EOFF;  DIG3_SYM02FOFF;  DIG3_SYM02GOFF;  break;
         case 8: DIG3_SYM02AON;   DIG3_SYM02BON;   DIG3_SYM02CON;   DIG3_SYM02DON;   DIG3_SYM02EON;   DIG3_SYM02FON;   DIG3_SYM02GON;   break;
         case 9: DIG3_SYM02AON;   DIG3_SYM02BON;   DIG3_SYM02CON;   DIG3_SYM02DON;   DIG3_SYM02EOFF;  DIG3_SYM02FON;   DIG3_SYM02GON;   break;
-        case 0x0A: DIG3_SYM02AON;   DIG3_SYM02BON;   DIG3_SYM02CON;   DIG3_SYM02DOFF;   DIG3_SYM02EON;   DIG3_SYM02FON;   DIG3_SYM02GON;   break;
-        case 0x0B: DIG3_SYM02AOFF;   DIG3_SYM02BOFF;   DIG3_SYM02CON;   DIG3_SYM02DON;   DIG3_SYM02EON;   DIG3_SYM02FON;   DIG3_SYM02GON;   break;
-        case 0x0C: DIG3_SYM02AON;   DIG3_SYM02BOFF;   DIG3_SYM02COFF;   DIG3_SYM02DON;   DIG3_SYM02EON;   DIG3_SYM02FON;   DIG3_SYM02GOFF;   break;
-        case 0x0D: DIG3_SYM02AOFF;   DIG3_SYM02BON;   DIG3_SYM02CON;   DIG3_SYM02DON;   DIG3_SYM02EON;   DIG3_SYM02FOFF;   DIG3_SYM02GON;   break;
-        case 0x0E: DIG3_SYM02AON;   DIG3_SYM02BOFF;   DIG3_SYM02COFF;   DIG3_SYM02DON;   DIG3_SYM02EON;   DIG3_SYM02FON;   DIG3_SYM02GON;   break;
-        case 0x0F: DIG3_SYM02AON;   DIG3_SYM02BOFF;   DIG3_SYM02COFF;   DIG3_SYM02DOFF;   DIG3_SYM02EON;   DIG3_SYM02FON;   DIG3_SYM02GON;   break;
+        case 0x0A: case 'A': case 'a': DIG3_SYM02AON;   DIG3_SYM02BON;   DIG3_SYM02CON;   DIG3_SYM02DOFF;   DIG3_SYM02EON;   DIG3_SYM02FON;   DIG3_SYM02GON;   break;
+        case 0x0B: case 'B': case 'b': DIG3_SYM02AOFF;   DIG3_SYM02BOFF;   DIG3_SYM02CON;   DIG3_SYM02DON;   DIG3_SYM02EON;   DIG3_SYM02FON;   DIG3_SYM02GON;   break;
+        case 0x0C: case 'C': case 'c': DIG3_SYM02AON;   DIG3_SYM02BOFF;   DIG3_SYM02COFF;   DIG3_SYM02DON;   DIG3_SYM02EON;   DIG3_SYM02FON;   DIG3_SYM02GOFF;   break;
+        case 0x0D: case 'D': case 'd': DIG3_SYM02AOFF;   DIG3_SYM02BON;   DIG3_SYM02CON;   DIG3_SYM02DON;   DIG3_SYM02EON;   DIG3_SYM02FOFF;   DIG3_SYM02GON;   break;
+        case 0x0E: case 'E': case 'e': DIG3_SYM02AON;   DIG3_SYM02BOFF;   DIG3_SYM02COFF;   DIG3_SYM02DON;   DIG3_SYM02EON;   DIG3_SYM02FON;   DIG3_SYM02GON;   break;
+        case 0x0F: case 'F': case 'f': DIG3_SYM02AON;   DIG3_SYM02BOFF;   DIG3_SYM02COFF;   DIG3_SYM02DOFF;   DIG3_SYM02EON;   DIG3_SYM02FON;   DIG3_SYM02GON;   break;
+        case 'G': case 'g': DIG3_SYM02AON;   DIG3_SYM02BOFF;   DIG3_SYM02CON;   DIG3_SYM02DON;   DIG3_SYM02EON;   DIG3_SYM02FON;   DIG3_SYM02GOFF;   break;
+        case 'H': case 'h': DIG3_SYM02AOFF;   DIG3_SYM02BON;   DIG3_SYM02CON;   DIG3_SYM02DOFF;   DIG3_SYM02EON;   DIG3_SYM02FON;   DIG3_SYM02GON;   break;
+        case 'I': case 'i': DIG3_SYM02AOFF;   DIG3_SYM02BOFF;   DIG3_SYM02COFF;   DIG3_SYM02DOFF;   DIG3_SYM02EON;   DIG3_SYM02FON;   DIG3_SYM02GOFF;   break;
+        case 'J': case 'j': DIG3_SYM02AOFF;   DIG3_SYM02BON;   DIG3_SYM02CON;   DIG3_SYM02DON;   DIG3_SYM02EON;   DIG3_SYM02FOFF;   DIG3_SYM02GOFF;   break;
+        case 'L': case 'l': DIG3_SYM02AOFF;   DIG3_SYM02BOFF;   DIG3_SYM02COFF;   DIG3_SYM02DON;   DIG3_SYM02EON;   DIG3_SYM02FON;   DIG3_SYM02GOFF;   break;
+        case 'N': case 'n': DIG3_SYM02AOFF;   DIG3_SYM02BOFF;   DIG3_SYM02CON;   DIG3_SYM02DOFF;   DIG3_SYM02EON;   DIG3_SYM02FOFF;   DIG3_SYM02GON;   break;
+        case 'O': case 'o': DIG3_SYM02AOFF;   DIG3_SYM02BOFF;   DIG3_SYM02CON;   DIG3_SYM02DON;   DIG3_SYM02EON;   DIG3_SYM02FOFF;   DIG3_SYM02GON;   break;
+        case 'P': case 'p': DIG3_SYM02AON;   DIG3_SYM02BON;   DIG3_SYM02COFF;   DIG3_SYM02DOFF;   DIG3_SYM02EON;   DIG3_SYM02FON;   DIG3_SYM02GON;   break;
+        case 'R': case 'r': DIG3_SYM02AOFF;   DIG3_SYM02BOFF;   DIG3_SYM02COFF;   DIG3_SYM02DOFF;   DIG3_SYM02EON;   DIG3_SYM02FOFF;   DIG3_SYM02GON;   break;
+        case 'S': case 's': DIG3_SYM02AOFF;   DIG3_SYM02BOFF;   DIG3_SYM02CON;   DIG3_SYM02DON;   DIG3_SYM02EOFF;   DIG3_SYM02FON;   DIG3_SYM02GON;   break;
+        case 'T': case 't': DIG3_SYM02AOFF;   DIG3_SYM02BOFF;   DIG3_SYM02COFF;   DIG3_SYM02DON;   DIG3_SYM02EON;   DIG3_SYM02FON;   DIG3_SYM02GON;   break;
+        case 'U': case 'u': DIG3_SYM02AOFF;   DIG3_SYM02BON;   DIG3_SYM02CON;   DIG3_SYM02DON;   DIG3_SYM02EON;   DIG3_SYM02FON;   DIG3_SYM02GOFF;   break;
+        case 'Y': case 'y': DIG3_SYM02AOFF;   DIG3_SYM02BON;   DIG3_SYM02CON;   DIG3_SYM02DON;   DIG3_SYM02EOFF;   DIG3_SYM02FON;   DIG3_SYM02GON;   break;
 
         default: DIG3_SYM02AOFF; DIG3_SYM02BOFF; DIG3_SYM02COFF; DIG3_SYM02DOFF; DIG3_SYM02EOFF; DIG3_SYM02FOFF; DIG3_SYM02GOFF;
-    }    
+    }
 }
 
 void LCD_Digit4Num (unsigned char num) 
@@ -350,17 +426,17 @@ void LCD_Digit4Num (unsigned char num)
         case 0x0F: case 'F': case 'f': DIG4_SYM03AON;   DIG4_SYM03BOFF;   DIG4_SYM03COFF;   DIG4_SYM03DOFF;   DIG4_SYM03EON;   DIG4_SYM03FON;   DIG4_SYM03GON;   break;
         case 'G': case 'g': DIG4_SYM03AON;   DIG4_SYM03BOFF;   DIG4_SYM03CON;   DIG4_SYM03DON;   DIG4_SYM03EON;   DIG4_SYM03FON;   DIG4_SYM03GON;   break;
         case 'H': case 'h': DIG4_SYM03AOFF;   DIG4_SYM03BON;   DIG4_SYM03CON;   DIG4_SYM03DOFF;   DIG4_SYM03EON;   DIG4_SYM03FON;   DIG4_SYM03GON;   break;
-        case 'I': case 'i': DIG4_SYM03AON;   DIG4_SYM03BON;   DIG4_SYM03CON;   DIG4_SYM03DON;   DIG4_SYM03EON;   DIG4_SYM03FON;   DIG4_SYM03GON;   break;
+        case 'I': case 'i': DIG4_SYM03AOFF;   DIG4_SYM03BOFF;   DIG4_SYM03COFF;   DIG4_SYM03DOFF;   DIG4_SYM03EON;   DIG4_SYM03FON;   DIG4_SYM03GOFF;   break;
         case 'J': case 'j': DIG4_SYM03AOFF;   DIG4_SYM03BON;   DIG4_SYM03CON;   DIG4_SYM03DON;   DIG4_SYM03EON;   DIG4_SYM03FOFF;   DIG4_SYM03GOFF;   break;
-        case 'K': case 'k': DIG4_SYM03AON;   DIG4_SYM03BON;   DIG4_SYM03CON;   DIG4_SYM03DON;   DIG4_SYM03EON;   DIG4_SYM03FON;   DIG4_SYM03GON;   break;
         case 'L': case 'l': DIG4_SYM03AOFF;   DIG4_SYM03BOFF;   DIG4_SYM03COFF;   DIG4_SYM03DON;   DIG4_SYM03EON;   DIG4_SYM03FON;   DIG4_SYM03GOFF;   break;
-        case 'N': case 'n': DIG4_SYM03AOFF;   DIG4_SYM03BOFF;   DIG4_SYM03CON;   DIG4_SYM03DOFF;   DIG4_SYM03EON;   DIG4_SYM03FOFF;   DIG4_SYM03GOFF;   break;
+        case 'N': case 'n': DIG4_SYM03AOFF;   DIG4_SYM03BOFF;   DIG4_SYM03CON;   DIG4_SYM03DOFF;   DIG4_SYM03EON;   DIG4_SYM03FOFF;   DIG4_SYM03GON;   break;
         case 'O': case 'o': DIG4_SYM03AOFF;   DIG4_SYM03BOFF;   DIG4_SYM03CON;   DIG4_SYM03DON;   DIG4_SYM03EON;   DIG4_SYM03FOFF;   DIG4_SYM03GON;   break;
         case 'P': case 'p': DIG4_SYM03AON;   DIG4_SYM03BON;   DIG4_SYM03COFF;   DIG4_SYM03DOFF;   DIG4_SYM03EON;   DIG4_SYM03FON;   DIG4_SYM03GON;   break;
-        case 'S': case 's': DIG4_SYM03AON;   DIG4_SYM03BON;   DIG4_SYM03CON;   DIG4_SYM03DON;   DIG4_SYM03EON;   DIG4_SYM03FON;   DIG4_SYM03GON;   break;
-        case 'T': case 't': DIG4_SYM03AON;   DIG4_SYM03BON;   DIG4_SYM03CON;   DIG4_SYM03DON;   DIG4_SYM03EON;   DIG4_SYM03FON;   DIG4_SYM03GON;   break;
-        case 'U': case 'u': DIG4_SYM03AON;   DIG4_SYM03BON;   DIG4_SYM03CON;   DIG4_SYM03DON;   DIG4_SYM03EON;   DIG4_SYM03FON;   DIG4_SYM03GON;   break;
-        case 'Y': case 'y': DIG4_SYM03AON;   DIG4_SYM03BON;   DIG4_SYM03CON;   DIG4_SYM03DON;   DIG4_SYM03EON;   DIG4_SYM03FON;   DIG4_SYM03GON;   break;
+        case 'R': case 'r': DIG4_SYM03AOFF;   DIG4_SYM03BOFF;   DIG4_SYM03COFF;   DIG4_SYM03DOFF;   DIG4_SYM03EON;   DIG4_SYM03FOFF;   DIG4_SYM03GON;   break;
+        case 'S': case 's': DIG4_SYM03AOFF;   DIG4_SYM03BOFF;   DIG4_SYM03CON;   DIG4_SYM03DON;   DIG4_SYM03EOFF;   DIG4_SYM03FON;   DIG4_SYM03GON;   break;
+        case 'T': case 't': DIG4_SYM03AOFF;   DIG4_SYM03BOFF;   DIG4_SYM03COFF;   DIG4_SYM03DON;   DIG4_SYM03EON;   DIG4_SYM03FON;   DIG4_SYM03GON;   break;
+        case 'U': case 'u': DIG4_SYM03AOFF;   DIG4_SYM03BON;   DIG4_SYM03CON;   DIG4_SYM03DON;   DIG4_SYM03EON;   DIG4_SYM03FON;   DIG4_SYM03GOFF;   break;
+        case 'Y': case 'y': DIG4_SYM03AOFF;   DIG4_SYM03BON;   DIG4_SYM03CON;   DIG4_SYM03DON;   DIG4_SYM03EOFF;   DIG4_SYM03FON;   DIG4_SYM03GON;   break;
 
         default: DIG4_SYM03AOFF; DIG4_SYM03BOFF; DIG4_SYM03COFF; DIG4_SYM03DOFF; DIG4_SYM03EOFF; DIG4_SYM03FOFF; DIG4_SYM03GOFF;
     }    

@@ -4820,15 +4820,25 @@ extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "D:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC12-16F1xxx_DFP/1.2.63/xc8\\pic\\include\\xc.h" 2 3
 # 54 "mcc_generated_files/pin_manager.h" 2
-# 238 "mcc_generated_files/pin_manager.h"
+# 255 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize (void);
-# 250 "mcc_generated_files/pin_manager.h"
+# 267 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_IOC(void);
+# 280 "mcc_generated_files/pin_manager.h"
+void IOCBF1_ISR(void);
+# 303 "mcc_generated_files/pin_manager.h"
+void IOCBF1_SetInterruptHandler(void (* InterruptHandler)(void));
+# 327 "mcc_generated_files/pin_manager.h"
+extern void (*IOCBF1_InterruptHandler)(void);
+# 351 "mcc_generated_files/pin_manager.h"
+void IOCBF1_DefaultInterruptHandler(void);
 # 49 "mcc_generated_files/pin_manager.c" 2
 
 
 
 
+
+void (*IOCBF1_InterruptHandler)(void);
 
 
 void PIN_MANAGER_Initialize(void)
@@ -4852,14 +4862,14 @@ void PIN_MANAGER_Initialize(void)
 
 
 
-    ANSELB = 0x0E;
+    ANSELB = 0x0C;
     ANSELA = 0x00;
 
 
 
 
     WPUE = 0x00;
-    WPUB = 0x01;
+    WPUB = 0x03;
     OPTION_REGbits.nWPUEN = 0;
 
 
@@ -4872,9 +4882,57 @@ void PIN_MANAGER_Initialize(void)
 
 
 
+    IOCBFbits.IOCBF1 = 0;
+
+    IOCBNbits.IOCBN1 = 1;
+
+    IOCBPbits.IOCBP1 = 0;
+
+
+
+
+    IOCBF1_SetInterruptHandler(IOCBF1_DefaultInterruptHandler);
+
+
+    INTCONbits.IOCIE = 1;
 
 }
 
 void PIN_MANAGER_IOC(void)
 {
+
+    if(IOCBFbits.IOCBF1 == 1)
+    {
+        IOCBF1_ISR();
+    }
+}
+
+
+
+
+void IOCBF1_ISR(void) {
+
+
+
+
+    if(IOCBF1_InterruptHandler)
+    {
+        IOCBF1_InterruptHandler();
+    }
+    IOCBFbits.IOCBF1 = 0;
+}
+
+
+
+
+void IOCBF1_SetInterruptHandler(void (* InterruptHandler)(void)){
+    IOCBF1_InterruptHandler = InterruptHandler;
+}
+
+
+
+
+void IOCBF1_DefaultInterruptHandler(void){
+
+
 }

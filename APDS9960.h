@@ -217,34 +217,37 @@ typedef struct gesture_data_type {
 } gesture_data_type;
 
 bool APDS9960Init(void);
-uint8_t getStatusRegister();
-uint8_t getMode();
+uint8_t getStatusRegister(void);
+//uint8_t getMode(void);
+#define getMode() (i2c_read1ByteRegister(APDS9960_I2C_ADDR,APDS9960_ENABLE))
 bool setMode(uint8_t mode, uint8_t enable);
 
 /* Turn the APDS-9960 on and off */
-bool enablePower();
-bool disablePower();
+//bool enablePower(void);
+#define enablePower() setMode(POWER, 1)
+//bool disablePower(void);
+#define disablePower() setMode(POWER, 0)
 
 /* Enable or disable specific sensors */
 bool enableLightSensor(bool interrupts);
-bool disableLightSensor();
+bool disableLightSensor(void);
 bool enableProximitySensor(bool interrupts);
-bool disableProximitySensor();
+bool disableProximitySensor(void);
 bool enableGestureSensor(bool interrupts);
-bool disableGestureSensor();
+bool disableGestureSensor(void);
 
 /* LED drive strength control */
-uint8_t getLEDDrive();
+uint8_t getLEDDrive(void);
 bool setLEDDrive(uint8_t drive);
-uint8_t getGestureLEDDrive();
+uint8_t getGestureLEDDrive(void);
 bool setGestureLEDDrive(uint8_t drive);
 
 /* Gain control */
-uint8_t getAmbientLightGain();
+uint8_t getAmbientLightGain(void);
 bool setAmbientLightGain(uint8_t gain);
-uint8_t getProximityGain();
+uint8_t getProximityGain(void);
 bool setProximityGain(uint8_t gain);
-uint8_t getGestureGain();
+uint8_t getGestureGain(void);
 bool setGestureGain(uint8_t gain);
 
 /* Get and set light interrupt thresholds */
@@ -254,22 +257,23 @@ uint16_t getLightIntHighThreshold(void);
 bool setLightIntHighThreshold(uint16_t threshold);
 
 /* Get and set proximity interrupt thresholds */
-uint8_t getProximityIntLowThreshold(void);
+//uint8_t getProximityIntLowThreshold(void);
+#define getProximityIntLowThreshold() (i2c_read1ByteRegister(APDS9960_I2C_ADDR,APDS9960_PILT))
 bool setProximityIntLowThreshold(uint8_t threshold);
-uint8_t getProximityIntHighThreshold();
+uint8_t getProximityIntHighThreshold(void);
 bool setProximityIntHighThreshold(uint8_t threshold);
 
 /* Get and set interrupt enables */
-uint8_t getAmbientLightIntEnable();
+uint8_t getAmbientLightIntEnable(void);
 bool setAmbientLightIntEnable(uint8_t enable);
-uint8_t getProximityIntEnable();
+uint8_t getProximityIntEnable(void);
 bool setProximityIntEnable(uint8_t enable);
-uint8_t getGestureIntEnable();
+uint8_t getGestureIntEnable(void);
 bool setGestureIntEnable(uint8_t enable);
 
 /* Clear interrupts */
-bool clearAmbientLightInt();
-bool clearProximityInt();
+bool clearAmbientLightInt(void);
+bool clearProximityInt(void);
 
 /* Ambient light methods */
 uint16_t readAmbientLight(void);
@@ -278,18 +282,14 @@ uint16_t readGreenLight(void);
 uint16_t readBlueLight(void);
 
 /* Proximity methods */
-uint8_t readProximity();
+//uint8_t readProximity(void);
+#define readProximity() (i2c_read1ByteRegister(APDS9960_I2C_ADDR,APDS9960_PDATA))
 
 /* Gesture methods */
-bool isGestureAvailable();
-int readGesture(); // not enough ram
+//bool isGestureAvailable(void);
+#define isGestureAvailable() (i2c_read1ByteRegister(APDS9960_I2C_ADDR,APDS9960_GSTATUS) & APDS9960_GVALID)
 
-/* Raw I2C Commands */
-bool wireWriteByte(uint8_t val);
-bool wireWriteDataByte(uint8_t reg, uint8_t val);
-bool wireWriteDataBlock(uint8_t reg, uint8_t *val, unsigned int len);
-uint8_t wireReadDataByte(uint8_t reg);
-int wireReadDataBlock(uint8_t reg, uint8_t *val, unsigned int len);
+int readGesture(void); // not enough ram
 
 #ifdef	__cplusplus
 }
